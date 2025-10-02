@@ -147,3 +147,106 @@
 1. [Storybook with Chromatic](https://www.chromatic.com/docs/visual-tests-addon/)
 2. [Nextra](https://nextra.site/)
 3. [Zeroheight](https://zeroheight.com/)
+
+## Quick Start
+
+```bash
+# Install Dependencies
+./scripts/setup.sh
+
+# Start Development Environment
+./scripts/dev-start.sh
+```
+
+## Getting Started
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/jeet-khondker/nexus-pend-boilerplate.git
+cd nexus-pend-boilerplate
+```
+
+2. Run Setup Script
+
+```bash
+./scripts/setup.sh
+```
+
+3. Configure Environment Variables
+
+```bash
+# Update .env Files with Your Configuration
+backend/.env
+frontend/.env.local
+mobile/.env
+```
+
+4. Start Services
+
+```bash
+# Start Docker services (PostgreSQL, Redis)
+docker-compose up -d postgres redis
+
+# Start Development Servers
+./scripts/dev-start.sh
+```
+
+## Development URLs
+
+After starting the Development Environment :
+
+▪️ **Frontend** : http://localhost:3000
+
+▪️ **Backend API** : http://localhost:8000
+
+▪️ **Backend Admin** : http://localhost:8000/admin
+
+▪️ **API Documentation** : http://localhost:8000/swagger/
+
+▪️ **GraphQL Playground** : http://localhost:8000/graphql
+
+▪️ **Storybook** : http://localhost:6006 (run `npm run storybook` in **frontend/**)
+
+## Testing
+
+### Backend API Testing
+
+```bash
+cd backend
+python manage.py test
+```
+
+### Frontend Testing
+
+```bash
+cd frontend
+npm test               # Unit Tests
+npm run test:e2e       # E2E Tests with Cypress
+npm run storybook      # Component Documentation
+```
+
+### Mobile Testing
+
+```bash
+cd mobile
+npm test
+```
+
+## Contribution
+
+1. Create a Branch with the relevant Tag from `main`. **Reference** : Section 21.
+
+2. Follow the Commit Message Convention mentioned in Section 20.
+
+3. Write relavent Tests for your Changes
+
+4. Update Documentation
+
+5. Submit a Pull Request (PR) to `main`
+
+## License
+
+Nexus License
