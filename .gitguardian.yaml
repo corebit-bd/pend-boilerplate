@@ -1,0 +1,47 @@
+# =================================================
+# GitGuardian Configuration
+# =================================================
+# This Configuration tells GitGuardian to ignore
+# template files that contain placeholder values,
+# not actual secrets.
+# =================================================
+
+# Specifies Configuration Format Version
+# Version 2 : Modern Format with Advanced Features
+version: 2
+
+# Paths to ignore - These are Template / Documentation Files that contain placeholder values, not actual secrets.
+paths-ignore:
+  - .env.example
+  - .env.*.example
+  - .env.development.example
+  - .env.staging.example
+  - .env.production.example
+  - "**/*.example"
+  - "**/*.sample"
+  - "**/*.template"
+  - docs/
+  - documentation/
+  - "*.md"
+
+# Specific Patterns to Ignore (Placeholder Values)
+matches-ignore:
+  # Ignore Example / Placeholder Patterns
+  - name: Example Placeholder Passwords
+    match: "EXAMPLE-.*"
+  - name: Placeholder Replace Pattern
+    match: "REPLACE-WITH-.*"
+  - name: Changeme Pattern
+    match: "CHANGEME-.*"
+  - name: Your Placeholder Pattern
+    match: "YOUR-.*-HERE"
+
+  # Ignore Common Development Placeholders
+  - name: Development Secret Keys
+    match: "dev-secret-key"
+  - name: Generic Postgres Password
+    match: "postgres"
+  - name: Example Email Addresses
+    match: ".*@example\\.com"
+  - name: Example Domain Placeholder
+    match: "yourdomain\\.com"
