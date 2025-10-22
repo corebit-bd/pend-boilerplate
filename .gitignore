@@ -66,3 +66,6 @@ temp/
 .expo/
 dist/
 web-build/
+
+# Agentic AI Instructions
+CLAUDE.md
