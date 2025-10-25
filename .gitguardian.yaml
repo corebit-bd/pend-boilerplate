@@ -14,9 +14,11 @@ version: 2
 paths-ignore:
   - .env.example
   - .env.*.example
+  - .env.docker.example
   - .env.development.example
   - .env.staging.example
   - .env.production.example
+  - backend/.env.example
   - "**/*.example"
   - "**/*.sample"
   - "**/*.template"
@@ -39,9 +41,21 @@ matches-ignore:
   # Ignore Common Development Placeholders
   - name: Development Secret Keys
     match: "dev-secret-key"
+  - name: Generic Postgres Password in Examples
+    match: "POSTGRES_PASSWORD=postgres"
   - name: Generic Postgres Password
     match: "postgres"
   - name: Example Email Addresses
     match: ".*@example\\.com"
   - name: Example Domain Placeholder
     match: "yourdomain\\.com"
+
+# Exclude Specific Secret Types from being detected in Template / Example Files
+excluded:
+  - paths:
+      - "**/*.example"
+      - "**/*.sample"
+      - "**/*.template"
+    detectors:
+      - generic_high_entropy_secret
+      - generic_password
