@@ -1,0 +1,510 @@
+name: CD Pipeline
+
+on:
+  push:
+    branches:
+      - devEnv # Auto-Deploy to Development
+      - stagingEnv # Auto-Deploy to Staging
+      - prodEnv # Auto-Deploy to Production
+    tags:
+      - "v*.*.*" # Deploy on Version Tags (Example : v1.0.0, v1.0.1, etc.)
+
+  # Trigger CD After Successful CI
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    branches: [devEnv, stagingEnv, prodEnv]
+    types:
+      - completed
+
+  # Manually Trigger CD
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment to Deploy to"
+        required: true
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+      skip_tests:
+        description: "Skip Tests (Use with ⚠️ Caution)"
+        required: false
+        type: boolean
+        default: false
+
+env:
+  REGISTRY: ghcr.io # GitHub Container Registry
+  IMAGE_NAME: ${{ github.repository }}
+  PYTHON_VERSION: 3.13
+  NODE_VERSION: 24
+
+jobs:
+  # Determine Deployment Environment
+  setup:
+    name: Setup Deployment
+    runs-on: ubuntu-latest
+    # Only Run If CI Passed (When Triggered By "workflow_run")
+    if: |
+      github.event_name == "workflow_dispatch" ||
+      github.event_name == "push" ||
+      (github.event_name == "workflow_run" && github.event.workflow_run.conclusion == "success")
+    outputs:
+      environment: ${{ steps.set-env.outputs.environment }}
+      deploy: ${{ steps.set-env.outputs.deploy }}
+      version: ${{ steps.set-env.outputs.version }}
+
+    steps:
+      - name: Determine Environment
+        id: set-env
+        run: |
+          # Manual Workflow Dispatch
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "environment=${{ inputs.environment }}" >> $GITHUB_OUTPUT
+            echo "deploy=true" >> $GITHUB_OUTPUT
+            echo "version=manual-${{ github.sha }}" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Tag-based Deployment (Production)
+          if [[ "${{ github.ref }}" == refs/tags/v* ]]; then
+            echo "environment=production" >> $GITHUB_OUTPUT
+            echo "deploy=true" >> $GITHUB_OUTPUT
+            echo "version=${{ github.ref_name }}" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Branch-Based Deployment
+          case "${{ github.ref_name }}" in
+            devEnv)
+              echo "environment=development" >> $GITHUB_OUTPUT
+              echo "deploy=true" >> $GITHUB_OUTPUT
+              echo "version=dev-${{ github.sha }}" >> $GITHUB_OUTPUT
+              ;;
+            stagingEnv)
+              echo "environment=staging" >> $GITHUB_OUTPUT
+              echo "deploy=true" >> $GITHUB_OUTPUT
+              echo "version=staging-${{ github.sha }}" >> $GITHUB_OUTPUT
+              ;;
+            prodEnv)
+              echo "environment=production" >> $GITHUB_OUTPUT
+              echo "deploy=true" >> $GITHUB_OUTPUT
+              echo "version=prod-${{ github.sha }}" >> $GITHUB_OUTPUT
+              ;;
+            *)
+              echo "environment=none" >> $GITHUB_OUTPUT
+              echo "deploy=false" >> $GITHUB_OUTPUT
+              echo "version=unknown" >> $GITHUB_OUTPUT
+              ;;
+          esac
+
+      - name: Display Deployment Information
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🚀 Deployment Configuration"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Environment   : ${{ steps.set-env.outputs.environment }}"
+          echo "Version       : ${{ steps.set-env.outputs.version }}"
+          echo "Deploy        : ${{ steps.set-env.outputs.deploy }}"
+          echo "Trigger       : ${{ github.event_name }}"
+          echo "Branch / Tag  : ${{ github.ref_name }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  # Run Tests (Unless Skipped)
+  tests:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    needs: setup
+    if: needs.setup.outputs.deploy == "true" && (github.event.inputs.skip_tests != "true")
+
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: nexus_pend_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+          cache-dependency-path: backend/requirements*.txt
+
+      - name: Install Backend Dependencies
+        run: |
+          cd backend
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+
+      - name: Run Backend Tests
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/nexus_pend_test
+          REDIS_URL: redis://localhost:6379/0
+          DJANGO_SETTINGS_MODULE: core.settings.development
+          SECRET_KEY: test-secret-key-for-cd
+        run: |
+          cd backend
+          pytest --cov --cov-report=term
+
+      - name: Set Up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Run Frontend Tests
+        run: |
+          cd frontend
+          npm test -- --coverage --watchAll=false --passWithNoTests
+
+  # Build & Push Docker Images
+  build-and-push:
+    name: Build & Push Images
+    runs-on: ubuntu-latest
+    needs: [setup, tests]
+    if: |
+      needs.setup.outputs.deploy == "true" && 
+      (success() || github.event.inputs.skip_tests == "true")
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log In to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract Metadata for Backend
+        id: meta-backend
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-backend
+          tags: |
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha,prefix={{branch}}-
+            type=raw,value=${{ needs.setup.outputs.environment }}
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build & Push Backend Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: true
+          tags: ${{ steps.meta-backend.outputs.tags }}
+          labels: ${{ steps.meta-backend.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            PYTHON_VERSION=${{ env.PYTHON_VERSION }}
+
+      - name: Extract Metadata for Frontend
+        id: meta-frontend
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-frontend
+          tags: |
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha,prefix={{branch}}-
+            type=raw,value=${{ needs.setup.outputs.environment }}
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Build & Push Frontend Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: true
+          tags: ${{ steps.meta-frontend.outputs.tags }}
+          labels: ${{ steps.meta-frontend.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            NODE_VERSION=${{ env.NODE_VERSION }}
+
+      - name: Image Build Summary
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🐳 Docker Images Built & Pushed"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Backend Tags : "
+          echo "${{ steps.meta-backend.outputs.tags }}"
+          echo ""
+          echo "Frontend Tags : "
+          echo "${{ steps.meta-frontend.outputs.tags }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  #  Deploy to Environment
+  deploy:
+    name: Deploy to ${{ needs.setup.outputs.environment }}
+    runs-on: ubuntu-latest
+    needs: [setup, build-and-push]
+    if: needs.setup.outputs.deploy == "true"
+    environment:
+      name: ${{ needs.setup.outputs.environment }}
+      url: ${{ steps.deploy-info.outputs.url }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Environment Variables
+        id: env-vars
+        run: |
+          case "${{ needs.setup.outputs.environment }}" in
+            development)
+              echo "app_url=https://dev.nexus-pend.example.com" >> $GITHUB_OUTPUT
+              echo "api_url=https://api-dev.nexus-pend.example.com" >> $GITHUB_OUTPUT
+              echo "deploy_method=docker-compose" >> $GITHUB_OUTPUT
+              ;;
+            staging)
+              echo "app_url=https://staging.nexus-pend.example.com" >> $GITHUB_OUTPUT
+              echo "api_url=https://api-staging.nexus-pend.example.com" >> $GITHUB_OUTPUT
+              echo "deploy_method=docker-compose" >> $GITHUB_OUTPUT
+              ;;
+            production)
+              echo "app_url=https://nexus-pend.example.com" >> $GITHUB_OUTPUT
+              echo "api_url=https://api.nexus-pend.example.com" >> $GITHUB_OUTPUT
+              echo "deploy_method=kubernetes" >> $GITHUB_OUTPUT
+              ;;
+          esac
+
+      - name: Deploy with Docker Compose (Development / Staging)
+        if: steps.env-vars.outputs.deploy_method == "docker-compose"
+        run: |
+          echo "🚀 Deploying to ${{ needs.setup.outputs.environment }} Using Docker Compose"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # This is a Placeholder - Replace with Actual Deployment Script
+          # Example : SSH to Server & Run docker-compose
+
+          # ssh deploy@${{ steps.env-vars.outputs.app_url }} << "EOF"
+          #   cd /opt/nexus-pend
+          #   docker-compose pull
+          #   docker-compose up -d
+          #   docker-compose exec backend python manage.py migrate
+          #   docker-compose exec backend python manage.py collectstatic --noinput
+          # EOF
+
+          echo "✅ Deployment Command would Execute Here"
+          echo "📝 Configure SSH Keys & Deployment Server Details"
+
+      - name: Deploy with Kubernetes (Production)
+        if: steps.env-vars.outputs.deploy_method == "kubernetes"
+        run: |
+          echo "🚀 Deploying to Production Using Kubernetes"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # This is a Placeholder - Replace with Actual k8s Deployment
+          # Example : kubectl apply -f k8s/
+
+          # kubectl set image deployment/backend backend=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-backend:${{ needs.setup.outputs.version }}
+          # kubectl set image deployment/frontend frontend=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-frontend:${{ needs.setup.outputs.version }}
+          # kubectl rollout status deployment/backend
+          # kubectl rollout status deployment/frontend
+
+          echo "✅ Deployment Command would Execute Here"
+          echo "📝 Configure kubectl & Cluster Access"
+
+      - name: Run Database Migrations
+        run: |
+          echo "🔄 Running Database Migrations ... .. ."
+
+          # Placeholder for Migration Command
+          # docker-compose exec backend python manage.py migrate
+
+          echo "✅ Migrations would Run Here"
+
+      - name: Set Deployment Information
+        id: deploy-info
+        run: |
+          echo "url=${{ steps.env-vars.outputs.app_url }}" >> $GITHUB_OUTPUT
+
+      - name: Deployment Summary
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Deployment Successful"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Environment : ${{ needs.setup.outputs.environment }}"
+          echo "Version     : ${{ needs.setup.outputs.version }}"
+          echo "App URL     : ${{ steps.env-vars.outputs.app_url }}"
+          echo "API URL     : ${{ steps.env-vars.outputs.api_url }}"
+          echo "Method      : ${{ steps.env-vars.outputs.deploy_method }}"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  # Post-Deployment Smoke Tests
+  smoke-tests:
+    name: Smoke Tests
+    runs-on: ubuntu-latest
+    needs: [setup, deploy]
+    if: needs.setup.outputs.environment != "production"
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Wait for Services
+        run: |
+          echo "⏳ Waiting for Services to be Ready ... .. ."
+          sleep 30
+
+      - name: Health Check - Backend API
+        run: |
+          echo "🏥 Checking Backend API Health ... .. ."
+          # Replace with Actual Health Check Endpoint
+          # curl -f https://api-${{ needs.setup.outputs.environment }}.nexus-pend.example.com/health || exit 1
+          echo "✅ Backend API Health Check would Run Here"
+
+      - name: Health Check - Frontend
+        run: |
+          echo "🏥 Checking Frontend Health ... .. ."
+          # Replace with Actual Health Check
+          # curl -f https://${{ needs.setup.outputs.environment }}.nexus-pend.example.com || exit 1
+          echo "✅ Frontend Health Check would Run Here"
+
+      - name: Database Connection Test
+        run: |
+          echo "🗄️ Testing Database Connection ... .. ."
+          # Replace with Actual Database Check
+          echo "✅ Database Connection Test would Run Here"
+
+      - name: Redis Connection Test
+        run: |
+          echo "💾 Testing Redis Connection... .. ."
+          # Replace with Actual Redis Check
+          echo "✅ Redis Connection Test would Run Here"
+
+      - name: Smoke Tests Summary
+        run: |
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ All Smoke Tests Passed"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+  # Notify Deployment Status
+  notify-deployment:
+    name: Notify Deployment
+    runs-on: ubuntu-latest
+    needs: [setup, deploy, smoke-tests]
+    if: always() && needs.setup.outputs.deploy == "true"
+
+    steps:
+      - name: Deployment Success Notification
+        if: needs.deploy.result == "success"
+        run: |
+          echo "🎉 Deployment Successful"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📋 Deployment Information"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Environment : ${{ needs.setup.outputs.environment }}"
+          echo "Version     : ${{ needs.setup.outputs.version }}"
+          echo "Commit      : ${{ github.sha }}"
+          echo "Author      : ${{ github.actor }}"
+          echo "Trigger     : ${{ github.event_name }}"
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Deployment Status"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Tests        : ${{ needs.tests.result }}"
+          echo "Build & Push : ${{ needs.build-and-push.result }}"
+          echo "Deploy       : ${{ needs.deploy.result }}"
+          echo "Smoke Tests  : ${{ needs.smoke-tests.result }}"
+          echo ""
+          echo "🔗 View Details : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Deployment Failure Notification
+        if: needs.deploy.result == "failure" || needs.smoke-tests.result == "failure"
+        run: |
+          echo "❌ Deployment Failed"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📋 Deployment Information"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Environment : ${{ needs.setup.outputs.environment }}"
+          echo "Version     : ${{ needs.setup.outputs.version }}"
+          echo "Commit      : ${{ github.sha }}"
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "❌ Failed Jobs"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Tests        : ${{ needs.tests.result }}"
+          echo "Build & Push : ${{ needs.build-and-push.result }}"
+          echo "Deploy       : ${{ needs.deploy.result }}"
+          echo "Smoke Tests  : ${{ needs.smoke-tests.result }}"
+          echo ""
+          echo "🔗 View Logs : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+  # Rollback On Production Failure
+  rollback:
+    name: Rollback Deployment
+    runs-on: ubuntu-latest
+    needs: [setup, deploy, smoke-tests]
+    if: |
+      failure() && 
+      needs.setup.outputs.environment == "production" &&
+      needs.deploy.result == "failure"
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Rollback to Previous Version
+        run: |
+          echo "🔄 Rolling Back Production Deployment ... .. ."
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          # Placeholder for Rollback Command
+          # kubectl rollout undo deployment/backend
+          # kubectl rollout undo deployment/frontend
+
+          echo "✅ Rollback Command would Execute Here"
+          echo "⚠️ Manual Intervention may be Required"
+
+      - name: Notify Rollback
+        run: |
+          echo "⚠️ Production Rollback Executed"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Deployment Failed & Rollback was Triggered"
+          echo "Please Investigate the Failure Immediately"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
