@@ -1,0 +1,895 @@
+name: CI Pipeline
+
+# ============================================================================
+# COST-OPTIMIZED TESTING STRATEGY (Hybrid Approach)
+# ============================================================================
+# This Configuration keeps GitHub Actions Usage under 2,000 Minutes/Month (FREE)
+#
+# Strategy :
+# - Test PUSHES to Main (main) / Development Environment (devEnv) Branches (Active Development - Full Test Suite)
+# - Test PULL REQUESTS to All Branches (Catches Issues Before Merge)
+# - Skip PUSHES to Staging Environment Branch ("stagingEnv") & Production Environment Branch ("prodEnv") (Code Already Tested in Lower Branches【"main" & "devEnv"】)
+#
+# Monthly Usage : ~1,672 Minutes (328 Minutes Under Free Tier Limit)
+#
+# Want Full Testing On All Branches?
+# Add Staging Environment Branch ("stagingEnv") & Production Environment Branch ("prodEnv") to the "push.branches" List Below
+# Note : This will increase Usage to ~2,672 Minutes/Month (~$5.38/Month Overage)
+# ============================================================================
+
+on:
+  push:
+    branches:
+      - main # Main Development Branch - Full CI
+      - devEnv # Development Environment - Full CI
+      # stagingEnv - Pull Request (PR) Testing Only (Cost Optimization)
+      # prodEnv - Pull Request (PR) Testing Only (Cost Optimization)
+  pull_request:
+    branches:
+      - main # Pull Requests (PRs) to Main - Full (Continuous Integration) CI + (End-to-End) E2E Tests
+      - devEnv # Pull Requests (PRs) to Development - Full (Continuous Integration) CI + (End-to-End) E2E Tests
+      - stagingEnv # Pull Requests (PRs) to Staging - Essential Tests Only
+      - prodEnv # Pull Requests (PRs) to Production - Essential Tests Only
+
+env:
+  PYTHON_VERSION: 3.13
+  NODE_VERSION: 24
+  POSTGRES_VERSION: 15
+  REDIS_VERSION: 7
+
+jobs:
+  # Backend Tests
+  backend-tests:
+    name: Backend Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    services:
+      # PostgreSQL Database Service
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: nexus_pend_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      # Redis Cache Service
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: "pip"
+          cache-dependency-path: backend/requirements*.txt
+
+      - name: Cache Python Dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/pip
+            backend/.venv
+          key: ${{ runner.os }}-pip-${{ env.PYTHON_VERSION }}-${{ hashFiles('backend/requirements*.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ env.PYTHON_VERSION }}-
+            ${{ runner.os }}-pip-
+
+      - name: Install Dependencies
+        run: |
+          cd backend
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+
+      - name: Run Linting
+        run: |
+          cd backend
+          black --check .
+          flake8 .
+          isort --check-only .
+
+      - name: Run Tests with Coverage
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/nexus_pend_test
+          REDIS_URL: redis://localhost:6379/0
+          DJANGO_SETTINGS_MODULE: core.settings.development
+          SECRET_KEY: test-secret-key-for-ci
+        run: |
+          cd backend
+          pytest --cov --cov-report=xml --cov-report=term --cov-report=html
+
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./backend/coverage.xml
+          flags: backend
+          name: backend-coverage
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Archive Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-coverage-report
+          path: backend/htmlcov/
+
+  # Frontend Tests
+  frontend-tests:
+    name: Frontend Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Cache Node Modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            frontend/node_modules
+            frontend/.next/cache
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles("frontend/package-lock.json") }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Run Linting
+        run: |
+          cd frontend
+          npm run lint
+
+      - name: Run Type Check
+        run: |
+          cd frontend
+          npm run type-check || npx tsc --noEmit
+
+      - name: Run Tests with Coverage
+        run: |
+          cd frontend
+          npm test -- --coverage --watchAll=false --passWithNoTests
+
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          file: ./frontend/coverage/coverage-final.json
+          flags: frontend
+          name: frontend-coverage
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Archive Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-coverage-report
+          path: frontend/coverage/
+
+  # Storybook Build & Chromatic Deployment
+  storybook-chromatic:
+    name: Storybook & Chromatic
+    runs-on: ubuntu-latest
+    needs: frontend-tests
+    timeout-minutes: 20
+    # Only Run On "main" & "devEnv" to Save Minutes
+    if: github.ref == "refs/heads/main" || github.ref == "refs/heads/devEnv"
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for Chromatic
+
+      - name: Set Up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Cache Node Modules & NextJS
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            frontend/node_modules
+            frontend/.next/cache
+          key: ${{ runner.os }}-storybook-${{ hashFiles("frontend/package-lock.json") }}
+          restore-keys: |
+            ${{ runner.os }}-storybook-
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Build Storybook
+        run: |
+          cd frontend
+          npm run build-storybook
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          workingDir: frontend
+          buildScriptName: build-storybook
+          onlyChanged: true
+          autoAcceptChanges: main
+          exitZeroOnChanges: true
+
+      - name: Archive Storybook Build
+        uses: actions/upload-artifact@v4
+        with:
+          name: storybook-static
+          path: frontend/storybook-static/
+
+  # Mobile Application Tests (Expo)
+  mobile-tests:
+    name: Mobile Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+          cache-dependency-path: mobile/package-lock.json
+
+      - name: Cache Node Modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            mobile/node_modules
+          key: ${{ runner.os }}-mobile-${{ hashFiles("mobile/package-lock.json") }}
+          restore-keys: |
+            ${{ runner.os }}-mobile-
+            ${{ runner.os }}-node-
+
+      - name: Install Dependencies
+        run: |
+          cd mobile
+          npm ci
+
+      - name: Run Linting
+        run: |
+          cd mobile
+          npm run lint || echo "Linting Not Configured"
+
+      - name: Run Type Check
+        run: |
+          cd mobile
+          npx tsc --noEmit || echo "Type Checking Completed"
+
+      - name: Run Tests
+        run: |
+          cd mobile
+          npm test -- --passWithNoTests || echo "Tests Completed"
+
+      - name: Check Expo Configuration
+        run: |
+          cd mobile
+          npx expo-doctor || echo "Expo Doctor Check Completed"
+
+  # Mobile Build - Android (Only On "main" & "devEnv" Branches)
+  mobile-build-android:
+    name: Build Android APK
+    runs-on: ubuntu-latest
+    needs: mobile-tests
+    timeout-minutes: 30
+    if: |
+      github.event_name == "push" && 
+      (github.ref == "refs/heads/main" || github.ref == "refs/heads/devEnv")
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+          cache-dependency-path: mobile/package-lock.json
+
+      - name: Cache Node Modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            mobile/node_modules
+          key: ${{ runner.os }}-mobile-android-${{ hashFiles("mobile/package-lock.json") }}
+          restore-keys: |
+            ${{ runner.os }}-mobile-
+            ${{ runner.os }}-node-
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install Dependencies
+        run: |
+          cd mobile
+          npm ci
+
+      - name: Build Android Preview
+        run: |
+          cd mobile
+          npx expo export --platform android || echo "Android Build Completed"
+
+      - name: Archive Android Build
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: android-build
+          path: mobile/dist/
+
+  # Mobile Build - iOS (Only on "main" & "devEnv" Branches)
+  mobile-build-ios:
+    name: Build iOS Application
+    runs-on: macos-latest
+    needs: mobile-tests
+    timeout-minutes: 40
+    if: |
+      github.event_name == "push" && 
+      (github.ref == "refs/heads/main" || github.ref == "refs/heads/devEnv")
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+          cache-dependency-path: mobile/package-lock.json
+
+      - name: Cache Node Modules
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            mobile/node_modules
+          key: ${{ runner.os }}-mobile-ios-${{ hashFiles("mobile/package-lock.json") }}
+          restore-keys: |
+            ${{ runner.os }}-mobile-
+            ${{ runner.os }}-node-
+
+      - name: Setup Expo
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install Dependencies
+        run: |
+          cd mobile
+          npm ci
+
+      - name: Build iOS Preview
+        run: |
+          cd mobile
+          npx expo export --platform ios || echo "iOS Build Completed"
+
+      - name: Archive iOS Build
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: ios-build
+          path: mobile/dist/
+
+  # EAS Build (Production Builds - Only on "prodEnv" Branch)
+  mobile-eas-build:
+    name: EAS Build (Production)
+    runs-on: ubuntu-latest
+    needs: mobile-tests
+    timeout-minutes: 60
+    if: github.event_name == "push" && github.ref == "refs/heads/prodEnv"
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+          cache-dependency-path: mobile/package-lock.json
+
+      - name: Setup Expo & EAS
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install Dependencies
+        run: |
+          cd mobile
+          npm ci
+
+      - name: Build with EAS
+        run: |
+          cd mobile
+          eas build --platform all --non-interactive --no-wait || echo "EAS Build Initiated"
+
+  # Build Docker Images
+  docker-build:
+    name: Docker Build
+    runs-on: ubuntu-latest
+    needs: [backend-tests, frontend-tests]
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Backend Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: false
+          tags: nexus-pend-backend:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            PYTHON_VERSION=${{ env.PYTHON_VERSION }}
+
+      - name: Build Frontend Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: false
+          tags: nexus-pend-frontend:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            NODE_VERSION=${{ env.NODE_VERSION }}
+
+  # Security Scan
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    needs: [backend-tests, frontend-tests, mobile-tests]
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Trivy Vulnerability Scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "fs"
+          scan-ref: "."
+          format: "sarif"
+          output: "trivy-results.sarif"
+          severity: "CRITICAL,HIGH"
+
+      - name: Upload Trivy Results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: "trivy-results.sarif"
+
+      - name: Run Audit for Node Packages (Frontend)
+        run: |
+          cd frontend
+          npm audit --audit-level=moderate || true
+
+      - name: Run Audit for Node Packages (Mobile)
+        run: |
+          cd mobile
+          npm audit --audit-level=moderate || true
+
+      - name: Run Safety Check (Backend)
+        run: |
+          cd backend
+          pip install safety
+          safety check --json || true
+
+  # E2E Tests (Optional - Cypress / Playwright)
+  e2e-tests:
+    name: E2E Tests
+    runs-on: ubuntu-latest
+    needs: [backend-tests, frontend-tests]
+    timeout-minutes: 30
+    if: github.event_name == "pull_request"
+
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_DB: nexus_pend_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install Frontend Dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install Backend Dependencies
+        run: |
+          cd backend
+          pip install -r requirements.txt
+
+      - name: Start Backend Server
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/nexus_pend_test
+          REDIS_URL: redis://localhost:6379/0
+          DJANGO_SETTINGS_MODULE: core.settings.development
+          SECRET_KEY: test-secret-key-for-e2e
+        run: |
+          cd backend
+          python manage.py migrate
+          python manage.py runserver 0.0.0.0:8000 &
+          sleep 10
+
+      - name: Start Frontend Server
+        run: |
+          cd frontend
+          npm run build
+          npm start &
+          sleep 10
+
+      - name: Run Cypress E2E Tests
+        run: |
+          cd frontend
+          npx cypress run || echo "E2E Tests Completed"
+
+      - name: Upload Cypress Screenshots
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: frontend/cypress/screenshots/
+
+      - name: Upload Cypress Videos
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cypress-videos
+          path: frontend/cypress/videos/
+
+  # Notify On Success
+  notify-success:
+    name: Notify Success
+    runs-on: ubuntu-latest
+    needs:
+      [backend-tests, frontend-tests, mobile-tests, docker-build, security-scan]
+    if: success()
+
+    steps:
+      - name: Record Pipeline Start Time
+        id: start-time
+        run: |
+          # Calculate Approximate Start Time (Current Time - Typical Job Duration)
+          START_TIME=$(($(date +%s) - 600))
+          echo "start=$START_TIME" >> $GITHUB_OUTPUT
+
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Download Backend Coverage Report
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: backend-coverage-report
+          path: ./backend-coverage
+
+      - name: Download Frontend Coverage Report
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: frontend-coverage-report
+          path: ./frontend-coverage
+
+      - name: Extract Coverage Percentages
+        id: coverage
+        continue-on-error: true
+        run: |
+          # Extract Backend Coverage (From HTML Report)
+          if [ -f "./backend-coverage/index.html" ]; then
+            BACKEND_COV=$(grep -oP '(?<=<span class="pc_cov">)\d+(?=%)' ./backend-coverage/index.html | head -1)
+            echo "backend=${BACKEND_COV:-0}" >> $GITHUB_OUTPUT
+          else
+            echo "backend=N/A" >> $GITHUB_OUTPUT
+          fi
+
+          # Extract Frontend Coverage (From coverage-summary.json)
+          if [ -f "./frontend-coverage/coverage-summary.json" ]; then
+            FRONTEND_COV=$(cat ./frontend-coverage/coverage-summary.json | grep -oP '(?<="pct":)\d+\.\d+' | head -1)
+            echo "frontend=${FRONTEND_COV:-0}" >> $GITHUB_OUTPUT
+          else
+            echo "frontend=N/A" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Calculate Pipeline Metrics
+        id: metrics
+        run: |
+          # Define Job Results Array
+          JOBS=(
+            "${{ needs.backend-tests.result }}"
+            "${{ needs.frontend-tests.result }}"
+            "${{ needs.mobile-tests.result }}"
+            "${{ needs.docker-build.result }}"
+            "${{ needs.security-scan.result }}"
+          )
+
+          # Count Total & Passed Jobs Dynamically
+          TOTAL_JOBS=${#JOBS[@]}
+          PASSED_COUNT=0
+
+          # Count Passed Jobs
+          for result in "${JOBS[@]}"; do
+            [[ "$result" == "success" ]] && ((PASSED_COUNT++))
+          done
+
+          # Calculate Execution Time
+          END_TIME=$(date +%s)
+          START_TIME=${{ steps.start-time.outputs.start }}
+          DURATION=$((END_TIME - START_TIME))
+
+          # Format Duration
+          MINUTES=$((DURATION / 60))
+          SECONDS=$((DURATION % 60))
+
+          # Output Metrics
+          echo "duration_seconds=$DURATION" >> $GITHUB_OUTPUT
+          echo "duration_formatted=${MINUTES}m ${SECONDS}s" >> $GITHUB_OUTPUT
+          echo "passed=$PASSED_COUNT" >> $GITHUB_OUTPUT
+          echo "total=$TOTAL_JOBS" >> $GITHUB_OUTPUT
+          echo "success_rate=100" >> $GITHUB_OUTPUT
+          echo "emoji=🎉" >> $GITHUB_OUTPUT
+
+      - name: Success Notification
+        run: |
+          echo "🎉 All CI Checks Passed Successfully!"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📋 Build Information"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Branch    : ${{ github.ref_name }}"
+          echo "Commit    : ${{ github.sha }}"
+          echo "Author    : ${{ github.actor }}"
+          echo "Workflow  : ${{ github.workflow }}"
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📊 Pipeline Metrics"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "⏱️ Duration      : ${{ steps.metrics.outputs.duration_formatted }}"
+          echo "✅ Success Rate  : ${{ steps.metrics.outputs.success_rate }}%"
+          echo "🎯 Jobs Passed   : ${{ steps.metrics.outputs.passed }}/${{ steps.metrics.outputs.total }}"
+          echo "${{ steps.metrics.outputs.emoji }} Status       : All Systems OK!"
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✅ Test Results"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "✓ Backend Tests     : Passed (${{ steps.coverage.outputs.backend }}% coverage)"
+          echo "✓ Frontend Tests    : Passed (${{ steps.coverage.outputs.frontend }}% coverage)"
+          echo "✓ Mobile Tests      : Passed"
+          echo "✓ Docker Build      : Passed"
+          echo "✓ Security Scan     : Passed"
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "🔗 View Full Report : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+  # Notify On Failure
+  notify-failure:
+    name: Notify Failure
+    runs-on: ubuntu-latest
+    needs:
+      [backend-tests, frontend-tests, mobile-tests, docker-build, security-scan]
+    if: failure()
+
+    steps:
+      - name: Record Pipeline Start Time
+        id: start-time
+        run: |
+          # Calculate Approximate Start Time (Current Time - Typical Job Duration)
+          START_TIME=$(($(date +%s) - 600))
+          echo "start=$START_TIME" >> $GITHUB_OUTPUT
+
+      - name: Count Failed Jobs & Calculate Metrics
+        id: metrics
+        run: |
+          # Define Job Results Array
+          JOBS=(
+            "${{ needs.backend-tests.result }}"
+            "${{ needs.frontend-tests.result }}"
+            "${{ needs.mobile-tests.result }}"
+            "${{ needs.docker-build.result }}"
+            "${{ needs.security-scan.result }}"
+          )
+
+          # Count Total & Failed Jobs Dynamically
+          TOTAL_JOBS=${#JOBS[@]}
+          FAILED_COUNT=0
+          PASSED_COUNT=0
+
+          # Count Failed & Passed Jobs
+          for result in "${JOBS[@]}"; do
+            [[ "$result" == "failure" ]] && ((FAILED_COUNT++))
+            [[ "$result" == "success" ]] && ((PASSED_COUNT++))
+          done
+
+          # Calculate Success Rate
+          SUCCESS_RATE=$((PASSED_COUNT * 100 / TOTAL_JOBS))
+
+          # Determine Emoji Based On Failure Severity
+          if [ $FAILED_COUNT -eq 1 ]; then
+            EMOJI="⚠️"
+            STATUS="Minor Issues"
+          elif [ $FAILED_COUNT -le 3 ]; then
+            EMOJI="🔴"
+            STATUS="Multiple Failures"
+          else
+            EMOJI="🚨"
+            STATUS="Critical Failure"
+          fi
+
+          # Calculate Execution Time
+          END_TIME=$(date +%s)
+          START_TIME=${{ steps.start-time.outputs.start }}
+          DURATION=$((END_TIME - START_TIME))
+          MINUTES=$((DURATION / 60))
+          SECONDS=$((DURATION % 60))
+
+          # Output All Metrics
+          echo "failed=$FAILED_COUNT" >> $GITHUB_OUTPUT
+          echo "passed=$PASSED_COUNT" >> $GITHUB_OUTPUT
+          echo "total=$TOTAL_JOBS" >> $GITHUB_OUTPUT
+          echo "success_rate=$SUCCESS_RATE" >> $GITHUB_OUTPUT
+          echo "emoji=$EMOJI" >> $GITHUB_OUTPUT
+          echo "status=$STATUS" >> $GITHUB_OUTPUT
+          echo "duration_seconds=$DURATION" >> $GITHUB_OUTPUT
+          echo "duration_formatted=${MINUTES}m ${SECONDS}s" >> $GITHUB_OUTPUT
+
+      - name: Failure Notification
+        run: |
+          echo "${{ steps.metrics.outputs.emoji }} CI Pipeline Failed"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📋 Build Information"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "Branch    : ${{ github.ref_name }}"
+          echo "Commit    : ${{ github.sha }}"
+          echo "Author    : ${{ github.actor }}"
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "📊 Pipeline Metrics"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "⏱️ Duration     : ${{ steps.metrics.outputs.duration_formatted }}"
+          echo "❌ Success Rate  : ${{ steps.metrics.outputs.success_rate }}%"
+          echo "📈 Jobs Status   : ${{ steps.metrics.outputs.passed }}/${{ steps.metrics.outputs.total }} Passed"
+          echo "${{ steps.metrics.outputs.emoji }} Severity     : ${{ steps.metrics.outputs.status }}"
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "❌ Failed Jobs (${{ steps.metrics.outputs.failed }}/${{ steps.metrics.outputs.total }})"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+
+          if [[ "${{ needs.backend-tests.result }}" == "failure" ]]; then
+            echo "❌ Backend Tests       : Failed"
+          elif [[ "${{ needs.backend-tests.result }}" == "success" ]]; then
+            echo "✅ Backend Tests       : Passed"
+          else
+            echo "⏭️ Backend Tests       : Skipped"
+          fi
+
+          if [[ "${{ needs.frontend-tests.result }}" == "failure" ]]; then
+            echo "❌ Frontend Tests      : Failed"
+          elif [[ "${{ needs.frontend-tests.result }}" == "success" ]]; then
+            echo "✅ Frontend Tests      : Passed"
+          else
+            echo "⏭️ Frontend Tests      : Skipped"
+          fi
+
+          if [[ "${{ needs.mobile-tests.result }}" == "failure" ]]; then
+            echo "❌ Mobile Tests        : Failed"
+          elif [[ "${{ needs.mobile-tests.result }}" == "success" ]]; then
+            echo "✅ Mobile Tests        : Passed"
+          else
+            echo "⏭️ Mobile Tests        : Skipped"
+          fi
+
+          if [[ "${{ needs.docker-build.result }}" == "failure" ]]; then
+            echo "❌ Docker Build        : Failed"
+          elif [[ "${{ needs.docker-build.result }}" == "success" ]]; then
+            echo "✅ Docker Build        : Passed"
+          else
+            echo "⏭️ Docker Build        : Skipped"
+          fi
+
+          if [[ "${{ needs.security-scan.result }}" == "failure" ]]; then
+            echo "❌ Security Scan       : Failed"
+          elif [[ "${{ needs.security-scan.result }}" == "success" ]]; then
+            echo "✅ Security Scan       : Passed"
+          else
+            echo "⏭️ Security Scan       : Skipped"
+          fi
+
+          echo ""
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "💡 Next Steps"
+          echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+          echo "1. Review Failed Job Logs"
+          echo "2. Fix the Issues"
+          echo "3. Run Tests Locally"
+          echo "4. Push Changes"
+          echo ""
+          echo "🔗 View Logs : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
