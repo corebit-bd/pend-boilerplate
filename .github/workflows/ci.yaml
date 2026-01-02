@@ -24,12 +24,16 @@ on:
       - devEnv # Development Environment - Full CI
       # stagingEnv - Pull Request (PR) Testing Only (Cost Optimization)
       # prodEnv - Pull Request (PR) Testing Only (Cost Optimization)
+      # Backup Branches are Explicitly Excluded
+      - "!backup/**"
   pull_request:
     branches:
       - main # Pull Requests (PRs) to Main - Full (Continuous Integration) CI + (End-to-End) E2E Tests
       - devEnv # Pull Requests (PRs) to Development - Full (Continuous Integration) CI + (End-to-End) E2E Tests
       - stagingEnv # Pull Requests (PRs) to Staging - Essential Tests Only
       - prodEnv # Pull Requests (PRs) to Production - Essential Tests Only
+      # Backup Branches cannot have Pull Requests (PRs)
+      - "!backup/**"
 
 env:
   PYTHON_VERSION: 3.13
@@ -893,3 +897,90 @@ jobs:
           echo "4. Push Changes"
           echo ""
           echo "🔗 View Logs : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+  # Special Handling for Upgrade Branches
+  upgrade-validation:
+    name: Upgrade Branch Validation
+    runs-on: ubuntu-latest
+    # Only Run for Upgrade Branches
+    if: |
+      github.event_name == "pull_request" && 
+      startsWith(github.head_ref, "chore/upgrade/")
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Validate Backup Branch Exists
+        run: |
+          echo "🔍 Checking for Backup Branch ... .. ."
+
+          # Extract Component Being Upgraded
+          BRANCH_NAME="${{ github.head_ref }}"
+          COMPONENT=$(echo $BRANCH_NAME | cut -d'/' -f3)
+          TODAY=$(date +%Y%m%d)
+
+          echo "Upgrade Component : $COMPONENT"
+          echo "Expected Backup Pattern : backup/pre-${COMPONENT}*"
+
+          # Check if Backup Branch Exists
+          BACKUP_BRANCHES=$(git ls-remote --heads origin "backup/pre-${COMPONENT}*" | wc -l)
+
+          if [ $BACKUP_BRANCHES -eq 0 ]; then
+            echo "❌ ERROR : No Backup Branch Found!"
+            echo ""
+            echo "Before Upgrading $COMPONENT, You MUST Create A Backup Branch : "
+            echo "  git checkout main"
+            echo "  git checkout -b backup/pre-${COMPONENT}-${TODAY}"
+            echo "  git push origin backup/pre-${COMPONENT}-${TODAY}"
+            echo ""
+            exit 1
+          else
+            echo "✅ Backup Branch Found : $(git ls-remote --heads origin "backup/pre-${COMPONENT}*" | awk '{print $2}')"
+          fi
+
+      - name: Add Upgrade Warning Comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## ⚠️ UPGRADE BRANCH DETECTED
+
+                    This PR Upgrades a Major Module. Please Ensure : 
+
+                    ### Pre-Merge Checklist
+                    - [ ] Backup Branch Created & Verified
+                    - [ ] All Breaking Changes Documented
+                    - [ ] Migration Guide Prepared
+                    - [ ] Team Notified of Upgrade
+                    - [ ] Extensive Testing Completed Locally
+                    - [ ] All Tests Pass in CI
+
+                    ### Post-Merge Plan
+                    1. Deploy to `devEnv` Only
+                    2. Test Thoroughly for **2+ Days**
+                    3. Monitor for Issues
+                    4. Document Any Problems Found
+                    5. Only Then Promote to Staging Environment Branch (`stagingEnv`)
+
+                    ### Rollback Plan
+                    - Backup Branch : Check Git Branches Starting With \`backup/pre-\`
+                    - Rollback Command : \`git revert <merge-commit>\`
+                    - Emergency Contact : @team-leads
+
+                    **⚠️ This PR requires Manual Approval from At Least 2 Maintainers.**`
+            })
+
+      - name: Require Manual Approval
+        run: |
+          echo "⚠️ UPGRADE BRANCH - REQUIRES MANUAL APPROVAL"
+          echo ""
+          echo "This is an Upgrade Branch & Requires : "
+          echo "  - At Least 2 Maintainer Approvals"
+          echo "  - Extensive Testing in `devEnv` (2+ Days)"
+          echo "  - Careful Monitoring During Deployment"
+          echo ""
+          echo "Do NOT Auto-Merge this Pull Request (PR)!"
