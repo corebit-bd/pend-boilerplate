@@ -1,0 +1,250 @@
+name: ⚡ Performance Issue
+description: Report a Performance Problem / Suggest Optimization
+title: "[PERFORMANCE] "
+labels: ["performance", "triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚡ Performance Issue
+
+        Thank You for helping Improve the Performance of PEND Boilerplate!
+
+        **Before Submitting** : 
+        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/nexus-pend-boilerplate/issues) to Ensure this hasn't been Reported
+        - [ ] I have Profiled the Application to Identify the Bottleneck
+        - [ ] I have Tested this on the Latest Version from the Main Branch
+
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      description: Which Module has the Performance Issue?
+      options:
+        - Backend API (Django)
+        - Frontend (NextJS)
+        - Mobile (Expo)
+        - Database (PostgreSQL)
+        - Docker Build / Startup
+        - CI / CD Pipeline
+        - Redis (Caching)
+        - Background Tasks (Celery)
+        - Multiple Modules
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Performance Issue Type
+      description: What Type of Performance Issue is this?
+      options:
+        - Slow Response Time - API / Page Loads Slowly
+        - High CPU Usage - CPU Spikes / Sustained High Usage
+        - High Memory Usage - Memory Leaks / Excessive RAM
+        - Large Bundle Size - Frontend Bundle Too Large
+        - Slow Database Queries - Query Optimization Needed
+        - Long Build Time - Docker / CI Build Too Slow
+        - Network Overhead - Too Many Requests / Large Payloads
+        - Inefficient Algorithm - Code can be Optimized
+        - Missing Caching - Needs Caching Implementation
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How Severe is the Performance Issue?
+      options:
+        - 🔴 Critical - System Unusable / Very Slow (>10 Seconds Response)
+        - 🟠 High - Significantly Impacts User Experience (3 - 10 Seconds)
+        - 🟡 Medium - Noticeable Delay (1 - 3 Seconds)
+        - 🟢 Low - Minor Optimization Opportunity (<1 Second)
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Performance Issue Description
+      description: Describe the Performance Problem in Detail
+      placeholder: |
+        Example : The User List API Endpoint (`/api/v1/users/`) takes 5-8 Seconds to Respond when there are more than 1000 Users in the Database. This makes the Administrator Panel Very Slow to Load.
+    validations:
+      required: true
+
+  - type: textarea
+    id: measurements
+    attributes:
+      label: Performance Measurements
+      description: Provide Specific Measurements / Metrics
+      placeholder: |
+        Example:
+        - Current Response Time : 5 - 8 Seconds
+        - Expected Response Time : <500 Milli-Seconds
+        - Database Query Time : 4.2 Seconds
+        - Number of Queries : 150+ (N+1 Problem)
+        - Memory Usage : 2.5GB (Should Be <500MB)
+        - CPU Usage : 85% Sustained
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can We Reproduce the Performance Issue?
+      placeholder: |
+        1. Seed Database with 1000+ Users using `python manage.py seed_users 1000`
+        2. Navigate to Administrator Panel at `http://localhost:8000/admin/`
+        3. Click on `Users` Section
+        4. Observe Slow Page Load (5 - 8 Seconds)
+        5. Check Browser Network Tab / Django Debug Toolbar
+    validations:
+      required: true
+
+  - type: textarea
+    id: profiling
+    attributes:
+      label: Profiling Results
+      description: If You've Profiled the Code, Share the Results
+      placeholder: |
+        Django Debug Toolbar Shows : 
+        - 152 Database Queries
+        - 4.2 Seconds Spent in Database
+        - 0.8 Seconds Spent in Python
+        - Main Bottleneck : `User.objects.all()` with Related Tenant Queries
+
+        Or Attach Profiler Output : 
+        ```
+        ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        152     4.200    0.028    4.200    0.028 {method "execute" of "psycopg2.cursor"}
+        ```
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Details
+      description: Environment where the Issue Occurs
+      placeholder: |
+        - Environment : [Local / Development / Staging / Production]
+        - Database Size : [1000 Users, 5000 Records]
+        - Hardware : [16GB RAM, 4 CPU Cores]
+        - Docker Resources : [4GB RAM, 2 CPUs Allocated]
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: If You have Ideas on How to Fix this, Share them
+      placeholder: |
+        Example : 
+        1. Add `select_related()` to Reduce Queries : 
+           `User.objects.select_related("tenant").all()`
+
+        2. Implement Pagination : 
+           - Limit to 50 Users Per Page
+           - Add Cursor-Based Pagination
+
+        3. Add Database Indexing : 
+           - Add Index on `user.tenant_id`
+           - Add Composite Index on (`created_at`, `tenant_id`)
+
+        4. Implement Redis Caching : 
+           - Cache User List for 5 Minutes
+           - Invalidate on User Create / Update
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Other Approaches that Could Work
+      placeholder: |
+        - Use Django's Built-In Pagination instead of Cursor Pagination
+        - Implement Lazy Loading in the Frontend
+        - Pre-Aggregate Data in a Separate Table
+
+  - type: textarea
+    id: benchmarks
+    attributes:
+      label: Benchmarks
+      description: If Available, Provide Benchmark Comparisons
+      placeholder: |
+        Before Optimization : 
+        - Response Time : 5.2 Seconds
+        - Database Queries : 152
+        - Memory : 2.5GB
+
+        After Proposed Optimization : 
+        - Response Time : 0.3 Seconds (17x Faster)
+        - Database Queries : 3
+        - Memory : 150MB (16x Less)
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact Analysis
+      description: What is the Impact of this Performance Issue?
+      placeholder: |
+        - Affects all Administrator Users Viewing the User List
+        - Becomes Worse as Database Grows
+        - Causes Timeout Errors with 5000+ Users
+        - Users Complain about Slow Administrator Panel
+        - May require Scaling Up Servers Unnecessarily
+
+  - type: textarea
+    id: related-issues
+    attributes:
+      label: Related Issues / Pull Requests (PRs)
+      description: Link to Related Performance Issues
+      placeholder: |
+        - Related to #123 (Slow Dashboard)
+        - Similar to #456 (N+1 Query Problem)
+
+  - type: checkboxes
+    id: testing
+    attributes:
+      label: Testing Done
+      description: What Testing have You Performed?
+      options:
+        - label: I have Profiled the Code to Identify the Bottleneck
+          required: false
+        - label: I have Tested the Proposed Solution Locally
+          required: false
+        - label: I have Measured the Performance Improvement
+          required: false
+        - label: I have Verified No Functionality is Broken
+          required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would You like to Contribute A Fix?
+      options:
+        - label: I am willing to Submit A Pull Request to Fix this Issue
+          required: false
+        - label: I can Provide Profiling Data & Benchmarks
+          required: false
+        - label: I need Help Implementing the Optimization
+          required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-Submission Checklist
+      description: Please Confirm the Following
+      options:
+        - label: I have Provided Performance Measurements
+          required: true
+        - label: I have Identified the Specific Module / Code Causing the Issue
+          required: true
+        - label: I have Tested this on the Latest Version from the Main Branch
+          required: true
