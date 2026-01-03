@@ -159,7 +159,7 @@ jobs:
             ~/.npm
             frontend/node_modules
             frontend/.next/cache
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles("frontend/package-lock.json") }}
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('frontend/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
             ${{ runner.os }}-node-
@@ -227,7 +227,7 @@ jobs:
             ~/.npm
             frontend/node_modules
             frontend/.next/cache
-          key: ${{ runner.os }}-storybook-${{ hashFiles("frontend/package-lock.json") }}
+          key: ${{ runner.os }}-storybook-${{ hashFiles('frontend/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-storybook-
             ${{ runner.os }}-node-
@@ -281,7 +281,7 @@ jobs:
           path: |
             ~/.npm
             mobile/node_modules
-          key: ${{ runner.os }}-mobile-${{ hashFiles("mobile/package-lock.json") }}
+          key: ${{ runner.os }}-mobile-${{ hashFiles('mobile/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-mobile-
             ${{ runner.os }}-node-
@@ -338,7 +338,7 @@ jobs:
           path: |
             ~/.npm
             mobile/node_modules
-          key: ${{ runner.os }}-mobile-android-${{ hashFiles("mobile/package-lock.json") }}
+          key: ${{ runner.os }}-mobile-android-${{ hashFiles('mobile/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-mobile-
             ${{ runner.os }}-node-
@@ -393,7 +393,7 @@ jobs:
           path: |
             ~/.npm
             mobile/node_modules
-          key: ${{ runner.os }}-mobile-ios-${{ hashFiles("mobile/package-lock.json") }}
+          key: ${{ runner.os }}-mobile-ios-${{ hashFiles('mobile/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-mobile-
             ${{ runner.os }}-node-
