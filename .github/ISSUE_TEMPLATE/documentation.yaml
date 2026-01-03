@@ -1,0 +1,187 @@
+name: 📚 Documentation Issue
+description: Report Missing, Incorrect / Unclear Documentation
+title: "[DOCUMENTATION] "
+labels: ["documentation", "triage"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📚 Documentation Issue
+
+        Thank You for helping Improve Our Documentation! Clear Documentation is Essential for the Success of this Project.
+
+        **Before Submitting** : 
+        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/nexus-pend-boilerplate/issues) to Ensure this hasn't been Reported
+        - [ ] I have Checked the [Documentation](https://github.com/jeet-khondker/nexus-pend-boilerplate/tree/main/documentation)
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Issue Type
+      description: What Type of Documentation Issue is this?
+      options:
+        - Missing Documentation - Feature / Concept Not Documented
+        - Incorrect Information - Documentation contains Errors
+        - Unclear / Confusing - Documentation is Hard to Understand
+        - Outdated - Documentation doesn't Match Current Code
+        - Broken Links - Links Don't Work
+        - Typos / Grammar - Spelling / Grammar Issues
+        - Code Examples - Examples are Wrong / Missing
+        - Missing Screenshots - Visual Aids would help
+        - Accessibility - Documentation is Not Accessible
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: location
+    attributes:
+      label: Documentation Location
+      description: Where is the Documentation Issue?
+      options:
+        - README.md
+        - CONTRIBUTING.md
+        - SECURITY.md
+        - CODE_OF_CONDUCT.md
+        - CHANGELOG.md
+        - Backend Documentation
+        - Frontend Documentation
+        - Mobile Documentation
+        - Database Documentation
+        - CI / CD Documentation
+        - Scripts Documentation
+        - API Documentation
+        - Component Documentation (Storybook)
+        - Issue / Pull Request (PR) Templates
+        - Multiple Locations
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: file-path
+    attributes:
+      label: Specific File Path
+      description: If Known, Provide the Exact File Path / URL
+      placeholder: |
+        Example: 
+        - `documentation/ci-cd/GITHUB_SECRETS_SETUP.md` (Lines 45-60)
+        - `backend/README.md` (`Setup` Section)
+        - https://github.com/.../blob/main/README.md#quick-start
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue Description
+      description: Clearly describe the Documentation Issue
+      placeholder: |
+        Example : The `Quick Start` Section in `README.md` says to execute `./scripts/setup.sh`, But it doesn't mention that You need to Install Docker first. This causes the Script to Fail for New Users.
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current Documentation
+      description: If Applicable, Quote / Describe the Current Documentation
+      placeholder: |
+        Current Text : 
+        ```
+        Run the Setup Script to Initialize the Project : 
+        ./scripts/setup.sh
+        ```
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected / Suggested Documentation
+      description: What should the Documentation say instead?
+      placeholder: |
+        Suggested Text : 
+        ```
+        Prerequisites : 
+        - Docker Desktop Installed & Running
+        - Git Installed
+
+        Run the Setup Script to Initialize the Project : 
+        ./scripts/setup.sh
+        ```
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Who is Affected by this Documentation Issue?
+      placeholder: |
+        - New Contributors trying to Set Up the Project
+        - Developers Following the CI / CD Guide
+        - Users Implementing the Authentication System
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How Severe is this Documentation Issue?
+      options:
+        - 🔴 Critical - Prevents Users from Using a Core Feature
+        - 🟠 High - Causes Significant Confusion / Errors
+        - 🟡 Medium - Minor Confusion, Workaround Exists
+        - 🟢 Low - Typo / Minor Improvement
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any Other Information that would be Helpful
+      placeholder: |
+        - How did You Discover this Issue?
+        - What were You Trying to Accomplish?
+        - Did You find a Workaround?
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: |
+        If Applicable, Add Screenshots to help explain the Problem.
+        Tip : You can Drag & Drop Images directly into this Field.
+
+  - type: textarea
+    id: related
+    attributes:
+      label: Related Issues / Pull Requests (PRs)
+      description: Link to Related Issues / Pull Requests (PRs)
+      placeholder: |
+        - Related to #123
+        - Duplicate of #456
+        - Blocks #789
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would You like to Contribute A Fix?
+      options:
+        - label: I am willing to Submit A Pull Request to Fix this Documentation
+          required: false
+        - label: I need help Writing the Documentation but can provide Technical Details
+          required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-Submission Checklist
+      description: Please Confirm the Following Before Submitting the Issue
+      options:
+        - label: I have Provided All the Required Information above
+          required: true
+        - label: I have Checked that this Issue doesn't already Exist
+          required: true
