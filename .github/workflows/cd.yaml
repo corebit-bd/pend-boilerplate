@@ -485,8 +485,8 @@ jobs:
     needs: [setup, deploy]
     if: |
       failure() && 
-      needs.setup.outputs.environment == "production" &&
-      needs.deploy.result == "failure"
+      needs.setup.outputs.environment == 'production' &&
+      needs.deploy.result == 'failure'
 
     steps:
       - name: Checkout Code
