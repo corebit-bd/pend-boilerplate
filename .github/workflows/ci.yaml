@@ -773,8 +773,22 @@ jobs:
       - name: Count Failed Jobs & Calculate Metrics
         id: metrics
         run: |
-          # Allow References to Unset Variables inside this Block
+          # Allow references to unset variables inside this block
           set +u
+
+          # Safe Output Helper : Append to GITHUB_OUTPUT If Available, Otherwise Print to stdout
+          write_output() {
+            local name="$1"
+            local value="$2"
+
+            if [ -n "${GITHUB_OUTPUT:-}" ] && [ -w "$(dirname "$GITHUB_OUTPUT")" ] || [ -n "${GITHUB_OUTPUT:-}" ]; then
+              # If GITHUB_OUTPUT is Set, Attempt to Append. Use printf to avoid surprises with special chars.
+              printf '%s=%s\n' "$name" "$value" >> "$GITHUB_OUTPUT" || echo "$name=$value"
+            else
+              # Fallback for Local Debugging / Safety : print
+              echo "$name=$value"
+            fi
+          }
 
           # Define Job Results Array (from needs)
           JOBS=(
@@ -786,14 +800,14 @@ jobs:
           )
 
           # Count Total & Failed Jobs Dynamically
-          TOTAL_JOBS=${#JOBS[@]}
+          TOTAL_JOBS=${#JOBS[@]:-0}
           FAILED_COUNT=0
           PASSED_COUNT=0
 
           # Count Failed & Passed Jobs
-          if [ ${#JOBS[@]} -gt 0 ]; then
+          if [ "$TOTAL_JOBS" -gt 0 ]; then
             for result in "${JOBS[@]}"; do
-              case "$result" in
+              case "${result:-}" in
                 failure) ((FAILED_COUNT++));;
                 success) ((PASSED_COUNT++));;
                 skipped|""|*) :;;
@@ -802,23 +816,21 @@ jobs:
           fi
 
           # Success Rate (Guard Division by Zero)
-          if [ "$TOTAL_JOBS" -eq 0 ]; then
+          if ! [[ "$TOTAL_JOBS" =~ ^[0-9]+$ ]] || [ "$TOTAL_JOBS" -eq 0 ]; then
             SUCCESS_RATE=0
           else
             SUCCESS_RATE=$(( PASSED_COUNT * 100 / TOTAL_JOBS ))
           fi
 
-          # Execution time: use recorded start-time or a safe fallback
+          # Execution Time : Use Recorded Start Time / A Safe Fallback
           END_TIME=$(date +%s)
           START_TIME="${{ steps.start-time.outputs.start }}"
 
-          # Validate START_TIME is an integer; fallback to END_TIME-600s if not set
           if ! [[ "$START_TIME" =~ ^[0-9]+$ ]]; then
             START_TIME=$((END_TIME - 600))
           fi
 
           DURATION=$((END_TIME - START_TIME))
-          # Ensure non-negative integer
           if ! [[ "$DURATION" =~ ^[0-9]+$ ]]; then
             DURATION=0
           fi
@@ -826,28 +838,28 @@ jobs:
           MINUTES=$((DURATION / 60))
           SECONDS=$((DURATION % 60))
 
-          # Output all metrics to GITHUB_OUTPUT
-          echo "failed=$FAILED_COUNT" >> $GITHUB_OUTPUT
-          echo "passed=$PASSED_COUNT" >> $GITHUB_OUTPUT
-          echo "total=$TOTAL_JOBS" >> $GITHUB_OUTPUT
-          echo "success_rate=$SUCCESS_RATE" >> $GITHUB_OUTPUT
+          # Output all metrics via helper
+          write_output "failed" "$FAILED_COUNT"
+          write_output "passed" "$PASSED_COUNT"
+          write_output "total" "$TOTAL_JOBS"
+          write_output "success_rate" "$SUCCESS_RATE"
+          write_output "duration_seconds" "$DURATION"
+          write_output "duration_formatted" "${MINUTES}m ${SECONDS}s"
 
           # Determine Emoji & Status Based On Failure Count
-          if [ $FAILED_COUNT -eq 1 ]; then
+          if [ "$FAILED_COUNT" -eq 1 ]; then
             EMOJI="⚠️"; STATUS="Minor Issues"
-          elif [ $FAILED_COUNT -le 3 ]; then
+          elif [ "$FAILED_COUNT" -le 3 ]; then
             EMOJI="🔴"; STATUS="Multiple Failures"
           else
             EMOJI="🚨"; STATUS="Critical Failure"
           fi
 
-          echo "emoji=$EMOJI" >> $GITHUB_OUTPUT
-          echo "status=$STATUS" >> $GITHUB_OUTPUT
-          echo "duration_seconds=$DURATION" >> $GITHUB_OUTPUT
-          echo "duration_formatted=${MINUTES}m ${SECONDS}s" >> $GITHUB_OUTPUT
+          write_output "emoji" "$EMOJI"
+          write_output "status" "$STATUS"
 
-          # Restore Strict Unset-Checking if desired (So Remainder of Workflow runs with -u)
-          set -u
+          # Do NOT re-enable set -u here if subsequent commands may reference unset variables;
+          # if you must restore it, do it in a separate run step to avoid affecting this block.
 
       - name: Failure Notification
         run: |
