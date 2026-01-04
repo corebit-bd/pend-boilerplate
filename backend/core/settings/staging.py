@@ -18,41 +18,41 @@ SECURE_HSTS_PRELOAD = False
 
 # Logging Configuration for Staging
 LOGGING = {
-    "version" : 1,
-    "disable_existing_loggers" : False,
-    "formatters" : {
-        "verbose" : {
-            "format" : "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
-            "style" : "{",
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
         },
     },
-    "handlers" : {
-        "console" : {
-            "class" : "logging.StreamHandler",
-            "formatter" : "verbose",
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
         },
-        "file" : {
-            "class" : "logging.handlers.RotatingFileHandler",
-            "filename" : BASE_DIR / "logs" / "staging.log",
-            "maxBytes" : 1024 * 1024 * 10,  # 10 MB
-            "backupCount" : 5,
-            "formatter" : "verbose",
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": BASE_DIR / "logs" / "staging.log",
+            "maxBytes": 1024 * 1024 * 10,  # 10 MB
+            "backupCount": 5,
+            "formatter": "verbose",
         },
     },
-    "root" : {
-        "handlers" : ["console", "file"],
-        "level" : "INFO",
+    "root": {
+        "handlers": ["console", "file"],
+        "level": "INFO",
     },
-    "loggers" : {
-        "django" : {
-            "handlers" : ["console", "file"],
-            "level" : "INFO",
-            "propagate" : False,
+    "loggers": {
+        "django": {
+            "handlers": ["console", "file"],
+            "level": "INFO",
+            "propagate": False,
         },
-        "django.request" : {
-            "handlers" : ["console", "file"],
-            "level" : "WARNING",
-            "propagate" : False,
+        "django.request": {
+            "handlers": ["console", "file"],
+            "level": "WARNING",
+            "propagate": False,
         },
     },
 }
