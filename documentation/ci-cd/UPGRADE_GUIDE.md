@@ -106,7 +106,6 @@ Please Block out Time for Testing during the devEnv Phase.
 
 Thanks,
 Jeet Z. H. Khondker
-Founder, CEO & President, NeXuS Co. Ltd.
 ```
 
 ---
@@ -678,7 +677,7 @@ git push origin prodEnv
 
 ```bash
 # Restore from Backup
-psql -U postgres -d nexus_pend < backup-pre-upgrade.sql
+psql -U postgres -d pend < backup-pre-upgrade.sql
 
 # Or Use Point-In-Time (PIT) Recovery
 # (If Configured)

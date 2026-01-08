@@ -1,17 +1,17 @@
 blank_issues_enabled: false
 contact_links:
   - name: 💬 Ask A Question
-    url: https://github.com/jeet-khondker/nexus-pend-boilerplate/discussions/new?category=q-a
+    url: https://github.com/jeet-khondker/pend-boilerplate/discussions/new?category=q-a
     about: Ask Questions & Discuss with the Community
   - name: 💡 Feature Request Discussion
-    url: https://github.com/jeet-khondker/nexus-pend-boilerplate/discussions/new?category=ideas
+    url: https://github.com/jeet-khondker/pend-boilerplate/discussions/new?category=ideas
     about: Suggest An Idea for this Project (Discuss before Creating Issue)
   - name: 📚 Documentation
-    url: https://github.com/jeet-khondker/nexus-pend-boilerplate/tree/main/documentation
+    url: https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation
     about: View Comprehensive Project Documentation
   - name: 🔒 Security Vulnerability
-    url: https://github.com/jeet-khondker/nexus-pend-boilerplate/security/advisories/new
+    url: https://github.com/jeet-khondker/pend-boilerplate/security/advisories/new
     about: Report a Security Vulnerability (DO NOT Create a ublic Issue)
   - name: 📖 Contributing Guide
-    url: https://github.com/jeet-khondker/nexus-pend-boilerplate/blob/main/CONTRIBUTING.md
+    url: https://github.com/jeet-khondker/pend-boilerplate/blob/main/CONTRIBUTING.md
     about: Learn How to Contribute to this Project

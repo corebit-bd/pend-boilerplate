@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Initial Setup Script for NeXuS PEND Boilerplate
+# Initial Setup Script for PEND Boilerplate
 # Run this Script once when setting up the project for the first time
 
 set -e  # Exit On Error
@@ -42,7 +42,7 @@ command_exists() {
 
 # Main Setup Process
 main() {
-    print_header "NeXuS PEND Boilerplate - Initial Setup"
+    print_header "PEND Boilerplate - Initial Setup"
     echo ""
 
     # Check Pprerequisites

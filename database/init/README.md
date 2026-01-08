@@ -36,8 +36,8 @@ PostgreSQL Docker Container automatically runs `.sql` scripts in the `init/` Dir
 
 ### Users :
 - `postgres` - SuperUser (Default)
-- `nexus_app_user` - Application User with Full Privileges
-- `nexus_readonly` - Read-Only User for Reporting / Analytics
+- `pend_app_user` - Application User with Full Privileges
+- `pend_readonly` - Read-Only User for Reporting / Analytics
 
 ### Audit System :
 - Audit Log Ttable in `audit.change_log`
@@ -47,7 +47,7 @@ PostgreSQL Docker Container automatically runs `.sql` scripts in the `init/` Dir
 
 ### Development Environment (Current) :
 - Default Passwords are weak & for **Development Only**
-- Users : `nexus_app_user` / `nexus_readonly`
+- Users : `pend_app_user` / `pend_readonly`
 - Passwords : `app_user_pass_change_me` / `readonly_pass_change_me`
 
 ### Production Environment :
@@ -70,7 +70,7 @@ If you need to reset the database :
 docker-compose down -v
 
 # Remove Volumes (THIS DELETES ALL DATA)
-docker volume rm nexus-pend-boilerplate_postgres_data
+docker volume rm pend-boilerplate_postgres_data
 
 # Start Fresh
 docker-compose up -d postgres
@@ -84,10 +84,10 @@ If you need to run Scripts manually :
 
 ```bash
 # Connect to PostgreSQL Container
-docker exec -it nexus-pend-boilerplate-postgres-1 psql -U postgres -d nexus_pend
+docker exec -it pend-boilerplate-postgres-1 psql -U postgres -d pend
 
 # Run A Specific Script
-docker exec -i nexus-pend-boilerplate-postgres-1 psql -U postgres -d nexus_pend < database/init/01-init-database.sql
+docker exec -i pend-boilerplate-postgres-1 psql -U postgres -d pend < database/init/01-init-database.sql
 ```
 
 ## 📊 Verifying Setup
@@ -112,7 +112,7 @@ SELECT * FROM audit.change_log LIMIT 10;
 
 ```bash
 # Connect to PostgreSQL
-docker exec -it nexus_pend_postgres psql -U postgres -d nexus_pend
+docker exec -it pend_postgres psql -U postgres -d pend
 ```
 
 Inside PostgreSQL
@@ -133,7 +133,7 @@ Inside PostgreSQL
 \du
 
 -- Expected Output :
--- postgres, nexus_app_user, nexus_readonly ✅
+-- postgres, pend_app_user, pend_readonly ✅
 
 -- Check Audit Table Exists
 \dt audit.*
@@ -141,7 +141,7 @@ Inside PostgreSQL
 -- Expected Output :
 -- audit.change_log ✅
 
--- Verify Permissions for "nexus_app_user"
+-- Verify Permissions for "pend_app_user"
 \dp audit.change_log
 
 -- Expected Output :
@@ -149,8 +149,8 @@ Inside PostgreSQL
  Schema |    Name    | Type  |        Access privileges        | Column privileges | Policies 
 --------+------------+-------+---------------------------------+-------------------+----------
  audit  | change_log | table | postgres=arwdDxt/postgres      +|                   | 
-        |            |       | nexus_readonly=r/postgres      +|                   | 
-        |            |       | nexus_app_user=arwdDxt/postgres |                   | 
+        |            |       | pend_readonly=r/postgres      +|                   | 
+        |            |       | pend_app_user=arwdDxt/postgres |                   | 
 (1 row)
 
 -- Exit PostgreSQL
@@ -205,4 +205,4 @@ After Database Initialization :
 
 ---
 
-**Note** : These Scripts are designed for the NeXuS PEND boilerplate & it follows PostgreSQL Best Practices for Multi-Tenant Applications.
+**Note** : These Scripts are designed for the PEND boilerplate & it follows PostgreSQL Best Practices for Multi-Tenant Applications.

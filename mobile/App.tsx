@@ -4,10 +4,10 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to NeXuS PEND Mobile!</Text>
+      <Text style={styles.title}>Welcome to PEND Mobile!</Text>
       <Text style={styles.subtitle}>PostgreSQL - Expo - NextJS - Django</Text>
       <Text style={styles.description}>
-        NeXuS PEND Full-Stack Boilerplate for Building Modern Mobile Applications
+        PEND Full-Stack Boilerplate for Building Modern Mobile Applications
       </Text>
       <StatusBar style="auto" />
     </View>

@@ -100,8 +100,8 @@ Builds Production-Ready Docker Images and Assets.
 
 **Output** :
 
-- Backend : `nexus-pend-backend:{environment}`
-- Frontend : `nexus-pend-frontend:{environment}`
+- Backend : `pend-backend:{environment}`
+- Frontend : `pend-frontend:{environment}`
 - Static Files in Respective Directories
 
 ---
@@ -113,7 +113,7 @@ Builds Production-Ready Docker Images and Assets.
 ```bash
 # 1. Clone Repository
 git clone <repository-url>
-cd nexus-pend-boilerplate
+cd pend-boilerplate
 
 # 2. Run Setup Script (Installation of Dependencies & Startup of Database Services)
 chmod +x scripts/*.sh
@@ -121,7 +121,7 @@ chmod +x scripts/*.sh
 
 # 3. Configuration & Migration of Database
 #    a. Open "backend/.env" and update "DATABASE_URL" with Correct Credentials
-#    b. Run Migrations to create Database Tables : 
+#    b. Run Migrations to create Database Tables :
 cd backend
 source venv/bin/activate
 python manage.py migrate

@@ -13,8 +13,8 @@ body:
         Thank You for Suggesting A New Feature! We Appreciate Your Contribution to Improving the PEND Boilerplate.
 
         **Before Submitting** : 
-        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/nexus-pend-boilerplate/issues) & [Discussions](https://github.com/jeet-khondker/nexus-pend-boilerplate/discussions) to Ensure this hasn't been Suggested
-        - [ ] I have Discussed this Idea in [GitHub Discussions](https://github.com/jeet-khondker/nexus-pend-boilerplate/discussions/new?category=ideas)
+        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/pend-boilerplate/issues) & [Discussions](https://github.com/jeet-khondker/pend-boilerplate/discussions) to Ensure this hasn't been Suggested
+        - [ ] I have Discussed this Idea in [GitHub Discussions](https://github.com/jeet-khondker/pend-boilerplate/discussions/new?category=ideas)
         - [ ] This Feature Aligns with the Project's Goals & Scope
 
   - type: dropdown

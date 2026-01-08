@@ -44,8 +44,8 @@ If You're Contributing to Improve the Boilerplate Itself :
 1. **Clone the repository** :
 
    ```bash
-   git clone https://github.com/jeet-khondker/nexus-pend-boilerplate.git
-   cd nexus-pend-boilerplate
+   git clone https://github.com/jeet-khondker/pend-boilerplate.git
+   cd pend-boilerplate
    ```
 
 2. **Run Setup Script** :
@@ -1420,7 +1420,7 @@ When Creating a New Project from this Boilerplate :
 
 ```bash
 # Clone Boilerplate
-git clone https://github.com/jeet-khondker/nexus-pend-boilerplate.git my-new-project
+git clone https://github.com/jeet-khondker/pend-boilerplate.git my-new-project
 
 # Remove Original Git History
 cd my-new-project
@@ -1436,7 +1436,7 @@ git commit -m "chore : Initial Commit from PEND Stack Boilerplate"
 
 ```bash
 # 1. Update Project Name Throughout
-# Replace "nexus-pend-boilerplate" with Your Project Name
+# Replace "pend-boilerplate" with Your Project Name
 # Files to Update :
 # - README.md
 # - package.json

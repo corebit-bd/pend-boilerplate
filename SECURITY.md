@@ -73,7 +73,7 @@ Public Disclosure of Security Vulnerabilities can put Users At Risk. **Please Re
    - Affected Versions
    - Suggested Fix (If Available)
 
-**GitHub Security Advisory URL** : `https://github.com/[your-org]/nexus-pend-boilerplate/security/advisories/new`
+**GitHub Security Advisory URL** : `https://github.com/[your-org]/pend-boilerplate/security/advisories/new`
 
 ### 3. Alternative : Email Report
 
@@ -362,8 +362,8 @@ When a Security Vulnerability is confirmed :
 
 For Non-Security Questions :
 
-- **Issues** : [GitHub Issues](https://github.com/[your-org]/nexus-pend-boilerplate/issues)
-- **Discussions** : [GitHub Discussions](https://github.com/[your-org]/nexus-pend-boilerplate/discussions)
+- **Issues** : [GitHub Issues](https://github.com/[your-org]/pend-boilerplate/issues)
+- **Discussions** : [GitHub Discussions](https://github.com/[your-org]/pend-boilerplate/discussions)
 
 ---
 

@@ -13,8 +13,8 @@ body:
         Thank You for helping Improve Our Documentation! Clear Documentation is Essential for the Success of this Project.
 
         **Before Submitting** : 
-        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/nexus-pend-boilerplate/issues) to Ensure this hasn't been Reported
-        - [ ] I have Checked the [Documentation](https://github.com/jeet-khondker/nexus-pend-boilerplate/tree/main/documentation)
+        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/pend-boilerplate/issues) to Ensure this hasn't been Reported
+        - [ ] I have Checked the [Documentation](https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation)
 
   - type: dropdown
     id: issue-type

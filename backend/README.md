@@ -1,8 +1,8 @@
-# NeXuS PEND Backend - Django Application
+# PEND Backend - Django Application
 
 ## 📋 Overview
 
-The backend is built with Django 5.2 (LTS) and provides a robust, scalable foundation for the NeXuS PEND boilerplate. It implements a multi-tenant, headless architecture with support for REST, GraphQL, and FastAPI edge services.
+The backend is built with Django 5.2 (LTS) and provides a robust, scalable foundation for the PEND boilerplate. It implements a multi-tenant, headless architecture with support for REST, GraphQL, and FastAPI edge services.
 
 ## 🏗️ Architecture
 
@@ -146,7 +146,7 @@ python manage.py createsuperuser
 
 ```bash
 # Database
-DATABASE_URL=postgresql://nexus_app_user:your_password@localhost:5432/nexus_pend
+DATABASE_URL=postgresql://pend_app_user:your_password@localhost:5432/pend
 
 # Django
 SECRET_KEY=your-secret-key-here
@@ -550,7 +550,7 @@ python manage.py migrate
 python manage.py dumpdata > backup.json
 
 # Using PostgreSQL
-docker-compose exec postgres pg_dump -U postgres nexus_pend > backup.sql
+docker-compose exec postgres pg_dump -U postgres pend > backup.sql
 ```
 
 ### Restore Database
@@ -560,7 +560,7 @@ docker-compose exec postgres pg_dump -U postgres nexus_pend > backup.sql
 python manage.py loaddata backup.json
 
 # Using PostgreSQL
-docker-compose exec -T postgres psql -U postgres nexus_pend < backup.sql
+docker-compose exec -T postgres psql -U postgres pend < backup.sql
 ```
 
 ## 🐛 Troubleshooting
@@ -586,7 +586,7 @@ docker-compose up -d postgres
 
 ```bash
 # ✅ Solution : Update "DATABASE_URL" in ".env" with correct credentials
-# Default : postgresql://nexus_app_user:your_password@localhost:5432/nexus_pend
+# Default : postgresql://pend_app_user:your_password@localhost:5432/pend
 ```
 
 **❌ Issue : "CommandError: You must set `settings.ALLOWED_HOSTS`"**
@@ -631,4 +631,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 ## 📄 License
 
-NeXuS PEND Backend Wing
+PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.

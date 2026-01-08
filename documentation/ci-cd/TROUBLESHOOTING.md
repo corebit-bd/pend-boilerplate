@@ -91,7 +91,7 @@ Error : Codecov : Failed to properly upload report
 
 1. Go to https://codecov.io
 2. Click `Add new repository`
-3. Select `nexus-pend-boilerplate`
+3. Select `pend-boilerplate`
 4. Copy Token & Add to GitHub Secrets
 
 #### Option C : Skip Codecov (Not Recommended)
@@ -409,7 +409,7 @@ You Need To :
 ```bash
 # Run Migrations Manually
 ssh deploy@dev-server.com
-cd /opt/nexus-pend
+cd /opt/pend
 docker-compose exec backend python manage.py migrate
 ```
 
@@ -585,8 +585,8 @@ import { Button } from "@/components/ui/Button"; // Verify Correct Path
 
 ### Get Help
 
-- 💬 [GitHub Discussions](https://github.com/your-org/nexus-pend-boilerplate/discussions)
-- 🐛 [Report Bug](https://github.com/your-org/nexus-pend-boilerplate/issues/new)
+- 💬 [GitHub Discussions](https://github.com/your-org/pend-boilerplate/discussions)
+- 🐛 [Report Bug](https://github.com/your-org/pend-boilerplate/issues/new)
 - 📚 [GitHub Actions Documentation](https://docs.github.com/en/actions)
 
 ---

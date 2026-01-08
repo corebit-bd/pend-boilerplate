@@ -1,8 +1,8 @@
-# NeXuS PEND Frontend - NextJS Application
+# PEND Frontend - NextJS Application
 
 ## 📋 Overview
 
-The frontend is built with NextJS 16 and provides a modern, performant, and type-safe Web Application for the NeXuS PEND boilerplate. It implements a component-driven architecture with comprehensive testing, state management & design system integration.
+The frontend is built with NextJS 16 and provides a modern, performant, and type-safe Web Application for the PEND boilerplate. It implements a component-driven architecture with comprehensive testing, state management & design system integration.
 
 ## 🏗️ Architecture
 
@@ -776,10 +776,10 @@ vercel --prod
 
 ```bash
 # Build Production Image
-docker build -t nexus-frontend:latest .
+docker build -t pend-frontend:latest .
 
 # Run Container
-docker run -p 3000:3000 nexus-frontend:latest
+docker run -p 3000:3000 pend-frontend:latest
 ```
 
 **AWS / GCP / Azure** :
@@ -845,7 +845,7 @@ touch src/app/api/my-endpoint/route.ts
 # Add Route Handler
 # src/app/api/my-endpoint/route.ts
 export async function GET(request: Request) {
-  return Response.json({ data: "Hello from NeXuS" });
+  return Response.json({ data: "Hello from PEND" });
 }
 ```
 
@@ -1004,4 +1004,4 @@ npm run storybook -- --no-manager-cache
 
 ## 📄 License
 
-NeXuS PEND Frontend Wing
+PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.

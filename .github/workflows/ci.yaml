@@ -58,7 +58,7 @@ jobs:
       postgres:
         image: postgres:15-alpine
         env:
-          POSTGRES_DB: nexus_pend_test
+          POSTGRES_DB: pend_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         ports:
@@ -118,7 +118,7 @@ jobs:
 
       - name: Run Tests with Coverage
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/nexus_pend_test
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/pend_test
           REDIS_URL: redis://localhost:6379/0
           DJANGO_SETTINGS_MODULE: core.settings.development
           SECRET_KEY: test-secret-key-for-ci
@@ -482,7 +482,7 @@ jobs:
           context: ./backend
           file: ./backend/Dockerfile
           push: false
-          tags: nexus-pend-backend:${{ github.sha }}
+          tags: pend-backend:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
@@ -494,7 +494,7 @@ jobs:
           context: ./frontend
           file: ./frontend/Dockerfile
           push: false
-          tags: nexus-pend-frontend:${{ github.sha }}
+          tags: pend-frontend:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
@@ -566,7 +566,7 @@ jobs:
       postgres:
         image: postgres:15-alpine
         env:
-          POSTGRES_DB: nexus_pend_test
+          POSTGRES_DB: pend_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         ports:
@@ -614,7 +614,7 @@ jobs:
 
       - name: Start Backend Server
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/nexus_pend_test
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/pend_test
           REDIS_URL: redis://localhost:6379/0
           DJANGO_SETTINGS_MODULE: core.settings.development
           SECRET_KEY: test-secret-key-for-e2e

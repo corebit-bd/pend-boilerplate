@@ -2,7 +2,7 @@ services:
   # PostgreSQL Database Service
   postgres:
     image: postgres:${POSTGRES_VERSION}-alpine
-    container_name: nexus_pend_postgres
+    container_name: pend_postgres
     restart: unless-stopped
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
@@ -17,7 +17,7 @@ services:
       - ./database/init:/docker-entrypoint-initdb.d:ro # ✅ Initialization Scripts (Read-Only)
       - ./database/backups:/backups # ✅ Backup Directory
     networks:
-      - nexus_network
+      - pend_network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
       interval: 10s
@@ -27,7 +27,7 @@ services:
   # Redis Cache Service
   redis:
     image: redis:${REDIS_VERSION}-alpine
-    container_name: nexus_pend_redis
+    container_name: pend_redis
     restart: unless-stopped
     command: redis-server --appendonly yes
     ports:
@@ -35,7 +35,7 @@ services:
     volumes:
       - redis_data:/data
     networks:
-      - nexus_network
+      - pend_network
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       interval: 10s
@@ -49,7 +49,7 @@ services:
       dockerfile: Dockerfile
       args:
         - PYTHON_VERSION=${PYTHON_VERSION}
-    container_name: nexus_pend_backend
+    container_name: pend_backend
     restart: unless-stopped
     command: >
       sh -c "python manage.py migrate &&
@@ -93,7 +93,7 @@ services:
       redis:
         condition: service_healthy
     networks:
-      - nexus_network
+      - pend_network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health/"]
       interval: 30s
@@ -108,7 +108,7 @@ services:
       dockerfile: Dockerfile
       args:
         - NODE_VERSION=${NODE_VERSION}
-    container_name: nexus_pend_frontend
+    container_name: pend_frontend
     restart: unless-stopped
     ports:
       - "3000:3000"
@@ -126,7 +126,7 @@ services:
     depends_on:
       - backend
     networks:
-      - nexus_network
+      - pend_network
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000"]
       interval: 30s
@@ -141,7 +141,7 @@ services:
       dockerfile: Dockerfile
       args:
         - PYTHON_VERSION=${PYTHON_VERSION}
-    container_name: nexus_pend_celery_worker
+    container_name: pend_celery_worker
     restart: unless-stopped
     command: celery -A core worker --loglevel=info --concurrency=${CELERY_CONCURRENCY}
     volumes:
@@ -166,7 +166,7 @@ services:
       redis:
         condition: service_healthy
     networks:
-      - nexus_network
+      - pend_network
 
   # Celery Beat (Scheduled Tasks)
   celery_beat:
@@ -175,7 +175,7 @@ services:
       dockerfile: Dockerfile
       args:
         - PYTHON_VERSION=${PYTHON_VERSION}
-    container_name: nexus_pend_celery_beat
+    container_name: pend_celery_beat
     restart: unless-stopped
     command: celery -A core beat --loglevel=info
     volumes:
@@ -200,28 +200,28 @@ services:
       redis:
         condition: service_healthy
     networks:
-      - nexus_network
+      - pend_network
 
 # Named Volumes for Data Persistence
 volumes:
   postgres_data:
     driver: local
-    name: nexus_pend_postgres_data
+    name: pend_postgres_data
   redis_data:
     driver: local
-    name: nexus_pend_redis_data
+    name: pend_redis_data
   backend_static:
     driver: local
-    name: nexus_pend_backend_static
+    name: pend_backend_static
   backend_media:
     driver: local
-    name: nexus_pend_backend_media
+    name: pend_backend_media
 
 # Custom Bridge Network
 networks:
-  nexus_network:
+  pend_network:
     driver: bridge
-    name: nexus_pend_network
+    name: pend_network
     ipam:
       driver: default
       config:

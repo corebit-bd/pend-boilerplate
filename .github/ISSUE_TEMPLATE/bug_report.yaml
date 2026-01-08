@@ -13,10 +13,10 @@ body:
         Thank You for taking the time to Report a Bug! Please Fill Out the Information below to help us Understand & Resolve the Issue.
 
         **Before Submitting** : 
-        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/nexus-pend-boilerplate/issues) to Ensure this Bug hasn't been Reported
-        - [ ] I have Read the [Documentation](https://github.com/jeet-khondker/nexus-pend-boilerplate/tree/main/documentation)
-        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/jeet-khondker/nexus-pend-boilerplate/blob/main/documentation/ci-cd/TROUBLESHOOTING.md)
-        - [ ] This is NOT A Security Vulnerability (If It is, Use [Security Advisories](https://github.com/jeet-khondker/nexus-pend-boilerplate/security/advisories/new))
+        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/pend-boilerplate/issues) to Ensure this Bug hasn't been Reported
+        - [ ] I have Read the [Documentation](https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation)
+        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/jeet-khondker/pend-boilerplate/blob/main/documentation/ci-cd/TROUBLESHOOTING.md)
+        - [ ] This is NOT A Security Vulnerability (If It is, Use [Security Advisories](https://github.com/jeet-khondker/pend-boilerplate/security/advisories/new))
 
   - type: dropdown
     id: module

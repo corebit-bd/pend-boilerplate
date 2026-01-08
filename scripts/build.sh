@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# NeXuS PEND Boilerplate - Production Build Script
+# PEND Boilerplate - Production Build Script
 # Builds Production-Ready Docker Images & Assets in order to prepare for Deployment
 
 set -e  # Exit On Error
@@ -76,7 +76,7 @@ cleanup_docker() {
 
 # Function to Display Help
 show_help() {
-    print_header "NeXuS PEND Boilerplate - Build Script"
+    print_header "PEND Boilerplate - Build Script"
 
     echo ""
 
@@ -246,8 +246,8 @@ build_backend() {
         print_success "Static Files Collected"
 
         print_information "Building Docker Image..."
-        docker build -t nexus-pend-backend:$ENVIRONMENT .
-        print_success "Backend Docker Image Built : nexus-pend-backend:$ENVIRONMENT"
+        docker build -t pend-backend:$ENVIRONMENT .
+        print_success "Backend Docker Image Built : pend-backend:$ENVIRONMENT"
 
         cd ..
         echo ""
@@ -275,8 +275,8 @@ build_frontend() {
         print_success "NextJS Build Completed"
 
         print_information "Building Docker Image..."
-        docker build -t nexus-pend-frontend:$ENVIRONMENT .
-        print_success "Frontend Docker Image Built : nexus-pend-frontend:$ENVIRONMENT"
+        docker build -t pend-frontend:$ENVIRONMENT .
+        print_success "Frontend Docker Image Built : pend-frontend:$ENVIRONMENT"
 
         if [ -d ".next" ]; then
             print_success "Build Artifacts Created in '.next/'"
@@ -358,14 +358,14 @@ create_summary() {
 
     if [ "$BUILD_BACKEND" = true ]; then
         print_information "Backend : "
-        echo "  • Docker Image :  nexus-pend-backend:$ENVIRONMENT"
+        echo "  • Docker Image :  pend-backend:$ENVIRONMENT"
         echo "  • Static Files :  backend/staticfiles/"
         echo ""
     fi
 
     if [ "$BUILD_FRONTEND" = true ]; then
         print_information "Frontend : "
-        echo "  • Docker Image :     nexus-pend-frontend:$ENVIRONMENT"
+        echo "  • Docker Image :     pend-frontend:$ENVIRONMENT"
         echo "  • Build Artifacts :  frontend/.next/"
         echo "  • Storybook :        frontend/storybook-static/"
         echo ""
@@ -380,7 +380,7 @@ create_summary() {
 
     print_header "Docker Images"
     echo ""
-    docker images | grep nexus-pend || print_warning "No NeXuS PEND Images Found"
+    docker images | grep pend || print_warning "No PEND Images Found"
     echo ""
 
     print_header "Next Steps"
@@ -389,12 +389,12 @@ create_summary() {
     if [ "$ENVIRONMENT" = "production" ]; then
         print_information "Production Deployment : "
         echo "  1. Tag Images : "
-        echo "     docker tag nexus-pend-backend:production your-registry/nexus-pend-backend:latest"
-        echo "     docker tag nexus-pend-frontend:production your-registry/nexus-pend-frontend:latest"
+        echo "     docker tag pend-backend:production your-registry/pend-backend:latest"
+        echo "     docker tag pend-frontend:production your-registry/pend-frontend:latest"
         echo ""
         echo "  2. Push Images to Production Registry : "
-        echo "     docker push your-registry/nexus-pend-backend:latest"
-        echo "     docker push your-registry/nexus-pend-frontend:latest"
+        echo "     docker push your-registry/pend-backend:latest"
+        echo "     docker push your-registry/pend-frontend:latest"
         echo ""
         echo "  3. Deploy to Production Environment"
         echo ""
@@ -405,12 +405,12 @@ create_summary() {
     elif [ "$ENVIRONMENT" = "staging" ]; then
         print_information "Staging Deployment : "
         echo "  1. Tag Images : "
-        echo "     docker tag nexus-pend-backend:staging your-registry/nexus-pend-backend:staging"
-        echo "     docker tag nexus-pend-frontend:staging your-registry/nexus-pend-frontend:staging"
+        echo "     docker tag pend-backend:staging your-registry/pend-backend:staging"
+        echo "     docker tag pend-frontend:staging your-registry/pend-frontend:staging"
         echo ""
         echo "  2. Push Images to Staging Registry : "
-        echo "     docker push your-registry/nexus-pend-backend:staging"
-        echo "     docker push your-registry/nexus-pend-frontend:staging"
+        echo "     docker push your-registry/pend-backend:staging"
+        echo "     docker push your-registry/pend-frontend:staging"
         echo ""
         echo "  3. Deploy to Staging Environment"
         echo ""
@@ -443,7 +443,7 @@ create_summary() {
 
 # Main Function
 main() {
-    print_header "NeXuS PEND Boilerplate - Production Build"
+    print_header "PEND Boilerplate - Production Build"
     echo ""
 
     # Validate Environment

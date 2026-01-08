@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script for starting All Development Servers for NeXuS PEND Boilerplate
+# Script for starting All Development Servers for PEND Boilerplate
 
 set -e  # Exit On Error
 
@@ -185,7 +185,7 @@ trap cleanup INT TERM
 
 # Main Function
 main() {
-    print_header "NeXuS PEND Boilerplate - Development Startup"
+    print_header "PEND Boilerplate - Development Startup"
     echo ""
 
     # Check if Setup was Executed

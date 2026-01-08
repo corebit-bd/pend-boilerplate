@@ -1,4 +1,4 @@
--- PostgreSQL Initialization Script for NeXuS PEND Boilerplate
+-- PostgreSQL Initialization Script for PEND Boilerplate
 -- This Script runs automatically when PostgreSQL Container first starts
 
 -- Required Extensions

@@ -265,8 +265,8 @@ Community Impact Guidelines were Inspired by [Mozilla's Code of Conduct Enforcem
 
 ### General Project Contact
 
-- **Issues** : [GitHub Issues](https://github.com/jeet-khondker/nexus-pend-boilerplate/issues)
-- **Discussions** [GitHub Discussions](https://github.com/jeet-khondker/nexus-pend-boilerplate/discussions)
+- **Issues** : [GitHub Issues](https://github.com/jeet-khondker/pend-boilerplate/issues)
+- **Discussions** [GitHub Discussions](https://github.com/jeet-khondker/pend-boilerplate/discussions)
 - **Security** : See [SECURITY.md](SECURITY.md)
 
 ---

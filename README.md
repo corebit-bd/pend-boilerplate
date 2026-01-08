@@ -4,13 +4,13 @@
 
 A Production-Ready, Full-Stack Boilerplate with Multi-Tenant Architecture, Comprehensive CI / CD & Enterprise-Grade Security Patterns. Built for Rapid Scaffolding of New Projects.
 
-[![CI Status](https://github.com/jeet-khondker/nexus-pend-boilerplate/workflows/CI/badge.svg)](https://github.com/jeet-khondker/nexus-pend-boilerplate/actions)
+[![CI Status](https://github.com/jeet-khondker/pend-boilerplate/workflows/CI/badge.svg)](https://github.com/jeet-khondker/pend-boilerplate/actions)
 [![License : MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Security Policy](https://img.shields.io/badge/Security-Policy-blue.svg)](SECURITY.md)
-[![Vulnerabilities](https://img.shields.io/badge/Vulnerabilities-0-brightgreen.svg)](https://github.com/jeet-khondker/nexus-pend-boilerplate/security)
+[![Vulnerabilities](https://img.shields.io/badge/Vulnerabilities-0-brightgreen.svg)](https://github.com/jeet-khondker/pend-boilerplate/security)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![codecov](https://codecov.io/gh/jeet-khondker/nexus-pend-boilerplate/branch/main/graph/badge.svg)](https://codecov.io/gh/jeet-khondker/nexus-pend-boilerplate)
-[![Known Vulnerabilities](https://snyk.io/test/github/jeet-khondker/nexus-pend-boilerplate/badge.svg)](https://snyk.io/test/github/jeet-khondker/nexus-pend-boilerplate)
+[![codecov](https://codecov.io/gh/jeet-khondker/pend-boilerplate/branch/main/graph/badge.svg)](https://codecov.io/gh/jeet-khondker/pend-boilerplate)
+[![Known Vulnerabilities](https://snyk.io/test/github/jeet-khondker/pend-boilerplate/badge.svg)](https://snyk.io/test/github/jeet-khondker/pend-boilerplate)
 
 ---
 
@@ -146,8 +146,8 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/jeet-khondker/nexus-pend-boilerplate.git
-   cd nexus-pend-boilerplate
+   git clone https://github.com/jeet-khondker/pend-boilerplate.git
+   cd pend-boilerplate
    ```
 
 2. **Run Setup Script** :
@@ -204,7 +204,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 ## 📁 Project Structure
 
 ```
-nexus-pend-boilerplate/
+pend-boilerplate/
 ├── .github/
 │   ├── workflows/
 │   │   ├── ci.yaml              # Continuous Integration
@@ -483,7 +483,7 @@ This Boilerplate is **Template-Ready** for Creating New Projects. Follow these S
 **Option B : Manual Clone**
 
 ```bash
-git clone https://github.com/jeet-khondker/nexus-pend-boilerplate.git my-new-project
+git clone https://github.com/jeet-khondker/pend-boilerplate.git my-new-project
 cd my-new-project
 rm -rf .git
 git init
@@ -495,7 +495,7 @@ git commit -m "chore : Commited Initially from PEND Boilerplate"
 
 ```bash
 # 1. Update Project Name Throughout
-# Search & Replace "nexus-pend-boilerplate" with "your-project-name"
+# Search & Replace "pend-boilerplate" with "your-project-name"
 # Files to Update :
 # - README.md
 # - package.json (frontend, mobile)
@@ -823,7 +823,7 @@ Cost : $0 / Month ✅
 
 ### Pipeline Status
 
-[![CI Status](https://github.com/jeet-khondker/nexus-pend-boilerplate/workflows/CI/badge.svg)](https://github.com/jeet-khondker/nexus-pend-boilerplate/actions)
+[![CI Status](https://github.com/jeet-khondker/pend-boilerplate/workflows/CI/badge.svg)](https://github.com/jeet-khondker/pend-boilerplate/actions)
 
 **See Detailed Documentation** :
 

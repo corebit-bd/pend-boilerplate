@@ -2,7 +2,7 @@
 
 ## Overview
 
-Production-Ready Continuous Integration (CI) / Continuous Deployment (CD) Pipelines for the NeXuS PEND Stack Boilerplate.
+Production-Ready Continuous Integration (CI) / Continuous Deployment (CD) Pipelines for the PEND Stack Boilerplate.
 
 ### What's Included?
 
@@ -240,7 +240,7 @@ on:
 
 ### Check Status
 
-[![CI Pipeline](https://github.com/your-org/nexus-pend-boilerplate/workflows/CI%20Pipeline/badge.svg)](https://github.com/your-org/nexus-pend-boilerplate/actions)
+[![CI Pipeline](https://github.com/your-org/pend-boilerplate/workflows/CI%20Pipeline/badge.svg)](https://github.com/your-org/pend-boilerplate/actions)
 
 ### View Logs
 
@@ -318,8 +318,8 @@ See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
 
 ### Getting Support
 
-- 💬 [GitHub Discussions](https://github.com/your-org/nexus-pend-boilerplate/discussions)
-- 🐛 [Report Issues](https://github.com/your-org/nexus-pend-boilerplate/issues)
+- 💬 [GitHub Discussions](https://github.com/your-org/pend-boilerplate/discussions)
+- 🐛 [Report Issues](https://github.com/your-org/pend-boilerplate/issues)
 - 📧 Contact Maintainers
 
 ---

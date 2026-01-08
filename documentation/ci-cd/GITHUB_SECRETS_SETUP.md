@@ -464,8 +464,8 @@ EXPO_TOKEN
 
 ### Common Issues
 
-- Check [PEND Stack Discussions](https://github.com/your-org/nexus-pend-boilerplate/discussions)
-- Report Bugs in [Issues](https://github.com/your-org/nexus-pend-boilerplate/issues)
+- Check [PEND Stack Discussions](https://github.com/your-org/pend-boilerplate/discussions)
+- Report Bugs in [Issues](https://github.com/your-org/pend-boilerplate/issues)
 
 ---
 

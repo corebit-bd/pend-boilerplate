@@ -121,7 +121,7 @@ jobs:
       postgres:
         image: postgres:15-alpine
         env:
-          POSTGRES_DB: nexus_pend_test
+          POSTGRES_DB: pend_test
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         ports:
@@ -162,7 +162,7 @@ jobs:
 
       - name: Run Backend Tests
         env:
-          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/nexus_pend_test
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/pend_test
           REDIS_URL: redis://localhost:6379/0
           DJANGO_SETTINGS_MODULE: core.settings.development
           SECRET_KEY: test-secret-key-for-cd
@@ -299,18 +299,18 @@ jobs:
         run: |
           case "${{ needs.setup.outputs.environment }}" in
             development)
-              echo "app_url=https://dev.nexus-pend.example.com" >> $GITHUB_OUTPUT
-              echo "api_url=https://api-dev.nexus-pend.example.com" >> $GITHUB_OUTPUT
+              echo "app_url=https://dev.pend.example.com" >> $GITHUB_OUTPUT
+              echo "api_url=https://api-dev.pend.example.com" >> $GITHUB_OUTPUT
               echo "deploy_method=docker-compose" >> $GITHUB_OUTPUT
               ;;
             staging)
-              echo "app_url=https://staging.nexus-pend.example.com" >> $GITHUB_OUTPUT
-              echo "api_url=https://api-staging.nexus-pend.example.com" >> $GITHUB_OUTPUT
+              echo "app_url=https://staging.pend.example.com" >> $GITHUB_OUTPUT
+              echo "api_url=https://api-staging.pend.example.com" >> $GITHUB_OUTPUT
               echo "deploy_method=docker-compose" >> $GITHUB_OUTPUT
               ;;
             production)
-              echo "app_url=https://nexus-pend.example.com" >> $GITHUB_OUTPUT
-              echo "api_url=https://api.nexus-pend.example.com" >> $GITHUB_OUTPUT
+              echo "app_url=https://pend.example.com" >> $GITHUB_OUTPUT
+              echo "api_url=https://api.pend.example.com" >> $GITHUB_OUTPUT
               echo "deploy_method=kubernetes" >> $GITHUB_OUTPUT
               ;;
           esac
@@ -325,7 +325,7 @@ jobs:
           # Example : SSH to Server & Run docker-compose
 
           # ssh deploy@${{ steps.env-vars.outputs.app_url }} << "EOF"
-          #   cd /opt/nexus-pend
+          #   cd /opt/pend
           #   docker-compose pull
           #   docker-compose up -d
           #   docker-compose exec backend python manage.py migrate
@@ -398,14 +398,14 @@ jobs:
         run: |
           echo "🏥 Checking Backend API Health ... .. ."
           # Replace with Actual Health Check Endpoint
-          # curl -f https://api-${{ needs.setup.outputs.environment }}.nexus-pend.example.com/health || exit 1
+          # curl -f https://api-${{ needs.setup.outputs.environment }}.pend.example.com/health || exit 1
           echo "✅ Backend API Health Check would Run Here"
 
       - name: Health Check - Frontend
         run: |
           echo "🏥 Checking Frontend Health ... .. ."
           # Replace with Actual Health Check
-          # curl -f https://${{ needs.setup.outputs.environment }}.nexus-pend.example.com || exit 1
+          # curl -f https://${{ needs.setup.outputs.environment }}.pend.example.com || exit 1
           echo "✅ Frontend Health Check would Run Here"
 
       - name: Database Connection Test

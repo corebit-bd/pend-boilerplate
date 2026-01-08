@@ -304,8 +304,8 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 
 ```bash
 # Clone the Repository
-git clone https://github.com/yourusername/nexus-pend-boilerplate.git
-cd nexus-pend-boilerplate
+git clone https://github.com/yourusername/pend-boilerplate.git
+cd pend-boilerplate
 
 # Initial Setup (First Time Only)
 ./scripts/setup.sh
