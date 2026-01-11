@@ -4,7 +4,7 @@
 
 A Production-Ready, Full-Stack Boilerplate with Multi-Tenant Architecture, Comprehensive CI / CD & Enterprise-Grade Security Patterns. Built for Rapid Scaffolding of New Projects.
 
-[![CI Status](https://github.com/jeet-khondker/pend-boilerplate/workflows/CI/badge.svg)](https://github.com/jeet-khondker/pend-boilerplate/actions)
+[![CI Pipeline](https://github.com/jeet-khondker/pend-boilerplate/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/jeet-khondker/pend-boilerplate/actions/workflows/ci.yaml)
 [![License : MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Security Policy](https://img.shields.io/badge/Security-Policy-blue.svg)](SECURITY.md)
 [![Vulnerabilities](https://img.shields.io/badge/Vulnerabilities-0-brightgreen.svg)](https://github.com/jeet-khondker/pend-boilerplate/security)
@@ -25,7 +25,7 @@ A Production-Ready, Full-Stack Boilerplate with Multi-Tenant Architecture, Compr
 - [Development Workflow](#development-workflow)
 - [Scaffolding New Projects](#scaffolding-new-projects)
 - [Branch Protection](#branch-protection)
-- [CI / CD Pipeline](#cicd-pipeline)
+- [CI / CD Pipeline](#ci--cd-pipeline)
 - [Testing](#testing)
 - [Security](#security)
 - [Documentation](#documentation)
@@ -34,7 +34,7 @@ A Production-Ready, Full-Stack Boilerplate with Multi-Tenant Architecture, Compr
 
 ---
 
-## 🎯 Overview
+## Overview
 
 **PEND Boilerplate** is a Comprehensive, Production-Ready Foundation for Building Modern Full-Stack Applications. It combines Battle-Tested Technologies with Best Practices for Scalability, Security & Maintainability.
 
@@ -59,7 +59,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ---
 
-## ✨ Features
+## Features
 
 ### Core Capabilities
 
@@ -86,7 +86,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 
@@ -132,7 +132,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -201,7 +201,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 pend-boilerplate/
@@ -284,7 +284,7 @@ pend-boilerplate/
 
 ---
 
-## 🌿 Branch Naming Convention
+## Branch Naming Convention
 
 This Project uses a **Strict 13-Tag Branch Naming Convention** to maintain Organization & Trigger Appropriate CI / CD Workflows.
 
@@ -367,7 +367,7 @@ refactor/dave/auth-service-321
 
 ---
 
-## 🔄 Development Workflow
+## Development Workflow
 
 ### Git Flow
 
@@ -468,7 +468,7 @@ npm run type-check              # TypeScript Check
 
 ---
 
-## 🎨 Scaffolding New Projects
+## Scaffolding New Projects
 
 This Boilerplate is **Template-Ready** for Creating New Projects. Follow these Steps to Scaffold A New Application :
 
@@ -619,7 +619,7 @@ git push origin feature/yourname/initial-customization-1
 
 ---
 
-## 🛡️ Branch Protection
+## Branch Protection
 
 This Boilerplate uses **GitHub Rulesets** for Flexible, Scalable Branch Protection.
 
@@ -732,7 +732,7 @@ prodEnv: 2-3 Approvals (CODEOWNERS Enforced)
 
 ---
 
-## 🚀 CI / CD Pipeline
+## CI / CD Pipeline
 
 ### Continuous Integration (CI)
 
@@ -823,7 +823,7 @@ Cost : $0 / Month ✅
 
 ### Pipeline Status
 
-[![CI Status](https://github.com/jeet-khondker/pend-boilerplate/workflows/CI/badge.svg)](https://github.com/jeet-khondker/pend-boilerplate/actions)
+[![CI Pipeline](https://github.com/jeet-khondker/pend-boilerplate/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/jeet-khondker/pend-boilerplate/actions/workflows/ci.yaml)
 
 **See Detailed Documentation** :
 
@@ -833,7 +833,7 @@ Cost : $0 / Month ✅
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Coverage Requirements
 
@@ -905,7 +905,7 @@ Access : http://localhost:6006
 
 ---
 
-## 📚 Documentation
+## Documentation
 
 ### Project Documentation
 
@@ -938,7 +938,7 @@ Access : http://localhost:6006
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome Contributions! This Boilerplate is Designed to be improved by the Community.
 
@@ -1023,7 +1023,7 @@ See **[CONTRIBUTING.md](CONTRIBUTING.md)** for :
 
 ---
 
-## 📄 License
+## License
 
 This Project is Licensed under the MIT License - See the [LICENSE](LICENSE) File for Details.
 
@@ -1031,7 +1031,7 @@ This Project is Licensed under the MIT License - See the [LICENSE](LICENSE) File
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Django & Django REST Framework Teams
 - NextJS & ReactJS Teams
@@ -1040,7 +1040,7 @@ This Project is Licensed under the MIT License - See the [LICENSE](LICENSE) File
 
 ---
 
-## 📞 Support
+## Support
 
 ### Issues & Questions
 
@@ -1050,7 +1050,7 @@ This Project is Licensed under the MIT License - See the [LICENSE](LICENSE) File
 
 ---
 
-## 🔒 Security
+## Security
 
 Security is a Top Priority for the PEND Boilerplate. We have implemented Multiple Layers of Security & Follow Industry Best Practices.
 
@@ -1090,7 +1090,7 @@ See [documentation/ci-cd/TROUBLESHOOTING.md](documentation/ci-cd/TROUBLESHOOTING
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] Add Redis Caching Examples
 - [ ] Implement WebSocket Support
