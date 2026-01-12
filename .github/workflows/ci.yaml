@@ -157,17 +157,25 @@ jobs:
           cache: "npm"
           cache-dependency-path: frontend/package-lock.json
 
-      - name: Cache Node Modules
+      # 1. Cache Frontend Dependencies (Changes ONLY When "package-lock.json" Changes)
+      - name: Cache Frontend Dependencies
         uses: actions/cache@v4
         with:
           path: |
             ~/.npm
             frontend/node_modules
-            frontend/.next/cache
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('frontend/package-lock.json') }}
+          key: ${{ runner.os }}-node-deps-${{ hashFiles('frontend/package-lock.json') }}
+
+      # 2. Cache NextJS Build (Changes Every Push - Let this be Evicted Often)
+      - name: Cache NextJS Build
+        uses: actions/cache@v4
+        with:
+          path: frontend/.next/cache
+          # Include the Commit SHA so it creates a new Cache,
+          # But Restore from the previous one to keep Builds fast.
+          key: ${{ runner.os }}-nextjs-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-nextjs-
 
       - name: Install Dependencies
         run: |
