@@ -107,7 +107,25 @@ Comment Out in `.github/workflows/ci.yml` :
 
 ---
 
-## 4. Chromatic Deployment Fails
+## 4. GitHub Actions Cache Limit (10GB)
+
+### ❌ Issue
+
+Workflow Fails / Displays A Warning ⚠️ : `Approaching total cache storage limit (9.81 GB of 10 GB used)`.
+
+### ✅ Solution
+
+The Boilerplate uses a **Layered Caching Strategy** to prevent this. If you are still hitting the limit : 
+
+1. **Manual Cleanup** : Go to `Actions` → `Caches` & delete Caches from old feature branches / merged PRs.
+2. **Key Optimization** : Ensure your `ci.yaml` separates Static Dependencies (`node_modules`) from Dynamic Build Artifacts (`.next/cache`).
+3. **Eviction Policy** : GitHub automatically deletes the oldest caches when the 10GB limit is hit. This is normal and will not break your Build, but it may cause a one-time slowdown (5 - 10 Minutes) while the Cache is recreated.
+
+**Reference** : [GitHub Cache Usage Limits](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows#usage-limits-and-eviction-policy)
+
+---
+
+## 5. Chromatic Deployment Fails
 
 ### ❌ Issue
 
@@ -145,7 +163,7 @@ Comment Out Job in `.github/workflows/ci.yml` :
 
 ---
 
-## 5. Mobile Builds Fail
+## 6. Mobile Builds Fail
 
 ### ❌ Issue
 
@@ -188,7 +206,7 @@ If Not Using Mobile : Comment Out in `.github/workflows/ci.yml`
 
 ---
 
-## 6. Docker Build Fails
+## 7. Docker Build Fails
 
 ### ❌ Issue
 
@@ -248,7 +266,7 @@ Validate Dockerfile :
 
 ---
 
-## 7. Tests Pass Locally But Fail in CI
+## 8. Tests Pass Locally But Fail in CI
 
 ### ❌ Issue
 
@@ -304,7 +322,7 @@ env:
 
 ---
 
-## 8. PR Checks Required But Missing
+## 9. PR Checks Required But Missing
 
 ### ❌ Issue
 
@@ -334,7 +352,7 @@ All CI Jobs MUST Complete (Can Take 10 to 15 Minutes)
 
 ---
 
-## 9. Workflow Not Found Error
+## 10. Workflow Not Found Error
 
 ### ❌ Issue
 
@@ -377,7 +395,7 @@ YAML is Sensitive to Indentation :
 
 ---
 
-## 10. Deployment Fails
+## 11. Deployment Fails
 
 ### ❌ Issue
 
@@ -425,7 +443,7 @@ sudo apt-get install docker-compose
 
 ---
 
-## 11. E2E Tests Fail in CI
+## 12. E2E Tests Fail in CI
 
 ### ❌ Issue
 
@@ -468,7 +486,7 @@ e2e-tests:
 
 ---
 
-## 12. Coverage Upload Partial
+## 13. Coverage Upload Partial
 
 ### ❌ Issue
 
@@ -504,7 +522,7 @@ Check Paths in Workflow :
 
 ---
 
-## 13. Storybook Build Fails
+## 14. Storybook Build Fails
 
 ### ❌ Issue
 
@@ -554,6 +572,7 @@ import { Button } from "@/components/ui/Button"; // Verify Correct Path
    - Click Failed Workflow
    - Expand Failed Jobs
    - Read Error Messages Carefully
+   - Check the **"Post-Run"** Steps in the Logs to see if a new Cache was saved / if an existing one was used.
 
 2. **Run Locally**
 
@@ -602,10 +621,11 @@ Before Pushing to CI, Verify :
 - [ ] Branch Naming Convention Followed
 - [ ] Commit Messages Follow Format
 - [ ] Pull Request (PR) Template Filled Out
+- [ ] Cache Storage Checked (`Actions` > `Caches`) if Build times are slow
 
 **This Prevents 90% of CI Failures!**
 
 ---
 
-**Last Updated:** December 2025
-**Version:** 1.0.0
+**Last Updated:** January 2026
+**Version:** 1.0.1 (Infrastructure Optimized)

@@ -19,6 +19,7 @@ body:
         - [ ] I have Searched [Discussions](https://github.com/jeet-khondker/pend-boilerplate/discussions)
         - [ ] I have Checked the [Documentation](https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation)
         - [ ] I have Read the [FAQ](https://github.com/jeet-khondker/pend-boilerplate/blob/main/README.md) (If Available)
+        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation/ci-cd/TROUBLESHOOTING.md) (Including the 10GB Cache Limit Section)
 
   - type: dropdown
     id: category
@@ -145,7 +146,7 @@ body:
         - Docker : 24.0.6
         - Python : 3.13
         - Node : 20.10
-        - PEND Version : `main` Branch / Commit `abc123`
+        - PEND Version : `main` Branch / v1.0.1
 
   - type: checkboxes
     id: actions

@@ -141,7 +141,7 @@ body:
       placeholder: |
         - Branch : [Example : main, devEnv]
         - Commit Hash : [Example : abc123def]
-        - Version Number: [Example : 1.0.0]
+        - Version Number : [Example : 1.0.1 (Infrastructure Optimized)]
     validations:
       required: true
 

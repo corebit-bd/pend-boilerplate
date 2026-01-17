@@ -1066,7 +1066,7 @@ If you discover a Security Vulnerability, Please Follow Our [Security Policy](SE
 - ✅ Role-Based Access Control (RBAC)
 - ✅ SQL Injection Protection via Django ORM
 - ✅ CSRF & XSS Protection
-- ✅ Automated Security Scanning in CI / CD
+- ✅ Automated Security Scanning & Storage-Optimized CI / CD Caching
 - ✅ Dependency Vulnerability Scanning
 - ✅ Secure Password Hashing (`PBKDF2-SHA256`)
 - ✅ Audit Logging for Security Events
@@ -1088,6 +1088,12 @@ All Documentation is in the `/documentation` Folder & Component README Files.
 
 See [documentation/ci-cd/TROUBLESHOOTING.md](documentation/ci-cd/TROUBLESHOOTING.md) for Common CI / CD Issues.
 
+**⚡ Storage Optimization** : This Boilerplate uses A **Layered Caching Strategy**. 
+- **Dependency Layer** : Only Updates when `package-lock.json` Changes.
+- **Build Layer** : Updates Per Commit but restores from the last successful build.
+
+This ensures we stay within GitHub's 10GB limit while maintaining fast build speeds.
+
 ---
 
 ## Roadmap
@@ -1100,7 +1106,7 @@ See [documentation/ci-cd/TROUBLESHOOTING.md](documentation/ci-cd/TROUBLESHOOTING
 - [ ] Create Example Multi-Tenant Implementations
 - [ ] Add Internationalization (i18n) Examples
 - [ ] Implement Advanced Security Patterns
-- [ ] Add Performance Optimization Guides
+- [x] Add Performance Optimization Guides (CI / CD Caching Layering)
 - [ ] Create Video Tutorials
 
 ---

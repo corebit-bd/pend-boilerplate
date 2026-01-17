@@ -529,7 +529,7 @@ jobs:
           format: "table"
           severity: "CRITICAL,HIGH"
           exit-code: "1"
-          args: "--vex repo --show-suppressed"
+          trivy-args: "--vex repo --show-suppressed"
 
       - name: Generate SARIF Report (For Future Public Use)
         uses: aquasecurity/trivy-action@master
