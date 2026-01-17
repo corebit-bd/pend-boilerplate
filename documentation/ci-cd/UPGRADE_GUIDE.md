@@ -16,12 +16,16 @@ This Guide Covers the Process for Upgrading Major Framework Versions (Django, Ne
 - Python Version (Example : 3.12 → 3.13)
 - Major Backend Dependencies
 
+**⚠️ Note** : Upgrading Major Dependencies will trigger a new **Static Dependency Cache** layer in CI / CD. Monitor Storage Usage in GitHub Actions to ensure the 10GB Limit isn't exceeded during the transition.
+
 ### 2. Frontend Upgrades
 
 - NextJS Version (Example : 15 → 16)
 - ReactJS Version
 - NodeJS Version
 - Major Frontend Dependencies
+
+**⚠️ Note** : Upgrading Major Dependencies will trigger a new **Static Dependency Cache** layer in CI / CD. Monitor Storage Usage in GitHub Actions to ensure the 10GB Limit isn't exceeded during the transition.
 
 ### 3. Database Upgrades
 
@@ -144,6 +148,8 @@ echo "✅ Backup Created : backup/pre-django5-$DATE"
 git tag -a v1.0.0-pre-django5-upgrade -m "Version Before Django 5 Upgrade"
 git push origin v1.0.0-pre-django5-upgrade
 ```
+
+- **Environment Snapshot** : Tagging creates a permanent reference point. If the upgrade causes Cache corruption / Storage overflow in CI / CD, you can easily identify which cache keys belonged to the stable `v1.0.0` Environment.
 
 #### Step 4 : Document Backup
 
@@ -269,6 +275,8 @@ import { useRouter } from "next/router";
 import { useRouter } from "next/navigation";
 ```
 
+- **Cache Integrity Check** : After fixing code, verify that the new Build does not cause the `.next/cache` (Dynamic Layer) to grow exponentially, which could trigger the 10GB GitHub Storage Limit.
+
 #### Step 4 : Run Tests Locally
 
 ```bash
@@ -376,6 +384,7 @@ git push origin chore/upgrade/backend
 - [ ] Updated Dockerfile
 - [ ] Updated CI / CD Workflows
 - [ ] Updated Documentation
+- [ ] Updated CI / CD Workflows (Optimized for 10GB Cache Limit)
 
 ### Testing Completed
 
@@ -385,6 +394,8 @@ git push origin chore/upgrade/backend
 - [ ] Backward Compatibility Verified
 - [ ] Performance Testing (No Regression)
 - [ ] Security Scan Passed
+- [ ] Layered Cache Audit (Verified Separate Dependency vs. Build Layers)
+- [ ] Storage Usage Verified (Total Repository Cache < 10GB)
 
 ### Migration Guide
 
@@ -448,6 +459,7 @@ CI will Automatically :
 - ✅ Validate Breaking Changes Documented
 - ✅ Security Scans
 - ⚠️ Add Warning Comment About Upgrade
+- ✅ Storage Audit : Ensure new Cache Layers do not exceed the 10GB Free Tier Limit.
 
 #### Manual Testing Checklist
 
@@ -723,7 +735,7 @@ Copy this for Each Upgrade :
 ## Testing
 
 - [ ] CI Passes
-- [ ] Code Reviewed (2+ Approvals)
+- [ ] Cache Storage Audit (Verify < 10GB Total Usage)
 - [ ] Deployed to `devEnv`
 - [ ] Tested in `devEnv` (2+ Days)
 - [ ] No Critical Issues Found
@@ -766,6 +778,7 @@ Copy this for Each Upgrade :
 5. Deploy during Low-Traffic Hours
 6. Monitor Closely After Deployment
 7. Keep Upgrade Branch Until Confirmed Stable
+8. Audit GitHub Actions Cache Storage (Actions > Caches) after Major Dependency Shifts.
 
 ### DON'Ts ❌
 
@@ -776,6 +789,7 @@ Copy this for Each Upgrade :
 5. Ignore Deprecation Warnings
 6. Delete Backup Branches Prematurely
 7. Auto-Merge Upgrade PRs
+8. Ignore **Approaching Storage Limit** Warnings; Manually Delete Old Branch Caches to maintain Free Tier Compliance.
 
 ---
 
@@ -796,5 +810,5 @@ Copy this for Each Upgrade :
 
 ---
 
-**Last Updated** : December 2025
-**Version** : 1.0.0
+**Last Updated** : January 2026
+**Version** : 1.0.1 (Infrastructure Optimized)

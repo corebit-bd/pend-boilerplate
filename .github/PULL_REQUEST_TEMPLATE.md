@@ -52,6 +52,7 @@
 - [ ] ✅ Test Updates
 - [ ] 🔧 Configuration / Build Changes
 - [ ] 🔒 Security Fix
+- [ ] 🏗️ **Infrastructure / CI / CD Optimization** (*Example* : Caching Strategy, Workflow Updates)
 
 ---
 
@@ -114,6 +115,7 @@ Coverage : XX%
 - [ ] I have Commented My Code, Particularly in Hard-To-Understand Areas
 - [ ] My Changes Generate No New Warnings / Errors
 - [ ] I have Removed Any `console.log`s / Debug Code
+- [ ] **GitHub Actions Cache Audit** : I have verified that Total Cache Usage is < 10GB & Layered Caching is functioning.
 
 #### Testing
 
@@ -148,6 +150,7 @@ Coverage : XX%
 - [ ] No Unnecessary Database Queries / API Calls
 - [ ] Images / Assets are Optimized (If Applicable)
 - [ ] No Memory Leaks Introduced
+- [ ] No unnecessary Cache bloat introduced (*Example* : Large Binaries or temporary artifacts committed)
 
 ---
 
@@ -179,6 +182,7 @@ Coverage : XX%
 - [ ] No Security Vulnerabilities Introduced
 - [ ] Performance Implications are Acceptable
 - [ ] Breaking Changes are Clearly Documented
+- [ ] CI / CD Cache Storage Impact has been considered & audited
 
 ---
 

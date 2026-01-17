@@ -1402,6 +1402,13 @@ describe("Button", () => {
 - ❌ Ignore Failing Tests
 - ❌ Test Private Methods Directly
 
+### Testing Standards
+
+- **Coverage** : Maintain at least 80% Test Coverage for new features.
+- **Passing** : All Existing Tests must pass before a PR is considered.
+- **Environment** : Tests must pass in both Local & CI Environments.
+- **Cache Integrity** : Ensure Any Changes to Build Scripts / Dependency Files do not significantly increase the Cache Footprint beyond the 10GB GitHub Limit. 🚀
+
 ## Scaffolding New Projects
 
 ### Using This Boilerplate as a Template
@@ -1674,6 +1681,7 @@ Use this Checklist when Scaffolding :
 6. **Special Branches** : `backup/*` (Immutable), `chore/upgrade/*` (Enhanced Validation)
 7. **Testing** : 80%+ Coverage, All Tests Must Pass
 8. **Scaffolding** : Template-Ready, Customize & Deploy
+9. **CI/CD Efficiency** : When modifying `ci.yaml` / `package-lock.json`, ensure you do not break the Layered Caching Strategy (Separating Dependencies from Build Artifacts).
 
 ---
 

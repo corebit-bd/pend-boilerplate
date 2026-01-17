@@ -5,6 +5,17 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-01-12
+
+### 🚀 Optimized
+
+- **CI / CD Cache Strategy** : Decoupled Static Dependencies (`node_modules`) from Dynamic Build Artifacts (`.next/cache`) to improve Storage Efficiency.
+- **Cache Lifecycle** : Implemented Commit-Specific Keys for Build Artifacts to ensure Clean Deployments without bloat.
+
+### 🛡️ Fixed
+
+- Resolved GitHub Actions **Approaching Total Cache Storage Limit**"** (10GB) by implementing A Layered Caching Strategy in `ci.yaml`.
+
 ## [1.0.0] - December 31, 2025
 
 ### 🎉 Initial Release - Production Ready

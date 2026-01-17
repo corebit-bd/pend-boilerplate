@@ -34,6 +34,7 @@ The PEND Boilerplate includes several Built-In Security Features :
 - ✅ **Rate Limiting** on Authentication Endpoints
 - ✅ **Audit Logging** for Security-Relevant Events
 - ✅ **Environment Variable Protection** (No Secrets in Code)
+- ✅ **CI / CD Resource Management** : Storage-Optimized Caching to prevent Pipeline Degradation & ensure High Availability ofAautomated Security Scans.
 
 ### Frontend Security
 
@@ -372,6 +373,7 @@ For Non-Security Questions :
 ### Security Policy Updates
 
 - **v1.0** (December 30, 2025) - Initial Security Policy
+- **v1.1** (January 12, 2026) - Added Infrastructure Availability Patterns (CI / CD Cache Optimization).
 
 ---
 

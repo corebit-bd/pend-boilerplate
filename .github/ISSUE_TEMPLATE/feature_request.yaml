@@ -15,6 +15,7 @@ body:
         **Before Submitting** : 
         - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/pend-boilerplate/issues) & [Discussions](https://github.com/jeet-khondker/pend-boilerplate/discussions) to Ensure this hasn't been Suggested
         - [ ] I have Discussed this Idea in [GitHub Discussions](https://github.com/jeet-khondker/pend-boilerplate/discussions/new?category=ideas)
+        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation/ci-cd/TROUBLESHOOTING.md) (Including the 10GB Cache Limit Section)
         - [ ] This Feature Aligns with the Project's Goals & Scope
 
   - type: dropdown
@@ -210,6 +211,7 @@ body:
       label: Suggested Timeline
       description: When would You like to see this Implemented?
       placeholder: |
+        - Next Patch Release (v1.0.2)
         - Next Minor Release (v1.1.0)
         - Next Major Release (v2.0.0)
         - No Rush, When Convenient

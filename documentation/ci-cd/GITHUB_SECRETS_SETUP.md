@@ -408,6 +408,9 @@ User Feature Branch [test/username/verify-ci-cd]
 | **Chromatic**      | ✅ FREE (5000 Snapshots) | $149/Month                              |
 | **Expo**           | ✅ FREE (Limited)        | $29/Month                               |
 | **GitHub Actions** | ✅ 2,000 Minutes/Month   | 3,000 min/month (Included in Team Plan) |
+| **Actions Cache Storage** | ✅ 10GB (Managed)   | 10GB - 100GB (Plan Dependent) |
+
+**Cost Optimization** : To maintain the $0 / Month Infrastructure Cost, this Boilerplate implements a Layered Caching Strategy in `ci.yml`. This automatically manages the 10GB Storage Limit by separating Large Static Dependencies from frequently changing Build Artifacts, preventing **Cache Bloat** & ensuring High Availability of your CI / CD Pipelines.
 
 **Total Monthly Cost (If All Paid)** :
 
@@ -434,7 +437,7 @@ After Setting Up Secrets:
 
 ### Workflow Files
 
-- CI Pipeline : `.github/workflows/ci.yml`
+- CI Pipeline : `.github/workflows/ci.yml` (Includes Storage-Optimized Layered Caching)
 - CD Pipeline : `.github/workflows/cd.yml`
 
 ### Secret Names (Copy-Paste Ready)
@@ -470,3 +473,5 @@ EXPO_TOKEN
 ---
 
 **🎉 Once Secrets are Configured, Your CI / CD Pipeline is Ready to Run 🚀**
+
+**PEND Boilerplate Version** : 1.0.1 (Infrastructure Optimized)

@@ -8,7 +8,7 @@ Production-Ready Continuous Integration (CI) / Continuous Deployment (CD) Pipeli
 
 - ✅ **CI Pipeline** : Automated Testing on Every PR & Push
 - ✅ **CD Pipeline** : Automated Deployment to Development / Staging / Production Environments
-- ✅ **Cost Optimization** : Hybrid Strategy stays within Free Tier
+- ✅ Cost Optimization : Hybrid Strategy & Layered Caching (10GB Limit Management)
 - ✅ **Security Scans** : Trivy, `npm audit`, Safety Checks
 - ✅ **Multiple Quality Gates** : 7 Validation Points before Production Deployment
 
@@ -185,6 +185,15 @@ chore/upgrade/database    # PostgreSQL Upgrade
 
 **Duration** : ~9-17 Minutes Per Execution
 
+#### 📦 Layered Caching Strategy
+
+To stay within the 10GB GitHub Actions Storage Limit, the Pipeline uses a Decoupled Caching Approach : 
+
+- **Primary Cache** : `node_modules` & Global Binaries (Keyed by `package-lock.json`).
+- **Secondary Cache** : `.next/cache` & Build Artifacts (Keyed by Commit SHA).
+
+*This prevents frequent Build Updates from bloating the total Storage & triggering Premature Cache Eviction.*
+
 ### CD Pipeline (Continuous Deployment)
 
 **On Push to `devEnv` / `stagingEnv` / `prodEnv`** :
@@ -329,7 +338,7 @@ See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
 **You Now Have** :
 
 - ✅ Production-Ready CI / CD Pipelines
-- ✅ Cost-Optimized Testing Strategy
+- ✅ Cost-Optimized Testing & Storage Strategy
 - ✅ Multiple Quality Gates
 - ✅ Automated Deployments
 - ✅ Security Scans
@@ -341,6 +350,6 @@ See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
 
 ---
 
-**Last Updated** : December 2025
-**Pipeline Version** : 1.0.0  
+**Last Updated** : January 2026
+**Pipeline Version** : 1.0.1 (Infrastructure Optimized)  
 **Status** : Production-Ready ✅

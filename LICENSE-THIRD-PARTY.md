@@ -329,6 +329,12 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 - **Website** : https://www.python.org/
 - **License URL** : https://docs.python.org/3/license.html
 
+### GitHub Actions (Standard Service Terms)
+
+- **Usage Context** : CI / CD Automation
+- **Optimization** : Layered Caching implemented to remain within the 10GB Free Tier.
+- **Reference** : https://docs.github.com/en/site-policy/github-terms/github-terms-of-service
+
 ---
 
 ## License Texts
@@ -469,7 +475,7 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : December 30, 2025  
-**PEND Boilerplate Version** : 1.0.0
+**Last Updated** : January 17, 2026
+**PEND Boilerplate Version** : 1.0.1 (Infrastructure Optimized)
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.

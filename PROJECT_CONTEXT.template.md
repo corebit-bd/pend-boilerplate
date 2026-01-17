@@ -479,11 +479,12 @@ git revert [commit-hash]
 
 ## 🔄 Document Version History
 
-| Version | Date           | Changes                                   | Updated By |
-| ------- | -------------- | ----------------------------------------- | ---------- |
-| 0.1.0   | `[YYYY-MM-DD]` | Initial Scaffolding from PEND Boilerplate | `[Name]`   |
-| 0.2.0   | `[YYYY-MM-DD]` | Added Payment Integration                 | `[Name]`   |
-| 0.3.0   | `[YYYY-MM-DD]` | Added Shipping Module                     | `[Name]`   |
+| Version | Date           | Changes                                   | Updated By     |
+| ------- | -------------- | ----------------------------------------- | -------------- |
+| 0.1.0   | `[YYYY-MM-DD]` | Initial Scaffolding from PEND Boilerplate | `[Name]`       |
+| 0.2.0   | `[YYYY-MM-DD]` | Added Payment Integration                 | `[Name]`       |
+| 0.3.0   | `[YYYY-MM-DD]` | Added Shipping Module                     | `[Name]`       |
+| 1.0.1   | 2026-01-12     | Optimized CI / CD Caching for 10GB Limit  | @jeet-khondker |
 
 ---
 
@@ -502,6 +503,7 @@ Key Context :
 - [One-Sentence Project Description]
 - [Current Major Feature being Developed]
 - [Any Critical Issues / Blockers]
+- Infrastructure : Uses Layered GitHub Actions Caching ("node_modules" vs ".next/cache").
 
 Question : [Your Actual Question Here]
 ```

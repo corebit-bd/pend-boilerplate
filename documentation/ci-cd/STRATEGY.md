@@ -2,7 +2,7 @@
 
 ## 🎯 Cost-Optimized Testing Approach
 
-This Boilerplate uses a **Hybrid Testing Strategy** to stay within GitHub's Free Tier (2,000 Minutes / Month) while Maintaining Professional Code Quality Standards.
+This Boilerplate uses a **Hybrid Testing Strategy** to stay within GitHub's Free Tier (2,000 Minutes / Month & 10GB Cache Storage) while Maintaining Professional Code Quality Standards.
 
 ## 🔄 Git Workflow Integration
 
@@ -47,6 +47,18 @@ This Boilerplate uses a **Hybrid Testing Strategy** to stay within GitHub's Free
 - **`revert/`** : Undoing the Changes made by a Previous Commit
 
 - **`miscellaneous/`** : Use for anything that does not clearly fall into any of the previous categories
+
+### 📦 Cache Management Strategy (Storage Optimization)
+
+To prevent reaching the 10GB GitHub Actions Storage Limit, we use a **Layered Caching Approach**. 
+
+#### The Strategy
+
+- **Dependency Layer (Static)** : Caches `node_modules` & Python Packages. This only updates when `package-lock.json` / `requirements.txt` changes.
+
+- **Build Layer (Dynamic)** : Caches `.next/cache`. This updates on every commit but is isolated so it doesn't force a re-upload of the much larger Dependency Layer.
+
+**Benefit** : This reduces redundant data uploads by ~60% & ensures that **Cache Eviction** doesn't delete your core dependencies, keeping builds consistently fast.
 
 ### Special Maintenance Branches
 
@@ -491,6 +503,7 @@ Track Your GitHub Actions Usage :
 1. Go to `Settings` → `Billing` → `Actions`
 2. View Current Usage & Limits
 3. Set Up Spending Limits (Optional)
+4. Go to `Actions` → `Caches` to monitor Total Storage Usage & Manual Eviction if necessary.
 
 **Pro Tip** : Enable Email Notifications When You Reach 75% of Your Limit.
 
@@ -505,5 +518,6 @@ Track Your GitHub Actions Usage :
 | Production Safety   | ✅     | 3+ Test Gates          |
 | Cost Conscious      | ✅     | Smart Optimization     |
 | Easily Upgradeable  | ✅     | One-Line Change        |
+| Storage Optimized  | ✅     | Layered Cache (< 10GB)        |
 
 **🚀 Bottom Line** : Professional CI / CD that Respects Your Budget 💰
