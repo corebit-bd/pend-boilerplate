@@ -524,7 +524,7 @@ jobs:
         with:
           scan-type: "fs"
           scan-ref: "."
-          format: "table"git 
+          format: "table"
           severity: "CRITICAL,HIGH"
           exit-code: "1"
 
