@@ -10,6 +10,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Upgraded
 
 - **Backend** : `pytest` Requirement Updated to allow 9.x (`>=8.4.2,<10.0`).
+- **Mobile** : `@reduxjs/toolkit` Bumped from `2.10.1` to `2.11.2` (BugFix Release - ReactJS Native `AbortSignal` / `DOMException` Compatibility).
 
 ## [1.0.1] - January 12, 2026
 
@@ -20,7 +21,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 🛡️ Fixed
 
-- Resolved GitHub Actions **Approaching Total Cache Storage Limit**"** (10GB) by implementing A Layered Caching Strategy in `ci.yaml`.
+- Resolved GitHub Actions **Approaching Total Cache Storage Limit**"\*\* (10GB) by implementing A Layered Caching Strategy in `ci.yaml`.
 
 ## [1.0.0] - December 31, 2025
 
