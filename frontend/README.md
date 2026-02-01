@@ -956,7 +956,7 @@ npm run storybook -- --no-manager-cache
   "@storybook/nextjs": "^8.6.14",
   "eslint": "^8.57.0",
   "eslint-config-next": "^16.0.0",
-  "@types/node": "^20.0.0",
+  "@types/node": "^25",
   "@types/react": "^18.3.0",
   "@types/react-dom": "^18.3.0"
 }

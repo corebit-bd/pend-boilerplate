@@ -12,6 +12,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Backend** :
   - **`pytest`** Requirement Updated to allow 9.x (`>=8.4.2,<10.0`).
   - **`gunicorn`** Requirement Updated from `<24.0` to `<25.0` (Allows Gunicorn 24.x)
+- **Frontend** : `@types/node` Bumped from `^20` (20.19.24) to `^25` (25.1.0) in `frontend/package.json`
 - **Mobile** : `@reduxjs/toolkit` Bumped from `2.10.1` to `2.11.2` (BugFix Release - ReactJS Native `AbortSignal` / `DOMException` Compatibility).
 
 ## [1.0.1] - January 12, 2026
