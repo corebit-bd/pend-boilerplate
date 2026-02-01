@@ -360,7 +360,7 @@ black . && isort . && flake8 .
 - pytest ≥8.4.2,<10
 - pytest-django 4.11.1+
 - pytest-cov 7.0.0+
-- black 25.9.0+
+- black 26.1.0+
 - flake8 7.3.0+
 - isort 6.1.0+
 - ipython 9.6.0+

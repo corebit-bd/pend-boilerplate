@@ -12,6 +12,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Backend** :
   - **`pytest`** Requirement Updated to allow 9.x (`>=8.4.2,<10.0`).
   - **`gunicorn`** Requirement Updated from `<24.0` to `<25.0` (Allows Gunicorn 24.x)
+  - **`black`** Requirement Updated from `25.9.0` to `26.1.0`
 - **Frontend** : `@types/node` Bumped from `^20` (20.19.24) to `^25` (25.1.0) in `frontend/package.json`
 - **Mobile** : `@reduxjs/toolkit` Bumped from `2.10.1` to `2.11.2` (BugFix Release - ReactJS Native `AbortSignal` / `DOMException` Compatibility).
 
@@ -263,7 +264,7 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 ### Development Tools
 
 - **Testing** : `pytest 8.4.2`, Jest, 99.78% Coverage on UI
-- **Code Quality** : Black 25.9.0, Flake8 7.3.0, `isort 6.1.0`, ESLint
+- **Code Quality** : Black 26.1.0, Flake8 7.3.0, `isort 6.1.0`, ESLint
 - **Documentation** : Storybook v8.6.14 with 83 Interactive Stories
 - **Containerization** : Docker with Multi-Stage Builds
 - **CI / CD** : GitHub Actions (Free Tier, $0 / Month)

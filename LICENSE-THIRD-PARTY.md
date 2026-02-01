@@ -255,7 +255,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Black (MIT License)
 
-- **Version** : 25.9.0+
+- **Version** : 26.1.0+
 - **Copyright** : Łukasz Langa & Contributors
 - **License** : MIT
 - **Website** : https://black.readthedocs.io/

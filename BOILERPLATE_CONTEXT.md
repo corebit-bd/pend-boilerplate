@@ -271,7 +271,7 @@ pend-boilerplate/
 
 - `pytest` ≥8.4.2,<10
 - `pytest-django` 4.11.1+
-- `black` 25.9.0+
+- `black` 26.1.0+
 - `flake8` 7.3.0+
 - `isort` 6.1.0+
 
