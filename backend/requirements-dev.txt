@@ -10,7 +10,7 @@ pytest-cov>=7.0.0,<8.0
 # Code Quality & Formatting
 black>=25.9.0,<27.0
 flake8>=7.3.0,<8.0
-isort>=6.1.0,<7.0
+isort>=6.1.0,<8.0
 
 # Development Tools
 ipython>=9.6.0,<10.0
