@@ -14,7 +14,9 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`gunicorn`** Requirement Updated from `<24.0` to `<25.0` (Allows Gunicorn 24.x)
   - **`black`** Requirement Updated from `25.9.0` to `26.1.0`
 - **Frontend** : `@types/node` Bumped from `^20` (20.19.24) to `^25` (25.1.0) in `frontend/package.json`
-- **Mobile** : `@reduxjs/toolkit` Bumped from `2.10.1` to `2.11.2` (BugFix Release - ReactJS Native `AbortSignal` / `DOMException` Compatibility).
+- **Mobile** :
+  - `@reduxjs/toolkit` Bumped from `2.10.1` to `2.11.2` (BugFix Release - ReactJS Native `AbortSignal` / `DOMException` Compatibility).
+  - `expo-constants` Bumped from `18.0.10` to `18.0.13` (Patch, No User-Facing Changes).
 
 ## [1.0.1] - January 12, 2026
 
@@ -489,4 +491,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.0 | **Released** : December 30, 2025
+**Status** : ✅ Production Ready | **Version** : 1.0.2 | **Released** : January 31, 2026
