@@ -15,7 +15,7 @@ The frontend is built with NextJS 16 and provides a modern, performant, and type
 - **React Hook Form** - Performant Form Handling
 - **Zod** - Schema Validation
 - **Axios** - HTTP Client for API Communication
-- **Storybook 8.6.14** - Component Documentation & Development
+- **Storybook 10.0.4 (NextJS + Vite Builder)** - Component Documentation & Development
 
 ### Design Principles
 
@@ -926,18 +926,19 @@ npm run storybook -- --no-manager-cache
 
 ```json
 {
-  "next": "^16.0.0",
-  "react": "^18.3.0",
-  "react-dom": "^18.3.0",
-  "typescript": "^5.0.0",
-  "@reduxjs/toolkit": "^2.5.0",
+  "next": "^16.1.1",
+  "react": "^19.2.3",
+  "react-dom": "^19.2.3",
+  "@reduxjs/toolkit": "^2.9.2",
   "react-redux": "^9.2.0",
-  "axios": "^1.7.0",
+  "axios": "^1.13.1",
   "zod": "^4.3.6",
-  "react-hook-form": "^7.54.0",
-  "@hookform/resolvers": "^3.10.0",
-  "clsx": "^2.1.0",
-  "tailwind-merge": "^2.7.0"
+  "react-hook-form": "^7.66.0",
+  "@hookform/resolvers": "^5.2.2",
+  "clsx": "^2.1.1",
+  "tailwind-merge": "^3.3.1",
+  "@types/react-redux": "^7.1.34",
+  "tar": "^7.5.7",
 }
 ```
 
@@ -945,20 +946,19 @@ npm run storybook -- --no-manager-cache
 
 ```json
 {
-  "@testing-library/react": "^16.1.0",
-  "@testing-library/jest-dom": "^6.6.3",
-  "@testing-library/user-event": "^14.5.2",
-  "jest": "^29.7.0",
-  "jest-environment-jsdom": "^29.7.0",
-  "@types/jest": "^29.5.14",
-  "cypress": "^13.16.1",
-  "@storybook/react": "^8.6.14",
-  "@storybook/nextjs": "^8.6.14",
-  "eslint": "^8.57.0",
+  "@testing-library/react": "^16.3.0",
+  "@testing-library/jest-dom": "^6.9.1",
+  "@testing-library/user-event": "^14.6.1",
+  "jest": "^30.2.0",
+  "jest-environment-jsdom": "^30.2.0",
+  "@types/jest": "^30.0.0",
+  "cypress": "^15.6.0",
+  "eslint": "^9",
   "eslint-config-next": "^16.1.6",
   "@types/node": "^25",
-  "@types/react": "^18.3.0",
-  "@types/react-dom": "^18.3.0"
+  "@types/react": "^19",
+  "@types/react-dom": "^19",
+  "typescript": "^5.0.0",
 }
 ```
 
