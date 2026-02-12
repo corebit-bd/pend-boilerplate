@@ -20,6 +20,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Mobile** :
   - `@reduxjs/toolkit` Bumped from `2.10.1` to `2.11.2` (BugFix Release - ReactJS Native `AbortSignal` / `DOMException` Compatibility).
   - `expo-constants` Bumped from `18.0.10` to `18.0.13` (Patch, No User-Facing Changes).
+  - `axios` Bumped from `1.13.2` to `1.13.5` in `mobile/package.json` for the Resolution of High Severity Security Vulnerability [`CVE-2026-25639`](https://github.com/advisories/GHSA-43fc-jf86-j433)
 
 ## [1.0.1] - January 12, 2026
 
