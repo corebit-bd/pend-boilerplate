@@ -1113,6 +1113,6 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 
 **Built with ❤️ by [@jeet-khondker](https://github.com/jeet-khondker)**
 
-**Version** : 1.0.0  
-**Last Updated** : December 30, 2025  
+**Version** : 1.0.3  
+**Last Updated** : February 06, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅

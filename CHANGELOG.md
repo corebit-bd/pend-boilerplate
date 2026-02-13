@@ -5,6 +5,13 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - February 06, 2026
+
+### Upgraded
+
+- **Mobile** : 
+  - `expo-secure-store` Bumped from `15.0.7` to `15.0.8`
+
 ## [1.0.2] - January 31, 2026
 
 ### Upgraded
