@@ -90,7 +90,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ### Backend
 
-- **Django 5.2** (LTS) - Web Framework
+- **Django >=5.2,<6.1** - Web Framework
 - **Django REST Framework 3.16** - RESTful APIs
 - **FastAPI 0.119** - High-Performance Edge Services
 - **Graphene-Django 3.2.3** - GraphQL Implementation
@@ -157,7 +157,6 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
    ```
 
    This Script will :
-
    - Create Environment Files from Templates
    - Set Up Python Virtual Environment
    - Install All Dependencies
@@ -763,7 +762,6 @@ prodEnv: 2-3 Approvals (CODEOWNERS Enforced)
    - Build Storybook
    - Deploy to Chromatic (If Configured)
 7. **E2E Tests** (PR Only)
-
    - Critical User Flows
    - Cross-Browser Testing
 
@@ -778,26 +776,22 @@ prodEnv: 2-3 Approvals (CODEOWNERS Enforced)
 **Deployment Flow** :
 
 1. **Build & Push**
-
    - Build Docker Images
    - Push to GitHub Container Registry
    - Tag with Environment & Version
 
 2. **Deploy**
-
    - Pull Latest Images
    - Run Database Migrations
    - Deploy to Target Environment
    - Health Check Validation
 
 3. **Smoke Tests**
-
    - API Health Checks
    - Critical Endpoint Validation
    - Database Connectivity
 
 4. **Notifications**
-
    - Slack / Email Notifications
    - Deployment Status Updates
 
@@ -1078,6 +1072,10 @@ If you discover a Security Vulnerability, Please Follow Our [Security Policy](SE
 
 For More Details, See Our Complete [Security Policy](SECURITY.md).
 
+**Note on Dependency Overrides** :
+
+We use `npm overrides` in the `/mobile` Project to force-patch Transitive Vulnerabilities (like `brace-expansion`). If a Security Scan flags a Nested Dependency, refer to [MAINTENANCE.md](documentation/ci-cd/MAINTENANCE.md) for the Aliasing Protocol.
+
 ---
 
 ### Documentation
@@ -1088,7 +1086,8 @@ All Documentation is in the `/documentation` Folder & Component README Files.
 
 See [documentation/ci-cd/TROUBLESHOOTING.md](documentation/ci-cd/TROUBLESHOOTING.md) for Common CI / CD Issues.
 
-**⚡ Storage Optimization** : This Boilerplate uses A **Layered Caching Strategy**. 
+**⚡ Storage Optimization** : This Boilerplate uses A **Layered Caching Strategy**.
+
 - **Dependency Layer** : Only Updates when `package-lock.json` Changes.
 - **Build Layer** : Updates Per Commit but restores from the last successful build.
 
@@ -1105,7 +1104,7 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 - [ ] Add Monitoring & Logging Setup (Prometheus, Grafana)
 - [ ] Create Example Multi-Tenant Implementations
 - [ ] Add Internationalization (i18n) Examples
-- [ ] Implement Advanced Security Patterns
+- [x] Implement Advanced Security Patterns
 - [x] Add Performance Optimization Guides (CI / CD Caching Layering)
 - [ ] Create Video Tutorials
 
