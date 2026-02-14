@@ -7,8 +7,16 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.3] - February 06, 2026
 
+### 🛡️ Fixed
+
+- **Security** : 
+  - Updated `axios` to `v1.13.5` to resolve [`CVE-2026-25639`](https://github.com/advisories/GHSA-43fc-jf86-j433) (Denial of Service via `__proto__` Key).
+  - Updated `@isaacs/brace-expansion` to `v5.0.1` to resolve [`CVE-2026-25547`](https://github.com/advisories/GHSA-7h2j-956f-4vf2) (Denial of Service via unbounded range expansion).
+
 ### Upgraded
 
+- **Backend** : 
+  - Added Compatibility Support for Django Versions `>=5.2,<6.1`.
 - **Mobile** : 
   - `expo-secure-store` Bumped from `15.0.7` to `15.0.8`
 
@@ -508,4 +516,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.2 | **Released** : January 31, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.3 | **Released** : February 06, 2026

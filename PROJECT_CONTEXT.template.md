@@ -177,12 +177,10 @@ SENTRY_DSN=[value]
 ### Custom Tables / Models
 
 1. **Products**
-
    - Fields : `[List Main Fields]`
    - Relationships : `[Describe Relationships]`
 
 2. **Orders**
-
    - Fields : `[List Main Fields]`
    - Relationships : `[Describe Relationships]`
 
@@ -209,7 +207,6 @@ SENTRY_DSN=[value]
 ### In Progress Features
 
 1. **`[Feature Name]`** - `[Developer Name]` - `[Branch : feature/user/story-id]`
-
    - Status : `[In Progress / Code Review / Testing]`
    - Completion : `[60%]`
 
@@ -235,7 +232,6 @@ SENTRY_DSN=[value]
 ### Critical
 
 1. **`[Issue Description]`**
-
    - Impact : `[Who / What is affected?]`
    - Workaround : `[Temporary Solution]`
    - Assigned To : `[Developer Name]`
@@ -244,7 +240,6 @@ SENTRY_DSN=[value]
 ### Non-Critical
 
 1. **`[Issue Description]`**
-
    - Impact : `[Minor / Cosmetic]`
    - Priority : `[Low]`
 
@@ -374,7 +369,6 @@ git revert [commit-hash]
 ### Active Integrations
 
 1. **`[Service Name]`**
-
    - Status : `[Active / Testing / Disabled]`
    - Account : `[account@example.com]`
    - Documentation : `[Link to Documents]`
@@ -387,7 +381,6 @@ git revert [commit-hash]
 ### Business Rules
 
 1. **`[Rule Name]`** : `[Description of Business Rule]`
-
    - Example : `[Concrete Example]`
    - Edge Cases : `[List Edge Cases]`
 
@@ -479,13 +472,14 @@ git revert [commit-hash]
 
 ## 🔄 Document Version History
 
-| Version | Date           | Changes                                   | Updated By     |
-| ------- | -------------- | ----------------------------------------- | -------------- |
-| 0.1.0   | `[YYYY-MM-DD]` | Initial Scaffolding from PEND Boilerplate | `[Name]`       |
-| 0.2.0   | `[YYYY-MM-DD]` | Added Payment Integration                 | `[Name]`       |
-| 0.3.0   | `[YYYY-MM-DD]` | Added Shipping Module                     | `[Name]`       |
-| 1.0.1   | 2026-01-12     | Optimized CI / CD Caching for 10GB Limit  | @jeet-khondker |
-| 1.0.2   | 2026-01-31     | PEND Baseline : `pytest` allows 9.x (≥8.4.2,<10)  | @jeet-khondker |
+| Version | Date           | Changes                                                                                                    | Updated By     |
+| ------- | -------------- | ---------------------------------------------------------------------------------------------------------- | -------------- |
+| 0.1.0   | `[YYYY-MM-DD]` | Initial Scaffolding from PEND Boilerplate                                                                  | `[Name]`       |
+| 0.2.0   | `[YYYY-MM-DD]` | Added Payment Integration                                                                                  | `[Name]`       |
+| 0.3.0   | `[YYYY-MM-DD]` | Added Shipping Module                                                                                      | `[Name]`       |
+| 1.0.1   | 2026-01-12     | Optimized CI / CD Caching for 10GB Limit                                                                   | @jeet-khondker |
+| 1.0.2   | 2026-01-31     | PEND Baseline : `pytest` allows 9.x (≥8.4.2,<10)                                                           | @jeet-khondker |
+| 1.0.3   | 2026-02-06     | Patched `CVE-2026-25639` (`axios`) & `CVE-2026-25547` (`@isaacs/brace-expansion`); Expanded Django Support | @jeet-khondker |
 
 ---
 
