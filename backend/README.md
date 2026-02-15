@@ -345,7 +345,7 @@ black . && isort . && flake8 .
 - django-environ 0.12.0+
 - drf-yasg 1.21+ (API Documentation)
 - djangorestframework-simplejwt 5.5.1+ (JWT Auth)
-- django-filter 24.0+
+- django-filter >=24.0,<26.0
 - graphene-django 3.2.3+
 - fastapi 0.119.0+
 - uvicorn 0.37.0+
@@ -441,6 +441,23 @@ Interactive API Documentation available at :
 - Development : http://localhost:8000/swagger/
 - Staging : https://staging-api.example.com/swagger/
 - Production : https://api.example.com/swagger/
+
+#### ⚠️ Note on API Filtering & Swagger
+With the upgrade to `django-filter` 25.x, Automatic Schema Generation for `drf-yasg` has been removed by the Package Maintainers. 
+
+**Impact** : Filter Fields (Query Parameters) may not automatically appear in the Swagger UI.
+
+**Workaround** : To display Filters in Swagger, you must manually define them using the `@swagger_auto_schema` Decorator on your ViewSets : 
+
+```python
+@swagger_auto_schema(
+    manual_parameters=[
+        openapi.Parameter('your_field', openapi.IN_QUERY, type=openapi.TYPE_STRING)
+    ]
+)
+def list(self, request, *args, **kwargs):
+    ...
+```
 
 ### ReDoc
 

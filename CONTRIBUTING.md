@@ -477,7 +477,6 @@ prodEnv: 2-3 Approvals (CODEOWNERS Enforced)
    ```
 
 3. **Fill out PR Template Completely** :
-
    - Clear Title Describing the Change
    - Reference to Issue / Story Number
    - Description of Changes Made
@@ -579,7 +578,6 @@ test : Added Authentication Tests
    Or Use GitHub's "Delete branch" Button (Recommended)
 
 2. **Monitor CI / CD Deployment** :
-
    - Check GitHub Actions for Deployment Status
    - Verify Deployment to `devEnv`
    - Watch for Any Deployment Errors
@@ -1067,6 +1065,38 @@ class User(models.Model):
             Username / Email if username Not Set.
         """
         return self.username or self.email
+```
+
+**API Documentation Standards (`drf-yasg`)** :
+
+Due to the removal of internal Sschema Support in `django-filter` 25.x, Automatic Detection of Query Parameters is limited.
+
+- ✅ **Manual Documentation Required** : For any ViewSet using `DjangoFilterBackend`, you must manually define the filter parameters using the `@swagger_auto_schema` Decorator.
+
+- ✅ **Consistency** : Ensure Parameter Names in `@swagger_auto_schema` exactly match the Field Names defined in your `FilterSet`.
+
+**Example Implementation** :
+
+```python
+from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+
+class UserViewSet(viewsets.ModelViewSet):
+  filter_backends = [DjangoFilterBackend]
+  filterset_class = UserFilter
+
+  @swagger_auto_schema(
+    manual_parameters=[
+      openapi.Parameter(
+        'is_active',
+        openapi.IN_QUERY,
+        description="Filter by active status",
+        type=openapi.TYPE_BOOLEAN
+      ),
+    ]
+  )
+  def list(self, request, *args, **kwargs):
+    return super().list(request, *args, **kwargs)
 ```
 
 ### TypeScript (Frontend / Mobile)
@@ -1691,6 +1721,6 @@ This Boilerplate provides a Solid Foundation for Your Next Project. Follow these
 
 **Questions?** Check the Documentation / Open an Issue.
 
-**Version** : 1.0.0  
-**Last Updated** : December 29, 2025  
+**Version** : 1.0.3
+**Last Updated** : February 06, 2026  
 **Maintainer** : Jeet Z. H. Khondker
