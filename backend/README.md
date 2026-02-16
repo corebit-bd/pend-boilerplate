@@ -367,7 +367,7 @@ black . && isort . && flake8 .
 - django-debug-toolbar 6.0.0+
 - django-extensions 4.1+
 - factory-boy 3.3.3+ (Test Factories)
-- faker 37.11.0+ (Fake Data Generation)
+- faker >=37.11.0,<41.0 (Fake Data Generation)
 
 ## 🔒 Security
 

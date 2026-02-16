@@ -21,6 +21,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - This Version formally supports **Python 3.13** & **Django 5.2**.
     - **Note** : Support for Python 3.9 & Django < 5.2 has been dropped by the Package.
     - Legacy DRF Schema Generation Support has been removed.
+  - **`faker`** Requirement Upgraded from `<38.0` to `<41.0` to support newer Python Environments & Locale Improvements. (**Note** : This Update requires Python 3.10 / higher for the Backend Module.)
 - **Mobile** : 
   - `expo-secure-store` Bumped from `15.0.7` to `15.0.8`
 
