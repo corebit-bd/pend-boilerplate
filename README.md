@@ -123,7 +123,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ### Testing & Quality
 
-- **pytest ≥8.4.2** - Python Testing
+- **pytest ≥8.4.2,<10** - Python Testing
 - **Jest** - JavaScript Testing
 - **Codecov** - Code Coverage Reporting
 - **Trivy** - Security Vulnerability Scanning
