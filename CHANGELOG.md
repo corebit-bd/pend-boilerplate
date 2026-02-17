@@ -23,6 +23,8 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Legacy DRF Schema Generation Support has been removed.
   - **`faker`** Requirement Upgraded from `<38.0` to `<41.0` to support newer Python Environments & Locale Improvements. (**Note** : This Update requires Python 3.10 / higher for the Backend Module.)
   - **`isort`** Upgraded Dependency Range from `<7.0,>=6.1.0` to `>=6.1.0,<8.0`.
+- **Frontend** : 
+  - `@types/react-dom` Bumped to `^19` to fully align with the React 19 EcoSystem. This ensures full TypeScript Support for React 19's New Features (like Actions & the `use` Hook) within the `/frontend` Directory.
 - **Mobile** : 
   - `expo-secure-store` Bumped from `15.0.7` to `15.0.8`
 
