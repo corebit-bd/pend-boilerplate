@@ -1005,6 +1005,14 @@ All Tests Passing Locally."
 - **Type Hints** : Required for Public APIs
 - **Docstrings** : Required for Classes & Public Methods (Google Style)
 
+**API Documentation Standards (`drf-yasg`)** :
+
+To maintain High-Quality API Documentation despite the removal of Legacy Schema Support in `django-filter 25.x`, we use a Custom `DjangoFilterInspector`.
+
+- ✅ **Automatic Detection** : You do not need to use `@swagger_auto_schema` to document Query Filters. The Inspector automatically extracts Fields from your `filterset_class`.
+- ✅ **Field Descriptions** : Always provide a `help_text` Attribute in your `FilterSet` Fields. This text is automatically pulled by the inspector to populate the "Description" column in Swagger / ReDoc.
+- ✅ **Type Safety** : If a Filter requires a specific format (Example : UUID / ISO Date), Mention it in the `help_text`.
+
 **Configuration Files** :
 
 - `pyproject.toml` - Black, isort, pytest Configuration

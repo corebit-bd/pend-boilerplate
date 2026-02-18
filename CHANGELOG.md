@@ -9,6 +9,8 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Backend** :
+  - `DjangoFilterInspector` to maintain Swagger Documentation Compatibility.
 - **Mobile** :
   - Native Support for ReactJS 19 Features in the `Mobile` Workspace.
 
