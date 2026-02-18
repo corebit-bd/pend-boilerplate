@@ -1,5 +1,5 @@
 from drf_yasg import openapi  # pyright: ignore[reportMissingImports]
-from drf_yasg.inspectors import (  # pyright: ignore[reportMissingImports]
+from drf_yasg.inspectors import (  # pyright: ignore[reportMissingImports]  # isort: skip
     FilterInspector,
 )
 
