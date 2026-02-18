@@ -114,7 +114,7 @@ jobs:
           cd backend
           black --check .
           flake8 .
-          isort --check-only .
+          isort --check-only --profile black .
 
       - name: Run Tests with Coverage
         env:
