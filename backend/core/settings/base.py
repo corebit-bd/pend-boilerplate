@@ -131,6 +131,13 @@ REST_FRAMEWORK = {
     ],
 }
 
+SWAGGER_SETTINGS = {
+    "DEFAULT_FILTER_INSPECTORS": [
+        "shared.utils.inspectors.DjangoFilterInspector",  # Path to the Class Created Above
+        "drf_yasg.inspectors.CoreAPICompatInspector",
+    ],
+}
+
 # JWT Configuration
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
