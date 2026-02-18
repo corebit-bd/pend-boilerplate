@@ -480,7 +480,7 @@ git revert [commit-hash]
 | 1.0.1   | 2026-01-12     | Optimized CI / CD Caching for 10GB Limit                                                                   | @jeet-khondker |
 | 1.0.2   | 2026-01-31     | PEND Baseline : `pytest` allows 9.x (≥8.4.2,<10)                                                           | @jeet-khondker |
 | 1.0.3   | 2026-02-06     | Patched `CVE-2026-25639` (`axios`) & `CVE-2026-25547` (`@isaacs/brace-expansion`); Expanded Django Support | @jeet-khondker |
-| 1.0.4   | 2026-02-13     | Bumped `react` & `@types/react` in `/mobile`                                                               | @jeet-khondker |
+| 1.0.4   | 2026-02-13     | `react-native` Upgraded from `0.81.5` to `0.84.0`                                                          | @jeet-khondker |
 
 ---
 

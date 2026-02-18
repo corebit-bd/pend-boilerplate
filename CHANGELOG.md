@@ -20,7 +20,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Mobile** :
   - `expo-status-bar` Bumped from `3.0.8` to `3.0.9` to stay aligned with the latest Maintenance Patches.
   - `react` & `@types/react` Upgraded to `19.1.0`.
-  - `react-native` Upgraded to `0.81.5`.
+  - `react-native` Upgraded from `0.81.5` to `0.84.0`.
   - `typescript` Updated to `~5.9.2` to support new ReactJS Typings.
 
 ## [1.0.3] - February 06, 2026
