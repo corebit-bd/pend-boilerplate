@@ -131,9 +131,10 @@ REST_FRAMEWORK = {
     ],
 }
 
+# API Documentation Settings
 SWAGGER_SETTINGS = {
     "DEFAULT_FILTER_INSPECTORS": [
-        "shared.utils.inspectors.DjangoFilterInspector",  # Path to the Class Created Above
+        "shared.utils.inspectors.DjangoFilterInspector",
         "drf_yasg.inspectors.CoreAPICompatInspector",
     ],
 }
