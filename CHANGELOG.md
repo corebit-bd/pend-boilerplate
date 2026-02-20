@@ -5,6 +5,19 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - February 20, 2026
+
+### 🛡️ Fixed
+
+- **Security** :
+  - Updated `minimatch` to `10.2.1` for resolving [`CVE-2026-26996`](https://vulners.com/cve/CVE-2026-26996)
+  - Updated `tar` to `7.5.8` for resolving [`CVE-2026-26960`](https://vulners.com/cve/CVE-2026-26960)
+
+### Upgraded
+
+- **Backend** : 
+  - **`isort`** Upgraded Dependency Range from `>=6.1.0,<8.0` to `>=6.1.0,<9.0`.
+
 ## [1.0.4] - February 13, 2026
 
 ### Added
@@ -319,7 +332,7 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 ### Development Tools
 
 - **Testing** : `pytest ≥8.4.2,<10`, Jest, 99.78% Coverage on UI
-- **Code Quality** : Black 26.1.0, Flake8 7.3.0, `isort >=6.1.0,<8.0`, ESLint
+- **Code Quality** : Black 26.1.0, Flake8 7.3.0, `isort >=6.1.0,<9.0`, ESLint
 - **Documentation** : Storybook v8.6.14 with 83 Interactive Stories
 - **Containerization** : Docker with Multi-Stage Builds
 - **CI / CD** : GitHub Actions (Free Tier, $0 / Month)
@@ -544,4 +557,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.3 | **Released** : February 06, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.5 | **Released** : February 20, 2026
