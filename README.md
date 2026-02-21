@@ -97,7 +97,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 - **PostgreSQL 15** - Primary Database
 - **Redis 8.2** - Caching & Task Queue
 - **Celery 5.5.3** - Background Tasks
-- **Gunicorn 23–24** + **Whitenoise 6.11** - Production Serving
+- **Gunicorn >=23.0.0,<26.0** + **Whitenoise 6.11** - Production Serving
 
 ### Frontend
 
@@ -1112,6 +1112,6 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 
 **Built with ❤️ by [@jeet-khondker](https://github.com/jeet-khondker)**
 
-**Version** : 1.0.4
-**Last Updated** : February 13, 2026  
+**Version** : 1.0.5
+**Last Updated** : February 20, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅
