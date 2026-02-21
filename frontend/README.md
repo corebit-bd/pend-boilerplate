@@ -10,7 +10,7 @@ The frontend is built with NextJS 16 and provides a modern, performant, and type
 
 - **NextJS 16** - React Framework with App Router
 - **TypeScript 5** - Type Safety & Developer Experience
-- **Tailwind CSS v4** - Utility-First CSS Framework (PostCSS-Based)
+- **Tailwind CSS v4.2** - Utility-First CSS Framework (PostCSS-Based)
 - **Redux Toolkit** - Centralized State Management
 - **React Hook Form** - Performant Form Handling
 - **Zod** - Schema Validation

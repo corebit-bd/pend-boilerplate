@@ -24,7 +24,7 @@
 ### Frontend
 
 - NextJS 16 with TypeScript & App Router
-- Tailwind CSS v4 (PostCSS-Based, No Configuration File)
+- Tailwind CSS v4.2 (PostCSS-Based, No Configuration File)
 - Redux Toolkit for State Management
 - Zod for Validation
 - React Hook Form for Forms
