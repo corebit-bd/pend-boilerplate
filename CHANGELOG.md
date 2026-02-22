@@ -27,6 +27,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`storybook`** Requirement Updated from `10.2.9` to `10.2.10`.
 - **Mobile** :
   - **`@react-navigation/bottom-tabs`** Bumped from `7.13.0` to `7.14.0`.
+  - **`react-native-screens`** Bumped from `4.16.0` to `4.23.0`.
 
 ## [1.0.4] - February 13, 2026
 
