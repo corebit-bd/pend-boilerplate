@@ -106,7 +106,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 - **Tailwind CSS v4** - Utility-First CSS
 - **Redux Toolkit** - State Management
 - **React Hook Form** + **Zod** - Form Handling & Validation
-- **Storybook 10.0.4** - Component Documentation
+- **Storybook 10.2.10** - Component Documentation
 - **Jest** + **ReactJS Testing Library** - Testing
 
 ### Mobile
