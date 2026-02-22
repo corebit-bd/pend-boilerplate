@@ -28,7 +28,7 @@
 - Redux Toolkit for State Management
 - Zod for Validation
 - React Hook Form for Forms
-- Storybook v10.0.4 for Component Documentation
+- Storybook 10.2.10 for Component Documentation
 - Jest with 99.78% Test Coverage (156 Tests)
 
 ### Mobile
@@ -158,7 +158,7 @@ pend-boilerplate/
 
 ### Step 10 : Create Storybook Stories ✅
 
-- ✅ Storybook v10.0.4 Configured
+- ✅ Storybook 10.2.10 Configured
 - ✅ 83 Comprehensive Stories across 5 Components
 - ✅ `Icon.README.md` with Integration Guide
 

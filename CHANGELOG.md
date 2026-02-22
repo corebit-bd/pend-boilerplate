@@ -24,6 +24,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Frontend** :
   - **Dependencies** : **`tailwindcss`** Bumped from `4.1.18` to `4.2.0`.
   - **Tooling** : **`@tailwindcss/postcss`** Updated to match the Core Engine Version for better Build Stability.
+  - **`storybook`** Requirement Updated from `10.2.9` to `10.2.10`.
 - **Mobile** :
   - **`@react-navigation/bottom-tabs`** Bumped from `7.13.0` to `7.14.0`.
 
@@ -242,7 +243,7 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 
 ### Step 10 : Storybook Integration
 
-- **Storybook v8.6.14** Configured for NextJS 16
+- **Storybook 10.2.10** Configured for NextJS 16
 - **83 Interactive Stories** across 5 Components :
   - Button : 29 Stories (Variants, Sizes, States, Icons)
   - Input : 20 Stories (Types, Validation, Icons)
@@ -342,7 +343,7 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 
 - **Testing** : `pytest ≥8.4.2,<10`, Jest, 99.78% Coverage on UI
 - **Code Quality** : Black 26.1.0, Flake8 7.3.0, `isort >=6.1.0,<9.0`, ESLint
-- **Documentation** : Storybook v8.6.14 with 83 Interactive Stories
+- **Documentation** : Storybook v10.2.10 with 83 Interactive Stories
 - **Containerization** : Docker with Multi-Stage Builds
 - **CI / CD** : GitHub Actions (Free Tier, $0 / Month)
 
