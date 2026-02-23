@@ -472,15 +472,16 @@ git revert [commit-hash]
 
 ## 🔄 Document Version History
 
-| Version | Date           | Changes                                                                                                    | Updated By     |
-| ------- | -------------- | ---------------------------------------------------------------------------------------------------------- | -------------- |
-| 0.1.0   | `[YYYY-MM-DD]` | Initial Scaffolding from PEND Boilerplate                                                                  | `[Name]`       |
-| 0.2.0   | `[YYYY-MM-DD]` | Added Payment Integration                                                                                  | `[Name]`       |
-| 0.3.0   | `[YYYY-MM-DD]` | Added Shipping Module                                                                                      | `[Name]`       |
-| 1.0.1   | 2026-01-12     | Optimized CI / CD Caching for 10GB Limit                                                                   | @jeet-khondker |
-| 1.0.2   | 2026-01-31     | PEND Baseline : `pytest` allows 9.x (≥8.4.2,<10)                                                           | @jeet-khondker |
-| 1.0.3   | 2026-02-06     | Patched `CVE-2026-25639` (`axios`) & `CVE-2026-25547` (`@isaacs/brace-expansion`); Expanded Django Support | @jeet-khondker |
-| 1.0.4   | 2026-02-13     | Added `DjangoFilterInspector` to maintain Swagger Documentation Compatibility.                             | @jeet-khondker |
+| Version | Date           | Changes                                                                                                                                                   | Updated By     |
+| ------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| 0.1.0   | `[YYYY-MM-DD]` | Initial Scaffolding from PEND Boilerplate                                                                                                                 | `[Name]`       |
+| 0.2.0   | `[YYYY-MM-DD]` | Added Payment Integration                                                                                                                                 | `[Name]`       |
+| 0.3.0   | `[YYYY-MM-DD]` | Added Shipping Module                                                                                                                                     | `[Name]`       |
+| 1.0.1   | 2026-01-12     | Optimized CI / CD Caching for 10GB Limit                                                                                                                  | @jeet-khondker |
+| 1.0.2   | 2026-01-31     | PEND Baseline : `pytest` allows 9.x (≥8.4.2,<10)                                                                                                          | @jeet-khondker |
+| 1.0.3   | 2026-02-06     | - Patched `CVE-2026-25639` (`axios`) & `CVE-2026-25547` (`@isaacs/brace-expansion`) <br/> - Expanded Django Support                                       | @jeet-khondker |
+| 1.0.4   | 2026-02-13     | Added `DjangoFilterInspector` to maintain Swagger Documentation Compatibility.                                                                            | @jeet-khondker |
+| 1.0.5   | 2026-02-20     | - Patched `CVE-2026-26996` (`minimatch`) & `CVE-2026-26960` (`tar`) <br /> - **`isort`** Upgraded Dependency Range from `>=6.1.0,<8.0` to `>=6.1.0,<9.0`. | @jeet-khondker |
 
 ---
 

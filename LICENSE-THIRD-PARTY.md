@@ -83,7 +83,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Gunicorn (MIT License)
 
-- **Version** : 23.0+
+- **Version** : >=23.0.0,<26.0
 - **Copyright** : Benoit Chesneau & Contributors
 - **License** : MIT
 - **Website** : https://gunicorn.org/
@@ -247,7 +247,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Storybook (MIT License)
 
-- **Version** : 8.6.14
+- **Version** : 10.2.10
 - **Copyright** : Storybook Contributors
 - **License** : MIT
 - **Website** : https://storybook.js.org/

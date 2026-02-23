@@ -19,16 +19,16 @@
 - JWT Authentication with RSA256 (`djangorestframework-simplejwt 5.5.1`)
 - Celery 5.5.3 for Background Tasks
 - Redis 8.2 for Caching & Task Queue
-- Gunicorn 23–24 + Whitenoise 6.11 for Production
+- Gunicorn >=23.0.0,<26.0 + Whitenoise 6.11 for Production
 
 ### Frontend
 
 - NextJS 16 with TypeScript & App Router
-- Tailwind CSS v4 (PostCSS-Based, No Configuration File)
+- Tailwind CSS v4.2 (PostCSS-Based, No Configuration File)
 - Redux Toolkit for State Management
 - Zod for Validation
 - React Hook Form for Forms
-- Storybook v10.0.4 for Component Documentation
+- Storybook 10.2.10 for Component Documentation
 - Jest with 99.78% Test Coverage (156 Tests)
 
 ### Mobile
@@ -158,7 +158,7 @@ pend-boilerplate/
 
 ### Step 10 : Create Storybook Stories ✅
 
-- ✅ Storybook v10.0.4 Configured
+- ✅ Storybook 10.2.10 Configured
 - ✅ 83 Comprehensive Stories across 5 Components
 - ✅ `Icon.README.md` with Integration Guide
 
@@ -265,7 +265,7 @@ pend-boilerplate/
 - `fastapi` 0.119.0+
 - `celery` 5.5.3+
 - `redis` >=5.3.0,<8.0
-- `gunicorn` 23.0+
+- `gunicorn` >=23.0.0,<26.0
 - `whitenoise` 6.11+
 
 **Development (`requirements-dev.txt`)** :
@@ -274,7 +274,7 @@ pend-boilerplate/
 - `pytest-django` 4.11.1+
 - `black` 26.1.0+
 - `flake8` 7.3.0+
-- `isort` >=6.1.0,<8.0
+- `isort` >=6.1.0,<9.0
 
 ### Architecture Decisions
 
@@ -1010,8 +1010,8 @@ This Document contains All Necessary Context to Resume Development!
 ---
 
 **Project Status** : ✅ COMPLETE - Production & Scaffolding Ready
-**Version** : 1.0.4
-**Last Updated** : February 13, 2026
+**Version** : 1.0.5
+**Last Updated** : February 20, 2026
 **All 12 Steps** : COMPLETED ✅ (Infrastructure Optimized v1.0.3)
 **CI / CD** : Production-Ready ✅
 **Documentation** : Comprehensive ✅

@@ -352,7 +352,7 @@ black . && isort . && flake8 .
 - pydantic 2.12.2+
 - celery 5.5.3+
 - redis >=5.3.0,<8.0
-- gunicorn 23.0+
+- gunicorn >=23.0.0,<26.0
 - whitenoise 6.11+
 
 ### Development Dependencies (requirements-dev.txt)
@@ -362,7 +362,7 @@ black . && isort . && flake8 .
 - pytest-cov 7.0.0+
 - black 26.1.0+
 - flake8 7.3.0+
-- isort >=6.1.0,<8.0
+- isort >=6.1.0,<9.0
 - ipython 9.6.0+
 - django-debug-toolbar 6.0.0+
 - django-extensions 4.1+

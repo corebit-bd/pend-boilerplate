@@ -5,6 +5,30 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] - February 20, 2026
+
+### 🛡️ Fixed
+
+- **Security** :
+  - Updated `minimatch` to `10.2.1` for resolving [`CVE-2026-26996`](https://vulners.com/cve/CVE-2026-26996)
+  - Updated `tar` to `7.5.8` for resolving [`CVE-2026-26960`](https://vulners.com/cve/CVE-2026-26960)
+- **Frontend** :
+  - Improved CSS Parse Error Reporting in the Build Pipeline (via Tailwind CSS 4.2 Improvements).
+  - Resolved potential Source M ap Inconsistencies during `npm run dev`.
+
+### Upgraded
+
+- **Backend** :
+  - **`isort`** Upgraded Dependency Range from `>=6.1.0,<8.0` to `>=6.1.0,<9.0`.
+  - **`gunicorn`** Requirement Updated from `<25.0,>=23.0.0` to `>=23.0.0,<26.0`.
+- **Frontend** :
+  - **Dependencies** : **`tailwindcss`** Bumped from `4.1.18` to `4.2.0`.
+  - **Tooling** : **`@tailwindcss/postcss`** Updated to match the Core Engine Version for better Build Stability.
+  - **`storybook`** Requirement Updated from `10.2.9` to `10.2.10`.
+- **Mobile** :
+  - **`@react-navigation/bottom-tabs`** Bumped from `7.13.0` to `7.14.0`.
+  - **`react-native-screens`** Bumped from `4.16.0` to `4.23.0`.
+
 ## [1.0.4] - February 13, 2026
 
 ### Added
@@ -148,7 +172,7 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 ### Step 6 : Frontend Foundation (NextJS)
 
 - **NextJS 16** with TypeScript & App Router
-- **Tailwind CSS v4** (PostCSS-Based, Zero-Configuration)
+- **Tailwind CSS v4.2** (PostCSS-Based, Zero-Configuration)
 - PEND-Specific Directory Structure :
   - `app/` : App Router Pages
   - `components/` : Reusable UI Components
@@ -220,7 +244,7 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 
 ### Step 10 : Storybook Integration
 
-- **Storybook v8.6.14** Configured for NextJS 16
+- **Storybook 10.2.10** Configured for NextJS 16
 - **83 Interactive Stories** across 5 Components :
   - Button : 29 Stories (Variants, Sizes, States, Icons)
   - Input : 20 Stories (Types, Validation, Icons)
@@ -310,7 +334,7 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 
 - **Type** : Headless, Multi-Tenant, MicroServices, Event-Driven
 - **Backend** : Django 5.2 (LTS), FastAPI 0.119, GraphQL (Graphene-Django 3.2.3)
-- **Frontend** : NextJS 16, ReactJS, TypeScript, Tailwind CSS v4
+- **Frontend** : NextJS 16, ReactJS, TypeScript, Tailwind CSS v4.2
 - **Mobile** : Expo ~49.0.15, React Native
 - **Database** : PostgreSQL 15 with Multi-Schema Architecture
 - **Caching / Queue** : Redis 8.2 with Celery 5.5.3
@@ -319,8 +343,8 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 ### Development Tools
 
 - **Testing** : `pytest ≥8.4.2,<10`, Jest, 99.78% Coverage on UI
-- **Code Quality** : Black 26.1.0, Flake8 7.3.0, `isort >=6.1.0,<8.0`, ESLint
-- **Documentation** : Storybook v8.6.14 with 83 Interactive Stories
+- **Code Quality** : Black 26.1.0, Flake8 7.3.0, `isort >=6.1.0,<9.0`, ESLint
+- **Documentation** : Storybook v10.2.10 with 83 Interactive Stories
 - **Containerization** : Docker with Multi-Stage Builds
 - **CI / CD** : GitHub Actions (Free Tier, $0 / Month)
 
@@ -544,4 +568,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.3 | **Released** : February 06, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.5 | **Released** : February 20, 2026
