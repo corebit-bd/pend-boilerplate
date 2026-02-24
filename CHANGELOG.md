@@ -26,6 +26,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **Tooling** : **`@tailwindcss/postcss`** Updated to match the Core Engine Version for better Build Stability.
   - **`storybook`** Requirement Updated from `10.2.9` to `10.2.10`.
   - **`@types/node`** Bumped from `25.2.3` to `25.3.0`.
+  - **`@storybook/addon-vitest`** Bumped from `10.2.9` to `10.2.10`.
 - **Mobile** :
   - **`@react-navigation/bottom-tabs`** Bumped from `7.13.0` to `7.14.0`.
   - **`react-native-screens`** Bumped from `4.16.0` to `4.23.0`.
