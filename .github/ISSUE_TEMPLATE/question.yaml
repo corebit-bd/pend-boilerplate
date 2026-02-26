@@ -10,16 +10,16 @@ body:
       value: |
         ## ❓ Question
 
-        **Note** : For Most Questions, [GitHub Discussions](https://github.com/jeet-khondker/pend-boilerplate/discussions) is a Better Place as it allows for Ongoing Conversation & Helps Others with Similar Questions.
+        **Note** : For Most Questions, [GitHub Discussions](https://github.com/corebit-bd/pend-boilerplate/discussions) is a Better Place as it allows for Ongoing Conversation & Helps Others with Similar Questions.
 
         Use this Issue Template only for Questions that might reveal a Bug, Missing Documentation / Feature Gap / Other Issues.
 
         **Before Submitting** : 
-        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/pend-boilerplate/issues)
-        - [ ] I have Searched [Discussions](https://github.com/jeet-khondker/pend-boilerplate/discussions)
-        - [ ] I have Checked the [Documentation](https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation)
-        - [ ] I have Read the [FAQ](https://github.com/jeet-khondker/pend-boilerplate/blob/main/README.md) (If Available)
-        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation/ci-cd/TROUBLESHOOTING.md) (Including the 10GB Cache Limit Section)
+        - [ ] I have Searched [Existing Issues](https://github.com/corebit-bd/pend-boilerplate/issues)
+        - [ ] I have Searched [Discussions](https://github.com/corebit-bd/pend-boilerplate/discussions)
+        - [ ] I have Checked the [Documentation](https://github.com/corebit-bd/pend-boilerplate/tree/main/documentation)
+        - [ ] I have Read the [FAQ](https://github.com/corebit-bd/pend-boilerplate/blob/main/README.md) (If Available)
+        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/corebit-bd/pend-boilerplate/tree/main/documentation/ci-cd/TROUBLESHOOTING.md) (Including the 10GB Cache Limit Section)
 
   - type: dropdown
     id: category

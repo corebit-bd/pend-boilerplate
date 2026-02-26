@@ -13,9 +13,9 @@ body:
         Thank You for Suggesting A New Feature! We Appreciate Your Contribution to Improving the PEND Boilerplate.
 
         **Before Submitting** : 
-        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/pend-boilerplate/issues) & [Discussions](https://github.com/jeet-khondker/pend-boilerplate/discussions) to Ensure this hasn't been Suggested
-        - [ ] I have Discussed this Idea in [GitHub Discussions](https://github.com/jeet-khondker/pend-boilerplate/discussions/new?category=ideas)
-        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation/ci-cd/TROUBLESHOOTING.md) (Including the 10GB Cache Limit Section)
+        - [ ] I have Searched [Existing Issues](https://github.com/corebit-bd/pend-boilerplate/issues) & [Discussions](https://github.com/corebit-bd/pend-boilerplate/discussions) to Ensure this hasn't been Suggested
+        - [ ] I have Discussed this Idea in [GitHub Discussions](https://github.com/corebit-bd/pend-boilerplate/discussions/new?category=ideas)
+        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/corebit-bd/pend-boilerplate/tree/main/documentation/ci-cd/TROUBLESHOOTING.md) (Including the 10GB Cache Limit Section)
         - [ ] This Feature Aligns with the Project's Goals & Scope
 
   - type: dropdown

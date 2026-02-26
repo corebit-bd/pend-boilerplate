@@ -13,10 +13,10 @@ body:
         Thank You for helping Improve the Performance of PEND Boilerplate!
 
         **Before Submitting** : 
-        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/pend-boilerplate/issues) to Ensure this hasn't been Reported
+        - [ ] I have Searched [Existing Issues](https://github.com/corebit-bd/pend-boilerplate/issues) to Ensure this hasn't been Reported
         - [ ] I have Profiled the Application to Identify the Bottleneck
         - [ ] I have Tested this on the Latest Version from the Main Branch
-        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation/ci-cd/TROUBLESHOOTING.md) (Including the 10GB Cache Limit Section)
+        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/corebit-bd/pend-boilerplate/tree/main/documentation/ci-cd/TROUBLESHOOTING.md) (Including the 10GB Cache Limit Section)
 
   - type: dropdown
     id: module

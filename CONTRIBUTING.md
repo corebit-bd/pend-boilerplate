@@ -44,7 +44,7 @@ If You're Contributing to Improve the Boilerplate Itself :
 1. **Clone the repository** :
 
    ```bash
-   git clone https://github.com/jeet-khondker/pend-boilerplate.git
+   git clone https://github.com/corebit-bd/pend-boilerplate.git
    cd pend-boilerplate
    ```
 
@@ -1465,7 +1465,7 @@ When Creating a New Project from this Boilerplate :
 
 ```bash
 # Clone Boilerplate
-git clone https://github.com/jeet-khondker/pend-boilerplate.git my-new-project
+git clone https://github.com/corebit-bd/pend-boilerplate.git my-new-project
 
 # Remove Original Git History
 cd my-new-project
@@ -1729,6 +1729,6 @@ This Boilerplate provides a Solid Foundation for Your Next Project. Follow these
 
 **Questions?** Check the Documentation / Open an Issue.
 
-**Version** : 1.0.4
-**Last Updated** : February 13, 2026  
+**Version** : 1.0.5
+**Last Updated** : February 27, 2026  
 **Maintainer** : Jeet Z. H. Khondker

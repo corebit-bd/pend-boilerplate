@@ -65,7 +65,7 @@ Instances of Abusive, Harassing / Otherwise Unacceptable Behavior may be reporte
 
 Alternatively, You can Report Violations via :
 
-- **GitHub** : Direct Message to [@jeet-khondker](https://github.com/jeet-khondker)
+- **GitHub** : Direct Message to [@corebit-bd](https://github.com/corebit-bd)
 - **Private Report** : Use GitHub's `Report content` Feature
 
 All Complaints will be Reviewed & Investigated Promptly & Fairly.
@@ -260,13 +260,13 @@ Community Impact Guidelines were Inspired by [Mozilla's Code of Conduct Enforcem
 ### Code of Conduct Enforcement Team
 
 - **Email** : conduct@your-domain.com
-- **GitHub** : [@jeet-khondker](https://github.com/jeet-khondker)
+- **GitHub** : [@corebit-bd](https://github.com/corebit-bd)
 - **Response Time** : Within 48 Hours
 
 ### General Project Contact
 
-- **Issues** : [GitHub Issues](https://github.com/jeet-khondker/pend-boilerplate/issues)
-- **Discussions** [GitHub Discussions](https://github.com/jeet-khondker/pend-boilerplate/discussions)
+- **Issues** : [GitHub Issues](https://github.com/corebit-bd/pend-boilerplate/issues)
+- **Discussions** [GitHub Discussions](https://github.com/corebit-bd/pend-boilerplate/discussions)
 - **Security** : See [SECURITY.md](SECURITY.md)
 
 ---
@@ -279,8 +279,8 @@ Thank You for helping Make this A Welcoming, Friendly Community for All! 🎉
 
 ---
 
-**Version** : 1.0.4  
-**Last Updated** : February 13, 2026
+**Version** : 1.0.5  
+**Last Updated** : February 27, 2026
 **Based On** : Contributor Covenant v2.1
 
 ---
