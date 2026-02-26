@@ -13,9 +13,9 @@ body:
         Thank You for helping Improve Our Documentation! Clear Documentation is Essential for the Success of this Project.
 
         **Before Submitting** : 
-        - [ ] I have Searched [Existing Issues](https://github.com/jeet-khondker/pend-boilerplate/issues) to Ensure this hasn't been Reported
-        - [ ] I have Checked the [Documentation](https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation)
-        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/jeet-khondker/pend-boilerplate/tree/main/documentation/ci-cd/TROUBLESHOOTING.md) (Including the 10GB Cache Limit Section)
+        - [ ] I have Searched [Existing Issues](https://github.com/corebit-bd/pend-boilerplate/issues) to Ensure this hasn't been Reported
+        - [ ] I have Checked the [Documentation](https://github.com/corebit-bd/pend-boilerplate/tree/main/documentation)
+        - [ ] I have Checked the [Troubleshooting Guide](https://github.com/corebit-bd/pend-boilerplate/tree/main/documentation/ci-cd/TROUBLESHOOTING.md) (Including the 10GB Cache Limit Section)
 
   - type: dropdown
     id: issue-type

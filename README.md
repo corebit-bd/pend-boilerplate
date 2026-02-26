@@ -4,13 +4,13 @@
 
 A Production-Ready, Full-Stack Boilerplate with Multi-Tenant Architecture, Comprehensive CI / CD & Enterprise-Grade Security Patterns. Built for Rapid Scaffolding of New Projects.
 
-[![CI Pipeline](https://github.com/jeet-khondker/pend-boilerplate/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/jeet-khondker/pend-boilerplate/actions/workflows/ci.yaml)
+[![CI Pipeline](https://github.com/corebit-bd/pend-boilerplate/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/corebit-bd/pend-boilerplate/actions/workflows/ci.yaml)
 [![License : MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Security Policy](https://img.shields.io/badge/Security-Policy-blue.svg)](SECURITY.md)
-[![Vulnerabilities](https://img.shields.io/badge/Vulnerabilities-0-brightgreen.svg)](https://github.com/jeet-khondker/pend-boilerplate/security)
+[![Vulnerabilities](https://img.shields.io/badge/Vulnerabilities-0-brightgreen.svg)](https://github.com/corebit-bd/pend-boilerplate/security)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![codecov](https://codecov.io/gh/jeet-khondker/pend-boilerplate/branch/main/graph/badge.svg)](https://codecov.io/gh/jeet-khondker/pend-boilerplate)
-[![Known Vulnerabilities](https://snyk.io/test/github/jeet-khondker/pend-boilerplate/badge.svg)](https://snyk.io/test/github/jeet-khondker/pend-boilerplate)
+[![codecov](https://codecov.io/gh/corebit-bd/pend-boilerplate/branch/main/graph/badge.svg)](https://codecov.io/gh/corebit-bd/pend-boilerplate)
+[![Known Vulnerabilities](https://snyk.io/test/github/corebit-bd/pend-boilerplate/badge.svg)](https://snyk.io/test/github/corebit-bd/pend-boilerplate)
 
 ---
 
@@ -146,7 +146,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/jeet-khondker/pend-boilerplate.git
+   git clone https://github.com/corebit-bd/pend-boilerplate.git
    cd pend-boilerplate
    ```
 
@@ -482,7 +482,7 @@ This Boilerplate is **Template-Ready** for Creating New Projects. Follow these S
 **Option B : Manual Clone**
 
 ```bash
-git clone https://github.com/jeet-khondker/pend-boilerplate.git my-new-project
+git clone https://github.com/corebit-bd/pend-boilerplate.git my-new-project
 cd my-new-project
 rm -rf .git
 git init
@@ -817,7 +817,7 @@ Cost : $0 / Month ✅
 
 ### Pipeline Status
 
-[![CI Pipeline](https://github.com/jeet-khondker/pend-boilerplate/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/jeet-khondker/pend-boilerplate/actions/workflows/ci.yaml)
+[![CI Pipeline](https://github.com/corebit-bd/pend-boilerplate/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/corebit-bd/pend-boilerplate/actions/workflows/ci.yaml)
 
 **See Detailed Documentation** :
 
@@ -1110,8 +1110,8 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 
 ---
 
-**Built with ❤️ by [@jeet-khondker](https://github.com/jeet-khondker)**
+**Built with ❤️ by [@corebit-bd](https://github.com/corebit-bd)**
 
-**Version** : 1.0.5
-**Last Updated** : February 20, 2026  
+**Version** : 1.0.6
+**Last Updated** : February 27, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅
