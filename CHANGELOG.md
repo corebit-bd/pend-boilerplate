@@ -5,6 +5,13 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.6] - February 27, 2026
+
+### Upgraded
+
+- **Mobile** :
+  - `expo-constants` Bumped from `18.0.13` to `55.0.7`.
+
 ## [1.0.5] - February 20, 2026
 
 ### 🛡️ Fixed
@@ -571,4 +578,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.5 | **Released** : February 20, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.6 | **Released** : February 27, 2026
