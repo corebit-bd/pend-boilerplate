@@ -482,7 +482,7 @@ git revert [commit-hash]
 | 1.0.3   | 2026-02-06     | - Patched `CVE-2026-25639` (`axios`) & `CVE-2026-25547` (`@isaacs/brace-expansion`) <br/> - Expanded Django Support                                       | @corebit-bd |
 | 1.0.4   | 2026-02-13     | Added `DjangoFilterInspector` to maintain Swagger Documentation Compatibility.                                                                            | @corebit-bd |
 | 1.0.5   | 2026-02-20     | - Patched `CVE-2026-26996` (`minimatch`) & `CVE-2026-26960` (`tar`) <br /> - **`isort`** Upgraded Dependency Range from `>=6.1.0,<8.0` to `>=6.1.0,<9.0`. | @corebit-bd |
-| 1.0.6   | 2026-02-27     | Bumped `expo-constants` from `18.0.13` to `55.0.7`.                                                                                                       | @corebit-bd |
+| 1.0.6   | 2026-02-27     | Bumped `@storybook/nextjs-vite` from `10.2.9` to `10.2.13` in Frontend Directory.                                                                         | @corebit-bd |
 
 ---
 

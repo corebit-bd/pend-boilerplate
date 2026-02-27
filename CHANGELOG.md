@@ -9,8 +9,10 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
+- **Frontend** : 
+  - **`@storybook/nextjs-vite`** Bumped from `10.2.9` to `10.2.13`
 - **Mobile** :
-  - `expo-constants` Bumped from `18.0.13` to `55.0.7`.
+  - **`expo-constants`** Bumped from `18.0.13` to `55.0.7`.
 
 ## [1.0.5] - February 20, 2026
 
