@@ -22,6 +22,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Mobile** :
   - **`expo-constants`** Bumped from `18.0.13` to `55.0.7`.
   - **`expo-status-bar`** Bumped from `3.0.9` to `55.0.4`.
+  - **`react-native-screens`** Bumped from `4.23.0` to `4.24.0`.
 
 ## [1.0.5] - February 20, 2026
 
