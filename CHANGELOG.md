@@ -18,6 +18,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`@storybook/nextjs-vite`** Bumped from `10.2.9` to `10.2.13`.
   - **`tailwindcss`** Bumped from `4.2.0` to `4.2.1`.
   - **`@storybook/addon-vitest`** Bumped from `10.2.10` to `10.2.13`.
+  - **`react-hook-form`** Bumped from `7.71.1` to `7.71.2`.
 - **Mobile** :
   - **`expo-constants`** Bumped from `18.0.13` to `55.0.7`.
 
