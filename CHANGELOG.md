@@ -5,11 +5,18 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.8] - March 07, 2026
+
+### Upgraded
+
+- **Mobile** :
+  - **`react-native-safe-area-context`** Bumped from `5.6.2` to `5.7.0`.
+
 # [1.0.7] - March 04, 2026
 
 ### Fixed
 
-- **CI / Security** : 
+- **CI / Security** :
   - Hardened Trivy SARIF Generation to avoid transient Registry Rate-Limits by using the Trivy DB ECR Mirror (`public.ecr.aws/...`).
     - Upload SARIF only when `trivy-results.sarif` exists (Prevents CI Failing with “Path does not exist”).
     - Made Trivy Step Non-Blocking (`continue-on-error`) so transient DB Fetch Failures don’t fail the Pipeline.
@@ -601,4 +608,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.7 | **Released** : March 04, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.8 | **Released** : March 07, 2026
