@@ -925,7 +925,7 @@ npm run storybook -- --no-manager-cache
   "react-dom": "^19.2.4",
   "@reduxjs/toolkit": "^2.9.2",
   "react-redux": "^9.2.0",
-  "axios": "^1.13.5",
+  "axios": "^1.13.6",
   "zod": "^4.3.6",
   "react-hook-form": "^7.71.2",
   "@hookform/resolvers": "^5.2.2",

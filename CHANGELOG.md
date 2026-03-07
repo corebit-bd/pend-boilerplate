@@ -9,6 +9,8 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
+- **Frontend** : 
+  - **`axios`** Bumped from `1.13.5` to `1.13.6`.
 - **Mobile** :
   - **`react-native-safe-area-context`** Bumped from `5.6.2` to `5.7.0`.
 
