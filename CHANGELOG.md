@@ -9,6 +9,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Backend** :
   - **`django-environ`** Updated Requirement from `<1.0,>=0.12.0` to `>=0.13.0,<1.0`.
+  - **`django-debug-toolbar`** Updated Requirement from `<7.0,>=6.0.0` to `>=6.3.0,<7.0`.
 
 # [1.0.16] - May 01, 2026
 
