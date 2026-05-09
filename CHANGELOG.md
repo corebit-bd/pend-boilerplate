@@ -5,6 +5,11 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.17] - May 08, 2026
+
+- **Backend** :
+  - **`django-environ`** Updated Requirement from `<1.0,>=0.12.0` to `>=0.13.0,<1.0`.
+
 # [1.0.16] - May 01, 2026
 
 - **Mobile** :
@@ -747,4 +752,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.16 | **Released** : May 01, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.17 | **Released** : May 08, 2026

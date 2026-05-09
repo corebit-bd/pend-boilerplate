@@ -342,7 +342,7 @@ black . && isort . && flake8 .
 - djangorestframework 3.16+
 - django-cors-headers 4.9+
 - psycopg2-binary >=2.9.12,<3.0
-- django-environ 0.12.0+
+- django-environ >=0.13.0,<1.0
 - drf-yasg 1.21+ (API Documentation)
 - djangorestframework-simplejwt 5.5.1+ (JWT Auth)
 - django-filter >=24.0,<26.0
