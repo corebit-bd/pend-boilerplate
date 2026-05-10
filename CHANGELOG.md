@@ -10,7 +10,8 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Backend** :
   - **`django-environ`** Updated Requirement from `<1.0,>=0.12.0` to `>=0.13.0,<1.0`.
   - **`django-debug-toolbar`** Updated Requirement from `<7.0,>=6.0.0` to `>=6.3.0,<7.0`.
-- **Frontend** : 
+  - **`celery`** Updated Requirement from `<6.0,>=5.5.3` to `>=5.6.3,<6.0`.
+- **Frontend** :
   - **`eslint-plugin-storybook`** Bumped from `10.3.4` to `10.3.6`.
 
 # [1.0.16] - May 01, 2026
@@ -524,7 +525,7 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 - **Frontend** : NextJS 16, ReactJS, TypeScript, Tailwind CSS v4.2
 - **Mobile** : Expo ~55.0.8, React Native
 - **Database** : PostgreSQL 15 with Multi-Schema Architecture
-- **Caching / Queue** : Redis 8.2 with Celery 5.5.3
+- **Caching / Queue** : Redis 8.2 with Celery 5.6.3
 - **Authentication** : JWT with RSA256 (`djangorestframework-simplejwt 5.5.1`)
 
 ### Development Tools

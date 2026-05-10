@@ -17,7 +17,7 @@
 - FastAPI 0.119 for Edge Services
 - GraphQL via `Graphene-Django 3.2.3`
 - JWT Authentication with RSA256 (`djangorestframework-simplejwt 5.5.1`)
-- Celery 5.5.3 for Background Tasks
+- Celery 5.6.3 for Background Tasks
 - Redis 8.2 for Caching & Task Queue
 - Gunicorn >=23.0.0,<26.0 + Whitenoise 6.11 for Production
 
@@ -263,7 +263,7 @@ pend-boilerplate/
 - `djangorestframework-simplejwt` 5.5.1+ (RSA256)
 - `graphene-django` 3.2.3+
 - `fastapi` 0.119.0+
-- `celery` 5.5.3+
+- `celery` 5.6.3+
 - `redis` >=5.3.0,<8.0
 - `gunicorn` >=23.0.0,<26.0
 - `whitenoise` 6.11+

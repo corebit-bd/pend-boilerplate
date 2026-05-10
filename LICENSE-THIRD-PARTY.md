@@ -59,7 +59,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Celery (BSD 3-Clause License)
 
-- **Version** : 5.5.3+
+- **Version** : 5.6.3+
 - **Copyright** : Ask Solem & Contributors
 - **License** : BSD 3-Clause
 - **Website** : https://docs.celeryq.dev/
@@ -475,6 +475,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : April 24, 2026
+**Last Updated** : May 08, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.
