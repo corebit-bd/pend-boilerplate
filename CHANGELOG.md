@@ -13,6 +13,8 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`celery`** Updated Requirement from `<6.0,>=5.5.3` to `>=5.6.3,<6.0`.
 - **Frontend** :
   - **`eslint-plugin-storybook`** Bumped from `10.3.4` to `10.3.6`.
+- **Mobile** :
+  - **`@react-navigation/native`** Bumped from `7.2.2` to `7.2.3`.
 
 # [1.0.16] - May 01, 2026
 
