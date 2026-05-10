@@ -58,7 +58,7 @@
 
 ### Testing
 
-- Backend : `pytest ≥8.4.2,<10`, `pytest-django 4.11.1`
+- Backend : `pytest >=9.0.3,<10.0`, `pytest-django 4.11.1`
 - Frontend : Jest, `@testing-library/react` (99.78% Coverage)
 - Code Quality : Black, Flake8, `isort`, ESLint
 
@@ -270,7 +270,7 @@ pend-boilerplate/
 
 **Development (`requirements-dev.txt`)** :
 
-- `pytest` ≥8.4.2,<10
+- `pytest` >=9.0.3,<10.0
 - `pytest-django` >=4.12.0,<5.0
 - `black` 26.1.0+
 - `flake8` 7.3.0+
