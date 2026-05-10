@@ -14,7 +14,7 @@ The backend is built with Django >=6.0.4,<6.1 and provides a robust, scalable fo
 - **FastAPI 0.119** - Edge Services for High-Performance Endpoints
 - **PostgreSQL 15** - Primary Database
 - **Redis 8.2** - Caching & Task Queue
-- **Celery 5.5.3** - Asynchronous Task Processing
+- **Celery 5.6.3** - Asynchronous Task Processing
 - **JWT (RSA256)** - Secure Authentication
 
 ### Design Patterns
@@ -350,7 +350,7 @@ black . && isort . && flake8 .
 - fastapi 0.119.0+
 - uvicorn 0.37.0+
 - pydantic >=2.13.3,<3.0
-- celery 5.5.3+
+- celery 5.6.3+
 - redis >=5.3.0,<8.0
 - gunicorn >=23.0.0,<26.0
 - whitenoise 6.11+

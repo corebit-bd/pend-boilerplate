@@ -96,7 +96,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 - **Graphene-Django 3.2.3** - GraphQL Implementation
 - **PostgreSQL 15** - Primary Database
 - **Redis 8.2** - Caching & Task Queue
-- **Celery 5.5.3** - Background Tasks
+- **Celery 5.6.3** - Background Tasks
 - **Gunicorn >=23.0.0,<26.0** + **Whitenoise 6.11** - Production Serving
 
 ### Frontend
