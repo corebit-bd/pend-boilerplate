@@ -17,6 +17,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`eslint-plugin-storybook`** Bumped from `10.3.4` to `10.3.6`.
 - **Mobile** :
   - **`@react-navigation/native`** Bumped from `7.2.2` to `7.2.3`.
+  - **`expo-status-bar`** Bumped from `55.0.5` to `55.0.6`.
 
 # [1.0.16] - May 01, 2026
 
