@@ -18,7 +18,7 @@ psycopg2-binary>=2.9.12,<3.0
 django-environ>=0.13.0,<1.0
 
 # API Documentation
-drf-yasg>=1.21.11,<2.0
+drf-yasg>=1.21.15,<2.0
 
 # Authentication & Security
 djangorestframework-simplejwt>=5.5.1,<6.0
