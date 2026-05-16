@@ -12,6 +12,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`django-debug-toolbar`** Updated Requirement from `<7.0,>=6.0.0` to `>=6.3.0,<7.0`.
   - **`celery`** Updated Requirement from `<6.0,>=5.5.3` to `>=5.6.3,<6.0`.
   - **`pytest`** Updated Requirement from `<10.0,>=8.4.2` to `>=9.0.3,<10.0`.
+  - **`django-filter`** Updated Requirement from `<26.0,>=24.0` to `>=25.2,<26.0`.
 - **Frontend** :
   - **`eslint-plugin-storybook`** Bumped from `10.3.4` to `10.3.6`.
 - **Mobile** :
