@@ -763,4 +763,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.17 | **Released** : May 08, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.18 | **Released** : May 15, 2026
