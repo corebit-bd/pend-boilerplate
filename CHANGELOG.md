@@ -19,6 +19,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`@react-navigation/native`** Bumped from `7.2.2` to `7.2.3`.
   - **`expo-status-bar`** Bumped from `55.0.5` to `55.0.6`.
   - **`zod`** Bumped from `4.3.6` to `4.4.3`.
+  - **`react-native`** Bumped from `0.85.2` to `0.85.3`.
 
 # [1.0.16] - May 01, 2026
 
