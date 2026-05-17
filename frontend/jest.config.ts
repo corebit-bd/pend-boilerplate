@@ -5,7 +5,7 @@ const createJestConfig = nextJest({
   dir: "./",
 });
 
-const config: Config = {
+const config = {
   coverageProvider: "v8",
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
@@ -19,6 +19,6 @@ const config: Config = {
     "!src/**/*.stories.{js,jsx,ts,tsx}",
     "!src/**/__tests__/**",
   ],
-} as const;
+} satisfies Config;
 
 export default createJestConfig(config);
