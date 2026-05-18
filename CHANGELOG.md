@@ -14,6 +14,8 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`isort`** Upgraded Dependency Range from `<9.0,>=6.1.0` to `>=8.0.1,<9.0`.
 - **Frontend** : 
   - **`jest`** Bumped from `30.3.0` to `30.4.2`.
+- **Mobile** : 
+  - **`react-native-screens`** Bumped from `4.24.0` to `4.25.0`.
 
 # [1.0.17] - May 08, 2026
 
