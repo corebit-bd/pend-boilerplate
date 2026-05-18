@@ -9,6 +9,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Backend** : 
   - **`drf-yasg`** Updated Requirement from `<2.0,>=1.21.11` to `>=1.21.15,<2.0`.
+  - **`uvicorn`** Updated Requirement from `<1.0,>=0.37.0` to `>=0.47.0,<1.0`.
 
 # [1.0.17] - May 08, 2026
 

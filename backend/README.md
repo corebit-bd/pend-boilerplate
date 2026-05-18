@@ -348,7 +348,7 @@ black . && isort . && flake8 .
 - django-filter >=25.2,<26.0
 - graphene-django 3.2.3+
 - fastapi 0.119.0+
-- uvicorn 0.37.0+
+- uvicorn >=0.47.0,<1.0
 - pydantic >=2.13.3,<3.0
 - celery 5.6.3+
 - redis >=5.3.0,<8.0
