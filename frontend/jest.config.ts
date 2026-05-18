@@ -2,12 +2,10 @@ import type { Config } from "jest";
 import nextJest from "next/jest.js";
 
 const createJestConfig = nextJest({
-  // Provide the Path to your NextJS Application to Load "next.config.js" & ".env" Files in your Test Environment
   dir: "./",
 });
 
-// Add Any Custom Configurations to be Passed ✅ to Jest 🚀
-const config: Config = {
+const config = {
   coverageProvider: "v8",
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
@@ -21,7 +19,6 @@ const config: Config = {
     "!src/**/*.stories.{js,jsx,ts,tsx}",
     "!src/**/__tests__/**",
   ],
-};
+} satisfies Config;
 
-// "createJestConfig" is Exported this way to ensure that "next/jest" can load the Async NextJS Configuration
 export default createJestConfig(config);
