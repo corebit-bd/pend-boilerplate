@@ -339,7 +339,7 @@ black . && isort . && flake8 .
 ### Production Dependencies (requirements.txt)
 
 - Django >=6.0.4,<6.1 (LTS)
-- djangorestframework 3.16+
+- djangorestframework >=3.17.1,<4.0
 - django-cors-headers 4.9+
 - psycopg2-binary >=2.9.12,<3.0
 - django-environ >=0.13.0,<1.0

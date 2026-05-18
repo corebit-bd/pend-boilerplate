@@ -255,7 +255,7 @@ pend-boilerplate/
 **Production (`requirements.txt`)** :
 
 - `Django` >=6.0.4,<6.1 (LTS)
-- `djangorestframework` 3.16.x
+- `djangorestframework` >=3.17.1,<4.0
 - `psycopg2-binary` >=2.9.12,<3.0
 - `djangorestframework-simplejwt` 5.5.1+ (RSA256)
 - `graphene-django` 3.2.3+
