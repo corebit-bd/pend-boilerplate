@@ -362,7 +362,7 @@ black . && isort . && flake8 .
 - pytest-cov 7.0.0+
 - black 26.1.0+
 - flake8 7.3.0+
-- isort >=6.1.0,<9.0
+- isort >=8.0.1,<9.0
 - ipython 9.6.0+
 - django-debug-toolbar >=6.3.0,<7.0
 - django-extensions 4.1+
