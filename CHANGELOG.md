@@ -16,6 +16,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`jest`** Bumped from `30.3.0` to `30.4.2`.
 - **Mobile** : 
   - **`react-native-screens`** Bumped from `4.24.0` to `4.25.0`.
+  - **`axios`** Bumped from `1.15.2` to `1.16.1`.
 
 # [1.0.17] - May 08, 2026
 
