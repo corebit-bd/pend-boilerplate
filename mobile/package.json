@@ -19,7 +19,7 @@
     "expo-constants": "~55.0.15",
     "expo-secure-store": "~55.0.13",
     "expo-status-bar": "~55.0.6",
-    "react": "19.2.5",
+    "react": "19.2.6",
     "react-hook-form": "^7.75.0",
     "react-native": "0.85.3",
     "react-native-safe-area-context": "~5.8.0",
@@ -28,7 +28,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@types/react": "~19.2.14",
+    "@types/react": "~19.2.15",
     "typescript": "~6.0.3"
   },
   "overrides": {
