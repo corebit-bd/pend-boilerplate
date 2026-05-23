@@ -19,7 +19,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Django (BSD 3-Clause License)
 
-- **Version** : >=6.0.4,<6.1
+- **Version** : >=6.0.5,<6.1
 - **Copyright** : Django Software Foundation & Individual Ccontributors
 - **License** : BSD 3-Clause
 - **Website** : https://www.djangoproject.com/
@@ -91,7 +91,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Whitenoise (MIT License)
 
-- **Version** : 6.11+
+- **Version** : >=6.12.0,<7.0
 - **Copyright** : David Evans & Contributors
 - **License** : MIT
 - **Website** : http://whitenoise.evans.io/
@@ -187,7 +187,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Expo (MIT License)
 
-- **Version** : 55.0.19
+- **Version** : 56.0.3
 - **Copyright** : Expo Contributors
 - **License** : MIT
 - **Website** : https://expo.dev/
@@ -255,7 +255,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Black (MIT License)
 
-- **Version** : 26.1.0+
+- **Version** : >=26.5.1,<27.0
 - **Copyright** : Łukasz Langa & Contributors
 - **License** : MIT
 - **Website** : https://black.readthedocs.io/
@@ -475,6 +475,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : May 15, 2026
+**Last Updated** : May 22, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.
