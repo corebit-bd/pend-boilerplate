@@ -5,6 +5,28 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.19] - May 22, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`pydantic`** Updated Requirement from `<3.0,>=2.13.3` to `>=2.13.4,<3.0`.
+  - **`whitenoise`** Updated Requirement from `<7.0,>=6.11.0` to `>=6.12.0,<7.0`.
+  - **`black`** Updated Requirement from `<27.0,>=25.9.0` to `>=26.5.1,<27.0`.
+  - **`django`** Updated Requirement from `<6.1,>=6.0.4` to `>=6.0.5,<6.1`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.15.0` to `>=40.18.0,<41.0`.
+- **Frontend** : 
+  - **`@vitest/browser-playwright`** Bumped from `4.1.6` to `4.1.7`.
+  - **`@hookform/resolvers`** Bumped from `5.2.2` to `5.4.0`.
+  - **`@types/jest`** Bumped from `29.5.14` to `30.0.0`.
+- **Mobile** : 
+  - **`expo`** Bumped from `55.0.19` to `56.0.3`.
+  - **`react-native-safe-area-context`** Bumped from `5.7.0` to `5.8.0`.
+  - **`@hookform/resolvers`** Bumped from `5.2.2` to `5.4.0`.
+  - **`react`** Bumped from `19.2.5` to `19.2.6`.
+  - **`@types/react`** Bumped from `19.2.14` to `19.2.15`.
+  - **`expo-secure-store`** Bumped from `55.0.13` to `56.0.4`.
+
 # [1.0.18] - May 15, 2026
 
 - **Backend** : 
@@ -552,7 +574,7 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 ### Development Tools
 
 - **Testing** : `pytest ≥8.4.2,<10`, Jest, 99.78% Coverage on UI
-- **Code Quality** : Black 26.1.0, Flake8 7.3.0, `isort >=6.1.0,<9.0`, ESLint
+- **Code Quality** : Black >=26.5.1,<27.0, Flake8 7.3.0, `isort >=6.1.0,<9.0`, ESLint
 - **Documentation** : Storybook v10.2.10 with 83 Interactive Stories
 - **Containerization** : Docker with Multi-Stage Builds
 - **CI / CD** : GitHub Actions (Free Tier, $0 / Month)
@@ -777,4 +799,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.18 | **Released** : May 15, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.19 | **Released** : May 22, 2026
