@@ -11,11 +11,11 @@
 ### Backend
 
 - `Django >=6.0.5,<6.1` with Django REST Framework 3.16
-- FastAPI 0.119 for Edge Services
+- FastAPI >=0.136.3,<1.0 for Edge Services
 - GraphQL via `Graphene-Django 3.2.3`
 - JWT Authentication with RSA256 (`djangorestframework-simplejwt 5.5.1`)
 - Celery 5.6.3 for Background Tasks
-- Redis 8.2 for Caching & Task Queue
+- Redis >=8.0.0,<9.0 for Caching & Task Queue
 - Gunicorn >=23.0.0,<26.0 + Whitenoise >=6.12.0,<7.0 for Production
 
 ### Frontend
@@ -25,7 +25,7 @@
 - Redux Toolkit for State Management
 - Zod for Validation
 - React Hook Form for Forms
-- Storybook 10.3.4 for Component Documentation
+- Storybook 10.4.1 for Component Documentation
 - Jest with 99.78% Test Coverage (156 Tests)
 
 ### Mobile
@@ -155,7 +155,7 @@ pend-boilerplate/
 
 ### Step 10 : Create Storybook Stories ✅
 
-- ✅ Storybook 10.3.4 Configured
+- ✅ Storybook 10.4.1 Configured
 - ✅ 83 Comprehensive Stories across 5 Components
 - ✅ `Icon.README.md` with Integration Guide
 
@@ -259,9 +259,9 @@ pend-boilerplate/
 - `psycopg2-binary` >=2.9.12,<3.0
 - `djangorestframework-simplejwt` 5.5.1+ (RSA256)
 - `graphene-django` 3.2.3+
-- `fastapi` 0.119.0+
+- `fastapi` >=0.136.3,<1.0
 - `celery` 5.6.3+
-- `redis` >=5.3.0,<8.0
+- `redis` >=8.0.0,<9.0
 - `gunicorn` >=23.0.0,<26.0
 - `whitenoise` >=6.12.0,<7.0
 
@@ -447,7 +447,7 @@ NODE_ENV=development
 ### Services
 
 1. **`postgres`** : PostgreSQL 15-alpine (Port 5432)
-2. **`redis`** : Redis 7-alpine (Port 6379)
+2. **`redis`** : Redis 8-alpine (Port 6379)
 3. **`backend`** : Django Application (Port 8000)
 4. **`frontend`** : NextJS Application (Port 3000)
 5. **`celery_worker`** : Background Tasks
@@ -1007,8 +1007,8 @@ This Document contains All Necessary Context to Resume Development!
 ---
 
 **Project Status** : ✅ COMPLETE - Production & Scaffolding Ready
-**Version** : 1.0.19
-**Last Updated** : May 22, 2026
+**Version** : 1.0.20
+**Last Updated** : May 29, 2026
 **All 12 Steps** : COMPLETED ✅ (Infrastructure Optimized v1.0.3)
 **CI / CD** : Production-Ready ✅
 **Documentation** : Comprehensive ✅
