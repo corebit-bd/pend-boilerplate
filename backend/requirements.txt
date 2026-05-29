@@ -28,7 +28,7 @@ django-filter>=25.2,<26.0
 graphene-django>=3.2.3,<4.0
 
 # FastAPI Integration (Optional)
-fastapi>=0.119.0,<1.0
+fastapi>=0.136.3,<1.0
 uvicorn>=0.48.0,<1.0
 pydantic>=2.13.4,<3.0
 
