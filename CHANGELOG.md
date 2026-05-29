@@ -5,6 +5,25 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.20] - May 29, 2026
+
+- **Backend** : 
+  - **`uvicorn`** Updated Requirement from `<1.0,>=0.47.0` to `>=0.48.0,<1.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.18.0` to `>=40.19.1,<41.0`.
+  - **`redis`** Updated Requirement from `<8.0,>=5.3.0` to `>=8.0.0,<9.0`.
+  - **`fastapi`** Updated Requirement from `<1.0,>=0.119.0` to `>=0.136.3,<1.0`.
+  - **`pytest-cov`** Updated Requirement from `<8.0,>=7.0.0` to `>=7.1.0,<8.0`.
+- **Frontend** : 
+  - **`storybook`** Bumped from `10.4.0` to `10.4.1`.
+  - **`@storybook/addon-vitest`** Bumped from `10.4.0` to `10.4.1`.
+  - **`@storybook/addon-a11y`** Bumped from `10.4.0` to `10.4.1`.
+  - **`postcss`** Bumped from `8.5.14` to `8.5.15`.
+- **Mobile** :
+  - **`expo-status-bar`** Bumped from `55.0.6` to `56.0.4`.
+  - **`@react-navigation/bottom-tabs`** Bumped from `7.15.9` to `7.16.2`.
+  - **`expo`** Bumped from `56.0.3` to `56.0.8`.
+  - **`@react-navigation/stack`** Bumped from `7.8.11` to `7.9.3`.
+
 # [1.0.19] - May 22, 2026
 
 ### Upgraded
@@ -799,4 +818,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.19 | **Released** : May 22, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.20 | **Released** : May 29, 2026
