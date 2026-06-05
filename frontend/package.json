@@ -45,7 +45,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitest/browser-playwright": "^4.1.7",
-    "@vitest/coverage-v8": "^4.1.2",
+    "@vitest/coverage-v8": "^4.1.8",
     "cypress": "^15.14.1",
     "eslint": "9.39.4",
     "eslint-config-next": "^16.2.3",
