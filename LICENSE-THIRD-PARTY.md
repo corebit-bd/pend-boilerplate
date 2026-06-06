@@ -19,7 +19,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Django (BSD 3-Clause License)
 
-- **Version** : >=6.0.5,<6.1
+- **Version** : >=6.0.6,<6.1
 - **Copyright** : Django Software Foundation & Individual Ccontributors
 - **License** : BSD 3-Clause
 - **Website** : https://www.djangoproject.com/
@@ -83,7 +83,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Gunicorn (MIT License)
 
-- **Version** : >=23.0.0,<26.0
+- **Version** : >=26.0.0,<27.0
 - **Copyright** : Benoit Chesneau & Contributors
 - **License** : MIT
 - **Website** : https://gunicorn.org/
@@ -111,7 +111,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### ReactJS (MIT License)
 
-- **Version** : 19.x
+- **Version** : 18.x
 - **Copyright** : Meta Platforms, Inc. & Affiliates
 - **License** : MIT
 - **Website** : https://react.dev/
@@ -475,6 +475,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : May 29, 2026
+**Last Updated** : June 05, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.

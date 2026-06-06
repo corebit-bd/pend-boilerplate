@@ -2,13 +2,13 @@
 
 ## 📋 Overview
 
-The backend is built with Django >=6.0.4,<6.1 and provides a robust, scalable foundation for the PEND boilerplate. It implements a multi-tenant, headless architecture with support for REST, GraphQL, and FastAPI edge services.
+The backend is built with Django >=6.0.6,<6.1 and provides a robust, scalable foundation for the PEND boilerplate. It implements a multi-tenant, headless architecture with support for REST, GraphQL, and FastAPI edge services.
 
 ## 🏗️ Architecture
 
 ### Core Technologies
 
-- **Django >=6.0.5,<6.1** - Main Application Framework
+- **Django >=6.0.6,<6.1** - Main Application Framework
 - **Django REST Framework 3.16** - RESTful API
 - **Graphene-Django 3.2.3** - GraphQL API
 - **FastAPI >=0.136.3,<1.0** - Edge Services for High-Performance Endpoints
@@ -338,7 +338,7 @@ black . && isort . && flake8 .
 
 ### Production Dependencies (requirements.txt)
 
-- Django >=6.0.5,<6.1 (LTS)
+- Django >=6.0.6,<6.1 (LTS)
 - djangorestframework >=3.17.1,<4.0
 - django-cors-headers 4.9+
 - psycopg2-binary >=2.9.12,<3.0
@@ -348,11 +348,11 @@ black . && isort . && flake8 .
 - django-filter >=25.2,<26.0
 - graphene-django 3.2.3+
 - fastapi >=0.136.3,<1.0
-- uvicorn >=0.48.0,<1.0
+- uvicorn >=0.49.0,<1.0
 - pydantic >=2.13.4,<3.0
 - celery 5.6.3+
 - redis >=8.0.0,<9.0
-- gunicorn >=23.0.0,<26.0
+- gunicorn >=26.0.0,<27.0
 - whitenoise >=6.12.0,<7.0
 
 ### Development Dependencies (requirements-dev.txt)
@@ -363,11 +363,11 @@ black . && isort . && flake8 .
 - black >=26.5.1,<27.0
 - flake8 7.3.0+
 - isort >=8.0.1,<9.0
-- ipython 9.6.0+
+- ipython >=9.14.1,<10.0
 - django-debug-toolbar >=6.3.0,<7.0
 - django-extensions 4.1+
 - factory-boy 3.3.3+ (Test Factories)
-- faker >=40.19.1,<41.0 (Fake Data Generation)
+- faker >=40.21.0,<41.0 (Fake Data Generation)
 
 ## 🔒 Security
 
@@ -652,4 +652,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : May 29, 2026
+**Last Updated** : June 05, 2026

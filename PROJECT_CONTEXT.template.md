@@ -76,7 +76,7 @@ Handles Payments, Shipping & Reviews.
 
 ### Inherited from PEND Boilerplate
 
-- ✅ Backend : Django >=6.0.5,<6.1 + FastAPI
+- ✅ Backend : Django >=6.0.6,<6.1 + FastAPI
 - ✅ Frontend : NextJS 16 + TypeScript
 - ✅ Mobile : React Native + Expo
 - ✅ Database : PostgreSQL 15

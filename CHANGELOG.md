@@ -5,7 +5,38 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.21] - June 05, 2026
+
+### Fixed
+
+In the CI Pipeline, as the Frontend Tests are failing, the following downgrade is performed : 
+
+- **Frontend** : 
+  - **`react`** Downgraded from `19.2.7` to `18.3.0`.
+  - **`@types/react`** Downgraded from `19` to `18.3.0`.
+  - **`react-dom`** Downgraded from `19.2.5` to `18.3.0`.
+  - **`@types/react-dom`** Downgraded from `19` to `18.3.0`.
+
+### Upgraded
+
+- **Backend** : 
+  - **`ipython`** Updated Requirement from `<10.0,>=9.6.0` to `>=9.14.1,<10.0`.
+  - **`uvicorn`** Updated Requirement from `<1.0,>=0.48.0` to `>=0.49.0,<1.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.19.1` to `>=40.21.0,<41.0`.
+  - **`django`** Updated Requirement from `<6.1,>=6.0.5` to `>=6.0.6,<6.1`.
+  - **`gunicorn`** Requirement Updated from `<26.0,>=23.0.0` to `>=26.0.0,<27.0`.
+- **Frontend** : 
+  - **`@storybook/addon-vitest`** Bumped from `10.4.1` to `10.4.2`.
+- **Mobile** : 
+  - **`axios`** Bumped from `1.16.1` to `1.17.0`.
+  - **`expo-constants`** Bumped from `55.0.15` to `56.0.16`.
+  - **`react-hook-form`** Bumped from `7.75.0` to `7.77.0`.
+  - **`@reduxjs/toolkit`** Bumped from `2.11.2` to `2.12.0`.
+  - **`react-native-screens`** Bumped from `4.25.0` to `4.25.2`.
+
 # [1.0.20] - May 29, 2026
+
+### Upgraded
 
 - **Backend** : 
   - **`uvicorn`** Updated Requirement from `<1.0,>=0.47.0` to `>=0.48.0,<1.0`.
@@ -48,6 +79,8 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [1.0.18] - May 15, 2026
 
+### Upgraded
+
 - **Backend** : 
   - **`drf-yasg`** Updated Requirement from `<2.0,>=1.21.11` to `>=1.21.15,<2.0`.
   - **`uvicorn`** Updated Requirement from `<1.0,>=0.37.0` to `>=0.47.0,<1.0`.
@@ -61,6 +94,8 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`axios`** Bumped from `1.15.2` to `1.16.1`.
 
 # [1.0.17] - May 08, 2026
+
+### Upgraded
 
 - **Backend** :
   - **`django-environ`** Updated Requirement from `<1.0,>=0.12.0` to `>=0.13.0,<1.0`.
@@ -77,6 +112,8 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`react-native`** Bumped from `0.85.2` to `0.85.3`.
 
 # [1.0.16] - May 01, 2026
+
+### Upgraded
 
 - **Mobile** :
   - **`@react-navigation/stack`** Bumped from `7.8.10` to `7.8.11`.
@@ -818,4 +855,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.20 | **Released** : May 29, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.21 | **Released** : June 05, 2026
