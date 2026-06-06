@@ -90,14 +90,14 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ### Backend
 
-- **Django >=6.0.5,<6.1** - Web Framework
+- **Django >=6.0.6,<6.1** - Web Framework
 - **Django REST Framework 3.16** - RESTful APIs
 - **FastAPI >=0.136.3,<1.0** - High-Performance Edge Services
 - **Graphene-Django 3.2.3** - GraphQL Implementation
 - **PostgreSQL 15** - Primary Database
 - **Redis >=8.0.0,<9.0** - Caching & Task Queue
 - **Celery 5.6.3** - Background Tasks
-- **Gunicorn >=23.0.0,<26.0** + **Whitenoise >=6.12.0,<7.0** - Production Serving
+- **Gunicorn >=26.0.0,<27.0** + **Whitenoise >=6.12.0,<7.0** - Production Serving
 
 ### Frontend
 
@@ -1116,6 +1116,6 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 
 **Built with ❤️ by [@corebit-bd](https://github.com/corebit-bd)**
 
-**Version** : 1.0.20
-**Last Updated** : May 29, 2026  
+**Version** : 1.0.21
+**Last Updated** : June 05, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅
