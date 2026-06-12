@@ -367,7 +367,7 @@ black . && isort . && flake8 .
 - django-debug-toolbar >=6.3.0,<7.0
 - django-extensions 4.1+
 - factory-boy 3.3.3+ (Test Factories)
-- faker >=40.21.0,<41.0 (Fake Data Generation)
+- faker >=40.23.0,<41.0 (Fake Data Generation)
 
 ## 🔒 Security
 
@@ -652,4 +652,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : June 05, 2026
+**Last Updated** : June 12, 2026

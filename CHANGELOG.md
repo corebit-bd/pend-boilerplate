@@ -5,6 +5,29 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+---
+
+# [1.0.22] - June 12, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`faker`** Updated Requirement from `<41.0,>=40.21.0` to `>=40.23.0,<41.0`.
+- **Frontend** :
+  - **`eslint-config-next`** Bumped from `16.2.7` to `16.2.9`.
+  - **`@storybook/addon-docs`** Bumped from `10.4.2` to `10.4.4`.
+  - **`@storybook/addon-a11y`** Bumped from `10.4.2` to `10.4.4`.
+  - **`cypress`** Bumped from `15.16.0` to `15.17.0`.
+- **Mobile** : 
+  - **`react-redux`** Bumped from `9.2.0` to `9.3.0`.
+  - **`react`** Bumped from `19.2.6` to `19.2.7`.
+  - **`@types/react`** Bumped from `19.2.15` to `19.2.17`.
+  - **`@react-navigation/native`** Bumped from `7.2.5` to `7.3.1`.
+  - **`@react-navigation/bottom-tabs`** Bumped from `7.16.2` to `7.18.0`.
+  - **`@react-navigation/stack`** Bumped from `7.9.3` to `7.10.3`.
+
+---
+
 # [1.0.21] - June 05, 2026
 
 ### Fixed
@@ -34,6 +57,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`@reduxjs/toolkit`** Bumped from `2.11.2` to `2.12.0`.
   - **`react-native-screens`** Bumped from `4.25.0` to `4.25.2`.
 
+---
+
 # [1.0.20] - May 29, 2026
 
 ### Upgraded
@@ -54,6 +79,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`@react-navigation/bottom-tabs`** Bumped from `7.15.9` to `7.16.2`.
   - **`expo`** Bumped from `56.0.3` to `56.0.8`.
   - **`@react-navigation/stack`** Bumped from `7.8.11` to `7.9.3`.
+
+---
 
 # [1.0.19] - May 22, 2026
 
@@ -77,6 +104,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`@types/react`** Bumped from `19.2.14` to `19.2.15`.
   - **`expo-secure-store`** Bumped from `55.0.13` to `56.0.4`.
 
+---
+
 # [1.0.18] - May 15, 2026
 
 ### Upgraded
@@ -92,6 +121,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
 - **Mobile** : 
   - **`react-native-screens`** Bumped from `4.24.0` to `4.25.0`.
   - **`axios`** Bumped from `1.15.2` to `1.16.1`.
+
+---
 
 # [1.0.17] - May 08, 2026
 
@@ -111,6 +142,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`zod`** Bumped from `4.3.6` to `4.4.3`.
   - **`react-native`** Bumped from `0.85.2` to `0.85.3`.
 
+---
+
 # [1.0.16] - May 01, 2026
 
 ### Upgraded
@@ -119,6 +152,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`@react-navigation/stack`** Bumped from `7.8.10` to `7.8.11`.
   - **`expo`** Bumped from `55.0.15` to `55.0.19`.
   - **`react-hook-form`** Bumped from `7.72.1` to `7.75.0`.
+
+---
 
 # [1.0.15] - April 24, 2026
 
@@ -140,6 +175,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`expo-constants`** Bumped from `55.0.14` to `55.0.15`.
   - **`react-native`** Bumped from `0.85.1` to `0.85.2`.
 
+---
+
 # [1.0.14] - April 18, 2026
 
 ### Upgraded
@@ -155,6 +192,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`typescript`** Bumped from `6.0.2` to `6.0.3`.
   - **`axios`** Bumped from `1.14.0` to `1.15.0`.
   - **`react-native`** Bumped from `0.84.1` to `0.85.1`.
+
+---
 
 # [1.0.13] - April 10, 2026
 
@@ -173,6 +212,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`expo-secure-store`** Bumped from `55.0.11` to `55.0.13`.
   - **`expo-constants`** Bumped from `55.0.11` to `55.0.13`.
 
+---
+
 # [1.0.12] - April 04, 2026
 
 ### Upgraded
@@ -190,6 +231,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`axios`** Bumped from `1.13.6` to `1.14.0`.
   - **`expo-status-bar`** Bumped from `55.0.4` to `55.0.5`.
 
+---
+
 # [1.0.11] - March 28, 2026
 
 ### Upgraded
@@ -205,6 +248,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`@react-navigation/stack`** Bumped from `7.8.6` to `7.8.8`.
   - **`typescript`** Bumped from `5.9.3` to `6.0.2`.
   - **`@react-navigation/bottom-tabs`** Bumped from `7.15.6` to `7.15.8`.
+
+---
 
 # [1.0.10] - March 21, 2026
 
@@ -228,6 +273,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`@react-navigation/bottom-tabs`** Bumped from `7.15.5` to `7.15.6`.
   - **`expo`** Bumped from `55.0.6` to `55.0.8`.
 
+---
+
 # [1.0.9] - March 14, 2026
 
 ### Upgraded
@@ -242,6 +289,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`@react-navigation/bottom-tabs`** Bumped from `7.15.2` to `7.15.5`.
   - **`@react-navigation/stack`** Bumped from `7.8.4` to `7.8.5`.
   - **`expo`** Bumped from `55.0.5` to `55.0.6`.
+
+---
 
 # [1.0.8] - March 07, 2026
 
@@ -259,6 +308,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`@react-navigation/stack`** Bumped from `7.8.2` to `7.8.4`.
   - **`expo`** Bumped from `54.0.33` to `55.0.5`.
 
+---
+
 # [1.0.7] - March 04, 2026
 
 ### Fixed
@@ -268,6 +319,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
     - Upload SARIF only when `trivy-results.sarif` exists (Prevents CI Failing with “Path does not exist”).
     - Made Trivy Step Non-Blocking (`continue-on-error`) so transient DB Fetch Failures don’t fail the Pipeline.
     - Updated `aquasecurity/trivy-action` to `0.33.1`.
+
+---
 
 ## [1.0.6] - February 27, 2026
 
@@ -288,6 +341,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`expo-constants`** Bumped from `18.0.13` to `55.0.7`.
   - **`expo-status-bar`** Bumped from `3.0.9` to `55.0.4`.
   - **`react-native-screens`** Bumped from `4.23.0` to `4.24.0`.
+
+---
 
 ## [1.0.5] - February 20, 2026
 
@@ -316,6 +371,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - **`@react-navigation/bottom-tabs`** Bumped from `7.13.0` to `7.14.0`.
   - **`react-native-screens`** Bumped from `4.16.0` to `4.23.0`.
 
+---
+
 ## [1.0.4] - February 13, 2026
 
 ### Added
@@ -335,6 +392,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
   - `react` & `@types/react` Upgraded to `19.1.0`.
   - `react-native` Upgraded from `0.81.5` to `0.84.0`.
   - `typescript` Updated to `~5.9.2` to support new ReactJS Typings.
+
+---
 
 ## [1.0.3] - February 06, 2026
 
@@ -359,6 +418,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
 - **Mobile** :
   - `expo-secure-store` Bumped from `15.0.7` to `15.0.8`
 
+---
+
 ## [1.0.2] - January 31, 2026
 
 ### Upgraded
@@ -382,6 +443,8 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
       2. Updated Error Handling Logic to align with Zod 4's new unified error API.
     - **Improvements** : Significantly reduced bundle size for the Mobile Application & improved Validation Performance.
 
+---
+
 ## [1.0.1] - January 12, 2026
 
 ### 🚀 Optimized
@@ -393,13 +456,13 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
 
 - Resolved GitHub Actions **Approaching Total Cache Storage Limit**"\*\* (10GB) by implementing A Layered Caching Strategy in `ci.yaml`.
 
+---
+
 ## [1.0.0] - December 31, 2025
 
 ### 🎉 Initial Release - Production Ready
 
 The First Complete Release of the PEND Boilerplate, a Full-Stack Development Template using PostgreSQL, Expo, NextJS & Django with a focus on Scalability, Developer Experience & Production Readiness.
-
----
 
 ## ✨ Added
 
@@ -855,4 +918,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.21 | **Released** : June 05, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.22 | **Released** : June 12, 2026
