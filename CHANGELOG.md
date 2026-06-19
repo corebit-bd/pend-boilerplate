@@ -7,6 +7,29 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.23] - June 19, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`fastapi`** Updated Requirement from `<1.0,>=0.136.3` to `>=0.137.2,<1.0`.
+  - **`django-environ`** Updated Requirement from `<1.0,>=0.13.0` to `>=0.14.0,<1.0`.
+  - **`django-debug-toolbar`** Updated Requirement from `<7.0,>=6.3.0` to `>=7.0.0,<8.0`.
+   - **`pytest`** Updated Requirement from `<10.0,>=9.0.3` to `>=9.1.0,<10.0`.
+- **Frontend** : 
+  - **`@storybook/addon-vitest`** Bumped from `10.4.2` to `10.4.6`.
+  - **`@tailwindcss/postcss`** Bumped from `4.3.0` to `4.3.1`.
+  - **`react-hook-form`** Bumped from `7.77.0` to `7.79.0`.
+  - **`@vitest/coverage-v8`** Bumped from `4.1.8` to `4.1.9`.
+- **Mobile** : 
+  - **`react-native`** Bumped from `0.85.3` to `0.86.0`.
+  - **`@react-navigation/bottom-tabs`** Bumped from `7.18.0` to `7.18.2`.
+  - **`expo-constants`** Bumped from `56.0.16` to `56.0.18`.
+  - **`react-hook-form`** Bumped from `7.77.0` to `7.79.0`.
+  - **`@react-navigation/stack`** Bumped from `7.10.3` to `7.10.5`.
+
+---
+
 # [1.0.22] - June 12, 2026
 
 ### Upgraded
@@ -918,4 +941,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.22 | **Released** : June 12, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.23 | **Released** : June 19, 2026

@@ -51,7 +51,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### FastAPI (MIT License)
 
-- **Version** : >=0.136.3,<1.0
+- **Version** : >=0.137.2,<1.0
 - **Copyright** : Sebastián Ramírez
 - **License** : MIT
 - **Website** : https://fastapi.tiangolo.com/
@@ -215,7 +215,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### `pytest` (MIT License)
 
-- **Version** : >=9.0.3,<10.0
+- **Version** : >=9.1.0,<10.0
 - **Copyright** : Holger Krekel & `pytest-dev` Team
 - **License** : MIT
 - **Website** : https://pytest.org/
@@ -475,6 +475,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : June 12, 2026
+**Last Updated** : June 19, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.

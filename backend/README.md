@@ -11,7 +11,7 @@ The backend is built with Django >=6.0.6,<6.1 and provides a robust, scalable fo
 - **Django >=6.0.6,<6.1** - Main Application Framework
 - **Django REST Framework 3.16** - RESTful API
 - **Graphene-Django 3.2.3** - GraphQL API
-- **FastAPI >=0.136.3,<1.0** - Edge Services for High-Performance Endpoints
+- **FastAPI >=0.137.2,<1.0** - Edge Services for High-Performance Endpoints
 - **PostgreSQL 15** - Primary Database
 - **Redis >=8.0.0,<9.0** - Caching & Task Queue
 - **Celery 5.6.3** - Asynchronous Task Processing
@@ -342,12 +342,12 @@ black . && isort . && flake8 .
 - djangorestframework >=3.17.1,<4.0
 - django-cors-headers 4.9+
 - psycopg2-binary >=2.9.12,<3.0
-- django-environ >=0.13.0,<1.0
+- django-environ >=0.14.0,<1.0
 - drf-yasg >=1.21.15,<2.0 (API Documentation)
 - djangorestframework-simplejwt 5.5.1+ (JWT Auth)
 - django-filter >=25.2,<26.0
 - graphene-django 3.2.3+
-- fastapi >=0.136.3,<1.0
+- fastapi >=0.137.2,<1.0
 - uvicorn >=0.49.0,<1.0
 - pydantic >=2.13.4,<3.0
 - celery 5.6.3+
@@ -357,14 +357,14 @@ black . && isort . && flake8 .
 
 ### Development Dependencies (requirements-dev.txt)
 
-- pytest >=9.0.3,<10.0
+- pytest >=9.1.0,<10.0
 - pytest-django >=4.12.0,<5.0
 - pytest-cov >=7.1.0,<8.0
 - black >=26.5.1,<27.0
 - flake8 7.3.0+
 - isort >=8.0.1,<9.0
 - ipython >=9.14.1,<10.0
-- django-debug-toolbar >=6.3.0,<7.0
+- django-debug-toolbar >=7.0.0,<8.0
 - django-extensions 4.1+
 - factory-boy 3.3.3+ (Test Factories)
 - faker >=40.23.0,<41.0 (Fake Data Generation)
@@ -652,4 +652,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : June 12, 2026
+**Last Updated** : June 19, 2026
