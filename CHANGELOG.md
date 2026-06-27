@@ -7,6 +7,28 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.24] - June 26, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`pytest`** Updated Requirement from `<10.0,>=9.1.0` to `>=9.1.1,<10.0`.
+  - **`fastapi`** Updated Requirement from `<1.0,>=0.137.2` to `>=0.138.1,<1.0`.
+  - **`redis`** Updated Requirement from `<9.0,>=8.0.0` to `>=8.0.1,<9.0`.
+- **Frontend** : 
+  - **`playwright`** Bumped from `1.60.0` to `1.61.1`.
+  - **`axios`** Bumped from `1.17.0` to `1.18.1`.
+  - **`react-hook-form`** Bumped from `7.79.0` to `7.80.0`.
+  - **`@types/node`** Bumped from `25.9.1` to `26.0.1`.
+  - **`@storybook/nextjs-vite`** Bumped from `10.4.2` to `10.4.6`.
+- **Mobile** : 
+  - **`react-hook-form`** Bumped from `7.79.0` to `7.80.0`.
+  - **`@react-navigation/stack`** Bumped from `7.10.5` to `7.10.6`.
+  - **`@react-navigation/bottom-tabs`** Bumped from `7.18.2` to `7.18.3`.
+  - **`expo`** Bumped from `56.0.8` to `56.0.12`.
+
+---
+
 # [1.0.23] - June 19, 2026
 
 ### Upgraded
@@ -941,4 +963,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.23 | **Released** : June 19, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.24 | **Released** : June 26, 2026
