@@ -11,9 +11,9 @@ The backend is built with Django >=6.0.6,<6.1 and provides a robust, scalable fo
 - **Django >=6.0.6,<6.1** - Main Application Framework
 - **Django REST Framework 3.16** - RESTful API
 - **Graphene-Django 3.2.3** - GraphQL API
-- **FastAPI >=0.137.2,<1.0** - Edge Services for High-Performance Endpoints
+- **FastAPI >=0.138.1,<1.0** - Edge Services for High-Performance Endpoints
 - **PostgreSQL 15** - Primary Database
-- **Redis >=8.0.0,<9.0** - Caching & Task Queue
+- **Redis >=8.0.1,<9.0** - Caching & Task Queue
 - **Celery 5.6.3** - Asynchronous Task Processing
 - **JWT (RSA256)** - Secure Authentication
 
@@ -94,7 +94,7 @@ backend/
 
 - Python 3.13+
 - PostgreSQL 15+
-- Redis >=8.0.0,<9.0
+- Redis >=8.0.1,<9.0
 - Docker & Docker Compose (**Recommended**)
 
 ### Initial Setup
@@ -347,17 +347,17 @@ black . && isort . && flake8 .
 - djangorestframework-simplejwt 5.5.1+ (JWT Auth)
 - django-filter >=25.2,<26.0
 - graphene-django 3.2.3+
-- fastapi >=0.137.2,<1.0
+- fastapi >=0.138.1,<1.0
 - uvicorn >=0.49.0,<1.0
 - pydantic >=2.13.4,<3.0
 - celery 5.6.3+
-- redis >=8.0.0,<9.0
+- redis >=8.0.1,<9.0
 - gunicorn >=26.0.0,<27.0
 - whitenoise >=6.12.0,<7.0
 
 ### Development Dependencies (requirements-dev.txt)
 
-- pytest >=9.1.0,<10.0
+- pytest >=9.1.1,<10.0
 - pytest-django >=4.12.0,<5.0
 - pytest-cov >=7.1.0,<8.0
 - black >=26.5.1,<27.0
@@ -652,4 +652,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : June 19, 2026
+**Last Updated** : June 26, 2026

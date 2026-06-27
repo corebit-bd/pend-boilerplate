@@ -925,9 +925,9 @@ npm run storybook -- --no-manager-cache
   "react-dom": "^18.3.0",
   "@reduxjs/toolkit": "^2.9.2",
   "react-redux": "^9.2.0",
-  "axios": "^1.15.0",
+  "axios": "^1.18.1",
   "zod": "^4.3.6",
-  "react-hook-form": "^7.79.0",
+  "react-hook-form": "^7.80.0",
   "@hookform/resolvers": "^5.4.0",
   "clsx": "^2.1.1",
   "tailwind-merge": "^3.5.0",
@@ -949,7 +949,7 @@ npm run storybook -- --no-manager-cache
   "cypress": "^15.17.0",
   "eslint": "9.39.4",
   "eslint-config-next": "^16.2.9",
-  "@types/node": "^25",
+  "@types/node": "^26",
   "@types/react": "^18.3.0",
   "@types/react-dom": "^18.3.0",
   "typescript": "^6",
@@ -1001,4 +1001,4 @@ npm run storybook -- --no-manager-cache
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : June 19, 2026
+**Last Updated** : June 26, 2026
