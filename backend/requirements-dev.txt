@@ -13,7 +13,7 @@ flake8>=7.3.0,<8.0
 isort>=8.0.1,<9.0
 
 # Development Tools
-ipython>=9.14.1,<10.0
+ipython>=9.15.0,<10.0
 django-debug-toolbar>=7.0.0,<8.0
 django-extensions>=4.1,<5.0
 
