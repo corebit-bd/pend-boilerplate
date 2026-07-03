@@ -7,6 +7,28 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.25] - July 03, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`fastapi`** Updated Requirement from `<1.0,>=0.138.1` to `>=0.139.0,<1.0`.
+  - **`ipython`** Updated Requirement from `<10.0,>=9.14.1` to `>=9.15.0,<10.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.23.0` to `>=40.28.1,<41.0`.
+- **Frontend** : 
+  - **`cypress`** Bumped from `15.17.0` to `15.18.0`.
+  - **`@storybook/addon-docs`** Bumped from `10.4.4` to `10.4.6`.
+  - **`tailwindcss`** Bumped from `4.3.1` to `4.3.2`.
+  - **`@storybook/addon-a11y`** Bumped from `10.4.4` to `10.4.6`.
+  - **`@tailwindcss/postcss`** Bumped from `4.3.1` to `4.3.2`.
+- **Mobile** : 
+  - **`@react-navigation/native`** Bumped from `7.3.4` to `7.3.5`.
+  - **`expo`** Bumped from `56.0.12` to `57.0.2`.
+  - **`@react-navigation/stack`** Bumped from `7.10.6` to `7.10.8`.
+  - **`axios`** Bumped from `1.17.0` to `1.18.1`.
+
+---
+
 # [1.0.24] - June 26, 2026
 
 ### Upgraded
@@ -728,7 +750,7 @@ The First Complete Release of the PEND Boilerplate, a Full-Stack Development Tem
 ### Architecture
 
 - **Type** : Headless, Multi-Tenant, MicroServices, Event-Driven
-- **Backend** : Django 5.2 (LTS), FastAPI 0.119, GraphQL (Graphene-Django 3.2.3)
+- **Backend** : Django 5.2 (LTS), FastAPI >=0.139.0,<1.0, GraphQL (Graphene-Django 3.2.3)
 - **Frontend** : NextJS 16, ReactJS, TypeScript, Tailwind CSS v4.2
 - **Mobile** : Expo ~55.0.8, React Native
 - **Database** : PostgreSQL 15 with Multi-Schema Architecture
@@ -963,4 +985,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.24 | **Released** : June 26, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.25 | **Released** : July 03, 2026
