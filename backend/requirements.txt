@@ -3,7 +3,7 @@
 # ============================================
 
 # Core Django - LTS Version
-Django>=6.0.6,<6.1
+Django>=6.0.7,<6.1
 
 # Django REST Framework
 djangorestframework>=3.17.1,<4.0
