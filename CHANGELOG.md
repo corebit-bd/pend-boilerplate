@@ -7,6 +7,25 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.26] - July 10, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`uvicorn`** Updated Requirement from `<1.0,>=0.49.0` to `>=0.51.0,<1.0`.
+  - **`django`** Updated Requirement from `<6.1,>=6.0.6` to `>=6.0.7,<6.1`.
+- **Frontend** : 
+  - **`postcss`** Bumped from `8.5.15` to `8.5.16`.
+  - **`react`** Bumped from `18.3.1` to `19.2.7`.
+  - **`@types/react`** Bumped from `18.3.30` to `19.2.17`.
+- **Mobile** : 
+  - **`expo-constants`** Bumped from `56.0.18` to `57.0.3`.
+  - **`react-native-screens`** Bumped from `4.25.2` to `4.26.0`.
+  - **`@react-navigation/stack`** Bumped from `7.10.8` to `7.10.11`.
+  - **`expo`** Bumped from `57.0.2` to `57.0.4`.
+
+---
+
 # [1.0.25] - July 03, 2026
 
 ### Upgraded
@@ -985,4 +1004,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.25 | **Released** : July 03, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.26 | **Released** : July 10, 2026
