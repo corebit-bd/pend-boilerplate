@@ -2,13 +2,13 @@
 
 ## 📋 Overview
 
-The backend is built with Django >=6.0.6,<6.1 and provides a robust, scalable foundation for the PEND boilerplate. It implements a multi-tenant, headless architecture with support for REST, GraphQL, and FastAPI edge services.
+The backend is built with Django >=6.0.7,<6.1 and provides a robust, scalable foundation for the PEND boilerplate. It implements a multi-tenant, headless architecture with support for REST, GraphQL, and FastAPI edge services.
 
 ## 🏗️ Architecture
 
 ### Core Technologies
 
-- **Django >=6.0.6,<6.1** - Main Application Framework
+- **Django >=6.0.7,<6.1** - Main Application Framework
 - **Django REST Framework 3.16** - RESTful API
 - **Graphene-Django 3.2.3** - GraphQL API
 - **FastAPI >=0.139.0,<1.0** - Edge Services for High-Performance Endpoints
@@ -338,7 +338,7 @@ black . && isort . && flake8 .
 
 ### Production Dependencies (requirements.txt)
 
-- Django >=6.0.6,<6.1 (LTS)
+- Django >=6.0.7,<6.1 (LTS)
 - djangorestframework >=3.17.1,<4.0
 - django-cors-headers 4.9+
 - psycopg2-binary >=2.9.12,<3.0
@@ -348,7 +348,7 @@ black . && isort . && flake8 .
 - django-filter >=25.2,<26.0
 - graphene-django 3.2.3+
 - fastapi >=0.139.0,<1.0
-- uvicorn >=0.49.0,<1.0
+- uvicorn >=0.51.0,<1.0
 - pydantic >=2.13.4,<3.0
 - celery 5.6.3+
 - redis >=8.0.1,<9.0
@@ -652,4 +652,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : July 03, 2026
+**Last Updated** : July 10, 2026
