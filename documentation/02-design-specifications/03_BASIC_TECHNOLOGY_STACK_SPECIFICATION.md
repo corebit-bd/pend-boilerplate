@@ -1,0 +1,1 @@
+# Basic Technology Stack Specification
