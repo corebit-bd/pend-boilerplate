@@ -22,7 +22,7 @@ drf-yasg>=1.21.15,<2.0
 
 # Authentication & Security
 djangorestframework-simplejwt>=5.5.1,<6.0
-django-filter>=25.2,<26.0
+django-filter>=26.1,<27.0
 
 # GraphQL (Optional)
 graphene-django>=3.2.3,<4.0
