@@ -92,7 +92,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 - **Django >=6.0.7,<6.1** - Web Framework
 - **Django REST Framework 3.16** - RESTful APIs
-- **FastAPI >=0.139.0,<1.0** - High-Performance Edge Services
+- **FastAPI >=0.139.2,<1.0** - High-Performance Edge Services
 - **Graphene-Django 3.2.3** - GraphQL Implementation
 - **PostgreSQL 15** - Primary Database
 - **Redis >=8.0.1,<9.0** - Caching & Task Queue
@@ -111,7 +111,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ### Mobile
 
-- **Expo 57.0.4** - ReactJS Native Framework
+- **Expo 57.0.7** - ReactJS Native Framework
 - **React Native** - Cross-Platform Mobile Application Development
 
 ### DevOps
@@ -1116,6 +1116,6 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 
 **Built with ❤️ by [@corebit-bd](https://github.com/corebit-bd)**
 
-**Version** : 1.0.26
-**Last Updated** : July 10, 2026  
+**Version** : 1.0.27
+**Last Updated** : July 17, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅

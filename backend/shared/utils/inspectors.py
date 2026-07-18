@@ -14,7 +14,7 @@ class DjangoFilterInspector(FilterInspector):
             if filterset_class:
                 parameters = []
                 # Manually Build Parameters from the "filterset" Fields
-                # This bypasses the Removed "get_schema_fields" Method in "django-filter 25.x"
+                # This bypasses the Removed "get_schema_fields" Method in "django-filter >=26.1,<27.0"
                 for field_name, filter_object in filterset_class.base_filters.items():
                     parameters.append(
                         openapi.Parameter(

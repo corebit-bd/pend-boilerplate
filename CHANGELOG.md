@@ -7,6 +7,27 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.27] - July 17, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`django-filter`** Updated Requirement from `<26.0,>=25.2` to `>=26.1,<27.0`.
+  - **`fastapi`** Updated Requirement from `<1.0,>=0.139.0` to `>=0.139.2,<1.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.28.1` to `>=40.31.0,<41.0`.
+- **Frontend** : 
+  - **`eslint`** Bumped from `9.39.4` to `9.39.5`.
+  - **`eslint-plugin-storybook`** Bumped from `10.5.0` to `10.5.2`.
+  - **`tailwindcss`** Bumped from `4.3.2` to `4.3.3`.
+  - **`@storybook/addon-vitest`** Bumped from `10.5.0` to `10.5.2`.
+  - **`@storybook/addon-onboarding`** Bumped from `10.5.0` to `10.5.2`.
+- **Mobile** : 
+  - **`react-hook-form`** Bumped from `7.80.0` to `7.81.0`.
+  - **`expo`** Bumped from `57.0.4` to `57.0.7`.
+  - **`@react-navigation/native`** Bumped from `7.3.8` to `7.3.10`.
+
+---
+
 # [1.0.26] - July 10, 2026
 
 ### Upgraded
@@ -1004,4 +1025,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.26 | **Released** : July 10, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.27 | **Released** : July 17, 2026

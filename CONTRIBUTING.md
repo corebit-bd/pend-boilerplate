@@ -1007,7 +1007,7 @@ All Tests Passing Locally."
 
 **API Documentation Standards (`drf-yasg`)** :
 
-To maintain High-Quality API Documentation despite the removal of Legacy Schema Support in `django-filter 25.x`, we use a Custom `DjangoFilterInspector`.
+To maintain High-Quality API Documentation despite the removal of Legacy Schema Support in `django-filter >=26.1,<27.0`, we use a Custom `DjangoFilterInspector`.
 
 - ✅ **Automatic Detection** : You do not need to use `@swagger_auto_schema` to document Query Filters. The Inspector automatically extracts Fields from your `filterset_class`.
 - ✅ **Field Descriptions** : Always provide a `help_text` Attribute in your `FilterSet` Fields. This text is automatically pulled by the inspector to populate the "Description" column in Swagger / ReDoc.
@@ -1077,7 +1077,7 @@ class User(models.Model):
 
 **API Documentation Standards (`drf-yasg`)** :
 
-Due to the removal of internal Sschema Support in `django-filter` 25.x, Automatic Detection of Query Parameters is limited.
+Due to the removal of internal Sschema Support in `django-filter` >=26.1,<27.0, Automatic Detection of Query Parameters is limited.
 
 - ✅ **Manual Documentation Required** : For any ViewSet using `DjangoFilterBackend`, you must manually define the filter parameters using the `@swagger_auto_schema` Decorator.
 

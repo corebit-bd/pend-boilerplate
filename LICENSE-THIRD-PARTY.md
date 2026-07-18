@@ -51,7 +51,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### FastAPI (MIT License)
 
-- **Version** : >=0.139.0,<1.0
+- **Version** : >=0.139.2,<1.0
 - **Copyright** : Sebastián Ramírez
 - **License** : MIT
 - **Website** : https://fastapi.tiangolo.com/
@@ -187,7 +187,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Expo (MIT License)
 
-- **Version** : 57.0.4
+- **Version** : 57.0.7
 - **Copyright** : Expo Contributors
 - **License** : MIT
 - **Website** : https://expo.dev/
@@ -475,6 +475,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : July 10, 2026
+**Last Updated** : July 17, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.
