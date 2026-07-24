@@ -7,6 +7,27 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.28] - July 24, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`faker`** Updated Requirement from `<41.0,>=40.31.0` to `>=40.35.0,<41.0`.
+- **Frontend** : 
+  - **`@tailwindcss/postcss`** Bumped from `4.3.2` to `4.3.3`.
+  - **`@storybook/addon-vitest`** Bumped from `10.5.2` to `10.5.3`.
+  - **`eslint-config-next`** Bumped from `16.2.10` to `16.2.11`.
+  - **`cypress`** Bumped from `15.18.1` to `15.19.0`.
+  - **`react-hook-form`** Bumped from `7.81.0` to `7.82.0`.
+- **Mobile** : 
+  - **`@react-navigation/bottom-tabs`** Bumped from `7.18.3` to `7.18.13`.
+  - **`expo-constants`** Bumped from `57.0.6` to `57.0.7`.
+  - **`typescript`** Bumped from `6.0.3` to `7.0.2`.
+  - **`react`** Bumped from `19.2.7` to `19.2.8`.
+  - **`@react-navigation/native`** Bumped from `7.3.13` to `7.3.14`.
+
+---
+
 # [1.0.27] - July 17, 2026
 
 ### Upgraded
@@ -1025,4 +1046,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.27 | **Released** : July 17, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.28 | **Released** : July 24, 2026
