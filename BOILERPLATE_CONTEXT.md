@@ -11,7 +11,7 @@
 ### Backend
 
 - `Django >=6.0.7,<6.1` with Django REST Framework 3.16
-- FastAPI >=0.139.2,<1.0 for Edge Services
+- FastAPI >=0.140.7,<1.0 for Edge Services
 - GraphQL via `Graphene-Django 3.2.3`
 - JWT Authentication with RSA256 (`djangorestframework-simplejwt 5.5.1`)
 - Celery 5.6.3 for Background Tasks
@@ -259,7 +259,7 @@ pend-boilerplate/
 - `psycopg2-binary` >=2.9.12,<3.0
 - `djangorestframework-simplejwt` 5.5.1+ (RSA256)
 - `graphene-django` 3.2.3+
-- `fastapi` >=0.139.2,<1.0
+- `fastapi` >=0.140.7,<1.0
 - `celery` 5.6.3+
 - `redis` >=8.0.1,<9.0ß
 - `gunicorn` >=26.0.0,<27.0
@@ -1007,8 +1007,8 @@ This Document contains All Necessary Context to Resume Development!
 ---
 
 **Project Status** : ✅ COMPLETE - Production & Scaffolding Ready
-**Version** : 1.0.28
-**Last Updated** : July 24, 2026
+**Version** : 1.0.29
+**Last Updated** : July 31, 2026
 **All 12 Steps** : COMPLETED ✅ (Infrastructure Optimized v1.0.3)
 **CI / CD** : Production-Ready ✅
 **Documentation** : Comprehensive ✅
