@@ -80,7 +80,7 @@ Handles Payments, Shipping & Reviews.
 - ✅ Frontend : NextJS 16 + TypeScript
 - ✅ Mobile : React Native + Expo
 - ✅ Database : PostgreSQL 15
-- ✅ Cache : Redis >=8.0.0,<9.0
+- ✅ Cache : Redis >=8.1.0,<9.0
 - ✅ CI / CD : GitHub Actions
 - ✅ Testing : Jest, Pytest, Cypress
 - ✅ Documentation : Storybook, Swagger

@@ -51,7 +51,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### FastAPI (MIT License)
 
-- **Version** : >=0.140.7,<1.0
+- **Version** : >=0.141.1,<1.0
 - **Copyright** : Sebastián Ramírez
 - **License** : MIT
 - **Website** : https://fastapi.tiangolo.com/
@@ -299,7 +299,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Redis (BSD 3-Clause License)
 
-- **Version** : >=8.0.1,<9.0
+- **Version** : >=8.1.0,<9.0
 - **Copyright** : Redis Contributors
 - **License** : BSD 3-Clause
 - **Website** : https://redis.io/
@@ -475,6 +475,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : July 31, 2026
+**Last Updated** : August 07, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.

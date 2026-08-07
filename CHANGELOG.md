@@ -7,6 +7,30 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.30] - August 07, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`redis`** Updated Requirement from `<9.0,>=8.0.1` to `>=8.1.0,<9.0`.
+  - **`fastapi`** Updated Requirement from `<1.0,>=0.140.7` to `>=0.141.1,<1.0`.
+  - **`ipython`** Updated Requirement from `<10.0,>=9.15.0` to `>=9.16.1,<10.0`.
+  - **`uvicorn`** Updated Requirement from `<1.0,>=0.51.0` to `>=0.52.1,<1.0`.
+- **Frontend** : 
+   - **`react-hook-form`** Bumped from `7.82.0` to `7.84.0`.
+   - **`playwright`** Bumped from `1.61.1` to `1.62.1`.
+   - **`@storybook/addon-onboarding`** Bumped from `10.5.2` to `10.5.6`.
+   - **`@storybook/addon-docs`** Bumped from `10.5.0` to `10.5.6`.
+   - **`@types/node`** Bumped from `26.1.1` to `26.1.2`.
+- **Mobile** : 
+  - **`@react-navigation/stack`** Bumped from `7.10.17` to `7.10.18`.
+  - **`@types/react`** Bumped from `19.2.17` to `19.2.18`.
+  - **`expo-constants`** Bumped from `57.0.7` to `57.0.9`.
+  - **`react-hook-form`** Bumped from `7.83.0` to `7.84.0`.
+  - **`@hookform/resolvers`** Bumped from `5.5.7` to `5.7.1`.
+
+---
+
 # [1.0.29] - July 31, 2026
 
 ### Upgraded
@@ -25,7 +49,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`react-native`** Bumped from `0.86.0` to `0.86.2`.
   - **`@hookform/resolvers`** Bumped from `5.4.0` to `5.5.7`.
   - **`@react-navigation/stack`** Bumped from `7.10.11` to `7.10.17`.
-   **`react-hook-form`** Bumped from `7.81.0` to `7.83.0`.
+  - **`react-hook-form`** Bumped from `7.81.0` to `7.83.0`.
 
 ---
 
@@ -1068,4 +1092,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.29 | **Released** : July 31, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.30 | **Released** : August 07, 2026
