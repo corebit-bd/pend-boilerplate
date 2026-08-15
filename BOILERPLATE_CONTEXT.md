@@ -10,7 +10,7 @@
 
 ### Backend
 
-- `Django >=6.0.7,<6.1` with Django REST Framework 3.16
+- `Django >=6.1,<6.2` with Django REST Framework 3.16
 - FastAPI >=0.141.1,<1.0 for Edge Services
 - GraphQL via `Graphene-Django 3.2.3`
 - JWT Authentication with RSA256 (`djangorestframework-simplejwt 5.5.1`)
@@ -30,7 +30,7 @@
 
 ### Mobile
 
-- React Native with Expo 57.0.7
+- React Native with Expo 57.0.12
 - Native Navigation & Components
 
 ### Database
@@ -55,7 +55,7 @@
 
 ### Testing
 
-- Backend : `pytest >=9.1.0,<10.0`, `pytest-django 4.11.1`
+- Backend : `pytest >=9.1.0,<10.0`, `pytest-django >=4.14.0,<5.0`
 - Frontend : Jest, `@testing-library/react` (99.78% Coverage)
 - Code Quality : Black, Flake8, `isort`, ESLint
 
@@ -254,8 +254,8 @@ pend-boilerplate/
 
 **Production (`requirements.txt`)** :
 
-- `Django` >=6.0.7,<6.1 (LTS)
-- `djangorestframework` >=3.17.1,<4.0
+- `Django` >=6.1,<6.2 (LTS)
+- `djangorestframework` >=3.18.0,<4.0
 - `psycopg2-binary` >=2.9.12,<3.0
 - `djangorestframework-simplejwt` 5.5.1+ (RSA256)
 - `graphene-django` 3.2.3+
@@ -268,7 +268,7 @@ pend-boilerplate/
 **Development (`requirements-dev.txt`)** :
 
 - `pytest` >=9.1.0,<10.0
-- `pytest-django` >=4.12.0,<5.0
+- `pytest-django` >=4.14.0,<5.0
 - `black` >=26.5.1,<27.0
 - `flake8` 7.3.0+
 - `isort` >=8.0.1,<9.0
@@ -1007,8 +1007,8 @@ This Document contains All Necessary Context to Resume Development!
 ---
 
 **Project Status** : ✅ COMPLETE - Production & Scaffolding Ready
-**Version** : 1.0.30
-**Last Updated** : August 07, 2026
+**Version** : 1.0.31
+**Last Updated** : August 14, 2026
 **All 12 Steps** : COMPLETED ✅ (Infrastructure Optimized v1.0.3)
 **CI / CD** : Production-Ready ✅
 **Documentation** : Comprehensive ✅

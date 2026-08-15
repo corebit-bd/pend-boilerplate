@@ -19,7 +19,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Django (BSD 3-Clause License)
 
-- **Version** : >=6.0.7,<6.1
+- **Version** : >=6.1,<6.2
 - **Copyright** : Django Software Foundation & Individual Ccontributors
 - **License** : BSD 3-Clause
 - **Website** : https://www.djangoproject.com/
@@ -27,7 +27,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Django REST Framework (BSD 3-Clause License)
 
-- **Version** : 3.16.x
+- **Version** : >=3.18.0,<4.0
 - **Copyright** : Tom Christie & Individual Contributors
 - **License** : BSD 3-Clause
 - **Website** : https://www.django-rest-framework.org/
@@ -187,7 +187,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Expo (MIT License)
 
-- **Version** : 57.0.7
+- **Version** : 57.0.12
 - **Copyright** : Expo Contributors
 - **License** : MIT
 - **Website** : https://expo.dev/
@@ -223,7 +223,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### `pytest-django` (BSD 3-Clause License)
 
-- **Version** : >=4.12.0,<5.0
+- **Version** : >=4.14.0,<5.0
 - **Copyright** : `pytest-django` Contributors
 - **License** : BSD 3-Clause
 - **Website** : https://pytest-django.readthedocs.io/
@@ -475,6 +475,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : August 07, 2026
+**Last Updated** : August 14, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.
