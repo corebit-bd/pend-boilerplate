@@ -7,6 +7,30 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.31] - August 14, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`pytest-django`** Updated Requirement from `<5.0,>=4.12.0` to `>=4.14.0,<5.0`.
+  - **`djangorestframework`** Updated Requirement from `<4.0,>=3.17.1` to `>=3.18.0,<4.0`.
+  - **`django-debug-toolbar`** Updated Requirement from `<8.0,>=7.0.0` to `>=7.1.0,<8.0`.
+  - **`django`** Updated Requirement from `<6.1,>=6.0.7` to `>=6.1,<6.2`.
+- **Frontend** : 
+  - **`@types/react-dom`** Bumped from `19.2.3` to `19.2.4`.
+  - **`cypress`** Bumped from `15.19.0` to `15.20.1`.
+  - **`@testing-library/jest-dom`** Bumped from `7.0.0` to `7.0.1`.
+  - **`axios`** Bumped from `1.18.1` to `1.19.0`.
+  - **`eslint-plugin-storybook`** Bumped from `10.5.2` to `10.5.7`.
+- **Mobile** : 
+  - **`react-hook-form`** Bumped from `7.84.0` to `7.85.0`.
+  - **`react-native-safe-area-context`** Bumped from `5.8.0` to `5.8.1`.
+  - **`expo`** Bumped from `57.0.7` to `57.0.12`.
+  - **`@react-navigation/bottom-tabs`** Bumped from `7.18.14` to `7.18.16`.
+  - **`axios`** Bumped from `1.18.1` to `1.19.0`.
+
+---
+
 # [1.0.30] - August 07, 2026
 
 ### Upgraded
@@ -166,7 +190,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`fastapi`** Updated Requirement from `<1.0,>=0.136.3` to `>=0.137.2,<1.0`.
   - **`django-environ`** Updated Requirement from `<1.0,>=0.13.0` to `>=0.14.0,<1.0`.
   - **`django-debug-toolbar`** Updated Requirement from `<7.0,>=6.3.0` to `>=7.0.0,<8.0`.
-   - **`pytest`** Updated Requirement from `<10.0,>=9.0.3` to `>=9.1.0,<10.0`.
+  - **`pytest`** Updated Requirement from `<10.0,>=9.0.3` to `>=9.1.0,<10.0`.
 - **Frontend** : 
   - **`@storybook/addon-vitest`** Bumped from `10.4.2` to `10.4.6`.
   - **`@tailwindcss/postcss`** Bumped from `4.3.0` to `4.3.1`.
@@ -1092,4 +1116,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.30 | **Released** : August 07, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.31 | **Released** : August 14, 2026
