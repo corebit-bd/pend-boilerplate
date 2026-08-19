@@ -202,83 +202,227 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ## Project Structure
 
-```
+```tree
 pend-boilerplate/
 ├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.yaml
+│   │   ├── config.yaml
+│   │   ├── documentation.yaml
+│   │   ├── feature_request.yaml
+│   │   ├── performance.yaml
+│   │   └── question.yaml
 │   ├── workflows/
-│   │   ├── ci.yaml              # Continuous Integration
-│   │   └── cd.yaml              # Continuous Deployment
+│   │   ├── cd.yaml
+│   │   └── ci.yaml
+│   ├── dependabot.yaml
 │   └── PULL_REQUEST_TEMPLATE.md
-│
-├── backend/                     # Django Backend
+├── backend/
 │   ├── apps/
 │   │   ├── authentication/
+│   │   │   ├── migrations/
+│   │   │   │   └── __init__.py
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   │   ├── tests.py
+│   │   │   └── views.py
+│   │   ├── tenants/
+│   │   │   ├── migrations/
+│   │   │   │   └── __init__.py
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   │   ├── tests.py
+│   │   │   └── views.py
 │   │   ├── users/
-│   │   └── tenants/
+│   │   │   ├── migrations/
+│   │   │   │   └── __init__.py
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   │   ├── tests.py
+│   │   │   └── views.py
+│   │   └── __init__.py
 │   ├── core/
-│   │   ├── settings/           # Environment-Specific Settings
-│   │   └── urls.py
-│   ├── requirements.txt
+│   │   ├── settings/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── development.py
+│   │   │   ├── production.py
+│   │   │   └── staging.py
+│   │   ├── __init__.py
+│   │   ├── asgi.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── logs/
+│   │   └── .gitkeep
+│   ├── shared/
+│   │   ├── exceptions/
+│   │   │   └── __init__.py
+│   │   ├── middleware/
+│   │   │   └── __init__.py
+│   │   ├── utils/
+│   │   │   ├── __init__.py
+│   │   │   └── inspectors.py
+│   │   └── __init__.py
+│   ├── .dockerignore
+│   ├── .env.example
+│   ├── .flake8
+│   ├── .gitignore
+│   ├── Dockerfile
+│   ├── manage.py
+│   ├── pyproject.toml
+│   ├── pytest.ini
+│   ├── README.md
 │   ├── requirements-dev.txt
-│   ├── Dockerfile
-│   └── README.md
-│
-├── frontend/                    # NextJS Frontend
-│   ├── src/
-│   │   ├── app/                # App Router Pages
-│   │   ├── components/
-│   │   │   └── ui/             # 5 UI Components + Tests
-│   │   ├── lib/
-│   │   │   ├── api/            # API Clients
-│   │   │   ├── store/          # Redux Store
-│   │   │   └── utils/
-│   │   └── types/
-│   ├── .storybook/             # 83 Storybook Stories
-│   ├── Dockerfile
-│   └── README.md
-│
-├── mobile/                      # Expo Mobile Application
-│   ├── src/
-│   │   ├── screens/
-│   │   ├── components/
-│   │   └── navigation/
-│   └── README.md
-│
+│   └── requirements.txt
 ├── database/
+│   ├── backups/
+│   │   └── .gitkeep
 │   ├── init/
 │   │   ├── 01-init-database.sql
 │   │   ├── 02-create-users.sql
 │   │   └── README.md
-│   ├── migrations/
-│   └── backups/
-│
+│   └── migrations/
+│       └── .gitkeep
 ├── documentation/
-│   ├── ci-cd/
-│   │   ├── README.md
+│   ├── 00_ci-cd/
 │   │   ├── GITHUB_SECRETS_SETUP.md
+│   │   ├── MAINTENANCE.md
+│   │   ├── README.md
 │   │   ├── STRATEGY.md
 │   │   ├── TROUBLESHOOTING.md
 │   │   └── UPGRADE_GUIDE.md
-│   ├── api/
-│   ├── user-manual/
-│   └── technical-manual/
-│
+│   ├── 01_user-requirements-specifications/
+│   │   ├── 01_PROJECT_KICKOFF.md
+│   │   ├── 02_MARKET_RESEARCH.md
+│   │   ├── 03_COMPETITOR_ANALYSIS.md
+│   │   ├── 04_USER_PERSONAS_SPECIFICATION.md
+│   │   └── 05_INITIAL_BACKLOG.md
+│   └── 02-design-specifications/
+│       ├── 01_BASIC_STYLE_GUIDE_SPECIFICATION.md
+│       ├── 02_BASIC_SYSTEM_ARCHITECTURE_DESIGN_SPECIFICATION.md
+│       ├── 03_BASIC_TECHNOLOGY_STACK_SPECIFICATION.md
+│       ├── 04_MULTIPLE_ENVIRONMENTS_DESIGN_SPECIFICATION.md
+│       ├── 05_BASIC_INFRASTRUCTURE_DESIGN_SPECIFICATION.md
+│       ├── 06_DATABASE_SCHEMA_DESIGN_SPECIFICATION.md
+│       ├── 07_INTEGRATION_SCOPE_IDENTIFICATION_DESIGN_SPECIFICATION.md
+│       ├── 08_SECURITY_REQUIREMENTS_SPECIFICATION.md
+│       ├── 09_QUALITY_ASSURANCE_MANAGEMENT_SPECIFICATION.md
+│       ├── 10_LOG_MANAGEMENT_SPECIFICATION.md
+│       ├── 11_RELEASE_DEPLOYMENT_DESIGN_SPECIFICATION.md
+│       ├── 12_OPERATIONAL_MAINTENANCE_SPECIFICATION.md
+│       └── 13_SCALABILITY_CONSIDERATION_SPECIFICATION.md
+├── frontend/
+│   ├── .storybook/
+│   │   ├── main.ts
+│   │   ├── preview.ts
+│   │   └── vitest.setup.ts
+│   ├── public/
+│   │   ├── file.svg
+│   │   ├── globe.svg
+│   │   ├── next.svg
+│   │   ├── vercel.svg
+│   │   └── window.svg
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── favicon.ico
+│   │   │   ├── globals.css
+│   │   │   ├── layout.tsx
+│   │   │   └── page.tsx
+│   │   ├── components/
+│   │   │   ├── ui/
+│   │   │   │   ├── __tests__/
+│   │   │   │   │   ├── Badge.test.tsx
+│   │   │   │   │   ├── Button.test.tsx
+│   │   │   │   │   ├── Icon.test.tsx
+│   │   │   │   │   ├── Input.test.tsx
+│   │   │   │   │   └── Spinner.test.tsx
+│   │   │   │   ├── Badge.stories.tsx
+│   │   │   │   ├── Badge.tsx
+│   │   │   │   ├── Button.stories.tsx
+│   │   │   │   ├── Button.tsx
+│   │   │   │   ├── Icon.README.md
+│   │   │   │   ├── Icon.stories.tsx
+│   │   │   │   ├── Icon.tsx
+│   │   │   │   ├── Input.stories.tsx
+│   │   │   │   ├── Input.tsx
+│   │   │   │   ├── Spinner.stories.tsx
+│   │   │   │   └── Spinner.tsx
+│   │   │   └── Providers.tsx
+│   │   ├── lib/
+│   │   │   ├── api/
+│   │   │   │   └── client.ts
+│   │   │   ├── constants/
+│   │   │   │   └── api.ts
+│   │   │   └── utils/
+│   │   │       └── helpers.ts
+│   │   ├── schemas/
+│   │   │   ├── authSchemas.ts
+│   │   │   └── userSchemas.ts
+│   │   ├── store/
+│   │   │   ├── slices/
+│   │   │   │   ├── authSlice.ts
+│   │   │   │   └── userSlice.ts
+│   │   │   └── index.ts
+│   │   └── types/
+│   │       ├── auth.ts
+│   │       └── user.ts
+│   ├── .dockerignore
+│   ├── .gitignore
+│   ├── Dockerfile
+│   ├── eslint.config.mjs
+│   ├── jest.config.ts
+│   ├── jest.setup.ts
+│   ├── next.config.ts
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── postcss.config.mjs
+│   ├── README.md
+│   ├── tsconfig.json
+│   ├── vitest.config.ts
+│   └── vitest.shims.d.ts
+├── mobile/
+│   ├── assets/
+│   │   ├── adaptive-icon.png
+│   │   ├── favicon.png
+│   │   ├── icon.png
+│   │   └── splash-icon.png
+│   ├── .env.example
+│   ├── .gitignore
+│   ├── app.json
+│   ├── App.tsx
+│   ├── index.ts
+│   ├── package-lock.json
+│   ├── package.json
+│   └── tsconfig.json
 ├── scripts/
-│   ├── setup.sh                # Initial Project Setup
-│   ├── dev-start.sh            # Start Development
-│   ├── build.sh                # Build for Production
-│   └── README.md
-│
-├── tests/
-│   ├── integration/
-│   ├── e2e/
-│   └── load/
-│
-├── docker-compose.yaml
+│   ├── build.sh
+│   ├── dev-start.sh
+│   ├── README.md
+│   └── setup.sh
+├── .env.development.example
+├── .env.docker.example
 ├── .env.example
-├── CONTRIBUTING.md             # Comprehensive Contribution Guide
+├── .env.production.example
+├── .env.staging.example
+├── .gitguardian.yaml
+├── .gitignore
+├── BOILERPLATE_CONTEXT.md
 ├── CHANGELOG.md
-└── README.md                   # This File
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── developer-workflow.png
+├── docker-compose.yaml
+├── LICENSE
+├── LICENSE-THIRD-PARTY.md
+├── PROJECT_CONTEXT.template.md
+├── README.md
+└── SECURITY.md
 ```
 
 ---
