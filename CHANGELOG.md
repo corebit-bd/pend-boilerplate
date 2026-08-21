@@ -7,6 +7,26 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.32] - August 21, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`uvicorn`** Updated Requirement from `<1.0,>=0.52.1` to `>=0.52.3,<1.0`.
+  - **`django-debug-toolbar`** Updated Requirement from `<8.0,>=7.1.0` to `>=7.1.1,<8.0`.
+- **Frontend** : 
+  - **`@types/react`** Bumped from `19.2.17` to `19.2.18`.
+  - **`@storybook/addon-onboarding`** Bumped from `10.5.6` to `10.5.9`.
+  - **`@storybook/addon-a11y`** Bumped from `10.5.5` to `10.5.9`.
+  - **`tar`** Bumped from `7.5.19` to `7.5.22`.
+- **Mobile** : 
+  - **`react-native-screens`** Bumped from `4.26.0` to `4.27.0`.
+  - **`react-native`** Bumped from `0.86.2` to `0.87.0`.
+  - **`@react-navigation/stack`** Bumped from `7.10.18` to `7.10.22`.
+  - **`expo`** Bumped from `57.0.12` to `57.0.14`.
+
+---
+
 # [1.0.31] - August 14, 2026
 
 ### Upgraded
@@ -1116,4 +1136,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.31 | **Released** : August 14, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.32 | **Released** : August 21, 2026

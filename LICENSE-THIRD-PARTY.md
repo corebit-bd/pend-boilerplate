@@ -187,7 +187,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Expo (MIT License)
 
-- **Version** : 57.0.12
+- **Version** : 57.0.14
 - **Copyright** : Expo Contributors
 - **License** : MIT
 - **Website** : https://expo.dev/
@@ -475,6 +475,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : August 14, 2026
+**Last Updated** : August 21, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.
