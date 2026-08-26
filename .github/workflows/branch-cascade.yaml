@@ -19,7 +19,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.CASCADE_PAT }}
           fetch-depth: 0
 
       - name: Determine Target Branch
@@ -36,7 +36,7 @@ jobs:
 
       - name: Execute Fast-Forward / Merge Cascade
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.CASCADE_PAT }}
           SRC: ${{ github.ref_name }}
           DEST: ${{ steps.target.outputs.dest }}
         run: |
