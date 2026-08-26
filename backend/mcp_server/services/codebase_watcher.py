@@ -3,6 +3,7 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from .gemini_agent_runner import GeminiAgentRunner
 
+
 class LocalCodeHandler(FileSystemEventHandler):
     def __init__(self):
         self.runner = GeminiAgentRunner()
@@ -16,6 +17,7 @@ class LocalCodeHandler(FileSystemEventHandler):
         print(f"[IDD EVENT] New file detected: {event.src_path}")
         self.runner.process_new_file(event.src_path)
 
+
 def start_daemon():
     observer = Observer()
     observer.schedule(LocalCodeHandler(), path="frontend/src", recursive=True)
@@ -28,6 +30,7 @@ def start_daemon():
     except KeyboardInterrupt:
         observer.stop()
     observer.join()
+
 
 if __name__ == "__main__":
     start_daemon()
