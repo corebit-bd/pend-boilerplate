@@ -1,0 +1,91 @@
+name: Dependabot Auto-Merge & AI PR Review
+
+on:
+  pull_request_target:
+    types: [opened, synchronized, reopened]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+env:
+  PYTHON_VERSION: "3.13"
+
+jobs:
+  auto-merge-review:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    steps:
+      - name: Checkout Repository Context
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install Google GenAI SDK
+        run: pip install google-genai
+
+      - name: Fetch Dependabot Metadata
+        uses: dependabot/fetch-metadata@v2
+        id: metadata
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: Generate AI PR Review Comment via PRReviewerAgent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL_NAME: ${{ vars.GEMINI_MODEL_NAME || 'gemini-3.7-flash' }}
+          REPO_URL: ${{ github.event.repository.html_url }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          python -c "
+          import os
+          from google import genai
+
+          client = genai.Client()
+          model_name = os.getenv('GEMINI_MODEL_NAME', 'gemini-3.7-flash')
+          
+          repo_url = os.getenv('REPO_URL')
+          pr_url = os.getenv('PR_URL')
+          pr_title = os.getenv('PR_TITLE')
+          pr_body = os.getenv('PR_BODY')
+
+          prompt = f'''
+          You are PRReviewerAgent.
+          Github Repository: {repo_url}
+          PR: {pr_url}
+          PR Title: {pr_title}
+          
+          PR Body Details:
+          {pr_body}
+
+          Is it safe to merge?
+          Output: Generate PR Review Approval Content in Markdown format. Keep it concise, professional, and structured.
+          '''
+
+          response = client.models.generate_content(
+              model=model_name,
+              contents=prompt
+          )
+
+          with open('review_comment.md', 'w', encoding='utf-8') as f:
+              f.write(response.text)
+          "
+
+      - name: Submit AI Review Comment & Approve PR
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr review "$PR_URL" --approve --body-file review_comment.md
+
+      - name: Enable Auto-Merge
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr merge "$PR_URL" --squash --auto

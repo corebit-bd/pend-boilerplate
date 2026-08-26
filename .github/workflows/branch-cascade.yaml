@@ -1,0 +1,47 @@
+name: Automated Branch Cascade
+
+on:
+  push:
+    branches:
+      - main
+      - devEnv
+      - stagingEnv
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  cascade-merge:
+    runs-on: ubuntu-latest
+    if: github.event.head_commit.author.name != 'AITDDLC-Gemini-Bot'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Determine Target Branch
+        id: target
+        run: |
+          CURRENT_BRANCH="${{ github.ref_name }}"
+          if [ "$CURRENT_BRANCH" = "main" ]; then
+            echo "dest=devEnv" >> $GITHUB_OUTPUT
+          elif [ "$CURRENT_BRANCH" = "devEnv" ]; then
+            echo "dest=stagingEnv" >> $GITHUB_OUTPUT
+          elif [ "$CURRENT_BRANCH" = "stagingEnv" ]; then
+            echo "dest=prodEnv" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Execute Fast-Forward / Merge Cascade
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SRC: ${{ github.ref_name }}
+          DEST: ${{ steps.target.outputs.dest }}
+        run: |
+          git config user.name "AITDDLC-Gemini-Bot"
+          git config user.email "bot@corebit-bd.com"
+          
+          git checkout $DEST
+          git merge --ff-only $SRC || git merge --no-ff $SRC -m "chore(cascade): merge $SRC into $DEST via AITDDLC Automation"
+          git push origin $DEST

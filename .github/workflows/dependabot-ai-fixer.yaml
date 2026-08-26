@@ -1,0 +1,45 @@
+name: Dependabot AI Self-Healing
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types: [completed]
+
+env:
+  PYTHON_VERSION: "3.13"
+
+jobs:
+  ai-heal:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'failure' && github.event.workflow_run.head_commit.author.name == 'dependabot[bot]' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_branch }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install SDK
+        run: pip install google-genai
+
+      - name: Execute Gemini Fixer
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL_NAME: ${{ vars.GEMINI_MODEL_NAME || 'gemini-3.7-flash' }}
+          FAILED_RUN_ID: ${{ github.event.workflow_run.id }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh run view $FAILED_RUN_ID --log-failed > ci_error.log
+          python .mcp/harness/fix_dependabot.py ci_error.log
+
+      - name: Commit AI Fix
+        run: |
+          git config user.name "AITDDLC-Gemini-Bot"
+          git config user.email "bot@corebit-bd.com"
+          git commit -am "fix(dependabot) : Resolved Breaking Updates via Gemini" || exit 0
+          git push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
