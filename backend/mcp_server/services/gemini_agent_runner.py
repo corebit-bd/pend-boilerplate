@@ -1,9 +1,11 @@
-import os
 import json
 import subprocess
+
 from google import genai
 from google.genai import types
+
 from mcp_server.config import get_model_name
+
 from .document_indexer import DocumentationIndexer
 
 
@@ -21,18 +23,18 @@ class GeminiAgentRunner:
 
         prompt = f"""
         You are CodebaseWatcherAgent for PEND Boilerplate.
-        
+
         DESIGN & QA CONTEXT:
         {context}
-        
+
         NEW FILE CREATED: {file_path}
         CONTENT:
         {code_content}
-        
+
         TASK:
         1. Generate a corresponding unit test file (.test.tsx for React or tests.py for Django).
         2. If it is a React component, generate a CSF3 Storybook file (.stories.tsx).
-        
+
         Return output STRICTLY as JSON with schema:
         {{
             "test_path": "path/to/file.test.tsx",
@@ -82,7 +84,7 @@ class GeminiAgentRunner:
             Test File Path : {test_path}
             Error Trace:
             {result.stderr or result.stdout}
-            
+
             Return JSON with key "fixed_code" containing updated Implementation Code.
             """
 
