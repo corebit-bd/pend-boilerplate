@@ -34,6 +34,7 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Generate AI PR Review Comment via PRReviewerAgent
+        uses: nick-fields/retry@v3
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL_NAME: ${{ vars.GEMINI_MODEL_NAME || 'gemini-3.7-flash' }}
@@ -41,40 +42,42 @@ jobs:
           PR_URL: ${{ github.event.pull_request.html_url }}
           PR_TITLE: ${{ github.event.pull_request.title }}
           PR_BODY: ${{ github.event.pull_request.body }}
-        run: |
-          python -c "
-          import os
-          from google import genai
+        with:
+          timeout_minutes: 5
+          max_attempts: 3
+          retry_wait_seconds: 15
+          command: |
+            python -c "
+            import os
+            from google import genai
 
-          client = genai.Client()
-          model_name = os.getenv('GEMINI_MODEL_NAME', 'gemini-3.7-flash')
-          
-          repo_url = os.getenv('REPO_URL')
-          pr_url = os.getenv('PR_URL')
-          pr_title = os.getenv('PR_TITLE')
-          pr_body = os.getenv('PR_BODY')
+            client = genai.Client()
+            model_name = os.getenv('GEMINI_MODEL_NAME', 'gemini-3.7-flash')
+            
+            repo_url = os.getenv('REPO_URL')
+            pr_url = os.getenv('PR_URL')
+            pr_title = os.getenv('PR_TITLE')
+            pr_body = os.getenv('PR_BODY')
 
-          prompt = f'''
-          You are PRReviewerAgent.
-          Github Repository: {repo_url}
-          PR: {pr_url}
-          PR Title: {pr_title}
-          
-          PR Body Details:
-          {pr_body}
+            prompt = f'''
+            You are PRReviewerAgent.
+            Github Repository: {repo_url}
+            PR: {pr_url}
+            PR Title: {pr_title}
+            
+            PR Body Details:
+            {pr_body}
 
-          Is it safe to merge?
-          Output: Generate PR Review Approval Content in Markdown format. Keep it concise, professional, and structured.
-          '''
+            Is it safe to merge?
+            Output: Generate PR Review Approval Content in Markdown format. Keep it concise, professional, and structured.
+            '''
 
-          response = client.models.generate_content(
-              model=model_name,
-              contents=prompt
-          )
+            chat = client.chats.create(model=model_name)
+            response = chat.send_message(prompt)
 
-          with open('review_comment.md', 'w', encoding='utf-8') as f:
-              f.write(response.text)
-          "
+            with open('review_comment.md', 'w', encoding='utf-8') as f:
+                f.write(response.text)
+            "
 
       - name: Submit AI Review Comment & Approve PR
         env:
