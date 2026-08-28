@@ -23,69 +23,81 @@ The backend is built with Django >=6.1,<6.2 and provides a robust, scalable foun
 - **Headless CMS** - APIs consumed by Web, Mobile, and 3rd Party Clients
 - **Event-Driven** - Asynchronous Operations via Celery
 - **Micro-Services** - FastAPI Edge Services for specialized use cases
+- **Issue-Driven Development (IDD)** - Strict Issue-to-Branch-to-PR workflow ensuring all changes map back to tracked GitHub issues.
+- **Artificial Intelligence Test-Driven Development Life Cycle (AITDDLC)** - Enforced Red-Green-Refactor Development Cycle leveraging local AI agent execution harnesses (`.mcp/harness/`).
 
 ## 📁 Directory Structure
 
 ```
-backend/
-├── core/                     # Django Project
-│   ├── settings/             # Environment-Specific Settings
-│   │   ├── __init__.py       # Settings Loader
-│   │   ├── base.py           # Shared Configuration
-│   │   ├── development.py    # Local Development
-│   │   ├── staging.py        # Staging / QA Environment
-│   │   └── production.py     # Production Environment
-│   ├── urls.py               # URL Routing
-│   ├── asgi.py               # ASGI Configuration
-│   └── wsgi.py               # WSGI Configuration
-│
-├── apps/                     # Django Applications
-│   ├── authentication/       # Authentication & Authorization
-│   │   ├── migrations/
-│   │   ├── models.py
-│   │   ├── serializers.py
-│   │   ├── views.py
-│   │   ├── tests.py
-│   │   └── apps.py
-│   ├── users/                # Users Management
-│   │   ├── migrations/
-│   │   ├── models.py
-│   │   ├── serializers.py
-│   │   ├── views.py
-│   │   ├── tests.py
-│   │   └── apps.py
-│   └── tenants/              # Multi-Tenant Management
-│       ├── migrations/
-│       ├── models.py
-│       ├── serializers.py
-│       ├── views.py
-│       ├── tests.py
-│       └── apps.py
-│
-├── shared/                   # Shared Utilities
-│   ├── middleware/           # Custom Middleware
-│   ├── utils/                # Helper Functions
-│   └── exceptions/           # Custom Exceptions
-│
-├── edge_services/            # FastAPI Micro-Services
-│   └── fastapi_app/
-│       └── routers/          # API Routes
-│
-├── api/                      # API Versioning
-│   └── v1/
-│       ├── graphql/          # GraphQL Schemas
-│       └── rest/             # REST Endpoints
-│
-├── logs/                     # Application Logs
-│   └── .gitkeep
-│
-├── venv/                     # Virtual Environment (gitignored)
-├── requirements.txt          # Production Dependencies
-├── requirements-dev.txt      # Development Dependencies
-├── .env                      # Environment Variables (gitignored)
-├── .env.example              # Environment Template
-├── Dockerfile                # Docker Image Configuration
-└── manage.py                 # Django Management Script
+├── backend/
+│   ├── apps/
+│   │   ├── authentication/
+│   │   │   ├── migrations/
+│   │   │   │   └── __init__.py
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   │   ├── tests.py
+│   │   │   └── views.py
+│   │   ├── tenants/
+│   │   │   ├── migrations/
+│   │   │   │   └── __init__.py
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   │   ├── tests.py
+│   │   │   └── views.py
+│   │   ├── users/
+│   │   │   ├── migrations/
+│   │   │   │   └── __init__.py
+│   │   │   ├── __init__.py
+│   │   │   ├── admin.py
+│   │   │   ├── apps.py
+│   │   │   ├── models.py
+│   │   │   ├── tests.py
+│   │   │   └── views.py
+│   │   └── __init__.py
+│   ├── core/
+│   │   ├── settings/
+│   │   │   ├── __init__.py
+│   │   │   ├── base.py
+│   │   │   ├── development.py
+│   │   │   ├── production.py
+│   │   │   └── staging.py
+│   │   ├── __init__.py
+│   │   ├── asgi.py
+│   │   ├── urls.py
+│   │   └── wsgi.py
+│   ├── logs/
+│   │   └── .gitkeep
+│   ├── mcp_server/
+│   │   ├── services/
+│   │   │   ├── codebase_watcher.py
+│   │   │   ├── document_indexer.py
+│   │   │   └── gemini_agent_runner.py
+│   │   └── config.py
+│   ├── shared/
+│   │   ├── exceptions/
+│   │   │   └── __init__.py
+│   │   ├── middleware/
+│   │   │   └── __init__.py
+│   │   ├── utils/
+│   │   │   ├── __init__.py
+│   │   │   └── inspectors.py
+│   │   └── __init__.py
+│   ├── .dockerignore
+│   ├── .env.example
+│   ├── .flake8
+│   ├── .gitignore
+│   ├── Dockerfile
+│   ├── manage.py
+│   ├── pyproject.toml
+│   ├── pytest.ini
+│   ├── README.md
+│   ├── requirements-dev.txt
+│   └── requirements.txt
 ```
 
 ## 🚀 Getting Started
@@ -255,6 +267,14 @@ pytest -v
 # Run & Stop at First Failure
 pytest -x
 ```
+
+### AITDDLC (AI Test-Driven Development Life-Cycle) Flow
+
+When developing using local AI Agents (Cursor / MCP):
+
+1. **Red Phase** : Write or generate failing Unit/Integration Tests (`pytest apps/<app_name>/tests.py`).
+2. **Green Phase** : Implement minimal Business Logic until `pytest` passes.
+3. **Refactor Phase** : Run Quality Checks (`black . && isort . && flake8 .`) & optimize while keeping `pytest` passing.
 
 ### Test Coverage Report
 
@@ -625,12 +645,13 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 ## 🤝 Contributing
 
-1. Create a `feature` Branch : `feature/username/story-id-description`
-2. Make Your Changes
-3. Run Tests : `pytest`
-4. Run Code Quality Checks : `black . && isort . && flake8 .`
-5. Commit with Conventional Commits: `feature (#Issue Reference, if any) : Created A New Feature`
-6. Push & Create A Pull Request (PR)
+1. Pick or create a GitHub Issue (`#123`).
+2. Create an IDD Branch : `[tag]/username/issue-123` (*Example* : `feature/jzhk/issue-123`).
+3. Follow AITDDLC : Write Tests first (Red), Implement Minimum Code (Green) & Refactor.
+4. Run Tests : `pytest`
+5. Run Code Quality Checks : `black . && isort . && flake8 .`
+6. Commit using Conventional Commits linked to the Issue : `feature (#123) : Created a New Feature`
+7. Push & Create A Pull Request (PR) linking back to Issue `#123`.
 
 ### Commit Label Tags Convention
 
@@ -652,4 +673,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : August 21, 2026
+**Last Updated** : August 26, 2026

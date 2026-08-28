@@ -50,7 +50,7 @@ git fetch origin
 git checkout devEnv
 git pull origin devEnv
 
-# Merge the Dependabot Upgrade Branch into devEnv
+# IDD & AITDDLC Verification : Validate Local Tests (Red -> Green -> Refactor) Pass for Issue #123
 git merge origin/chore/upgrade/backend-django
 
 # Push to trigger the Full CI Suite for devEnv
@@ -113,12 +113,10 @@ The Boilerplate’s value lies in its AI-Readiness. Documentation must match the
 **After Every Major Upgrade** :
 
 - `BOILERPLATE_CONTEXT.md` :
-  ・　 Update the 🗂️ `Tech Stack` Section with New Version Numbers.
-  ・　 Increment the `Version` at the top & bottom of the file.
-  ・　 Update the `Last Updated` date.
-
-- `PROJECT_CONTEXT.template.md` :
-  ・　 Add a New Entry to the `🔄 Document Version History` Table so that New Projects start with the correct Baseline.
+  - Update the 🗂️ `Tech Stack` Section with New Version Numbers.
+  - Increment the `Version` at the top & bottom of the file.
+  - Update the `Last Updated` date.
+  - Verify that AITDDLC Harness Files (`.mcp/harness/`) & IDD Workflow Links match the latest Project Standards.
 
 ---
 
@@ -134,5 +132,5 @@ If an Upgrade causes a Critical Failure :
 
 ---
 
-**Current Maintenance Status** : `Optimized`
-**Last Audit** : January 30, 2026
+**Current Maintenance Status** : `Optimized (AITDDLC & IDD Integrated)`
+**Last Audit** : August 26, 2026

@@ -8,16 +8,30 @@ This Boilerplate uses a **Hybrid Testing Strategy** to stay within GitHub's Free
 
 ### Branch Structure
 
-```
-[relevant-tag]/[dev-username]/[user-story-id]
-    ↓ (PR & Review)
-  main (Stable Integration Point)
-    ↓ (Environment Promotion)
-  devEnv (Development Server Deployment)
-    ↓ (After Development Testing)
-  stagingEnv (QA Server Deployment)
-    ↓ (After QA / Stakeholder Approval)
-  prodEnv (Production Server Deployment)
+```mermaid
+graph TD
+    %% Nodes
+    A["GitHub Issue (#123)"]
+    B["[relevant-tag]/[dev-username]/issue-123"]
+    C["PR linked to Issue (#123)"]
+    D["main (Stable Integration Point)"]
+    E["devEnv (Development Server Deployment)"]
+    F["stagingEnv (QA Server Deployment)"]
+    G["prodEnv (Production Server Deployment)"]
+
+    %% Flow
+    A -->|"Create IDD Branch"| B
+    B -->|"Local AITDDLC : Red → Green → Refactor<br/>via local MCP harness"| C
+    C -->|"PR Review & CI"| D
+    D -->|"Automated Cascade Pipeline"| E
+    E -->|"After Development Testing"| F
+    F -->|"After QA / Stakeholder Approval"| G
+
+    %% Styling
+    classDef default fill:#1f2937,stroke:#374151,stroke-width:2px,color:#f3f4f6;
+    classDef highlight fill:#1e3a8a,stroke:#3b82f6,stroke-width:2px,color:#eff6ff;
+    
+    class A,D,G highlight;
 ```
 
 ### Relevant Tags
@@ -169,20 +183,24 @@ git push origin devEnv
 git checkout main
 git pull origin main
 
-# Create Your Tag Branch related to the Task you were assigned to
-git checkout -b [tag]/[your-username]/[user-story-id]
+# IDD Workflow : Reference an Open Issue (#123)
+git checkout -b [tag]/[your-username]/issue-123
 ```
 
 #### 2. Develop & Commit
 
 ```bash
-# Make Your Changes
+# AITDDLC Execution Flow : 
+# 1. Red Phase : Write/generate failing tests (Example : pytest backend/apps/<app_name>/tests.py)
+# 2. Green Phase : Implement minimum code until Tests pass
+# 3. Refactor Phase : Run Formatters / Linters while keeping Tests passing
+
 git add .
 
-# Use Conventional Commits
-git commit -m "feature : Added User Authentication Module"
-git commit -m "fix : Resolved Login Timeout Issue"
-git commit -m "documentation : Updated API Documentation"
+# Use Conventional Commits referencing the GitHub Issue (#123)
+git commit -m "feature (#123) : Added User Authentication Module"
+git commit -m "fix (#123) : Resolved Login Timeout Issue"
+git commit -m "documentation (#123) : Updated API Documentation"
 ```
 
 **Conventional Commit Format** :
@@ -208,6 +226,7 @@ miscellaneous : Added Logo Image for ... .. .
 #### 3. Run Tests Locally (Required)
 
 ```bash
+# Local AITDDLC Harness Validation
 # Backend Tests
 cd backend
 source venv/bin/activate  # OR : . venv/bin/activate
@@ -316,6 +335,7 @@ git push origin prodEnv
 Every Code Change Passes Through **Minimum 7 Quality Gates** :
 
 ```
+Gate 0 : Local AITDDLC Harness → Red-Green-Refactor Passed Locally ✅
 Gate 1 : PR to main → CI : Full Tests ✅
 Gate 2 : Merge to main → CI : Full Tests ✅
 Gate 3 : Merge to devEnv → CD : Deploy + Smoke Tests ✅
@@ -519,5 +539,8 @@ Track Your GitHub Actions Usage :
 | Cost Conscious      | ✅     | Smart Optimization     |
 | Easily Upgradeable  | ✅     | One-Line Change        |
 | Storage Optimized  | ✅     | Layered Cache (< 10GB)        |
+| AITDDLC & IDD Compliant | ✅ | Issue-linked Branches & local Test Harness |
 
 **🚀 Bottom Line** : Professional CI / CD that Respects Your Budget 💰
+
+**Last Updated** : August 26, 2026

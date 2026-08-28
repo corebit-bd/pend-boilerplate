@@ -52,6 +52,8 @@ The PEND Boilerplate includes several Built-In Security Features :
 - ✅ **Database Isolation** via Schemas & Roles
 - ✅ **Network Segmentation** in Docker Compose
 - ✅ **Secret Management** via Environment Variables
+- ✅ **AITDDLC Test Harness Isolation** :  AI-assisted code generation & Automated Test Harnesses execute in sandboxed Environments to prevent unvetted code execution.
+- ✅ **IDD Issue Compliance Auditing** : CI Pipelines audit Commit Messages & Branch Names against assigned GitHub Issues to block untracked code paths.
 
 **Trivy SARIF Upload** :
 
@@ -77,6 +79,7 @@ Public Disclosure of Security Vulnerabilities can put Users At Risk. **Please Re
    - Potential Impact
    - Affected Versions
    - Suggested Fix (If Available)
+   - Specify if the Vulnerability originated from an AI-generated Code / Test Harness Component or AITDDLC Pipeline Automation.
 
 **GitHub Security Advisory URL** : `https://github.com/[your-org]/pend-boilerplate/security/advisories/new`
 
@@ -215,6 +218,7 @@ The Following are **NOT** Considered Security Vulnerabilities :
 - ❌ Missing Security Headers without Demonstrable Impact
 - ❌ Self-XSS (Requires User to Execute Malicious Code themselves)
 - ❌ Issues in Outdated / Unsupported Versions
+- ❌ Unmerged raw AI Test Code / Specification Drafts in unassigned Branches prior to Red-Green Phase Validation.
 
 ### Development Environment
 
@@ -293,6 +297,11 @@ SECURE_HSTS_SECONDS = 31536000
 - Test Restore Procedures
 - Document Incident Response Plan
 - Use `backup/*` Branches for Major Upgrades
+
+### 8. **Sanitize AI Inputs & Review AI Code (AITDDLC)**
+
+- Never input private API Keys, Production Ddatabase Credentials / real PII into public AI Tools.
+- Audit all AI-Generated Test Specifications & functional code for potential logic Vulnerabilities before passing the Red-Green Phase into `main`.
 
 ---
 
@@ -378,6 +387,7 @@ For Non-Security Questions :
 
 - **v1.0** (December 30, 2025) - Initial Security Policy
 - **v1.1** (January 12, 2026) - Added Infrastructure Availability Patterns (CI / CD Cache Optimization).
+- **v1.2** (August 26, 2026) - Integrated AITDDLC Test Harness Security Controls & IDD Issue Tracking Auditing.
 
 ---
 
@@ -398,6 +408,6 @@ This Security Policy applies to the PEND Boilerplate Project. Implementations & 
 
 ---
 
-**Last Updated** : April 18, 2026
+**Last Updated** : August 26, 2026
 
 Thank You for Helping Keep PEND Boilerplate & Our Users Safe! 🙏

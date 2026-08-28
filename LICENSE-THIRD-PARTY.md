@@ -285,6 +285,13 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 - **Website** : https://eslint.org/
 - **License URL** : https://github.com/eslint/eslint/blob/main/LICENSE
 
+### AI Test Harness & Generation Tools (OpenAI / Anthropic APIs - MIT / Proprietary SDKs)
+
+- **Usage Context** : AI-generated Test Specifications & Code Synthesis in the AITDDLC Red-Green-Refactor Pipeline.
+- **License** : MIT (for SDKs) / Service Terms (for API Access)
+- **Website** : https://openai.com/ / https://www.anthropic.com/
+- **Reference** : Standard Developer API Terms
+
 ---
 
 ## Infrastructure & DevOps
@@ -448,6 +455,14 @@ The `psycopg2` Library is Licensed under LGPL with a Special Exception that allo
 
 All Dependencies are safe for Commercial Use without Restrictions. The most Restrictive License is LGPL (`psycopg2`), which only requires that modifications to `psycopg2` itself be shared if distributed.
 
+### AI-Generated Assets (AITDDLC)
+
+All Test Specifications, Harnesses & Code generated via AI Tools under the AITDDLC Workflow are released under the Project's primary Open-Source / Proprietary License (see [LICENSE](LICENSE)). AI Tool inputs & outputs must not incorporate proprietary 3rd-Party Code that violates external Copyright / restrictive Copyleft Licenses.
+
+### Issue & Process Artifacts (IDD / SCRUM)
+
+All Agile User Stories, Issue Definitions, & Acceptance Criteria created as part of the IDD Methodology are project-owned Documentation & fall under the main Project License.
+
 ### Updating This Document
 
 When Adding New Dependencies :
@@ -475,6 +490,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : August 21, 2026
+**Last Updated** : August 28, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.

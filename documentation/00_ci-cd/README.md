@@ -72,34 +72,49 @@ Go To : GitHub → Create PR to `main` → **CI Runs Automatically!**
 
 ## 🔄 Git Workflow
 
-```
-Developer's Created Branch [relevant-tag]/[dev-username]/[user-story-id]
-    ↓ (Create PR to main)
-  CI : Full Test Suite ✅
-    ↓ (Merge to main Branch)
-  CI : Full Test Suite ✅
-    ↓ (Promote to devEnv Branch)
-  CD : Deploy to Development 🚀 Environment
-  Smoke Tests ✅
-    ↓ (After Testing, Promote to stagingEnv Branch)
-  CI : Essential Tests ✅ (on PR)
-  CD : Deploy to QA 🚀 Environment
-  Smoke Tests ✅
-    ↓ (After Approval, Promote to prodEnv Branch)
-  CI : Essential Tests ✅ (on PR)
-  CD : Deploy to Production 🚀 Environment
-  Rollback Ready ⚠️
+```mermaid
+graph TD
+    %% Nodes & Flow
+    A["GitHub Issue (#123)"] -->|Create IDD Branch| B["Developer's Branch<br/><b>[relevant-tag]/[dev-username]/issue-123</b>"]
+    B -->|AITDDLC : Red → Green → Refactor<br/>via local MCP harness| C["PR linked to Issue (#123)"]
+    
+    C -->|PR to main Branch| D["CI : Full Test Suite ✅"]
+    D -->|Merge to main| E["CI : Full Test Suite ✅"]
+    
+    E -->|Automated Cascade Pipeline| F["CD : Deploy to Development 🚀 Environment"]
+    F --> G["Smoke Tests ✅"]
+    
+    G -->|After Testing, Promote to stagingEnv Branch| H["CI : Essential Tests ✅ (on PR)"]
+    H --> I["CD : Deploy to QA 🚀 Environment"]
+    I --> J["Smoke Tests ✅"]
+    
+    J -->|After Approval, Promote to prodEnv Branch| K["CI : Essential Tests ✅ (on PR)"]
+    K --> L["CD : Deploy to Production 🚀 Environment"]
+    L --> M["Rollback Ready ⚠️"]
+
+    %% Styling with explicit black text
+    classDef issue fill:#f9f9f9,stroke:#333,stroke-width:1px,color:#000000;
+    classDef dev fill:#e1f5fe,stroke:#0288d1,stroke-width:1px,color:#000000;
+    classDef ci fill:#fff3e0,stroke:#f57c00,stroke-width:1px,color:#000000;
+    classDef cd fill:#e8f5e9,stroke:#388e3c,stroke-width:1px,color:#000000;
+    classDef alert fill:#ffebee,stroke:#d32f2f,stroke-width:1px,color:#000000;
+
+    class A issue;
+    class B,C dev;
+    class D,E,H,K ci;
+    class F,I,L cd;
+    class M alert;
 ```
 
 ### Branch Naming Convention
 
 ```
-Format : [relevant-tag]/[dev-username]/[user-story-id]
+Format : [relevant-tag]/[dev-username]/issue-[issue-number]
 
 Examples :
-- feature/jzhk/user-auth-123 # New Feature : User Authentication
-- fix/ijs/login-bug-456 # Fix of Login Error
-- documentation/smd/readme-update-789 # Documentation Changes
+- feature/jzhk/issue-123 # New Feature linked to Issue #123
+- fix/ijs/issue-456 # Bug Fix linked to Issue #456
+- documentation/smd/issue-789 # Documentation updates linked to Issue #789
 ```
 
 ### Relevant Tags
@@ -296,7 +311,7 @@ SARIF Upload is guarded so CI won’t fail if Trivy couldn’t generate `trivy-r
 
 Every Code Change Passes through Multiple Validation Points :
 
-1. **Local Tests** - Developer runs Tests Before Pushing
+1. **AITDDLC Local Harness** - Developer / AI executes local Unit & Integration Tests (Red-Green-Refactor) via `.mcp/harness/` before pushing
 2. **PR CI** - Full Test Suite on Pull Request
 3. **Main CI** - Full Test Suite After Merge
 4. **Development Deployment** - Smoke Tests in Development
@@ -359,5 +374,5 @@ See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
 
 ---
 
-**Last Updated** : April 18, 2026
-**Status** : Production-Ready ✅
+**Last Updated** : August 26, 2026
+**Status** : Production-Ready (AITDDLC & IDD Integrated) ✅

@@ -1,6 +1,6 @@
-# PEND Boilerplate
+# <div align="center">PEND Boilerplate</div>
 
-**PostgreSQL · Expo · NextJS · Django**
+**<div align="center">PostgreSQL · Expo · NextJS · Django</div>**
 
 A Production-Ready, Full-Stack Boilerplate with Multi-Tenant Architecture, Comprehensive CI / CD & Enterprise-Grade Security Patterns. Built for Rapid Scaffolding of New Projects.
 
@@ -22,6 +22,7 @@ A Production-Ready, Full-Stack Boilerplate with Multi-Tenant Architecture, Compr
 - [Quick Start](#quick-start)
 - [Project Structure](#project-structure)
 - [Branch Naming Convention](#branch-naming-convention)
+- [Agile SCRUM, IDD & AITDDLC Framework](#agile-scrum-idd--aitddlc-framework)
 - [Development Workflow](#development-workflow)
 - [Scaffolding New Projects](#scaffolding-new-projects)
 - [Branch Protection](#branch-protection)
@@ -43,6 +44,7 @@ A Production-Ready, Full-Stack Boilerplate with Multi-Tenant Architecture, Compr
 This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects while Maintaining :
 
 - ✅ **High Quality Standards** - 80%+ Test Coverage, Automated CI / CD
+- ✅ **AITDDLC & IDD Framework** - Issue-Driven Development paired with AI-Assisted Test-Driven Life-Cycle for rapid, Test-First Iteration
 - ✅ **Production Security** - JWT Authentication, Audit Logging, Security Scans
 - ✅ **Team Scalability** - Configurable Branch Protection, Comprehensive Documentation
 - ✅ **Developer Experience** - Hot Reload, Storybook, Automated Scripts
@@ -83,6 +85,8 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 - 📈 **Code Quality** - Black, Flake8, ESLint, Prettier
 - 🔧 **Automation Scripts** - Setup, Build, Deployment Scripts
 - 📖 **Scaffolding Guide** - Template-Ready for New Projects
+- 🤖 **AITDDLC Automated Harness** - AI-Driven Test Creation, Code Generation & Specification Updates
+- 📋 **Issue-Driven Development (IDD)** - Strict Traceability connecting GitHub Issues, PRs & Branch Names.
 
 ---
 
@@ -213,10 +217,16 @@ pend-boilerplate/
 │   │   ├── performance.yaml
 │   │   └── question.yaml
 │   ├── workflows/
+│   │   ├── branch-cascade.yaml
 │   │   ├── cd.yaml
-│   │   └── ci.yaml
+│   │   ├── ci.yaml
+│   │   ├── dependabot-ai-fixer.yaml
+│   │   └── dependabot-auto-merge.yaml
 │   ├── dependabot.yaml
 │   └── PULL_REQUEST_TEMPLATE.md
+├── .mcp/
+│   └── harness/
+│       └── update_docs_agent.py
 ├── backend/
 │   ├── apps/
 │   │   ├── authentication/
@@ -260,6 +270,12 @@ pend-boilerplate/
 │   │   └── wsgi.py
 │   ├── logs/
 │   │   └── .gitkeep
+│   ├── mcp_server/
+│   │   ├── services/
+│   │   │   ├── codebase_watcher.py
+│   │   │   ├── document_indexer.py
+│   │   │   └── gemini_agent_runner.py
+│   │   └── config.py
 │   ├── shared/
 │   │   ├── exceptions/
 │   │   │   └── __init__.py
@@ -412,6 +428,7 @@ pend-boilerplate/
 ├── .env.staging.example
 ├── .gitguardian.yaml
 ├── .gitignore
+├── AGENTS.md
 ├── BOILERPLATE_CONTEXT.md
 ├── CHANGELOG.md
 ├── CODE_OF_CONDUCT.md
@@ -420,7 +437,6 @@ pend-boilerplate/
 ├── docker-compose.yaml
 ├── LICENSE
 ├── LICENSE-THIRD-PARTY.md
-├── PROJECT_CONTEXT.template.md
 ├── README.md
 └── SECURITY.md
 ```
@@ -510,24 +526,61 @@ refactor/dave/auth-service-321
 
 ---
 
+## Agile SCRUM, IDD & AITDDLC Framework
+
+This project follows an **Issue-Driven Development (IDD)** approach embedded inside an **Agile SCRUM** Workflow, augmented by the **Artificial Intelligence Test-Driven Development Life-Cycle (AITDDLC)**.
+
+```mermaid
+flowchart TD
+    A[GitHub Issue / User Story] --> B[IDD Branch Creation<br/><code>tag/user/issue-id</code>]
+    B --> C[🧪 AITDDLC Step 1: Generate Tests First<br/><b>RED</b>]
+    C --> D[💻 AITDDLC Step 2: Implement Code<br/><b>GREEN</b>]
+    D --> E[⚙️ AITDDLC Step 3: Refactor & Document<br/><b>REFACTOR</b>]
+    E --> F[Pull Request → Automated Branch Cascade Pipeline]
+
+    %% Styling
+    style C fill:#FFE6E6,stroke:#FF4D4D,color:#000
+    style D fill:#E6FFE6,stroke:#2EC4B6,color:#000
+    style E fill:#FFF4E6,stroke:#FF9F1C,color:#000
+```
+
+### 1. Issue-Driven Development (IDD)
+
+- Every code change begins with a tracked **GitHub Issue** containing user requirements and acceptance criteria.
+- Branches must explicitly map back to an Issue ID using the strict Branch Naming Tag System (Example : `feature/jzhk/issue-123`).
+- Pull Requests must reference the Issue ID to enable Automatic Resolution & E2E Traceability upon merging.
+
+### 2. Artificial Intelligence Test-Driven Development Life-Cycle (AITDDLC)
+
+The repository leverages automated AI agents (`.mcp/harness/`) to drive code development via a strict test-first methodology:
+
+1. **RED Phase (Test First):** AI generates or updates unit and integration tests based on issue specifications before business logic is written.
+2. **GREEN Phase (Implementation):** Core code is developed to satisfy the newly generated tests until all suite checks pass.
+3. **REFACTOR Phase (Optimization):** Code is refactored for performance, adherence to architecture patterns, and security, accompanied by automated docstring and `AGENTS.md` updates.
+
+---
+
 ## Development Workflow
 
-### Git Flow
+### Git Flow & Automated Cascade
 
-```
-[tag]/[username]/[story-id]
-    ↓ (Pull Request with CI Checks)
-  main → Full CI Tests ✅
-    ↓ (Automatic / Manual Promotion)
-  devEnv → Deploy to Development 🚀
-    ↓
-  stagingEnv → Deploy to Staging 🚀
-    ↓
-  prodEnv → Deploy to Production 🚀
+```mermaid
+flowchart TD
+    FeatureBranch["[tag]/[username]/[story-id]"]
+    Main["main"]
+    DevEnv["devEnv"]
+    StagingEnv["stagingEnv"]
+    ProdEnv["prodEnv"]
+
+    FeatureBranch -->|"Pull Request"| Main
+    Main -->|"Automated Cascade 
+    via CASCADE_PAT"| DevEnv
+    DevEnv -->|"Cascade"| StagingEnv
+    StagingEnv -->|"Cascade"| ProdEnv
 ```
 
-**Developer Workflow** :
-![Developer Workflow](developer-workflow.png)
+1. **PR to `main`** : Developers open Pull Requests targeting `main`.
+2. **Sequential Cascade Execution** : Merges to `main` trigger the `Automated Branch Cascade` Workflow, which uses the `CASCADE_PAT` Secret to bypass rulesets & propagate Changes downstream sequentially (`main` $\rightarrow$ `devEnv` $\rightarrow$ `stagingEnv` $\rightarrow$ `prodEnv`).
 
 ### Creating a Feature
 
@@ -944,6 +997,8 @@ prodEnv: 2-3 Approvals (CODEOWNERS Enforced)
    - Restore Previous Version
    - Notify Team
 
+> **Automated Multi-Branch Cascade** : Merges into `main` trigger the `Automated Branch Cascade` Workflow authenticated via `CASCADE_PAT` (Repository Administrator Role), safely propagating builds from `main` to `devEnv`, `stagingEnv` & `prodEnv` sequentially without manual intervention.
+
 ### Cost Analysis
 
 **Monthly Usage (Free Tier)** :
@@ -1260,6 +1315,6 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 
 **Built with ❤️ by [@corebit-bd](https://github.com/corebit-bd)**
 
-**Version** : 1.0.32
-**Last Updated** : August 21, 2026  
+**Version** : 1.0.33
+**Last Updated** : August 26, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅

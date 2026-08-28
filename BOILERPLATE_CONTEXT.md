@@ -58,6 +58,7 @@
 - Backend : `pytest >=9.1.0,<10.0`, `pytest-django >=4.14.0,<5.0`
 - Frontend : Jest, `@testing-library/react` (99.78% Coverage)
 - Code Quality : Black, Flake8, `isort`, ESLint
+- AI Test Harness : Configured AITDDLC Engine in `.mcp/harness/` enforcing Red-Green-Refactor Phases via Cursor / MCP Integration
 
 ## ✅ All Steps Completed (1-12)
 
@@ -354,21 +355,15 @@ Environment Branches :
 
 #### Git Flow
 
-**Feature Development** :
-
+```mermaid
+flowchart TD
+    Issue["GitHub Issue (#123)"] -->|Create Branch mapping to Issue ID| Branch["[tag]/[username]/issue-123"]
+    Branch -->|AITDDLC: Red → Green → Refactor via local tests| PR["PR linked to Issue (#123)"]
+    PR -->|PR to main with CI Checks| CI["main → CI : Full Tests ✅"]
+    CI -->|Automated Cascade Pipeline| Dev["devEnv → CD : Deploy 🚀"]
+    Dev --> Staging["stagingEnv → CD : Deploy 🚀"]
+    Staging --> Prod["prodEnv → CD : Deploy 🚀"]
 ```
-[tag]/[username]/[story-id]
-    ↓ (PR to main with CI Checks)
-  main → CI : Full Tests ✅
-    ↓ (Environment Promotion)
-  devEnv → CD : Deploy 🚀
-    ↓
-  stagingEnv → CD : Deploy 🚀
-    ↓
-  prodEnv → CD : Deploy 🚀
-```
-
-![Developer Workflow](developer-workflow.png)
 
 **Major Upgrades** :
 
@@ -1007,9 +1002,9 @@ This Document contains All Necessary Context to Resume Development!
 ---
 
 **Project Status** : ✅ COMPLETE - Production & Scaffolding Ready
-**Version** : 1.0.32
-**Last Updated** : August 21, 2026
-**All 12 Steps** : COMPLETED ✅ (Infrastructure Optimized v1.0.3)
+**Version** : 1.0.33
+**Last Updated** : August 26, 2026
+**All 12 Steps** : COMPLETED ✅ (Infrastructure & AITDDLC / IDD Harness Integrated v1.0.33)
 **CI / CD** : Production-Ready ✅
 **Documentation** : Comprehensive ✅
 **Branch Protection** : Configured ✅

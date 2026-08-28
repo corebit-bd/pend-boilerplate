@@ -4,7 +4,10 @@
 
 This Guide Covers the Process for Upgrading Major Framework Versions (Django, NextJS, PostgreSQL, etc.) in the PEND Stack Boilerplate.
 
-**⚠️ CRITICAL** : Always Create A Backup Branch Before Starting Any Major Upgrade !
+**⚠️ CRITICAL REQUIREMENTS** : 
+
+- **Backup Branch** : Always create a Backup Branch before starting any major upgrade!
+- **IDD & AITDDLC Compliance** : Every Upgrade Task must originate from an assigned GitHub Issue (Issue-Driven Development) & adhere to the Artificial Intelligence Test-Driven Development Life-Cycle (AITDDLC) Harness—generating failing Test Suites via AI Specifications prior to Code Modification.
 
 ---
 
@@ -196,13 +199,28 @@ git revert -m 1 <merge-commit-hash>
 #### Step 1 : Create Branch
 
 ```bash
-# Create Upgrade Branch from "main"
+# Create Upgrade Branch from "main" following IDD Naming Conventions
+# Format : chore/#<issue-number>/upgrade-<component>
 git checkout main
 git pull origin main
-git checkout -b chore/upgrade/backend
+git checkout -b chore/#102/upgrade-backend
 
-echo "✅ Upgrade Branch Created : chore/upgrade/backend"
+echo "✅ Upgrade Branch Created : chore/#102/upgrade-backend"
 ```
+
+#### Step 1.5 : Execute AITDDLC Harness & IDD Sequence
+
+1. **IDD Issue Verification** : Ensure the assigned GitHub Issue (`#<issue-number>`) contains finalized User Stories, Upgrade Acceptance Criteria & Linked Dependencies.
+2. **Red Phase (Test Generation & Failure)** :  
+   - Prompt the AI Harness using Target Release Notes & Breaking Change lists to generate or update Unit / Integration Test Suites.
+   - Run the new Test Suite to verify Tests **fail as expected** on the current codebase : 
+     ```bash
+     pytest tests/test_deprecations.py
+     ```
+3. **Green Phase (Minimal Implementation)** :  
+   - Implement the minimum required code changes to resolve Deprecations & Breaking Changes until all AI-Generated Tests turn green.
+4. **Refactor Phase (Optimization & Clean Code)** : 
+   - Refactor code for Optimal Performance, Type Safety & Framework Standards while maintaining passing Test Status.
 
 #### Step 2 : Update Dependencies
 
@@ -316,7 +334,7 @@ Update These Files :
 git add .
 
 # Use Conventional Commit Format
-git commit -m "chore : Upgraded Django from 5.1 to 5.2
+git commit -m "chore (#102) : upgrade Django from 5.1 to 5.2
 
 BREAKING CHANGES :
 - django.conf.urls.url Deprecated, Use django.urls.re_path
@@ -397,13 +415,20 @@ git push origin chore/upgrade/backend
 - [ ] Layered Cache Audit (Verified Separate Dependency vs. Build Layers)
 - [ ] Storage Usage Verified (Total Repository Cache < 10GB)
 
+### IDD & AITDDLC Traceability
+
+- [ ] Linked GitHub Issue : Closes #<issue-number>
+- [ ] **Red Phase Verified** : Test Cases were generated / updated via AI Harness & failed prior to Upgrade Fixes.
+- [ ] **Green Phase Verified** : All local AITDDLC Unit & Integration Tests pass green.
+- [ ] **Refactor Phase Verified** : Code updated to meet Framework Standards without regression.
+
 ### Migration Guide
 
 See `UPGRADE_NOTES.md` for Detailed Migration Steps.
 
 ### Rollback Plan
 
-**If Upgrade Fails** :
+**If Upgrade Fails** : 
 
 ```bash
 # Option 1 : Restore from Backup
@@ -721,6 +746,8 @@ Copy this for Each Upgrade :
 - [ ] Backup Branch Protected
 - [ ] Version Tagged
 - [ ] Rollback Plan Prepared
+- [ ] GitHub Issue Created & Refined in Sprint Backlog (IDD)
+- [ ] Branch Created with Issue Key (`chore/#<issue>/...`)
 
 ## Upgrade
 
@@ -810,4 +837,4 @@ Copy this for Each Upgrade :
 
 ---
 
-**Last Updated** : April 18, 2026
+**Last Updated** : August 28, 2026
