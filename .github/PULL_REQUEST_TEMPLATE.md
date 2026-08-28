@@ -2,7 +2,7 @@
 
 ### 🌳 Branch Information
 
-**Source Branch** : `[relevant-tag]/[dev-username]/[user-story-id]`  
+**Source Branch** : `[relevant-tag]/#[issue-number]/[short-description]`  
 **Target Branch** : `main`  
 **User Story / Ticket ID** : `#___`
 
@@ -34,7 +34,7 @@
 
 - **`miscellaneous/`** : Use for anything that does not clearly fall into any of the previous categories
 
-**Example** : `feature/jzhk/user-authentication-123`
+**Example** : `feature/#123/user-authentication`
 
 ---
 
@@ -62,12 +62,10 @@
 
 ---
 
-### 🔗 Related Issues
+### 🔗 Related Issue / Task (IDD)
 
-<!-- Link to Related Issues Using #issue_number -->
-
-Closes #
-Related To #
+- [ ] Closes # (issue number)
+- *Note : Every PR must originate from an assigned, tracked GitHub Issue.*
 
 ---
 
@@ -123,6 +121,15 @@ Coverage : XX%
 - [ ] New & Existing Unit Tests Pass Locally with My Changes
 - [ ] I have Tested My Changes in Multiple Browsers (If Frontend)
 - [ ] I have Tested My Changes on Mobile Devices (If Applicable)
+
+#### AITDDLC & IDD Compliance
+
+- [ ] **IDD Issue Verification** : PR Title, Branch Name & Commits follow Issue-Tracking Conventions (`#<issue-number>`).
+- [ ] **Red Phase** : AI Specification Harness generated / updated Test Cases & Failures were confirmed prior to feature / upgrade implementation.
+- [ ] **Green Phase** : Minimum required functional / Framework code written to turn all AI-generated Tests green.
+- [ ] **Refactor Phase** : Code refactored for Performance, Structure & Standards without breaking passing tests.
+- [ ] Local AITDDLC Test Harness executed & 100% passing.
+- [ ] No deprecated Code / Warning Logs introduced by the changes.
 
 #### Documentation
 

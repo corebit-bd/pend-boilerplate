@@ -636,17 +636,18 @@ import { Button } from "@/components/ui/Button"; // Verify Correct Path
 
 Before Pushing to CI, Verify :
 
+- [ ] Local AITDDLC Harness Executed (Red-Green-Refactor verified)
+- [ ] Issue Linked in Branch Name (`[tag]/[username]/issue-[number]`)
 - [ ] All Tests Pass Locally
 - [ ] Dependencies are Committed
 - [ ] `.env` Files Not Committed
 - [ ] GitHub Secrets Configured
-- [ ] Branch Naming Convention Followed
-- [ ] Commit Messages Follow Format
-- [ ] Pull Request (PR) Template Filled Out
+- [ ] Commit Messages Reference Issue (`<tag> (#issue): <description>`)
+- [ ] Pull Request (PR) Template Filled Out & Linked to GitHub Issue
 - [ ] Cache Storage Checked (`Actions` > `Caches`) if Build times are slow
 
 **This Prevents 90% of CI Failures!**
 
 ---
 
-**Last Updated:** April 18, 2026
+**Last Updated:** August 26, 2026

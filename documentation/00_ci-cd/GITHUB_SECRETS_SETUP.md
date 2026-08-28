@@ -236,16 +236,16 @@ The Workflows will Fail at Upload Time But will Continue Running.
 1. Create A Test Branch :
 
    ```bash
-   # Follow Branch Naming Convention : [tag]/[username]/[description]
-   git checkout main
-   git pull origin main
-   git checkout -b test/your-username/verify-ci-cd
+      # IDD Workflow : Reference an Open Issue (#123) & follow Branch Tagging
+      git checkout main
+      git pull origin main
+      git checkout -b test/your-username/issue-123
 
-   # Make a Small Test Change
-   echo "# CI/CD Pipeline Test" >> README.md
-   git add README.md
-   git commit -m "test : Verified CI / CD Secrets Configuration"
-   git push origin test/your-username/verify-ci-cd
+      # Make a Small Test Change via AITDDLC (Red-Green-Refactor)
+      echo "# CI / CD Pipeline Test" >> README.md
+      git add README.md
+      git commit -m "test (#123) : Verified CI / CD Secrets Configuration via AITDDLC"
+      git push origin test/your-username/issue-123
    ```
 
 2. Create A Pull Request (PR) To `main` Branch :
@@ -290,24 +290,44 @@ The Workflows will Fail at Upload Time But will Continue Running.
 
 **Expected Workflow** :
 
-```bash
-User Feature Branch [test/username/verify-ci-cd]
-    ↓ (Create PR)
-  CI runs on PR ✅ (Full Test Suite)
-    ↓ (Merge PR)
-  CI runs on main ✅ (Full Test Suite)
-    ↓ (Environment Promotion)
-  Merge to devEnv
-    ↓
-  CD Deploys to Development Server 🚀
-    ↓ (After Testing)
-  Merge to stagingEnv
-    ↓
-  CD Deploys to QA Server 🚀
-    ↓ (After Approval)
-  Merge to prodEnv
-    ↓
-  CD Deploys to Production Server 🚀
+```mermaid
+graph TD
+    %% Nodes
+    A["GitHub Issue (#123)"]
+    B["User Feature Branch<br><code>test/username/issue-123</code>"]
+    C["AITDDLC Red-Green-Refactor"]
+    D["CI runs on PR ✅<br><i>(Full Test Suite)</i>"]
+    E["Merge PR linked to Issue #123"]
+    F["CI runs on main ✅<br><i>(Full Test Suite)</i>"]
+    G["Automated Cascade Pipeline"]
+    H["Merge to devEnv"]
+    I["CD Deploys to Development Server 🚀"]
+    J["Merge to stagingEnv"]
+    K["CD Deploys to QA Server 🚀"]
+    L["Merge to prodEnv"]
+    M["CD Deploys to Production Server 🚀"]
+
+    %% Flow
+    A -->|Create IDD Branch| B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I -->|After QA Testing| J
+    J --> K
+    K -->|After Approval| L
+    L --> M
+
+    %% Styling
+    classDef default fill:#1e1e2e,stroke:#89b4fa,stroke-width:2px,color:#cdd6f4;
+    classDef success fill:#182325,stroke:#a6e3a1,stroke-width:2px,color:#cdd6f4;
+    classDef deploy fill:#2a2035,stroke:#cba6f7,stroke-width:2px,color:#cdd6f4;
+    
+    class D,F success;
+    class I,K,M deploy;
 ```
 
 ---
@@ -465,4 +485,4 @@ EXPO_TOKEN
 
 **🎉 Once Secrets are Configured, Your CI / CD Pipeline is Ready to Run 🚀**
 
-**Last Updated** : January 03, 2026
+**Last Updated** : August 26, 2026

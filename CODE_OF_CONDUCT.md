@@ -20,6 +20,8 @@ We Pledge to Act & Interact in ways that Contribute to An Open, Welcoming, Diver
 - **Being Professional** : Maintaining Professionalism in All Communications & Interactions
 - **Being Patient** : Understanding that Contributors have Varying Levels of Experience & Availability
 - **Being Collaborative** : Working Together & Helping Others Succeed
+- **Being Transparent in AI Usage (AITDDLC)** : Clearly documenting AI-Generated Code & Test Specifications, ensuring AI Harnesses are used responsibly to augment—not bypass—test-driven rigors
+- **Being Disciplined in Issue-Driven Development (IDD)** : Ensuring all proposed code changes stem from an assigned, tracked GitHub Issue & follow transparent SCRUM Workflow Practices
 
 ### ❌ Examples of Unacceptable Behavior :
 
@@ -31,6 +33,8 @@ We Pledge to Act & Interact in ways that Contribute to An Open, Welcoming, Diver
 - **Spam** : Posting Irrelevant Content, Advertisements / Repeatedly Promoting Personal Projects
 - **Bad Faith Participation** : Deliberately Derailing Discussions / Refusing to Engage Constructively
 - **Intimidation** : Threatening, Intimidating / Otherwise Abusive Behavior toward Any Community Member
+- **Unvetted AI Code Dumping** : Submitting unverified or unformatted AI-Generated Code / Tests without local Execution or Compliance with AITDDLC Standards
+- **Bypassing Issue-Driven Workflows** : Submitting untracked Pull Requests / circumvention of the established IDD Issue creation & refinement steps
 
 ---
 
@@ -197,6 +201,26 @@ We ask that You respect the Privacy of the Enforcement Process. You may discuss 
 ✅ "I have Concerns about this Approach. Here are some Potential Issues : [List]. What do You Think about [Alternative]?"
 ```
 
+**AI & Issue Discussions (AITDDLC / IDD)** :
+
+- **Submitting Contributions** : 
+    ```markdown
+    ❌ "I had AI write this whole feature, just merge it without testing."
+    ✅ "I generated the initial Test Suite using the AITDDLC Specification Harness for Issue #102. The Red Phase confirmed the missing Edge Cases & all Tests are now passing Green locally."
+    ```
+
+- **Issue Creation & Assignment (IDD)** : 
+    ```markdown
+    ❌ "Fixed the bug in auth." (Pushed directly without issue tracking)
+    ✅ "Created Issue #145 with Acceptance Criteria & Branch Tag `fix/#145/auth-token-refresh` following IDD Guidelines."
+    ```
+
+- **Code Review on AI-Assisted PRs** : 
+    ```markdown
+    ❌ "Did an AI write this? The logic looks weird."
+    ✅ "Could you clarify the refactoring in `auth.ts`? If this was AI-generated, please verify that it adheres to our AITDDLC Refactor Phase Standards & doesn't introduce hidden side effects."
+    ```
+
 **Helping NewComers** :
 
 ```markdown
@@ -279,7 +303,7 @@ Thank You for helping Make this A Welcoming, Friendly Community for All! 🎉
 
 ---
 
-**Last Updated** : April 18, 2026
+**Last Updated** : August 28, 2026
 **Based On** : Contributor Covenant v2.1
 
 ---

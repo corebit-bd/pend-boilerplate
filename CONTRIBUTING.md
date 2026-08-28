@@ -93,6 +93,17 @@ If You've Scaffolded a New Project from this Boilerplate :
   prodEnv → CD : Deploy to Production 🚀
 ```
 
+### Core Methodology : IDD & AITDDLC Integration
+
+We strictly enforce **Issue-Driven Development (IDD)** combined with **Artificial Intelligence Test-Driven Development Life-Cycle (AITDDLC)** within an Agile SCRUM Framework : 
+
+1. **Issue-Driven Development (IDD)** : No code is written / merged without an associated GitHub Issue defining the User Story, Acceptance Criteria & SCRUM Sprint Assignment.
+2. **AITDDLC Workflow** :  
+   - **Specification & Harness Phase** :  Generate/write formal Specifications & automated Unit / Integration Test Harnesses first using AI assistance.
+   - **Red Phase** : Execute Tests to confirm failure before writing functional logic.
+   - **Green Phase** : Write minimal production code to pass the Tests.
+   - **Refactor Phase** : Optimize, clean, & format code with AI Review while maintaining 100% Test Pass rates.
+
 ### Environment Strategy
 
 - **main** - Integration Branch, Always Deployable
@@ -114,7 +125,7 @@ All Development Branches Must Follow this Strict Naming Convention :
 
 **Tag** - One of the Available Tags (See Table Below)  
 **Username** - Your GitHub Username / Team Identifier (Lowercase, Alphanumeric)  
-**Story ID** - Issue / Ticket / Story Number / Descriptive Identifier
+**Story ID** - GitHub Issue / SCRUM Ticket Number (*Example* : `issue-102` or `102`)
 
 ### Available Tags
 
@@ -484,6 +495,9 @@ prodEnv: 2-3 Approvals (CODEOWNERS Enforced)
    - Screenshots (For UI Changes)
    - Breaking Changes (If Any)
    - Checklist Completion
+   - Linked GitHub Issue using `Closes #<issue-number>` / `Fixes #<issue-number>` (IDD Compliance)
+   - Verified local Execution of AITDDLC Red-Green-Refactor Test Cycle
+   - Documented any AI-assisted code / generated Test Suites.
 
 4. **Request Reviewers** (If Team) :
    - Tag Appropriate Team Members
@@ -1420,6 +1434,15 @@ describe("Button", () => {
 });
 ```
 
+**AITDDLC Test-Driven Workflow**
+
+When writing Tests / using AI Harnesses : 
+
+1. **Specification & Test First** : Create Test Cases from the Issue Acceptance Criteria *before* implementation.
+2. **Verify Red Status** : Run `pytest` or `npm test` locally to confirm the new Test Suite fails.
+3. **Implement to Green** : Implement logic until all new & existing Tests pass.
+4. **AI Code Review** : Use AI Tools to review Edge Cases, but manually verify that AI-Generated Tests are executed locally & pass.
+
 **Best Practices** :
 
 - ✅ Test Behavior, Not Implementation
@@ -1729,5 +1752,5 @@ This Boilerplate provides a Solid Foundation for Your Next Project. Follow these
 
 **Questions?** Check the Documentation / Open an Issue.
 
-**Last Updated** : April 18, 2026  
+**Last Updated** : August 28, 2026
 **Maintainer** : Jeet Z. H. Khondker

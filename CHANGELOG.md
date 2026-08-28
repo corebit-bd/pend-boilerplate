@@ -7,6 +7,21 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.33] - August 26, 2026
+
+### Added
+
+- **Methodology & AI Architecture** : 
+  - **Issue-Driven Development (IDD)** : Integrated strict Issue-to-Branch-to-PR Traceability Framework Mapping across all Workflows.
+  - **AITDDLC Harness** : Configured AI-Assisted Test-Driven Development Life-Cycle (`.mcp/harness/`) enforcing Red-Green-Refactor Development Pipelines.
+
+### Upgraded
+
+- **CI / CD Pipeline** : 
+  - Enhanced Automated Branch Cascade Workflow (`main` → `devEnv` → `stagingEnv` → `prodEnv`) via Administrative `CASCADE_PAT` Execution.
+
+---
+
 # [1.0.32] - August 21, 2026
 
 ### Upgraded
@@ -1136,4 +1151,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.32 | **Released** : August 21, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.33 | **Released** : August 26, 2026
