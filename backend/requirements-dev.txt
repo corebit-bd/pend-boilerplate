@@ -26,4 +26,4 @@ google-genai>=2.0.0
 watchdog>=6.0.0
 
 # Environment Variables Management
-python-dotenv>=1.0.0,<2.0
+python-dotenv>=1.2.3,<2.0
