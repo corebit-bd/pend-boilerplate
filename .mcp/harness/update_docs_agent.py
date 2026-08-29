@@ -54,11 +54,12 @@ def update_docs(change_summary: str = "Dependabot dependency upgrades and system
     Return JSON mapping output relative file paths to complete updated text strings.
     """
 
-    response = client.models.generate_content(
+    chat = client.chats.create(
         model=model_name,
-        contents=prompt,
         config=types.GenerateContentConfig(response_mime_type="application/json")
     )
+    
+    response = chat.send_message(prompt)
 
     data = json.loads(response.text)
     for rel_path, text in data.items():
