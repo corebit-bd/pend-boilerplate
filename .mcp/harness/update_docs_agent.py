@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import time
+import re
 from pathlib import Path
 from google import genai
 from google.genai import types
@@ -14,10 +15,14 @@ if str(BACKEND_DIR) not in sys.path:
 from mcp_server.config import get_model_name  # pyright: ignore[reportMissingImports]
 
 def _send_with_fallback(client, primary_model, prompt):
-    """Tries the primary model with backoff, falling back to flash if unavailable."""
-    models_to_try = [primary_model, "gemini-2.5-flash", "gemini-1.5-flash"]
-    # De-duplicate while preserving order
-    models_to_try = list(dict.fromkeys(models_to_try))
+    """Tries the primary model with backoff, falling back to active flash models during high demand or deprecation."""
+    fallback_candidates = [
+        primary_model,
+        "gemini-3.6-flash",
+        "gemini-2.0-flash",
+        "gemini-1.5-flash"
+    ]
+    models_to_try = list(dict.fromkeys(fallback_candidates))
 
     for model in models_to_try:
         print(f"[DOCS AGENT] Attempting generation with model: {model}")
@@ -29,15 +34,31 @@ def _send_with_fallback(client, primary_model, prompt):
                 )
                 return chat.send_message(prompt)
             except Exception as e:
-                if "503" in str(e) or "UNAVAILABLE" in str(e):
+                error_str = str(e)
+                if "503" in error_str or "UNAVAILABLE" in error_str:
                     wait_time = attempt * 5
                     print(f"[DOCS AGENT WARN] {model} busy (503). Retrying in {wait_time}s... (Attempt {attempt}/3)")
                     time.sleep(wait_time)
+                elif "404" in error_str or "NOT_FOUND" in error_str:
+                    print(f"[DOCS AGENT WARN] Model {model} not available or deprecated (404). Skipping...")
+                    break
                 else:
-                    raise e
-        print(f"[DOCS AGENT WARN] Model {model} unavailable after 3 attempts. Switching model...")
+                    print(f"[DOCS AGENT WARN] Unexpected error on {model}: {e}. Retrying...")
+                    time.sleep(3)
+        print(f"[DOCS AGENT WARN] Model {model} unavailable. Switching to next model in fallback chain...")
 
-    raise RuntimeError("All configured Gemini models are currently experiencing 503 high demand.")
+    raise RuntimeError("All configured Gemini models failed or are currently unavailable.")
+
+def _clean_json_text(raw_text: str) -> str:
+    """Removes markdown wrappers and fixes invalid unicode escape sequences."""
+    text = raw_text.strip()
+    # Strip markdown json code block fences if present
+    if text.startswith("```"):
+        text = re.sub(r"^```(?:json)?\n?", "", text, flags=re.IGNORECASE)
+        text = re.sub(r"\n?```$", "", text)
+    # Fix invalid \uXXXX escape sequences by escaping orphan backslashes
+    text = re.sub(r'\\u(?![0-9a-fa-fA-F]{4})', r'\\\\u', text)
+    return text.strip()
 
 def update_docs(change_summary: str = "Dependabot dependency upgrades and system updates applied."):
     """DocumentationMaintainerAgent: Synchronizes project documentation and rules via Gemini."""
@@ -78,11 +99,18 @@ def update_docs(change_summary: str = "Dependabot dependency upgrades and system
     Ensure AGENTS.md guidelines accurately reflect major dependency versions found in package definitions.
     
     Return JSON mapping output relative file paths to complete updated text strings.
+    Ensure all text strings inside JSON values are properly JSON-escaped.
     """
 
     response = _send_with_fallback(client, primary_model, prompt)
+    cleaned_text = _clean_json_text(response.text)
 
-    data = json.loads(response.text)
+    try:
+        data = json.loads(cleaned_text, strict=False)
+    except json.JSONDecodeError as err:
+        print(f"[DOCS AGENT ERROR] JSON parsing failed: {err}")
+        sys.exit(1)
+
     for rel_path, text in data.items():
         target_path = ROOT_DIR / rel_path
         target_path.parent.mkdir(parents=True, exist_ok=True)
