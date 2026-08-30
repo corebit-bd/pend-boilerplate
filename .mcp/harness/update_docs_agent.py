@@ -1,12 +1,11 @@
 import os
 import sys
 import json
+import time
 from pathlib import Path
 from google import genai
 from google.genai import types
-from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
-# Fix Python path to import mcp_server from backend
 ROOT_DIR = Path(__file__).resolve().parents[2]
 BACKEND_DIR = ROOT_DIR / "backend"
 if str(BACKEND_DIR) not in sys.path:
@@ -14,20 +13,31 @@ if str(BACKEND_DIR) not in sys.path:
 
 from mcp_server.config import get_model_name  # pyright: ignore[reportMissingImports]
 
-@retry(
-    stop=stop_after_attempt(4),
-    wait=wait_exponential(multiplier=2, min=5, max=30),
-    retry=retry_if_exception_type(Exception),
-    reraise=True
-)
+def _send_with_fallback(client, primary_model, prompt):
+    """Tries the primary model with backoff, falling back to flash if unavailable."""
+    models_to_try = [primary_model, "gemini-2.5-flash", "gemini-1.5-flash"]
+    # De-duplicate while preserving order
+    models_to_try = list(dict.fromkeys(models_to_try))
 
-def _call_gemini_with_retry(client, model_name, prompt):
-    """Executes the chat request with exponential backoff on transient errors."""
-    chat = client.chats.create(
-        model=model_name,
-        config=types.GenerateContentConfig(response_mime_type="application/json")
-    )
-    return chat.send_message(prompt)
+    for model in models_to_try:
+        print(f"[DOCS AGENT] Attempting generation with model: {model}")
+        for attempt in range(1, 4):
+            try:
+                chat = client.chats.create(
+                    model=model,
+                    config=types.GenerateContentConfig(response_mime_type="application/json")
+                )
+                return chat.send_message(prompt)
+            except Exception as e:
+                if "503" in str(e) or "UNAVAILABLE" in str(e):
+                    wait_time = attempt * 5
+                    print(f"[DOCS AGENT WARN] {model} busy (503). Retrying in {wait_time}s... (Attempt {attempt}/3)")
+                    time.sleep(wait_time)
+                else:
+                    raise e
+        print(f"[DOCS AGENT WARN] Model {model} unavailable after 3 attempts. Switching model...")
+
+    raise RuntimeError("All configured Gemini models are currently experiencing 503 high demand.")
 
 def update_docs(change_summary: str = "Dependabot dependency upgrades and system updates applied."):
     """DocumentationMaintainerAgent: Synchronizes project documentation and rules via Gemini."""
@@ -36,7 +46,7 @@ def update_docs(change_summary: str = "Dependabot dependency upgrades and system
         sys.exit(1)
 
     client = genai.Client()
-    model_name = get_model_name()
+    primary_model = get_model_name()
     
     docs_to_sync = [
         "AGENTS.md",
@@ -70,8 +80,7 @@ def update_docs(change_summary: str = "Dependabot dependency upgrades and system
     Return JSON mapping output relative file paths to complete updated text strings.
     """
 
-    print("[DOCUMENTATION MAINTAINER AGENT] Sending Documentation Synchronization Request to Gemini ... .. .")
-    response = _call_gemini_with_retry(client, model_name, prompt)
+    response = _send_with_fallback(client, primary_model, prompt)
 
     data = json.loads(response.text)
     for rel_path, text in data.items():
