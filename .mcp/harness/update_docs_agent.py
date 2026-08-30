@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 from google import genai
 from google.genai import types
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
 # Fix Python path to import mcp_server from backend
 ROOT_DIR = Path(__file__).resolve().parents[2]
@@ -12,6 +13,21 @@ if str(BACKEND_DIR) not in sys.path:
     sys.path.insert(0, str(BACKEND_DIR))
 
 from mcp_server.config import get_model_name  # pyright: ignore[reportMissingImports]
+
+@retry(
+    stop=stop_after_attempt(4),
+    wait=wait_exponential(multiplier=2, min=5, max=30),
+    retry=retry_if_exception_type(Exception),
+    reraise=True
+)
+
+def _call_gemini_with_retry(client, model_name, prompt):
+    """Executes the chat request with exponential backoff on transient errors."""
+    chat = client.chats.create(
+        model=model_name,
+        config=types.GenerateContentConfig(response_mime_type="application/json")
+    )
+    return chat.send_message(prompt)
 
 def update_docs(change_summary: str = "Dependabot dependency upgrades and system updates applied."):
     """DocumentationMaintainerAgent: Synchronizes project documentation and rules via Gemini."""
@@ -54,12 +70,8 @@ def update_docs(change_summary: str = "Dependabot dependency upgrades and system
     Return JSON mapping output relative file paths to complete updated text strings.
     """
 
-    chat = client.chats.create(
-        model=model_name,
-        config=types.GenerateContentConfig(response_mime_type="application/json")
-    )
-    
-    response = chat.send_message(prompt)
+    print("[DOCUMENTATION MAINTAINER AGENT] Sending Documentation Synchronization Request to Gemini ... .. .")
+    response = _call_gemini_with_retry(client, model_name, prompt)
 
     data = json.loads(response.text)
     for rel_path, text in data.items():
