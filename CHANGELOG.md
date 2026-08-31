@@ -7,6 +7,30 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.34] - August 28, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`gunicorn`** Requirement Updated from `<27.0,>=26.0.0` to `>=26.2.0,<27.0`.
+  - **`python-dotenv`** Requirement Updated from `<2.0,>=1.0.0` to `>=1.2.3,<2.0`.
+  - **`google-genai`** Requirement Updated from `>=2.0.0` to `>=2.20.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.36.0` to `>=40.37.0,<41.0`.
+  - **`uvicorn`** Updated Requirement from `<1.0,>=0.52.3` to `>=0.52.4,<1.0`.
+- **Frontend** : 
+  - **`@vitest/coverage-v8`** Bumped from `4.1.10` to `4.1.11`.
+  - **`eslint-config-next`** Bumped from `16.2.11` to `16.3.3`.
+  - **`cypress`** Bumped from `15.20.1` to `15.21.1`.
+  - **`@storybook/nextjs-vite`** Bumped from `10.5.0` to `10.5.10`.
+  - **`@hookform/resolvers`** Bumped from `5.5.7` to `5.9.1`.
+- **Mobile** : 
+  - **`react-native-safe-area-context`** Bumped from `5.8.1` to `5.9.1`.
+  - **`react-hook-form`** Bumped from `7.85.0` to `7.86.0`.
+  - **`@react-navigation/stack`** Bumped from `7.10.22` to `7.10.23`.
+  - **`@hookform/resolvers`** Bumped from `5.7.1` to `5.9.1`.
+
+---
+
 # [1.0.33] - August 26, 2026
 
 ### Added
@@ -1151,4 +1175,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.33 | **Released** : August 26, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.34 | **Released** : August 28, 2026

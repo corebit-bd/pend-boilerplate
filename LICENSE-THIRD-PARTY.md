@@ -83,7 +83,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Gunicorn (MIT License)
 
-- **Version** : >=26.0.0,<27.0
+- **Version** : >=26.2.0,<27.0
 - **Copyright** : Benoit Chesneau & Contributors
 - **License** : MIT
 - **Website** : https://gunicorn.org/
