@@ -101,7 +101,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 - **PostgreSQL 15** - Primary Database
 - **Redis >=8.1.0,<9.0** - Caching & Task Queue
 - **Celery 5.6.3** - Background Tasks
-- **Gunicorn >=26.0.0,<27.0** + **Whitenoise >=6.12.0,<7.0** - Production Serving
+- **Gunicorn >=26.2.0,<27.0** + **Whitenoise >=6.12.0,<7.0** - Production Serving
 
 ### Frontend
 
@@ -1315,6 +1315,6 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 
 **Built with ❤️ by [@corebit-bd](https://github.com/corebit-bd)**
 
-**Version** : 1.0.33
-**Last Updated** : August 26, 2026  
+**Version** : 1.0.34
+**Last Updated** : August 28, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅
