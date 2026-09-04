@@ -34,7 +34,7 @@
     "@storybook/addon-a11y": "^10.5.9",
     "@storybook/addon-docs": "^10.5.6",
     "@storybook/addon-onboarding": "^10.5.9",
-    "@storybook/addon-vitest": "^10.5.3",
+    "@storybook/addon-vitest": "^10.5.10",
     "@storybook/nextjs-vite": "^10.5.10",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^7.0.1",
