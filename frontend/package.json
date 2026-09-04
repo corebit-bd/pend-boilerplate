@@ -27,7 +27,7 @@
     "react-redux": "^9.2.0",
     "tailwind-merge": "^3.5.0",
     "tar": "^7.5.22",
-    "zod": "^4.3.6"
+    "zod": "^4.5.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.1.1",
