@@ -22,7 +22,7 @@ factory-boy>=3.3.3,<4.0
 faker>=40.37.0,<41.0
 
 # Google APIs
-google-genai>=2.20.0
+google-genai>=2.21.0
 watchdog>=6.0.0
 
 # Environment Variables Management
