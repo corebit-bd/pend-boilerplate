@@ -7,6 +7,31 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+# [1.0.35] - September 04, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`pydantic`** Updated Requirement from `<3.0,>=2.13.4` to `>=2.13.5,<3.0`.
+  - **`google-genai`** Requirement Updated from `>=2.20.0` to `>=2.21.0`.
+  - **`ipython`** Updated Requirement from `<10.0,>=9.16.1` to `>=9.17.1,<10.0`.
+  - **`isort`** Upgraded Dependency Range from `<9.0,>=8.0.1` to `>=9.0.1,<10.0`.
+- **Frontend** : 
+  - **`zod`** Bumped from `4.4.3` to `4.5.4`.
+  - **`@types/node`** Bumped from `26.1.2` to `26.4.0`.
+  - **`@storybook/addon-vitest`** Bumped from `10.5.3` to `10.5.10`.
+  - **`axios`** Bumped from `1.19.0` to `1.20.0`.
+  - **`next`** Bumped from `16.2.10` to `16.3.4`.
+- **Mobile** : 
+  - **`expo-secure-store`** Bumped from `56.0.4` to `57.0.2`.
+  - **`zod`** Bumped from `4.4.3` to `4.5.4`.
+  - **`@react-navigation/native`** Bumped from `7.3.17` to `7.3.18`.
+  - **`react-native`** Bumped from `0.87.0` to `0.87.1`.
+  - **`@react-navigation/bottom-tabs`** Bumped from `7.18.16` to `7.18.18`.
+  - **`axios`** Bumped from `1.19.0` to `1.20.0`.
+
+---
+
 # [1.0.34] - August 28, 2026
 
 ### Upgraded
@@ -1175,4 +1200,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.34 | **Released** : August 28, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.35 | **Released** : September 04, 2026

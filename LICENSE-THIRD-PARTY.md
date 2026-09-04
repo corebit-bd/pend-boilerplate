@@ -271,7 +271,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### `isort` (MIT License)
 
-- **Version** : >=8.0.1,<9.0
+- **Version** : >=9.0.1,<10.0
 - **Copyright** : Timothy Crosley
 - **License** : MIT
 - **Website** : https://pycqa.github.io/isort/
@@ -490,6 +490,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : August 28, 2026
+**Last Updated** : September 04, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.
