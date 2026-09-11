@@ -2,7 +2,7 @@ name: Dependabot AI PR Review & Approve
 
 on:
   pull_request_target:
-    types: [opened, synchronized, reopened]
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: read
@@ -24,9 +24,6 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: Install Google GenAI SDK
-        run: pip install google-genai
-
       - name: Fetch Dependabot Metadata
         uses: dependabot/fetch-metadata@v2
         id: metadata
@@ -47,6 +44,7 @@ jobs:
           max_attempts: 3
           retry_wait_seconds: 15
           command: |
+            python -m pip install google-genai
             python -c "
             import os
             from google import genai
