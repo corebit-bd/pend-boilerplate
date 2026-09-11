@@ -182,7 +182,7 @@ jobs:
       - name: Install Dependencies
         run: |
           cd frontend
-          npm ci
+          npm ci --legacy-peer-deps
 
       - name: Run Linting
         run: |
@@ -250,7 +250,7 @@ jobs:
       - name: Install Dependencies
         run: |
           cd frontend
-          npm ci
+          npm ci --legacy-peer-deps
 
       - name: Build Storybook
         run: |
@@ -609,7 +609,7 @@ jobs:
       - name: Install Frontend Dependencies
         run: |
           cd frontend
-          npm ci
+          npm ci --legacy-peer-deps
 
       - name: Set Up Python
         uses: actions/setup-python@v5
