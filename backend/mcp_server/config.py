@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Fallback Base Model Alias
-DEFAULT_MODEL_NAME = "gemini-3.7-flash"
+DEFAULT_MODEL_NAME = "gemini-2.5-flash"
 
 
 def get_model_name() -> str:
