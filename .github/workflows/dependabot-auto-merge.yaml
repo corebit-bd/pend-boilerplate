@@ -24,17 +24,65 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
+      - name: Install Dependencies
+        run: python -m pip install google-genai
+
       - name: Fetch Dependabot Metadata
         uses: dependabot/fetch-metadata@v2
         id: metadata
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
+      - name: Create Review Script
+        run: |
+          cat << 'EOF' > generate_review.py
+          import os
+          import sys
+          from google import genai
+
+          api_key = os.getenv('GEMINI_API_KEY')
+          if not api_key:
+              print("ERROR: GEMINI_API_KEY is not set in repository secrets or environment.", file=sys.stderr)
+              sys.exit(1)
+
+          model_name = os.getenv('GEMINI_MODEL_NAME', 'gemini-2.5-flash')
+          repo_url = os.getenv('REPO_URL', '')
+          pr_url = os.getenv('PR_URL', '')
+          pr_title = os.getenv('PR_TITLE', '')
+          pr_body = os.getenv('PR_BODY', '')
+
+          prompt = f"""
+          You are PRReviewerAgent.
+          Github Repository: {repo_url}
+          PR: {pr_url}
+          PR Title: {pr_title}
+
+          PR Body Details:
+          {pr_body}
+
+          Is it safe to merge?
+          Output: Generate PR Review Approval Content in Markdown format. Keep it concise, professional, and structured.
+          """
+
+          try:
+              client = genai.Client(api_key=api_key)
+              response = client.models.generate_content(
+                  model=model_name,
+                  contents=prompt
+              )
+              with open('review_comment.md', 'w', encoding='utf-8') as f:
+                  f.write(response.text)
+              print("Successfully generated review_comment.md")
+          except Exception as e:
+              print(f"ERROR generating review: {e}", file=sys.stderr)
+              sys.exit(1)
+          EOF
+
       - name: Generate AI PR Review Comment via PRReviewerAgent
         uses: nick-fields/retry@v3
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GEMINI_MODEL_NAME: ${{ vars.GEMINI_MODEL_NAME || 'gemini-3.7-flash' }}
+          GEMINI_MODEL_NAME: ${{ vars.GEMINI_MODEL_NAME || 'gemini-2.5-flash' }}
           REPO_URL: ${{ github.event.repository.html_url }}
           PR_URL: ${{ github.event.pull_request.html_url }}
           PR_TITLE: ${{ github.event.pull_request.title }}
@@ -43,39 +91,7 @@ jobs:
           timeout_minutes: 5
           max_attempts: 3
           retry_wait_seconds: 15
-          command: |
-            python -m pip install google-genai
-            python -c "
-            import os
-            from google import genai
-
-            client = genai.Client()
-            model_name = os.getenv('GEMINI_MODEL_NAME', 'gemini-3.7-flash')
-            
-            repo_url = os.getenv('REPO_URL')
-            pr_url = os.getenv('PR_URL')
-            pr_title = os.getenv('PR_TITLE')
-            pr_body = os.getenv('PR_BODY')
-
-            prompt = f'''
-            You are PRReviewerAgent.
-            Github Repository: {repo_url}
-            PR: {pr_url}
-            PR Title: {pr_title}
-            
-            PR Body Details:
-            {pr_body}
-
-            Is it safe to merge?
-            Output: Generate PR Review Approval Content in Markdown format. Keep it concise, professional, and structured.
-            '''
-
-            chat = client.chats.create(model=model_name)
-            response = chat.send_message(prompt)
-
-            with open('review_comment.md', 'w', encoding='utf-8') as f:
-                f.write(response.text)
-            "
+          command: python generate_review.py
 
       - name: Submit AI Review Comment & Approve PR
         env:
