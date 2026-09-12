@@ -10,7 +10,7 @@
 
 ### Backend
 
-- `Django >=6.1,<6.2` with Django REST Framework 3.16
+- `Django >=6.1.1,<6.2` with Django REST Framework 3.18
 - FastAPI >=0.141.1,<1.0 for Edge Services
 - GraphQL via `Graphene-Django 3.2.3`
 - JWT Authentication with RSA256 (`djangorestframework-simplejwt 5.5.1`)
@@ -30,7 +30,7 @@
 
 ### Mobile
 
-- React Native with Expo 57.0.14
+- React Native with Expo 57.0.21
 - Native Navigation & Components
 
 ### Database
@@ -177,7 +177,6 @@ pend-boilerplate/
 - ✅ GitHub Actions CI / CD Pipeline
   - `.github/workflows/ci.yml` - Hybrid Testing Strategy (Cost-Optimized)
   - `.github/workflows/cd.yml` - Automated Deployments
-  - `.github/workflows/dependabot-auto-merge.yaml` - Dependabot AI PR Review & Approve (No Auto-Merge; `contents: read`)
   - Upgrade Validation for Special Branches
 - ✅ Pull Request Template
   - `.github/PULL_REQUEST_TEMPLATE.md` - With Branch Naming Convention
@@ -256,8 +255,8 @@ pend-boilerplate/
 
 **Production (`requirements.txt`)** :
 
-- `Django` >=6.1,<6.2 (LTS)
-- `djangorestframework` >=3.18.0,<4.0
+- `Django` >=6.1.1,<6.2 (LTS)
+- `djangorestframework` >=3.18.1,<4.0
 - `psycopg2-binary` >=2.9.12,<3.0
 - `djangorestframework-simplejwt` 5.5.1+ (RSA256)
 - `graphene-django` 3.2.3+
@@ -537,23 +536,6 @@ NODE_ENV=development
 - Automatic Warning Comments on Upgrade PRs
 - Coverage Reporting to Codecov
 - Security Results to GitHub Security Tab
-
-### Dependabot AI PR Review (`dependabot-auto-merge.yaml`)
-
-**Workflow Name** : `Dependabot AI PR Review & Approve`
-
-**Triggers** : `pull_request_target` (`opened`, `synchronized`, `reopened`) when the Author is `dependabot[bot]`
-
-**Permissions** :
-
-- `contents: read` (Least Privilege; Write Access to Repository Contents is not Required)
-- `pull-requests: write` (Submit the AI Review & Approve the PR)
-
-**Job** : `review-and-approve`
-
-- Generates a Markdown Review via `PRReviewerAgent` using the `google-genai` SDK (*Default Model* : `gemini-3.7-flash`)
-- Submits `gh pr review --approve --body-file review_comment.md`
-- Does **not** run `gh pr merge --squash --auto` (Maintainers Squash-Merge after Verifying CI)
 
 ### Continuous Deployment (`cd.yaml`)
 
@@ -1020,8 +1002,8 @@ This Document contains All Necessary Context to Resume Development!
 ---
 
 **Project Status** : ✅ COMPLETE - Production & Scaffolding Ready
-**Version** : 1.0.36
-**Last Updated** : September 07, 2026
+**Version** : 1.0.37
+**Last Updated** : September 11, 2026
 **All 12 Steps** : COMPLETED ✅ (Infrastructure & AITDDLC / IDD Harness Integrated v1.0.33)
 **CI / CD** : Production-Ready ✅
 **Documentation** : Comprehensive ✅

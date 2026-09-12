@@ -632,24 +632,6 @@ import { Button } from "@/components/ui/Button"; // Verify Correct Path
 
 ---
 
-## Dependabot AI Review does not Auto-Merge
-
-### ❌ Issue
-
-Dependabot PRs stay Open after the `Dependabot AI PR Review & Approve` Workflow Posts an Approving Review.
-
-### ✅ Expected Behavior
-
-Auto-Merge was Removed from `.github/workflows/dependabot-auto-merge.yaml` (Job : `review-and-approve`) so Concurrent Dependabot PRs do not Fail with `GraphQL: Base branch was modified`.
-
-1. Confirm the Workflow Posted the Gemini Review (powered by `google-genai` SDK using `gemini-3.7-flash`) & Marked the PR as Approved.
-2. Confirm CI Checks on the Dependabot PR are Passing.
-3. Squash-Merge the PR Manually.
-
-The Workflow Token only needs `contents: read` & `pull-requests: write`.
-
----
-
 ## 📋 Pre-Flight Checklist
 
 Before Pushing to CI, Verify :
@@ -668,4 +650,4 @@ Before Pushing to CI, Verify :
 
 ---
 
-**Last Updated:** September 07, 2026
+**Last Updated:** September 11, 2026

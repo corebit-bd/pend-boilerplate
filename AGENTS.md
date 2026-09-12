@@ -4,8 +4,7 @@
 
 1. **SpecificationGeneratorAgent** - Handles administrative prompt generation and specification document creation.
 2. **CodebaseWatcherAgent** - Watches local creation events, generates unit tests/Storybook specifications and runs local self-healing execution loops.
-3. **PRReviewerAgent** - Analyzes Dependabot PRs in CI, writes structured AI approval reviews, and submits an approving GitHub review. Auto-merge is disabled; maintainers verify CI and squash-merge manually.
-4. **DocumentationMaintainerAgent** - Keeps system documentation, READMEs and `AGENTS.md` guidelines synchronized upon package updates.
+3. **DocumentationMaintainerAgent** - Keeps system documentation, READMEs and `AGENTS.md` guidelines synchronized upon package updates.
 
 ---
 
@@ -20,7 +19,7 @@
 ## Model Configuration Standards
 
 - **Primary API Engine** : Google Gen AI Python SDK (`google-genai`)
-- **Default Model Alias** : `gemini-3.7-flash` (Overridable via `GEMINI_MODEL_NAME` environment variable)
+- **Default Model Alias** : `gemini-3.6-flash` (Overridable via `GEMINI_MODEL_NAME` environment variable)
 
 ---
 
