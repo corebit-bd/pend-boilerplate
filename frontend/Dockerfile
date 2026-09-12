@@ -10,8 +10,8 @@ WORKDIR /app
 # Copy Package Files
 COPY package.json package-lock.json ./
 
-# Install ALL Dependencies (Needed for Build)
-RUN npm ci --production=false
+# Install Dependencies with Legacy Peer Dependencies
+RUN npm ci --legacy-peer-deps
 
 # Stage 2 : Builder
 FROM node:${NODE_VERSION}-slim AS builder
