@@ -94,8 +94,8 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ### Backend
 
-- **Django >=6.1,<6.2** - Web Framework
-- **Django REST Framework >=3.18.0,<4.0** - RESTful APIs
+- **Django >=6.1.1,<6.2** - Web Framework
+- **Django REST Framework >=3.18.1,<4.0** - RESTful APIs
 - **FastAPI >=0.141.1,<1.0** - High-Performance Edge Services
 - **Graphene-Django 3.2.3** - GraphQL Implementation
 - **PostgreSQL 15** - Primary Database
@@ -115,7 +115,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ### Mobile
 
-- **Expo 57.0.14** - ReactJS Native Framework
+- **Expo 57.0.21** - ReactJS Native Framework
 - **React Native** - Cross-Platform Mobile Application Development
 
 ### DevOps
@@ -220,8 +220,6 @@ pend-boilerplate/
 │   │   ├── branch-cascade.yaml
 │   │   ├── cd.yaml
 │   │   ├── ci.yaml
-│   │   ├── dependabot-ai-fixer.yaml
-│   │   └── dependabot-auto-merge.yaml
 │   ├── dependabot.yaml
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .mcp/
@@ -962,16 +960,9 @@ prodEnv: 2-3 Approvals (CODEOWNERS Enforced)
 7. **E2E Tests** (PR Only)
    - Critical User Flows
    - Cross-Browser Testing
-
 8. **Upgrade Validation** (Upgrade Branches Only)
    - Verify Backup Branch Exists
    - Warn about Major Version Changes
-
-9. **Dependabot AI Review** (Dependabot PRs Only)
-   - Powered by the **`google-genai`** Python SDK using **`gemini-3.7-flash`** as the default model engine.
-   - `PRReviewerAgent` executes an automated Security & Code Quality Review, posting a Gemini Markdown Review directly to the PR.
-   - Auto-merge is disabled; Maintainers verify CI Execution & manually perform a squash-merge.
-   - Workflow token is strictly scoped to `contents: read` & `pull-requests: write`.
 
 ### Continuous Deployment (CD)
 
@@ -983,22 +974,18 @@ prodEnv: 2-3 Approvals (CODEOWNERS Enforced)
    - Build Docker Images
    - Push to GitHub Container Registry
    - Tag with Environment & Version
-
 2. **Deploy**
    - Pull Latest Images
    - Run Database Migrations
    - Deploy to Target Environment
    - Health Check Validation
-
 3. **Smoke Tests**
    - API Health Checks
    - Critical Endpoint Validation
    - Database Connectivity
-
 4. **Notifications**
    - Slack / Email Notifications
    - Deployment Status Updates
-
 5. **Rollback** (Production Only)
    - Automatic Rollback on Failure
    - Restore Previous Version
@@ -1322,6 +1309,6 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 
 **Built with ❤️ by [@corebit-bd](https://github.com/corebit-bd)**
 
-**Version** : 1.0.36
-**Last Updated** : September 07, 2026  
+**Version** : 1.0.37
+**Last Updated** : September 11, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅

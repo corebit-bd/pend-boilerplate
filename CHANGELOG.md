@@ -5,6 +5,45 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.37] - September 11, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`djangorestframework`** Updated Requirement from `<4.0,>=3.18.0` to `>=3.18.1,<4.0`.
+  - **`django`** Updated Requirement from `<6.2,>=6.1` to `>=6.1.1,<6.2`.
+  - **`google-genai`** Requirement Updated from `>=2.21.0` to `>=2.22.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.37.0` to `>=40.38.0,<41.0`.
+  - **`django-debug-toolbar`** Updated Requirement from `<8.0,>=7.1.1` to `>=8.0.0,<9.0`.
+- **Frontend** : 
+  - **`eslint-config-next`** Bumped from `16.3.3` to `16.3.4`.
+  - **`react-hook-form`** Bumped from `7.84.0` to `7.87.0`.
+  - **`@storybook/addon-onboarding`** Bumped from `10.5.9` to `10.6.0`.
+  - **`vitest`** Bumped from `4.1.11` to `5.0.0`.
+- **Mobile** : 
+  - **`expo-secure-store`** Bumped from `57.0.2` to `57.0.3`.
+  - **`react-hook-form`** Bumped from `7.86.0` to `7.87.0`.
+  - **`expo-constants`** Bumped from `57.0.12` to `57.0.17`.
+  - **`@react-navigation/stack`** Bumped from `7.10.23` to `7.10.24`.
+  - **`expo`** Bumped from `57.0.14` to `57.0.21`.
+
+### Added
+
+- **Frontend** : 
+  - Added `.npmrc` for `--legacy-peer-deps` & Synced `package-lock.json` in `/frontend` (Commit : [2a1d523](https://github.com/corebit-bd/pend-boilerplate/commit/2a1d523b98da4ddb20c780c026b42ad5637041ba))
+  - Added `vite` as explicit `devDependency` for Storybook in `frontend/package.json` (Commit : [c82bc36](https://github.com/corebit-bd/pend-boilerplate/commit/c82bc361ba17c86a4635c3b8cbfe673f839f5722))
+
+### Changed
+
+- **Frontend** : 
+  - **Dependencies Installation with Legacy Peer Dependencies** : Updated `npm ci` Command with `--legacy-peer-deps` Flag in `frontend/Dockerfile` (PR : [#626](https://github.com/corebit-bd/pend-boilerplate/pull/626))
+- **CI / CD** : 
+  - **Dependencies Installation with Legacy Peer Dependencies** : Updated `npm ci` Command with `--legacy-peer-deps` Flag for jobs `frontend-tests`, `storybook-chromatic`, `e2e-tests`, steps  `Install Dependencies` & `Install Frontend Dependencies` in `.github/workflows/ci.yaml` (PR : [#626](https://github.com/corebit-bd/pend-boilerplate/pull/626))
+- **Dependabot PR Automated Workflows** : 
+  - Removed Automated Gemini Dependabot Workflows (`dependabot-auto-merge.yaml` & `dependabot-ai-fixer.yaml`) in order to have the complete control & eliminate external API rate limits & unexpected billing risks entirely.
+- **Backend** : 
+  - Updated `DEFAULT_MODEL_NAME` to `gemini-3.6-flash` in `backend/mcp_server/config.py` (Commit : [f348a65](https://github.com/corebit-bd/pend-boilerplate/commit/f348a65bd96fc07ccf8d79ec864b8a9d0930266f#diff-590bb81ce5c4778862bfafc6e419286ba32cb4c14296548b8a9d3ee42e2121e7))
+
 ---
 
 # [1.0.36] - September 07, 2026
@@ -1219,4 +1258,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.36 | **Released** : September 07, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.37 | **Released** : September 11, 2026
