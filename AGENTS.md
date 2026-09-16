@@ -36,12 +36,14 @@
 When generating, updating, or populating documentation files under:
 - `documentation/01_user-requirements-specifications/`
 - `documentation/02-design-specifications/`
+- `documentation/03-poc-validation/`
 
-**Mandatory Diagram Rules** : 
+**Mandatory Formatting & Documentation Density Rules**:
 
-- Every specification document MUST include appropriate visual diagrams using **Mermaid syntax** (` ```mermaid `).
-- Do NOT use static images, ASCII art, or external non-code diagram formats.
-- Supported and encouraged Mermaid diagram types depending on the specification context:
+- **Brevity & Conciseness** : Keep all specification documents lean and actionable. Write high-level, bulleted summaries instead of lengthy prose.
+- **Visual & Structural Clarity** : Favor structured tables, bullet points, and explicit Mermaid diagrams over dense paragraphs for describing components, schemas, data models, and user flows.
+- **Mandatory Visual Diagrams** : Every specification document MUST include appropriate visual diagrams using **Mermaid syntax** (` ```mermaid `). Do NOT use static images, ASCII art, or external non-code diagram formats.
+- **Supported Mermaid Types** : 
   - **Flowcharts** (Process flows, execution logic, user journeys)
   - **Class Diagrams** (Domain models, component hierarchies)
   - **Sequence Diagrams** (API request/response flows, authentication, service interactions)
