@@ -360,9 +360,9 @@ flowchart TD
     Issue["GitHub Issue (#123)"] -->|Create Branch mapping to Issue ID| Branch["[tag]/[username]/issue-123"]
     Branch -->|AITDDLC: Red → Green → Refactor via local tests| PR["PR linked to Issue (#123)"]
     PR -->|PR to main with CI Checks| CI["main → CI : Full Tests ✅"]
-    CI -->|Automated Cascade Pipeline| Dev["devEnv → CD : Deploy 🚀"]
-    Dev --> Staging["stagingEnv → CD : Deploy 🚀"]
-    Staging --> Prod["prodEnv → CD : Deploy 🚀"]
+    CI -->|Manual Trigger| Dev["devEnv → CD : Deploy 🚀"]
+    Dev -->|Manual Trigger / Approval| Staging["stagingEnv → CD : Deploy 🚀"]
+    Staging -->|Manual Trigger / Approval| Prod["prodEnv → CD : Deploy 🚀"]
 ```
 
 **Major Upgrades** :
@@ -1002,8 +1002,8 @@ This Document contains All Necessary Context to Resume Development!
 ---
 
 **Project Status** : ✅ COMPLETE - Production & Scaffolding Ready
-**Version** : 1.0.37
-**Last Updated** : September 11, 2026
+**Version** : 1.0.37.1
+**Last Updated** : September 16, 2026
 **All 12 Steps** : COMPLETED ✅ (Infrastructure & AITDDLC / IDD Harness Integrated v1.0.33)
 **CI / CD** : Production-Ready ✅
 **Documentation** : Comprehensive ✅

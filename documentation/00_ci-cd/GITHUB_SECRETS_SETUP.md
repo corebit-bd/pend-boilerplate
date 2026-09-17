@@ -300,12 +300,11 @@ graph TD
     D["CI runs on PR ✅<br><i>(Full Test Suite)</i>"]
     E["Merge PR linked to Issue #123"]
     F["CI runs on main ✅<br><i>(Full Test Suite)</i>"]
-    G["Automated Cascade Pipeline"]
-    H["Merge to devEnv"]
+    H["Manual Merge to devEnv"]
     I["CD Deploys to Development Server 🚀"]
-    J["Merge to stagingEnv"]
+    J["Manual Merge to stagingEnv"]
     K["CD Deploys to QA Server 🚀"]
-    L["Merge to prodEnv"]
+    L["Manual Merge to prodEnv"]
     M["CD Deploys to Production Server 🚀"]
 
     %% Flow
@@ -314,8 +313,7 @@ graph TD
     C --> D
     D --> E
     E --> F
-    F --> G
-    G --> H
+    F -->|Manual Trigger| H
     H --> I
     I -->|After QA Testing| J
     J --> K

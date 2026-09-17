@@ -23,7 +23,7 @@ graph TD
     A -->|"Create IDD Branch"| B
     B -->|"Local AITDDLC : Red → Green → Refactor<br/>via local MCP harness"| C
     C -->|"PR Review & CI"| D
-    D -->|"Automated Cascade Pipeline"| E
+    D -->|"Manual Trigger"| E
     E -->|"After Development Testing"| F
     F -->|"After QA / Stakeholder Approval"| G
 
@@ -534,7 +534,7 @@ Track Your GitHub Actions Usage :
 | Feature             | Status | Notes                  |
 | ------------------- | ------ | ---------------------- |
 | Free Tier Compliant | ✅     | ~1,672 / 2,000 Minutes |
-| All PRs Tested & Reviewed | ✅     | Automated AI PR Review & Manual Merge |
+| All PRs Tested & Reviewed | ✅     | Manual PR Review & Merge |
 | Production Safety   | ✅     | 3+ Test Gates          |
 | Cost Conscious      | ✅     | Smart Optimization     |
 | Easily Upgradeable  | ✅     | One-Line Change        |
@@ -543,4 +543,4 @@ Track Your GitHub Actions Usage :
 
 **🚀 Bottom Line** : Professional CI / CD that Respects Your Budget 💰
 
-**Last Updated** : September 11, 2026
+**Last Updated** : September 16, 2026

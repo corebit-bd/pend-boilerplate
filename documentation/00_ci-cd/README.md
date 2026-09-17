@@ -83,7 +83,7 @@ graph TD
     C -->|PR to main Branch| D["CI : Full Test Suite ✅"]
     D -->|Merge to main| E["CI : Full Test Suite ✅"]
     
-    E -->|Automated Cascade Pipeline| F["CD : Deploy to Development 🚀 Environment"]
+    E -->|Manual Trigger / Promote| F["CD : Deploy to Development 🚀 Environment"]
     F --> G["Smoke Tests ✅"]
     
     G -->|After Testing, Promote to stagingEnv Branch| H["CI : Essential Tests ✅ (on PR)"]
@@ -279,7 +279,6 @@ on:
 
 - `.github/workflows/ci.yaml` - Continuous Integration
 - `.github/workflows/cd.yaml` - Continuous Deployment
-- `.github/workflows/branch-cascade.yaml` - Automated Environment Branch Cascade
 
 ---
 
@@ -378,5 +377,5 @@ See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
 
 ---
 
-**Last Updated** : September 11, 2026
+**Last Updated** : September 16, 2026
 **Status** : Production-Ready (AITDDLC & IDD Integrated) ✅

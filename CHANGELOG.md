@@ -5,6 +5,16 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.37.1] - September 16, 2026
+
+### Changed
+
+- **CI / CD Pipeline** : 
+  - Removed Automated Branch Cascade Workflow (`main` → `devEnv` → `stagingEnv` → `prodEnv`) via Administrative `CASCADE_PAT` Execution.
+  - Removed `CASCADE_PAT` Repository Secret from Repository Settings on Github
+
+---
+
 # [1.0.37] - September 11, 2026
 
 ### Upgraded
@@ -1258,4 +1268,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.37 | **Released** : September 11, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.37.1 | **Released** : September 16, 2026

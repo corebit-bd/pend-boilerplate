@@ -217,7 +217,6 @@ pend-boilerplate/
 │   │   ├── performance.yaml
 │   │   └── question.yaml
 │   ├── workflows/
-│   │   ├── branch-cascade.yaml
 │   │   ├── cd.yaml
 │   │   ├── ci.yaml
 │   ├── dependabot.yaml
@@ -534,7 +533,10 @@ flowchart TD
     B --> C[🧪 AITDDLC Step 1: Generate Tests First<br/><b>RED</b>]
     C --> D[💻 AITDDLC Step 2: Implement Code<br/><b>GREEN</b>]
     D --> E[⚙️ AITDDLC Step 3: Refactor & Document<br/><b>REFACTOR</b>]
-    E --> F[Pull Request → Automated Branch Cascade Pipeline]
+    E --> F[Pull Request → main<br/><b>CI Checks Pass ✅</b>]
+    F --> G[🚀 Manual Deploy → devEnv]
+    G --> H[🚀 Manual Deploy / Verification → stagingEnv]
+    H --> I[🚀 Manual Deploy / Release → prodEnv]
 
     %% Styling
     style C fill:#FFE6E6,stroke:#FF4D4D,color:#000
@@ -561,7 +563,7 @@ The repository leverages automated AI agents (`.mcp/harness/`) to drive code dev
 
 ## Development Workflow
 
-### Git Flow & Automated Cascade
+### Git Flow
 
 ```mermaid
 flowchart TD
@@ -572,14 +574,13 @@ flowchart TD
     ProdEnv["prodEnv"]
 
     FeatureBranch -->|"Pull Request"| Main
-    Main -->|"Automated Cascade 
-    via CASCADE_PAT"| DevEnv
-    DevEnv -->|"Cascade"| StagingEnv
-    StagingEnv -->|"Cascade"| ProdEnv
+    Main -->|"Manual Trigger"| DevEnv
+    DevEnv -->|"Manual Trigger / Approval"| StagingEnv
+    StagingEnv -->|"Manual Trigger / Approval"| ProdEnv
 ```
 
 1. **PR to `main`** : Developers open Pull Requests targeting `main`.
-2. **Sequential Cascade Execution** : Merges to `main` trigger the `Automated Branch Cascade` Workflow, which uses the `CASCADE_PAT` Secret to bypass rulesets & propagate Changes downstream sequentially (`main` $\rightarrow$ `devEnv` $\rightarrow$ `stagingEnv` $\rightarrow$ `prodEnv`).
+2. **Sequential Environment Progression** : Merges to `main` allow changes to be deployed downstream sequentially across environments (`main` $\rightarrow$ `devEnv` $\rightarrow$ `stagingEnv` $\rightarrow$ `prodEnv`) via manual workflow triggers & approvals.
 
 ### Creating a Feature
 
@@ -991,8 +992,6 @@ prodEnv: 2-3 Approvals (CODEOWNERS Enforced)
    - Restore Previous Version
    - Notify Team
 
-> **Automated Multi-Branch Cascade** : Merges into `main` trigger the `Automated Branch Cascade` Workflow authenticated via `CASCADE_PAT` (Repository Administrator Role), safely propagating builds from `main` to `devEnv`, `stagingEnv` & `prodEnv` sequentially without manual intervention.
-
 ### Cost Analysis
 
 **Monthly Usage (Free Tier)** :
@@ -1309,6 +1308,6 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 
 **Built with ❤️ by [@corebit-bd](https://github.com/corebit-bd)**
 
-**Version** : 1.0.37
-**Last Updated** : September 11, 2026  
+**Version** : 1.0.37.1
+**Last Updated** : September 16, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅
