@@ -218,12 +218,14 @@ pend-boilerplate/
 │   │   └── question.yaml
 │   ├── workflows/
 │   │   ├── cd.yaml
-│   │   ├── ci.yaml
+│   │   └── ci.yaml
 │   ├── dependabot.yaml
 │   └── PULL_REQUEST_TEMPLATE.md
 ├── .mcp/
-│   └── harness/
-│       └── update_docs_agent.py
+│   ├── harness/
+│   │   └── update_docs_agent.py
+│   └── knowledge/
+│       └── tokens.json
 ├── backend/
 │   ├── apps/
 │   │   ├── authentication/
@@ -316,20 +318,30 @@ pend-boilerplate/
 │   │   ├── 03_COMPETITOR_ANALYSIS.md
 │   │   ├── 04_USER_PERSONAS_SPECIFICATION.md
 │   │   └── 05_INITIAL_BACKLOG.md
-│   └── 02-design-specifications/
-│       ├── 01_BASIC_STYLE_GUIDE_SPECIFICATION.md
-│       ├── 02_BASIC_SYSTEM_ARCHITECTURE_DESIGN_SPECIFICATION.md
-│       ├── 03_BASIC_TECHNOLOGY_STACK_SPECIFICATION.md
-│       ├── 04_MULTIPLE_ENVIRONMENTS_DESIGN_SPECIFICATION.md
-│       ├── 05_BASIC_INFRASTRUCTURE_DESIGN_SPECIFICATION.md
-│       ├── 06_DATABASE_SCHEMA_DESIGN_SPECIFICATION.md
-│       ├── 07_INTEGRATION_SCOPE_IDENTIFICATION_DESIGN_SPECIFICATION.md
-│       ├── 08_SECURITY_REQUIREMENTS_SPECIFICATION.md
-│       ├── 09_QUALITY_ASSURANCE_MANAGEMENT_SPECIFICATION.md
-│       ├── 10_LOG_MANAGEMENT_SPECIFICATION.md
-│       ├── 11_RELEASE_DEPLOYMENT_DESIGN_SPECIFICATION.md
-│       ├── 12_OPERATIONAL_MAINTENANCE_SPECIFICATION.md
-│       └── 13_SCALABILITY_CONSIDERATION_SPECIFICATION.md
+│   ├── 02_design-specifications/
+│   │   ├── 01_BASIC_STYLE_GUIDE_SPECIFICATION.md
+│   │   ├── 02_BASIC_SYSTEM_ARCHITECTURE_DESIGN_SPECIFICATION.md
+│   │   ├── 03_BASIC_TECHNOLOGY_STACK_SPECIFICATION.md
+│   │   ├── 04_MULTIPLE_ENVIRONMENTS_DESIGN_SPECIFICATION.md
+│   │   ├── 05_BASIC_INFRASTRUCTURE_DESIGN_SPECIFICATION.md
+│   │   ├── 06_DATABASE_SCHEMA_DESIGN_SPECIFICATION.md
+│   │   ├── 07_INTEGRATION_SCOPE_IDENTIFICATION_DESIGN_SPECIFICATION.md
+│   │   ├── 08_SECURITY_REQUIREMENTS_SPECIFICATION.md
+│   │   ├── 09_QUALITY_ASSURANCE_MANAGEMENT_SPECIFICATION.md
+│   │   ├── 10_LOG_MANAGEMENT_SPECIFICATION.md
+│   │   ├── 11_RELEASE_DEPLOYMENT_DESIGN_SPECIFICATION.md
+│   │   ├── 12_OPERATIONAL_MAINTENANCE_SPECIFICATION.md
+│   │   └── 13_SCALABILITY_CONSIDERATION_SPECIFICATION.md
+│   └── 03_poc-validation/
+│       ├── 01_POC_OBJECTIVES.md
+│       ├── 02_POC_SCOPE.md
+│       ├── 03_CRITICAL_USER_FLOWS.md
+│       ├── 04_TECHNICAL_VALIDATION.md
+│       ├── 05_FAKE_DATA_SPECIFICATION.md
+│       ├── 06_POC_ARCHITECTURE.md
+│       ├── 07_POC_FINDINGS.md
+│       ├── 08_POC_DECISIONS.md
+│       └── 09_STAKEHOLDER_FEEDBACK.md
 ├── frontend/
 │   ├── .storybook/
 │   │   ├── main.ts
@@ -387,6 +399,7 @@ pend-boilerplate/
 │   │       └── user.ts
 │   ├── .dockerignore
 │   ├── .gitignore
+│   ├── .npmrc
 │   ├── Dockerfile
 │   ├── eslint.config.mjs
 │   ├── jest.config.ts
@@ -430,7 +443,6 @@ pend-boilerplate/
 ├── CHANGELOG.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
-├── developer-workflow.png
 ├── docker-compose.yaml
 ├── LICENSE
 ├── LICENSE-THIRD-PARTY.md
