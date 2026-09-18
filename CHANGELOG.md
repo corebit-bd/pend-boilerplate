@@ -5,6 +5,30 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.38] - September 18, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`psycopg2-binary`** Updated Requirement from `<3.0,>=2.9.12` to `>=2.9.13,<3.0`.
+  - **`google-genai`** Requirement Updated from `>=2.22.0` to `>=2.23.0`.
+  - **`uvicorn`** Updated Requirement from `<1.0,>=0.52.4` to `>=0.53.0,<1.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.38.0` to `>=40.39.0,<41.0`.
+- **Frontend** : 
+  - **`zod`** Bumped from `4.6.2` to `4.6.5`.
+  - **`cypress`** Bumped from `15.21.1` to `16.0.0`.
+  - **`@vitest/coverage-v8`** Bumped from `5.0.0` to `5.0.1`.
+  - **`tailwind-merge`** Bumped from `3.6.0` to `3.7.0`.
+  - **`vitest`** Bumped from `5.0.0` to `5.0.1`.
+- **Mobile** : 
+  - **`expo`** Bumped from `57.0.21` to `57.0.22`.
+  - **`@react-navigation/bottom-tabs`** Bumped from `7.18.18` to `7.19.0`.
+  - **`expo-secure-store`** Bumped from `57.0.3` to `57.0.4`.
+  - **`expo-constants`** Bumped from `57.0.17` to `58.0.1`.
+  - **`react-hook-form`** Bumped from `7.87.0` to `7.88.0`.
+
+---
+
 # [1.0.37.1] - September 16, 2026
 
 ### Changed
@@ -1268,4 +1292,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.37.1 | **Released** : September 16, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.38 | **Released** : September 18, 2026
