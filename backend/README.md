@@ -361,14 +361,14 @@ black . && isort . && flake8 .
 - Django >=6.1.1,<6.2 (LTS)
 - djangorestframework >=3.18.1,<4.0
 - django-cors-headers 4.9+
-- psycopg2-binary >=2.9.12,<3.0
+- psycopg2-binary >=2.9.13,<3.0
 - django-environ >=0.14.0,<1.0
 - drf-yasg >=1.21.15,<2.0 (API Documentation)
 - djangorestframework-simplejwt 5.5.1+ (JWT Auth)
 - django-filter >=26.1,<27.0
 - graphene-django 3.2.3+
 - fastapi >=0.141.1,<1.0
-- uvicorn >=0.52.4,<1.0
+- uvicorn >=0.53.0,<1.0
 - pydantic >=2.13.5,<3.0
 - celery 5.6.3+
 - redis >=8.1.0,<9.0
@@ -387,7 +387,7 @@ black . && isort . && flake8 .
 - django-debug-toolbar >=8.0.0,<9.0
 - django-extensions 4.1+
 - factory-boy 3.3.3+ (Test Factories)
-- faker >=40.38.0,<41.0 (Fake Data Generation)
+- faker >=40.39.0,<41.0 (Fake Data Generation)
 
 ## 🔒 Security
 
@@ -673,4 +673,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : September 11, 2026
+**Last Updated** : September 18, 2026
