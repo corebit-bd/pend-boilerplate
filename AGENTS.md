@@ -35,10 +35,16 @@
 
 When generating, updating, or populating documentation files under:
 - `documentation/01_user-requirements-specifications/`
-- `documentation/02-design-specifications/`
-- `documentation/03-poc-validation/`
+- `documentation/02_design-specifications/`
+- `documentation/03_poc-validation/`
 
-**Mandatory Formatting & Documentation Density Rules**:
+### Mandatory Document Structure & Skeleton Rules**
+
+- **Strict Heading Skeleton Adherence** :  Never delete, rename or reorder the existing `##` sub-headings in the specification Markdown files. 
+- **Upstream Context Synthesis** : Populate each section in `02_design-specifications/` and `03_poc-validation/` by synthesizing user requirements, personas & backlog items defined in `documentation/01_user-requirements-specifications/`.
+- **Zero Placeholder Policy** : Every sub-heading MUST contain fully articulated specifications, data tables or Mermaid diagrams. Do NOT leave sections empty, incomplete or marked as "TBD".
+
+### Mandatory Formatting & Documentation Density Rules
 
 - **Brevity & Conciseness** : Keep all specification documents lean and actionable. Write high-level, bulleted summaries instead of lengthy prose.
 - **Visual & Structural Clarity** : Favor structured tables, bullet points, and explicit Mermaid diagrams over dense paragraphs for describing components, schemas, data models, and user flows.
@@ -46,7 +52,7 @@ When generating, updating, or populating documentation files under:
 - **Supported Mermaid Types** : 
   - **Flowcharts** (Process flows, execution logic, user journeys)
   - **Class Diagrams** (Domain models, component hierarchies)
-  - **Sequence Diagrams** (API request/response flows, authentication, service interactions)
+  - **Sequence Diagrams** (API request / response flows, authentication / authorization, service interactions)
   - **Entity Relationship Diagrams (ERD)** (Database schema design)
   - **State Diagrams** (Lifecycle states, order/task processes)
   - **Mindmaps** (Feature mapping, backlog taxonomy)
