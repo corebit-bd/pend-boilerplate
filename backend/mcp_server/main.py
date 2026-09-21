@@ -4,9 +4,9 @@ Mounts the isolated IDE Workspace sub-application at /ide-workspace route prefix
 and configures global CORS policy for NextJS frontend communication.
 """
 
+import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import uvicorn
 
 from mcp_server.routes import filesystem, terminal
 

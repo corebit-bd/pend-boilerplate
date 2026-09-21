@@ -8,6 +8,7 @@ import asyncio
 import os
 import pty
 import select
+
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 
 router = APIRouter(tags=["terminal"])

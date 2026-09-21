@@ -7,6 +7,7 @@ writing scoped strictly within the project workspace bounds.
 import os
 from pathlib import Path
 from typing import List, Optional
+
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 
@@ -80,9 +81,7 @@ def build_file_tree(dir_path: Path) -> List[FileNode]:
                 name=entry.name,
                 path=rel_path,
                 is_directory=is_dir,
-                children=(
-                    build_file_tree(Path(entry.path)) if is_dir else None
-                ),
+                children=(build_file_tree(Path(entry.path)) if is_dir else None),
             )
             nodes.append(node)
     except PermissionError:
@@ -130,9 +129,7 @@ async def read_file(path: str):
         content = target_path.read_text(encoding="utf-8")
         return {"path": path, "content": content}
     except Exception as e:
-        raise HTTPException(
-            status_code=500, detail=f"Failed to read File : {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Failed to read File : {str(e)}")
 
 
 @router.post("/write")
@@ -161,6 +158,4 @@ async def write_file(req: FileWriteRequest):
         target_path.write_text(req.content, encoding="utf-8")
         return {"status": "success", "path": req.path}
     except Exception as e:
-        raise HTTPException(
-            status_code=500, detail=f"Failed to write File : {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Failed to write File : {str(e)}")

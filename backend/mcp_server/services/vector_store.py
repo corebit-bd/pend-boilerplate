@@ -5,10 +5,11 @@ for codebase chunk embeddings utilizing pgvector and Google GenAI SDK.
 """
 
 import os
-from typing import List, Dict, Any
+from typing import Any, Dict, List
+
 import psycopg2
-from pgvector.psycopg2 import register_vector
 from google import genai
+from pgvector.psycopg2 import register_vector
 
 
 class VectorStoreService:
@@ -48,13 +49,9 @@ class VectorStoreService:
             conn.close()
             print("[RAG SERVICE] PostgreSQL pgvector Store Initialized.")
         except Exception as e:
-            print(
-                f"[RAG SERVICE WARNING] Failed to Initialize pgvector Database : {e}"
-            )
+            print(f"[RAG SERVICE WARNING] Failed to Initialize pgvector Database : {e}")
 
-    def query_similar_code(
-        self, query: str, top_k: int = 5
-    ) -> List[Dict[str, Any]]:
+    def query_similar_code(self, query: str, top_k: int = 5) -> List[Dict[str, Any]]:
         """Generates embedding for a query string and returns top-k nearest code chunks.
 
         Args:
@@ -84,11 +81,13 @@ class VectorStoreService:
                 )
                 rows = cur.fetchall()
                 for row in rows:
-                    results.append({
-                        "file_path": row[0],
-                        "content_chunk": row[1],
-                        "distance": float(row[2]),
-                    })
+                    results.append(
+                        {
+                            "file_path": row[0],
+                            "content_chunk": row[1],
+                            "distance": float(row[2]),
+                        }
+                    )
             conn.close()
             return results
         except Exception as e:
