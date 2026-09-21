@@ -16,6 +16,13 @@
 
 ---
 
+## Code Documentation Standards
+
+- **Python (Backend / MCP Engine & Tests)** : Every Python module, class, function, API route and test module (`tests.py`, `test_*.py`) MUST use Python docstrings (`"""Docstring comment..."""`) describing purpose, parameters, return types, test scenarios and expected assertions.
+- **Next.js / TypeScript (Frontend / Web IDE UI, Tests & Storybook)** : Every React component, custom hook, utility function, API client method, unit test (`*.test.tsx`, `*.spec.ts`) and Storybook story (`*.stories.tsx`) MUST use TypeDoc comments (`/** TypeDoc comment... */`) specifying props, types, behavior, test cases and story state variations.
+
+---
+
 ## Model Configuration Standards
 
 - **Primary API Engine** : Google Gen AI Python SDK (`google-genai`)
