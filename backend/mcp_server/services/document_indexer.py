@@ -9,11 +9,11 @@ class DocumentationIndexer:
         """Reads UI/UX Design Specifications & QA Guidelines for Prompt Injection."""
         style_path = (
             self.doc_root
-            / "02-design-specifications/01_BASIC_STYLE_GUIDE_SPECIFICATION.md"
+            / "02_design-specifications/01_BASIC_STYLE_GUIDE_SPECIFICATION.md"
         )
         qa_path = (
             self.doc_root
-            / "02-design-specifications/09_QUALITY_ASSURANCE_MANAGEMENT_SPECIFICATION.md"
+            / "02_design-specifications/09_QUALITY_ASSURANCE_MANAGEMENT_SPECIFICATION.md"
         )
 
         style = style_path.read_text(encoding="utf-8") if style_path.exists() else ""
