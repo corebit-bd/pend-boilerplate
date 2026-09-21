@@ -39,3 +39,19 @@ redis>=8.1.0,<9.0
 # Production Server
 gunicorn>=26.2.0,<27.0
 whitenoise>=6.12.0,<7.0
+
+# ============================================
+# LOCAL WORKSPACE & MCP ENGINE DEPENDENCIES
+# ============================================
+
+# Vector Database Extension for Postgres RAG
+pgvector>=0.2.5
+
+# Google GenAI SDK for Local RAG Embeddings
+google-genai>=0.1.0
+
+# WebSockets support for PTY Terminal
+websockets>=12.0
+
+# File System Watcher for AITDDLC
+watchdog>=4.0.0
