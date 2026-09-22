@@ -8,7 +8,7 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from mcp_server.routes import filesystem, terminal
+from mcp_server.routes import agent, filesystem, terminal
 
 # Root FastAPI Server Instance
 app = FastAPI(title="PEND Primary Local Server")
@@ -29,9 +29,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include subpath route modules into ide_app sub-application
+# Include Subpath Route Modules into ide_app sub-application
 ide_app.include_router(filesystem.router)
 ide_app.include_router(terminal.router)
+ide_app.include_router(agent.router)
 
 
 @ide_app.get("/api/health")
@@ -39,7 +40,7 @@ async def ide_health_check():
     """Health Check Endpoint for IDE Workspace sub-application.
 
     Returns:
-        Dictionary confirming server status, mounted subpath and engine type.
+        Dictionary confirming Server Status, mounted Subpath and Engine Type.
     """
     return {
         "status": "online",
