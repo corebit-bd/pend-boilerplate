@@ -4,7 +4,7 @@ Manages active WebSocket Connections across terminal and filesystem Sessions,
 handling Connection Life-Cycle, Payload JSON Serialization and Broadcasts.
 """
 
-from typing import Dict, List, Set
+from typing import Dict, Set
 
 from fastapi import WebSocket
 
