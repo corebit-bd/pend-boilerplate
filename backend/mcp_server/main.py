@@ -8,7 +8,14 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from mcp_server.routes import agent, filesystem, llm, terminal
+from mcp_server.routes import (
+    agent,
+    filesystem,
+    llm,
+    terminal,
+    ws_filesystem,
+    ws_terminal,
+)
 
 # Root FastAPI Server Instance
 app = FastAPI(title="PEND Primary Local Server")
@@ -34,6 +41,8 @@ ide_app.include_router(filesystem.router)
 ide_app.include_router(terminal.router)
 ide_app.include_router(agent.router)
 ide_app.include_router(llm.router)
+ide_app.include_router(ws_terminal.router)
+ide_app.include_router(ws_filesystem.router)
 
 
 @ide_app.get("/api/health")
