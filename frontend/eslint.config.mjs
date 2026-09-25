@@ -5,12 +5,23 @@ import nextTs from "eslint-config-next/typescript";
 
 /** @type {import('eslint').Linter.Config[]} */
 const eslintConfig = [
+  {
+    // Global Ignores must come first to apply everywhere
+    ignores: [
+      ".next/**",
+      "out/**",
+      "build/**",
+      "dist/**",
+      "storybook-static/**",
+      ".cache/**",
+      "coverage/**",
+      "node_modules/**",
+      "next-env.d.ts",
+    ],
+  },
   ...nextVitals,
   ...nextTs,
-  {
-    // Replacement for globalIgnores
-    ignores: [".next/**", "out/**", "build/**", "next-env.d.ts"],
-  },
+  ...storybook.configs["flat/recommended"],
 ];
 
 export default eslintConfig;
