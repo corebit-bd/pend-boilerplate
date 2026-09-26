@@ -5,6 +5,33 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.39] - September 26, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`pgvector`** Updated Requirement from `>=0.2.5` to `>=0.5.0`.
+  - **`google-genai`** Requirement Updated from `>=2.23.0` to `>=2.25.0`.
+- **Frontend** : 
+  - **`@types/node`** Bumped from `26.5.1` to `26.6.2`.
+  - **`jest`** Bumped from `30.5.1` to `30.5.2`.
+  - **`@vitest/browser-playwright`** Bumped from `5.0.0` to `5.0.1`.
+  - **`cypress`** Bumped from `16.0.0` to `16.1.0`.
+  - **`jest-environment-jsdom`** Bumped from `30.5.1` to `30.5.2`.
+- **Mobile** : 
+  - **`@react-navigation/stack`** Bumped from `7.10.24` to `7.11.2`.
+  - **`react-native-safe-area-context`** Bumped from `5.9.1` to `5.10.0`.
+  - **`expo`** Bumped from `57.0.22` to `57.0.24`.
+  - **`react-native-screens`** Bumped from `4.27.0` to `4.28.0`.
+  - **`expo-constants`** Bumped from `58.0.1` to `58.0.5`.
+
+### Fixed
+
+- **Backend** : 
+  - **`websockets`** Updated Requirement from `>=12.0` to `>=12.0,<17.0`.
+
+---
+
 # [1.0.38] - September 18, 2026
 
 ### Upgraded
@@ -1292,4 +1319,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.38 | **Released** : September 18, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.39 | **Released** : September 26, 2026

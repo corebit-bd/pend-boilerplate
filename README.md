@@ -115,7 +115,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ### Mobile
 
-- **Expo 57.0.22** - ReactJS Native Framework
+- **Expo 57.0.24** - ReactJS Native Framework
 - **React Native** - Cross-Platform Mobile Application Development
 
 ### DevOps
@@ -1357,6 +1357,6 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 
 **Built with ❤️ by [@corebit-bd](https://github.com/corebit-bd)**
 
-**Version** : 1.0.38
+**Version** : 1.0.39
 **Last Updated** : September 26, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅
