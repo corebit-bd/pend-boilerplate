@@ -29,7 +29,7 @@ The backend is built with Django >=6.1.1,<6.2 and provides a robust, scalable fo
 ## 📁 Directory Structure
 
 ```
-├── backend/
+backend/
 │   ├── apps/
 │   │   ├── authentication/
 │   │   │   ├── migrations/
@@ -73,11 +73,31 @@ The backend is built with Django >=6.1.1,<6.2 and provides a robust, scalable fo
 │   ├── logs/
 │   │   └── .gitkeep
 │   ├── mcp_server/
+│   │   ├── routes/
+│   │   │   ├── agent.py
+│   │   │   ├── filesystem.py
+│   │   │   ├── llm.py
+│   │   │   ├── terminal.py
+│   │   │   ├── ws_filesystem.py
+│   │   │   └── ws_terminal.py
 │   │   ├── services/
+│   │   │   ├── agent_router.py
 │   │   │   ├── codebase_watcher.py
 │   │   │   ├── document_indexer.py
-│   │   │   └── gemini_agent_runner.py
-│   │   └── config.py
+│   │   │   ├── gemini_agent_runner.py
+│   │   │   ├── hybrid_engine.py
+│   │   │   ├── quota_manager.py
+│   │   │   ├── vector_store.py
+│   │   │   └── websocket_manager.py
+│   │   ├── tools/
+│   │   │   ├── __init__.py
+│   │   │   ├── file_system_io.py
+│   │   │   ├── mcp_token_reader.py
+│   │   │   ├── pgvector_rag.py
+│   │   │   ├── searxng_search.py
+│   │   │   └── terminal_exec.py
+│   │   ├── config.py
+│   │   └── main.py
 │   ├── shared/
 │   │   ├── exceptions/
 │   │   │   └── __init__.py
@@ -673,4 +693,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : September 18, 2026
+**Last Updated** : September 26, 2026

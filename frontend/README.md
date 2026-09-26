@@ -30,101 +30,76 @@ The frontend is built with NextJS 16 and provides a modern, performant, and type
 
 ```
 frontend/
-├── src/
-│   ├── app/                         # NextJS App Router
-│   │   ├── layout.tsx               # Root Layout (Open Sans Font)
-│   │   ├── page.tsx                 # Home Page
-│   │   ├── globals.css              # Global Styles + Design System
-│   │   ├── (auth)/                  # Auth Route Group
-│   │   │   ├── login/
-│   │   │   └── register/
-│   │   ├── (dashboard)/             # Dashboard Route Group
+│   |── .storybook/
+│   │   ├── main.ts
+│   │   ├── preview.ts
+│   │   └── vitest.setup.ts
+│   ├── public/
+│   │   ├── file.svg
+│   │   ├── globe.svg
+│   │   ├── next.svg
+│   │   ├── vercel.svg
+│   │   └── window.svg
+│   ├── src/
+│   │   ├── app/
+│   │   │   ├── workspace/
+│   │   │   │   ├── layout.tsx
+│   │   │   │   └── page.tsx
+│   │   │   ├── favicon.ico
+│   │   │   ├── globals.css
 │   │   │   ├── layout.tsx
-│   │   │   └── dashboard/
-│   │   └── api/                     # API Routes (If Needed)
-│   │
-│   ├── components/
-│   │   ├── ui/                     # Base User Interface (UI) Components
-│   │   │   ├── __tests__/          # Component Tests
-│   │   │   │   ├── Badge.test.tsx  # 27 Tests
-│   │   │   │   ├── Button.test.tsx # 22 Tests
-│   │   │   │   ├── Icon.test.tsx   # 25 Tests
-│   │   │   │   ├── Input.test.tsx  # 43 Tests
-│   │   │   │   └── Spinner.test.tsx # 39 Tests
-│   │   │   ├── Badge.tsx
-│   │   │   ├── Badge.stories.tsx   # 15 Stories
-│   │   │   ├── Button.tsx
-│   │   │   ├── Button.stories.tsx  # 17 Stories
-│   │   │   ├── Icon.tsx            # Placeholder for Icon Library
-│   │   │   ├── Icon.stories.tsx    # 14 Stories
-│   │   │   ├── Input.tsx
-│   │   │   ├── Input.stories.tsx   # 21 Stories
-│   │   │   ├── Spinner.tsx
-│   │   │   └── Spinner.stories.tsx # 16 Stories
-│   │   ├── features/               # Feature-Specific Components
-│   │   │   ├── auth/               # Auth Components
-│   │   │   ├── dashboard/          # Dashboard Components
-│   │   │   └── user/               # User Components
-│   │   └── Providers.tsx           # Redux Provider Wrapper
-│   │
-│   ├── lib/
-│   │   ├── api/
-│   │   │   └── client.ts           # Axios API Client
-│   │   ├── constants/
-│   │   │   └── api.ts              # API Endpoints & Configuration
-│   │   └── utils/
-│   │       ├── helpers.ts          # Utility Functions
-│   │       └── cn.ts               # ClassName Utility (clsx + tailwind-merge)
-│   │
-│   ├── store/
-│   │   ├── index.ts                # Redux Store Configuration
-│   │   └── slices/
-│   │       ├── authSlice.ts        # Authentication State
-│   │       └── userSlice.ts        # User State
-│   │
-│   ├── hooks/                      # Custom ReactJS Hooks
-│   │   ├── useAuth.ts
-│   │   ├── useUser.ts
-│   │   └── useApi.ts
-│   │
-│   ├── types/                      # TypeScript Type Definitions
-│   │   ├── auth.ts
-│   │   ├── user.ts
-│   │   └── api.ts
-│   │
-│   └── schemas/                    # Zod Validation Schemas
-│       ├── authSchemas.ts
-│       └── userSchemas.ts
-│
-├── public/                          # Static Assets
-│   ├── images/
-│   ├── icons/
-│   └── fonts/
-│
-├── cypress/                         # End-to-End Tests
-│   ├── e2e/
-│   │   ├── auth.cy.ts
-│   │   └── dashboard.cy.ts
-│   ├── fixtures/
-│   └── support/
-│
-├── .storybook/                      # Storybook Configuration
-│   ├── main.ts
-│   └── preview.ts
-│
-├── .env.local                       # Local Environment (gitignored)
-├── .env.local.example               # Environment Template
-├── .eslintrc.json                   # ESLint Configuration
-├── .gitignore                       # Git Ignore Rules
-├── cypress.config.ts                # Cypress Configuration
-├── jest.config.ts                   # Jest Configuration
-├── jest.setup.ts                    # Jest Setup
-├── next.config.ts                   # NextJS Configuration
-├── package.json                     # Dependencies
-├── postcss.config.mjs               # Tailwind v4 PostCSS Configuration
-├── tsconfig.json                    # TypeScript Configuration
-├── Dockerfile                       # Docker Image
-└── README.md                        # This File
+│   │   │   └── page.tsx
+│   │   ├── components/
+│   │   │   ├── ui/
+│   │   │   │   ├── __tests__/
+│   │   │   │   │   ├── Badge.test.tsx
+│   │   │   │   │   ├── Button.test.tsx
+│   │   │   │   │   ├── Icon.test.tsx
+│   │   │   │   │   ├── Input.test.tsx
+│   │   │   │   │   └── Spinner.test.tsx
+│   │   │   │   ├── Badge.stories.tsx
+│   │   │   │   ├── Badge.tsx
+│   │   │   │   ├── Button.stories.tsx
+│   │   │   │   ├── Button.tsx
+│   │   │   │   ├── Icon.README.md
+│   │   │   │   ├── Icon.stories.tsx
+│   │   │   │   ├── Icon.tsx
+│   │   │   │   ├── Input.stories.tsx
+│   │   │   │   ├── Input.tsx
+│   │   │   │   ├── Spinner.stories.tsx
+│   │   │   │   └── Spinner.tsx
+│   │   │   ├── workspace/
+│   │   │   │   ├── __tests__/
+│   │   │   │   │   ├── AgentDispatcher.test.tsx
+│   │   │   │   │   ├── FileTree.test.tsx
+│   │   │   │   │   └── TerminalDrawer.test.tsx
+│   │   │   │   ├── AgentDispatcher.stories.tsx
+│   │   │   │   ├── AgentDispatcher.tsx
+│   │   │   │   ├── FileTree.stories.tsx
+│   │   │   │   ├── FileTree.tsx
+│   │   │   │   ├── TerminalDrawer.stories.tsx
+│   │   │   │   └── TerminalDrawer.tsx
+│   │   │   └── Providers.tsx
+│   │   ├── lib/
+│   │   │   ├── api/
+│   │   │   │   ├── client.ts
+│   │   │   │   └── workspace.ts
+│   │   │   ├── constants/
+│   │   │   │   └── api.ts
+│   │   │   └── utils/
+│   │   │       └── helpers.ts
+│   │   ├── schemas/
+│   │   │   ├── authSchemas.ts
+│   │   │   └── userSchemas.ts
+│   │   ├── store/
+│   │   │   ├── slices/
+│   │   │   │   ├── authSlice.ts
+│   │   │   │   └── userSlice.ts
+│   │   │   └── index.ts
+│   │   └── types/
+│   │       ├── auth.ts
+│   │       ├── user.ts
+│   │       └── workspace.ts
 ```
 
 ## 🚀 Getting Started
@@ -1001,4 +976,4 @@ npm run storybook -- --no-manager-cache
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : September 18, 2026
+**Last Updated** : September 26, 2026

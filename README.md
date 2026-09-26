@@ -270,11 +270,31 @@ pend-boilerplate/
 │   ├── logs/
 │   │   └── .gitkeep
 │   ├── mcp_server/
+│   │   ├── routes/
+│   │   │   ├── agent.py
+│   │   │   ├── filesystem.py
+│   │   │   ├── llm.py
+│   │   │   ├── terminal.py
+│   │   │   ├── ws_filesystem.py
+│   │   │   └── ws_terminal.py
 │   │   ├── services/
+│   │   │   ├── agent_router.py
 │   │   │   ├── codebase_watcher.py
 │   │   │   ├── document_indexer.py
-│   │   │   └── gemini_agent_runner.py
-│   │   └── config.py
+│   │   │   ├── gemini_agent_runner.py
+│   │   │   ├── hybrid_engine.py
+│   │   │   ├── quota_manager.py
+│   │   │   ├── vector_store.py
+│   │   │   └── websocket_manager.py
+│   │   ├── tools/
+│   │   │   ├── __init__.py
+│   │   │   ├── file_system_io.py
+│   │   │   ├── mcp_token_reader.py
+│   │   │   ├── pgvector_rag.py
+│   │   │   ├── searxng_search.py
+│   │   │   └── terminal_exec.py
+│   │   ├── config.py
+│   │   └── main.py
 │   ├── shared/
 │   │   ├── exceptions/
 │   │   │   └── __init__.py
@@ -355,6 +375,9 @@ pend-boilerplate/
 │   │   └── window.svg
 │   ├── src/
 │   │   ├── app/
+│   │   │   ├── workspace/
+│   │   │   │   ├── layout.tsx
+│   │   │   │   └── page.tsx
 │   │   │   ├── favicon.ico
 │   │   │   ├── globals.css
 │   │   │   ├── layout.tsx
@@ -378,10 +401,22 @@ pend-boilerplate/
 │   │   │   │   ├── Input.tsx
 │   │   │   │   ├── Spinner.stories.tsx
 │   │   │   │   └── Spinner.tsx
+│   │   │   ├── workspace/
+│   │   │   │   ├── __tests__/
+│   │   │   │   │   ├── AgentDispatcher.test.tsx
+│   │   │   │   │   ├── FileTree.test.tsx
+│   │   │   │   │   └── TerminalDrawer.test.tsx
+│   │   │   │   ├── AgentDispatcher.stories.tsx
+│   │   │   │   ├── AgentDispatcher.tsx
+│   │   │   │   ├── FileTree.stories.tsx
+│   │   │   │   ├── FileTree.tsx
+│   │   │   │   ├── TerminalDrawer.stories.tsx
+│   │   │   │   └── TerminalDrawer.tsx
 │   │   │   └── Providers.tsx
 │   │   ├── lib/
 │   │   │   ├── api/
-│   │   │   │   └── client.ts
+│   │   │   │   ├── client.ts
+│   │   │   │   └── workspace.ts
 │   │   │   ├── constants/
 │   │   │   │   └── api.ts
 │   │   │   └── utils/
@@ -396,7 +431,8 @@ pend-boilerplate/
 │   │   │   └── index.ts
 │   │   └── types/
 │   │       ├── auth.ts
-│   │       └── user.ts
+│   │       ├── user.ts
+│   │       └── workspace.ts
 │   ├── .dockerignore
 │   ├── .gitignore
 │   ├── .npmrc
@@ -447,7 +483,8 @@ pend-boilerplate/
 ├── LICENSE
 ├── LICENSE-THIRD-PARTY.md
 ├── README.md
-└── SECURITY.md
+├── SECURITY.md
+└── SKILLS.md
 ```
 
 ---
@@ -1321,5 +1358,5 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 **Built with ❤️ by [@corebit-bd](https://github.com/corebit-bd)**
 
 **Version** : 1.0.38
-**Last Updated** : September 18, 2026  
+**Last Updated** : September 26, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅
