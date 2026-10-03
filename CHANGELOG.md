@@ -5,6 +5,30 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.40] - October 03, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`isort`** Upgraded Dependency Range from `<10.0,>=9.0.1` to `>=9.0.2,<10.0`.
+  - **`flake8`** Upgraded Dependency Range from `<8.0,>=7.3.0` to `>=7.4.1,<8.0`.
+  - **`uvicorn`** Updated Requirement from `<1.0,>=0.53.0` to `>=0.54.0,<1.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.39.0` to `>=40.40.0,<41.0`.
+- **Frontend** : 
+  - **`@vitest/browser-playwright`** Bumped from `5.0.1` to `5.0.2`.
+  - **`react-hook-form`** Bumped from `7.88.0` to `7.89.0`.
+  - **`@reduxjs/toolkit`** Bumped from `2.12.0` to `2.13.0`.
+  - **`vitest`** Bumped from `5.0.1` to `5.0.2`.
+  - **`next`** Bumped from `16.3.5` to `16.3.7`.
+- **Mobile** : 
+  - **`expo-constants`** Bumped from `58.0.5` to `58.0.8`.
+  - `react` & `@types/react` (Reference : [PR 671](https://github.com/corebit-bd/pend-boilerplate/pull/671))
+  - **`@reduxjs/toolkit`** Bumped from `2.12.0` to `2.13.0`.
+  - **`react-hook-form`** Bumped from `7.88.0` to `7.89.0`.
+  - **`@react-navigation/bottom-tabs`** Bumped from `7.19.0` to `7.20.0`.
+
+---
+
 # [1.0.39] - September 26, 2026
 
 ### Upgraded
@@ -1319,4 +1343,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.39 | **Released** : September 26, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.40 | **Released** : October 03, 2026

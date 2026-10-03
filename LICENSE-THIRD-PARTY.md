@@ -263,7 +263,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Flake8 (MIT License)
 
-- **Version** : 7.3.0+
+- **Version** : >=7.4.1,<8.0
 - **Copyright** : Ian Stapleton Cordasco & Contributors
 - **License** : MIT
 - **Website** : https://flake8.pycqa.org/
@@ -271,7 +271,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### `isort` (MIT License)
 
-- **Version** : >=9.0.1,<10.0
+- **Version** : >=9.0.2,<10.0
 - **Copyright** : Timothy Crosley
 - **License** : MIT
 - **Website** : https://pycqa.github.io/isort/
@@ -498,6 +498,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : September 26, 2026
+**Last Updated** : October 03, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.
