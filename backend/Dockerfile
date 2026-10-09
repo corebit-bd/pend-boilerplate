@@ -1,6 +1,6 @@
 # Use Python Version from Build Args (For docker-compose Compatibility)
 ARG PYTHON_VERSION=3.13
-FROM python:${PYTHON_VERSION}-slim
+FROM public.ecr.aws/docker/library/python:${PYTHON_VERSION}-slim
 
 # Set Environment Variables
 ENV PYTHONDONTWRITEBYTECODE=1
