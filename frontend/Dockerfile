@@ -2,7 +2,7 @@
 ARG NODE_VERSION=24
 
 # Stage 1 : Dependencies
-FROM node:${NODE_VERSION}-slim AS dependencies
+FROM public.ecr.aws/docker/library/node:${NODE_VERSION}-slim AS dependencies
 
 # Set Working Directory
 WORKDIR /app
@@ -14,7 +14,7 @@ COPY package.json package-lock.json ./
 RUN npm ci --legacy-peer-deps
 
 # Stage 2 : Builder
-FROM node:${NODE_VERSION}-slim AS builder
+FROM public.ecr.aws/docker/library/node:${NODE_VERSION}-slim AS builder
 
 # Set Working Directory
 WORKDIR /app
@@ -29,7 +29,7 @@ COPY . .
 RUN npm run build
 
 # Stage 3 : Production Runner
-FROM node:${NODE_VERSION}-slim AS runner
+FROM public.ecr.aws/docker/library/node:${NODE_VERSION}-slim AS runner
 
 # Set Working Directory
 WORKDIR /app
