@@ -1,14 +1,48 @@
 import {
     AgentDispatchPayload,
     AgentDispatchResponse,
+    FileContentResponse,
+    FileNode,
     LLMGeneratePayload,
     LLMGenerateResponse,
     QuotaStatus,
     WSMessagePayload,
 } from '@/types/workspace';
-  
+
+export type { FileNode, FileContentResponse };
+
 const API_BASE_URL = 'http://localhost:8000/ide-workspace/api';
 const WS_BASE_URL = 'ws://localhost:8000/ide-workspace/ws';
+
+/**
+ * Fetches shallow directory contents for a target relative path.
+ *
+ * @param path - Relative target directory path (defaults to root workspace "").
+ * @returns Promise resolving to an array of FileNode objects.
+ * @throws Error if response status is not OK.
+ */
+export async function fetchFileTree(path: string = ''): Promise<FileNode[]> {
+    const res = await fetch(`${API_BASE_URL}/filesystem/tree?path=${encodeURIComponent(path)}`);
+    if (!res.ok) {
+        throw new Error(`Failed to fetch file tree for path "${path}": ${res.status}`);
+    }
+    return res.json();
+}
+
+/**
+ * Fetches raw file content for a target file path.
+ *
+ * @param path - Relative file path.
+ * @returns Promise resolving to FileContentResponse object containing file content.
+ * @throws Error if response status is not OK.
+ */
+export async function fetchFileContent(path: string): Promise<FileContentResponse> {
+    const res = await fetch(`${API_BASE_URL}/filesystem/content?path=${encodeURIComponent(path)}`);
+    if (!res.ok) {
+        throw new Error(`Failed to fetch file content for "${path}": ${res.status}`);
+    }
+    return res.json();
+}
   
 /**
  * Dispatches a Prompt to the SKILLS.md Agent Task Router REST Endpoint.

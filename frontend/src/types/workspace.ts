@@ -1,16 +1,4 @@
-/**
- * Represents a File or Folder Node in the Workspace filesystem Tree.
- */
-export interface FileNode {
-    /** Node Display Name or filename */
-    name: string;
-    /** Node Resource Classification */
-    type: 'file' | 'directory';
-    /** Nested Child Nodes if type is Directory */
-    children?: FileNode[];
-}
-  
-/**
+ /**
  * Payload sent to the SKILLS.md Agent Task Router.
  */
 export interface AgentDispatchPayload {
@@ -105,3 +93,23 @@ export interface FilesystemWSFrame {
   
 /** Union of all possible WebSocket Message Structures */
 export type WSMessagePayload = TerminalWSFrame | FilesystemWSFrame | string;
+
+/**
+ * File System Node Interface
+ */
+export interface FileNode {
+    name: string;
+    path: string;
+    is_directory: boolean;
+    is_ignored?: boolean;
+    children?: FileNode[];
+    isLoaded?: boolean;
+}
+
+/**
+ * File Content Response Interface
+ */
+export interface FileContentResponse {
+    path: string;
+    content: string;
+}
