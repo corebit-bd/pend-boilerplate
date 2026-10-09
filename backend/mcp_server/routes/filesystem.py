@@ -1,161 +1,93 @@
-"""Workspace File System I/O API Router.
-
-Provides endpoints for directory tree inspection, safe file reading and file
-writing scoped strictly within the project workspace bounds.
-"""
-
 import os
 from pathlib import Path
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
+from fastapi import APIRouter, HTTPException, Query
+import pathspec
 
-from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+router = APIRouter(prefix="/api/filesystem", tags=["filesystem"])
 
-router = APIRouter(prefix="/api/fs", tags=["filesystem"])
-
-# Resolve repository root (4 directory levels up from routes/filesystem.py)
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
-
-
-class FileWriteRequest(BaseModel):
-    """Schema for file write operations.
-
-    Attributes:
-        path: Workspace-relative path where file should be saved.
-        content: UTF-8 string content to write into the target file.
-    """
-
-    path: str
-    content: str
+# Define Project Root relative to backend Repository Root
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent.parent
 
 
-class FileNode(BaseModel):
-    """Recursive schema representing a file or directory node in the workspace.
-
-    Attributes:
-        name: Name of the file or directory.
-        path: Workspace-relative path.
-        is_directory: Boolean indicating if node is a folder.
-        children: Optional list of nested FileNode objects if is_directory is True.
-    """
-
-    name: str
-    path: str
-    is_directory: bool
-    children: Optional[List["FileNode"]] = None
+def get_gitignore_spec(root_path: Path) -> Optional[pathspec.PathSpec]:
+    """Load .gitignore Rules if present in the Project Root."""
+    gitignore_path = root_path / ".gitignore"
+    if gitignore_path.is_file():
+        try:
+            with open(gitignore_path, "r", encoding="utf-8") as f:
+                patterns = f.readlines()
+            return pathspec.PathSpec.from_lines("gitwildmatch", patterns)
+        except Exception:
+            return None
+    return None
 
 
-def build_file_tree(dir_path: Path) -> List[FileNode]:
-    """Recursively constructs a tree structure of workspace files and directories.
-
-    Args:
-        dir_path: Absolute Path object pointing to the directory to inspect.
-
-    Returns:
-        List of FileNode objects representing the directory tree.
-    """
-    nodes = []
-    ignored_dirs = {
-        ".git",
-        "node_modules",
-        "__pycache__",
-        ".next",
-        ".venv",
-        "venv",
-        "dist",
-        "build",
-    }
-
-    try:
-        entries = sorted(
-            os.scandir(dir_path), key=lambda e: (not e.is_dir(), e.name.lower())
-        )
-        for entry in entries:
-            if entry.name in ignored_dirs or entry.name.startswith("."):
-                continue
-
-            rel_path = str(Path(entry.path).relative_to(PROJECT_ROOT))
-            is_dir = entry.is_dir()
-
-            node = FileNode(
-                name=entry.name,
-                path=rel_path,
-                is_directory=is_dir,
-                children=(build_file_tree(Path(entry.path)) if is_dir else None),
-            )
-            nodes.append(node)
-    except PermissionError:
-        pass
-
-    return nodes
-
-
-@router.get("/tree", response_model=List[FileNode])
-async def get_file_tree():
-    """Generates and returns the entire workspace directory tree structure.
-
-    Returns:
-        List of root-level FileNode objects.
-    """
-    return build_file_tree(PROJECT_ROOT)
-
-
-@router.get("/read")
-async def read_file(path: str):
-    """Reads UTF-8 encoded text content from a specified workspace path.
-
-    Args:
-        path: Workspace-relative string path to read.
-
-    Returns:
-        Dictionary containing relative path and file text content.
-
-    Raises:
-        HTTPException 403: If requested path resides outside PROJECT_ROOT bounds.
-        HTTPException 404: If target file does not exist.
-        HTTPException 500: If file reading fails due to OS or decoding errors.
-    """
-    target_path = (PROJECT_ROOT / path).resolve()
-
+def resolve_safe_path(relative_path: str) -> Path:
+    """Resolve & Validate Path against Directory Traversal Attacks."""
+    target_path = (PROJECT_ROOT / relative_path).resolve()
     if not str(target_path).startswith(str(PROJECT_ROOT)):
-        raise HTTPException(
-            status_code=403, detail="Access Denied : Path outside Workspace"
-        )
+        raise HTTPException(status_code=403, detail="Access outside Workspace Root is forbidden.")
+    return target_path
 
-    if not target_path.exists() or not target_path.is_file():
-        raise HTTPException(status_code=404, detail="File Not Found")
+
+@router.get("/tree")
+def get_file_tree(path: str = "") -> List[Dict[str, Any]]:
+    """
+    Shallow Traversal Endpoint : Returns Top-level contents of the Target Directory.
+    Supports On-Demand Dynamic Expansion for heavy file trees.
+    """
+    target_dir = resolve_safe_path(path)
+
+    if not target_dir.exists() or not target_dir.is_dir():
+        raise HTTPException(status_code=404, detail="Directory not found.")
+
+    spec = get_gitignore_spec(PROJECT_ROOT)
+    items = []
 
     try:
-        content = target_path.read_text(encoding="utf-8")
+        with os.scandir(target_dir) as entries:
+            for entry in entries:
+                entry_path = Path(entry.path)
+                rel_path = entry_path.relative_to(PROJECT_ROOT).as_posix()
+
+                # Ignore git System Directory Internal Files
+                if entry.name == ".git":
+                    continue
+
+                # Check against .gitignore Rules
+                is_ignored = False
+                if spec:
+                    # Append Trailing Slash for Directory Matching
+                    check_path = f"{rel_path}/" if entry.is_dir() else rel_path
+                    is_ignored = spec.match_file(check_path)
+
+                items.append({
+                    "name": entry.name,
+                    "path": rel_path,
+                    "is_directory": entry.is_dir(),
+                    "is_ignored": is_ignored
+                })
+
+        # Sort : Directories First, then Files Alphabetically
+        items.sort(key=lambda x: (not x["is_directory"], x["name"].lower()))
+        return items
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to read Directory : {str(e)}")
+
+
+@router.get("/content")
+def get_file_content(path: str = Query(..., description="Relative Path to File")):
+    """Read & return raw file text content."""
+    file_path = resolve_safe_path(path)
+
+    if not file_path.exists() or file_path.is_dir():
+        raise HTTPException(status_code=404, detail="File Not Found.")
+
+    try:
+        with open(file_path, "r", encoding="utf-8", errors="replace") as f:
+            content = f.read()
         return {"path": path, "content": content}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to read File : {str(e)}")
-
-
-@router.post("/write")
-async def write_file(req: FileWriteRequest):
-    """Writes content to a workspace file, automatically creating parent directories.
-
-    Args:
-        req: FileWriteRequest payload containing target relative path and content.
-
-    Returns:
-        Dictionary indicating write status and target path.
-
-    Raises:
-        HTTPException 403: If target path attempts directory traversal outside root.
-        HTTPException 500: If disk write operation fails.
-    """
-    target_path = (PROJECT_ROOT / req.path).resolve()
-
-    if not str(target_path).startswith(str(PROJECT_ROOT)):
-        raise HTTPException(
-            status_code=403, detail="Access Denied : Path outside Workspace"
-        )
-
-    try:
-        target_path.parent.mkdir(parents=True, exist_ok=True)
-        target_path.write_text(req.content, encoding="utf-8")
-        return {"status": "success", "path": req.path}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to write File : {str(e)}")
