@@ -1,4 +1,5 @@
-import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+// eslint-disable-next-line storybook/no-renderer-packages
+import type { Meta, StoryObj } from '@storybook/react';
 import { FileTree } from './FileTree';
 
 const meta: Meta<typeof FileTree> = {
@@ -11,17 +12,6 @@ type Story = StoryObj<typeof FileTree>;
 
 export const Default: Story = {
   args: {
-    node: {
-      name: 'root',
-      type: 'directory',
-      children: [
-        {
-          name: 'backend',
-          type: 'directory',
-          children: [{ name: 'main.py', type: 'file' }],
-        },
-        { name: 'README.md', type: 'file' },
-      ],
-    },
+    selectedFilePath: 'src/App.tsx',
   },
 };

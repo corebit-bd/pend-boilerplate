@@ -1,17 +1,31 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { FileTree } from '../FileTree';
-import { FileNode } from '@/types/workspace';
+
+// Mock the workspace API helper
+jest.mock('@/lib/api/workspace', () => ({
+  fetchFileTree: jest.fn().mockResolvedValue([
+    {
+      name: 'src',
+      path: 'src',
+      is_directory: true,
+      children: [],
+    },
+    {
+      name: 'package.json',
+      path: 'package.json',
+      is_directory: false,
+    },
+  ]),
+}));
 
 describe('FileTree Component', () => {
-  const mockTree: FileNode = {
-    name: 'src',
-    type: 'directory',
-    children: [{ name: 'index.ts', type: 'file' }],
-  };
+  it('renders root nodes fetched from API', async () => {
+    render(<FileTree selectedFilePath="package.json" />);
 
-  it('renders directory and child file nodes correctly', () => {
-    render(<FileTree node={mockTree} />);
-    expect(screen.getByText('src')).toBeInTheDocument();
-    expect(screen.getByText('index.ts')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('src')).toBeInTheDocument();
+      expect(screen.getByText('package.json')).toBeInTheDocument();
+    });
   });
 });

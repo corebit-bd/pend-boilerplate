@@ -27,7 +27,9 @@ def resolve_safe_path(relative_path: str) -> Path:
     """Resolve & Validate Path against Directory Traversal Attacks."""
     target_path = (PROJECT_ROOT / relative_path).resolve()
     if not str(target_path).startswith(str(PROJECT_ROOT)):
-        raise HTTPException(status_code=403, detail="Access outside Workspace Root is forbidden.")
+        raise HTTPException(
+            status_code=403, detail="Access outside Workspace Root is forbidden."
+        )
     return target_path
 
 
@@ -62,19 +64,23 @@ def get_file_tree(path: str = "") -> List[Dict[str, Any]]:
                     check_path = f"{rel_path}/" if entry.is_dir() else rel_path
                     is_ignored = spec.match_file(check_path)
 
-                items.append({
-                    "name": entry.name,
-                    "path": rel_path,
-                    "is_directory": entry.is_dir(),
-                    "is_ignored": is_ignored
-                })
+                items.append(
+                    {
+                        "name": entry.name,
+                        "path": rel_path,
+                        "is_directory": entry.is_dir(),
+                        "is_ignored": is_ignored,
+                    }
+                )
 
         # Sort : Directories First, then Files Alphabetically
         items.sort(key=lambda x: (not x["is_directory"], x["name"].lower()))
         return items
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to read Directory : {str(e)}")
+        raise HTTPException(
+            status_code=500, detail=f"Failed to read Directory : {str(e)}"
+        )
 
 
 @router.get("/content")
