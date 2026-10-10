@@ -11,7 +11,7 @@ The backend is built with Django >=6.1.1,<6.2 and provides a robust, scalable fo
 - **Django >=6.1.1,<6.2** - Main Application Framework
 - **Django REST Framework >=3.18.1,<4.0** - RESTful API
 - **Graphene-Django 3.2.3** - GraphQL API
-- **FastAPI >=0.141.1,<1.0** - Edge Services for High-Performance Endpoints
+- **FastAPI >=0.142.2,<1.0** - Edge Services for High-Performance Endpoints
 - **PostgreSQL 15** - Primary Database
 - **Redis >=8.1.0,<9.0** - Caching & Task Queue
 - **Celery 5.6.3** - Asynchronous Task Processing
@@ -387,7 +387,7 @@ black . && isort . && flake8 .
 - djangorestframework-simplejwt 5.5.1+ (JWT Auth)
 - django-filter >=26.1,<27.0
 - graphene-django 3.2.3+
-- fastapi >=0.141.1,<1.0
+- fastapi >=0.142.2,<1.0
 - uvicorn >=0.54.0,<1.0
 - pydantic >=2.13.5,<3.0
 - celery 5.6.3+
@@ -400,14 +400,14 @@ black . && isort . && flake8 .
 - pytest >=9.1.1,<10.0
 - pytest-django >=4.14.0,<5.0
 - pytest-cov >=7.1.0,<8.0
-- black >=26.5.1,<27.0
+- black >=26.10.0,<27.0
 - flake8 >=7.4.1,<8.0
 - isort >=9.0.2,<10.0
 - ipython >=9.17.1,<10.0
 - django-debug-toolbar >=8.0.0,<9.0
 - django-extensions 4.1+
 - factory-boy 3.3.3+ (Test Factories)
-- faker >=40.40.0,<41.0 (Fake Data Generation)
+- faker >=40.41.0,<41.0 (Fake Data Generation)
 
 ## 🔒 Security
 
@@ -693,4 +693,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : October 03, 2026
+**Last Updated** : October 09, 2026

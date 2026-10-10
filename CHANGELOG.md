@@ -5,6 +5,30 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.41] - October 09, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`google-genai`** Requirement Updated from `>=2.25.0` to `>=2.28.0`.
+  - **`black`** Updated Requirement from `<27.0,>=26.5.1` to `>=26.10.0,<27.0`.
+  - **`fastapi`** Updated Requirement from `<1.0,>=0.141.1` to `>=0.142.2,<1.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.40.0` to `>=40.41.0,<41.0`.
+- **Frontend** : 
+  - **`@storybook/addon-a11y`** Bumped from `10.6.0` to `10.6.1`.
+  - **`@vitest/coverage-v8`** Bumped from `5.0.1` to `5.0.3`.
+  - **`@vitest/browser-playwright`** Bumped from `5.0.2` to `5.0.3`.
+  - **`postcss`** Bumped from `8.5.28` to `8.5.29`.
+  - **`vitest`** Bumped from `5.0.2` to `5.0.3`.
+- **Mobile** : 
+  - **`zod`** Bumped from `4.5.4` to `4.6.5`.
+  - **`expo-constants`** Bumped from `58.0.8` to `58.0.10`.
+  - **`@react-navigation/stack`** Bumped from `7.11.2` to `7.12.0`.
+  - **`react-native-safe-area-context`** Bumped from `5.10.0` to `5.10.1`.
+  - **`expo`** Bumped from `57.0.24` to `57.0.27`.
+
+---
+
 # [1.0.40] - October 03, 2026
 
 ### Upgraded
@@ -1343,4 +1367,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.40 | **Released** : October 03, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.41 | **Released** : October 09, 2026
