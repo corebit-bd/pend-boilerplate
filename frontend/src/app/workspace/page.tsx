@@ -29,7 +29,7 @@ export default function WorkspacePage() {
   };
 
   return (
-    <div className="flex h-screen w-full bg-[#181818] text-slate-100 font-sans overflow-hidden">
+    <div className="flex h-screen w-full bg-lightmode-brightgray30-100 text-slate-100 font-sans overflow-hidden">
       {/* Sidebar / Explorer Panel */}
       <aside className="w-64 border-r border-slate-800 bg-[#141414] flex flex-col shrink-0">
         <div className="px-4 py-3 border-b border-slate-800 text-xs font-semibold text-slate-400 uppercase tracking-wider select-none">
@@ -41,7 +41,7 @@ export default function WorkspacePage() {
       </aside>
 
       {/* Main Content / Monaco Code Editor View */}
-      <main className="flex-1 flex flex-col h-full overflow-hidden bg-[#181818]">
+      <main className="flex-1 flex flex-col h-full overflow-hidden bg-lightmode-brightgray30-100">
         {isLoadingFile && (
           <div className="h-9 border-b border-slate-800 bg-[#141414] flex items-center px-4 text-xs font-mono text-slate-500 animate-pulse">
             Loading file content...
