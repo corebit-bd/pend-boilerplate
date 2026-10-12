@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { fetchFileTree, FileNode } from '@/lib/api/workspace';
+import { FileIcon } from './FileIcon';
 
 export interface FileTreeProps {
   /** Optional file selection callback trigger */
@@ -46,22 +47,24 @@ const TreeNode: React.FC<TreeNodeProps> = ({ node, onSelectFile, selectedFilePat
   };
 
   return (
-    <div className="select-none font-mono text-xs">
+    <div className="select-none font-sans text-xs">
       <div
         onClick={handleToggle}
         style={{ paddingLeft: `${depth * 12 + 8}px` }}
-        className={`flex items-center py-1 px-2 cursor-pointer hover:bg-slate-800/60 transition-colors ${
-          isSelected ? 'bg-slate-800 text-indigo-400 font-medium' : 'text-slate-300'
+        className={`flex items-center gap-2 py-1 px-2 cursor-pointer transition-colors ${
+          isSelected
+            ? 'bg-[#37373d] text-white font-medium'
+            : 'text-[#cccccc] hover:bg-[#2a2d2e] hover:text-white'
         } ${node.is_ignored ? 'opacity-40 hover:opacity-75' : ''}`}
       >
-        <span className="mr-1.5 w-4 inline-block text-center text-slate-400">
-          {node.is_directory ? (isOpen ? '📂' : '📁') : '📄'}
-        </span>
-        <span className={`truncate ${node.is_directory ? 'text-indigo-300 font-medium' : ''}`}>
-          {node.name}
-        </span>
+        <FileIcon
+          filename={node.name}
+          isDirectory={node.is_directory}
+          isOpen={isOpen}
+        />
+        <span className="truncate">{node.name}</span>
         {isLoading && (
-          <span className="ml-2 text-[10px] text-slate-500 animate-pulse font-sans">
+          <span className="ml-auto text-[10px] text-slate-500 animate-pulse font-sans">
             loading...
           </span>
         )}
