@@ -4,6 +4,7 @@ from typing import Any, Dict, List, Optional
 
 import pathspec
 from fastapi import APIRouter, HTTPException, Query
+from pydantic import BaseModel
 
 router = APIRouter(prefix="/api/filesystem", tags=["filesystem"])
 
@@ -98,3 +99,25 @@ def get_file_content(path: str = Query(..., description="Relative Path to File")
         return {"path": path, "content": content}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to read File : {str(e)}")
+
+
+class FileWriteRequest(BaseModel):
+    content: str
+
+
+@router.put("/content")
+def update_file_content(
+    path: str = Query(..., description="Relative Path to File"),
+    req: FileWriteRequest = None,
+):
+    """Safely write/update raw text content to a target file."""
+    file_path = resolve_safe_path(path)
+
+    if file_path.is_dir():
+        raise HTTPException(status_code=400, detail="Target path is a directory.")
+
+    try:
+        file_path.write_text(req.content, encoding="utf-8")
+        return {"status": "success", "path": path}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to write File : {str(e)}")
