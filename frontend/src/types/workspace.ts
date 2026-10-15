@@ -18,6 +18,8 @@ export interface AgentDispatchResponse {
     allowed_tools: string[];
     /** Execution Status String */
     status: string;
+    /** Indicates whether a file was modified by the Agent */
+    file_updated?: boolean;
 }
 
 /**

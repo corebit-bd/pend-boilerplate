@@ -15,3 +15,19 @@ export const Default: Story = {
     isLoading: false,
   },
 };
+
+export const WithTargetFile: Story = {
+  args: {
+    onDispatch: (prompt, target) => console.log('Dispatch:', { prompt, target }),
+    isLoading: false,
+    targetFile: 'README.md',
+  },
+};
+
+export const LoadingState: Story = {
+  args: {
+    onDispatch: (prompt, target) => console.log('Dispatch:', { prompt, target }),
+    isLoading: true,
+    targetFile: 'src/app/page.tsx',
+  },
+};
