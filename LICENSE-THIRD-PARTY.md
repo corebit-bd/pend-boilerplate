@@ -19,7 +19,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Django (BSD 3-Clause License)
 
-- **Version** : >=6.1.1,<6.2
+- **Version** : >=6.1.2,<6.2
 - **Copyright** : Django Software Foundation & Individual Ccontributors
 - **License** : BSD 3-Clause
 - **Website** : https://www.djangoproject.com/
@@ -255,7 +255,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Black (MIT License)
 
-- **Version** : >=26.10.0,<27.0
+- **Version** : >=26.10.1,<27.0
 - **Copyright** : Łukasz Langa & Contributors
 - **License** : MIT
 - **Website** : https://black.readthedocs.io/
@@ -498,6 +498,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : October 11, 2026
+**Last Updated** : October 16, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.

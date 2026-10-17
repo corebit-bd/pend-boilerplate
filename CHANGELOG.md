@@ -5,6 +5,29 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.42] - October 16, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`django`** Updated Requirement from `<6.2,>=6.1.1` to `>=6.1.2,<6.2`.
+  - **`drf-yasg`** Updated Requirement from `<2.0,>=1.21.15` to `>=1.21.18,<2.0`.
+  - **`pgvector`** Updated Requirement from `>=0.5.0` to `>=0.5.1`.
+  - **`python-dotenv`** Requirement Updated from `<2.0,>=1.2.3` to `>=1.2.4,<2.0`.
+  - **`black`** Updated Requirement from `<27.0,>=26.10.0` to `>=26.10.1,<27.0`.
+- **Frontend** : 
+  - **`@storybook/addon-onboarding`** Bumped from `10.6.0` to `10.6.2`.
+  - **`next`** Bumped from `16.3.7` to `16.4.0`.
+  - **`@vitest/coverage-v8`** Bumped from `5.0.3` to `5.0.4`.
+  - **`eslint-config-next`** Bumped from `16.3.5` to `16.4.0`.
+  - **`vitest`** Bumped from `5.0.3` to `5.0.4`.
+- **Mobile** : 
+  - **`expo-constants`** Bumped from `58.0.10` to `58.0.11`.
+  - **`zod`** Bumped from `4.6.5` to `4.6.7`.
+  - **`expo-status-bar`** Bumped from `56.0.4` to `58.0.3`.
+  - **`react-hook-form`** Bumped from `7.89.0` to `7.90.0`.
+  - **`expo-secure-store`** Bumped from `57.0.4` to `58.0.2`.
+
 # [1.0.41] - October 09, 2026
 
 ### Upgraded
@@ -1367,4 +1390,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.41 | **Released** : October 09, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.42 | **Released** : October 16, 2026
