@@ -2,13 +2,13 @@
 
 ## 📋 Overview
 
-The backend is built with Django >=6.1.1,<6.2 and provides a robust, scalable foundation for the PEND boilerplate. It implements a multi-tenant, headless architecture with support for REST, GraphQL, and FastAPI edge services.
+The backend is built with Django >=6.1.2,<6.2 and provides a robust, scalable foundation for the PEND boilerplate. It implements a multi-tenant, headless architecture with support for REST, GraphQL, and FastAPI edge services.
 
 ## 🏗️ Architecture
 
 ### Core Technologies
 
-- **Django >=6.1.1,<6.2** - Main Application Framework
+- **Django >=6.1.2,<6.2** - Main Application Framework
 - **Django REST Framework >=3.18.1,<4.0** - RESTful API
 - **Graphene-Django 3.2.3** - GraphQL API
 - **FastAPI >=0.142.2,<1.0** - Edge Services for High-Performance Endpoints
@@ -378,12 +378,12 @@ black . && isort . && flake8 .
 
 ### Production Dependencies (requirements.txt)
 
-- Django >=6.1.1,<6.2 (LTS)
+- Django >=6.1.2,<6.2 (LTS)
 - djangorestframework >=3.18.1,<4.0
 - django-cors-headers 4.9+
 - psycopg2-binary >=2.9.13,<3.0
 - django-environ >=0.14.0,<1.0
-- drf-yasg >=1.21.15,<2.0 (API Documentation)
+- drf-yasg >=1.21.18,<2.0 (API Documentation)
 - djangorestframework-simplejwt 5.5.1+ (JWT Auth)
 - django-filter >=26.1,<27.0
 - graphene-django 3.2.3+
@@ -400,7 +400,7 @@ black . && isort . && flake8 .
 - pytest >=9.1.1,<10.0
 - pytest-django >=4.14.0,<5.0
 - pytest-cov >=7.1.0,<8.0
-- black >=26.10.0,<27.0
+- black >=26.10.1,<27.0
 - flake8 >=7.4.1,<8.0
 - isort >=9.0.2,<10.0
 - ipython >=9.17.1,<10.0
@@ -693,4 +693,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : October 09, 2026
+**Last Updated** : October 16, 2026
