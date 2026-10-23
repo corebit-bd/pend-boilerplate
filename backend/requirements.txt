@@ -57,4 +57,4 @@ websockets>=12.0,<17.0
 watchdog>=4.0.0
 
 # Path Specification for File System Watcher
-pathspec>=0.11.0
+pathspec>=1.1.1
