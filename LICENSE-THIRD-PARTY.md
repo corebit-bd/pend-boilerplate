@@ -27,7 +27,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Django REST Framework (BSD 3-Clause License)
 
-- **Version** : >=3.18.1,<4.0
+- **Version** : >=3.18.3,<4.0
 - **Copyright** : Tom Christie & Individual Contributors
 - **License** : BSD 3-Clause
 - **Website** : https://www.django-rest-framework.org/
@@ -187,7 +187,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Expo (MIT License)
 
-- **Version** : 57.0.27
+- **Version** : 58.0.16
 - **Copyright** : Expo Contributors
 - **License** : MIT
 - **Website** : https://expo.dev/
@@ -498,6 +498,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : October 16, 2026
+**Last Updated** : October 23, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.
