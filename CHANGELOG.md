@@ -5,6 +5,31 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.43] - October 23, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`websockets`** Updated Requirement from `<17.0,>=12.0` to `>=17.3,<18.0`.
+  - **`pydantic`** Updated Requirement from `<3.0,>=2.13.5` to `>=2.14.1,<3.0`.
+  - **`djangorestframework`** Updated Requirement from `<4.0,>=3.18.1` to `>=3.18.3,<4.0`.
+  - **`pathspec`** Updated Requirement from `>=0.11.0` to `>=1.1.1`.
+  - **`google-genai`** Requirement Updated from `>=2.28.0` to `>=2.31.0`.
+- **Frontend** : 
+  - **`eslint-plugin-storybook`** Bumped from `10.6.0` to `10.6.2`.
+  - **`vite`** Bumped from `8.3.0` to `8.3.4`.
+  - **`react-hook-form`** Bumped from `7.89.0` to `7.90.0`.
+  - **`cypress`** Bumped from `16.1.0` to `16.2.0`.
+  - **`postcss`** Bumped from `8.5.29` to `8.5.31`.
+- **Mobile** : 
+  - **`react`** Bumped from `19.3.0` to `19.3.1`.
+  - **`@react-navigation/bottom-tabs`** Bumped from `7.20.0` to `7.21.0`.
+  - **`@hookform/resolvers`** Bumped from `5.9.1` to `6.0.0`.
+  - **`react-native`** Bumped from `0.87.1` to `0.88.0`.
+  - **`expo`** Bumped from `57.0.27` to `58.0.16`.
+
+---
+
 # [1.0.42] - October 16, 2026
 
 ### Upgraded
@@ -27,6 +52,8 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **`expo-status-bar`** Bumped from `56.0.4` to `58.0.3`.
   - **`react-hook-form`** Bumped from `7.89.0` to `7.90.0`.
   - **`expo-secure-store`** Bumped from `57.0.4` to `58.0.2`.
+
+---
 
 # [1.0.41] - October 09, 2026
 
@@ -1390,4 +1417,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.42 | **Released** : October 16, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.43 | **Released** : October 23, 2026
