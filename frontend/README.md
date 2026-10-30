@@ -895,7 +895,7 @@ npm run storybook -- --no-manager-cache
 
 ```json
 {
-  "next": "^16.3.7",
+  "next": "^16.4.0",
   "react": "^19.2.8",
   "react-dom": "^19.2.8",
   "@reduxjs/toolkit": "^2.13.0",
@@ -976,4 +976,4 @@ npm run storybook -- --no-manager-cache
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : October 23, 2026
+**Last Updated** : October 31, 2026
