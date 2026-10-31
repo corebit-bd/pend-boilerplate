@@ -5,6 +5,31 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.44] - October 31, 2026
+
+### Upgraded
+
+- **Backend** : 
+  - **`fastapi`** Updated Requirement from `<1.0,>=0.142.2` to `>=0.162.0,<1.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.41.0` to `>=40.43.0,<41.0`.
+  - **`google-genai`** Requirement Updated from `>=2.31.0` to `>=2.33.0`.
+  - **`django-filter`** Updated Requirement from `<27.0,>=26.1` to `>=26.2,<27.0`.
+- **Frontend** : 
+  - **`@storybook/nextjs-vite`** Bumped from `10.6.0` to `10.6.4`.
+  - **`@storybook/addon-a11y`** Bumped from `10.6.1` to `10.6.4`.
+  - **`next`** Bumped from `16.3.7` to `16.4.0`.
+- **Mobile** : 
+  - **`@hookform/resolvers`** Bumped from `6.0.0` to `6.0.1`.
+  - **`expo`** Bumped from `58.0.16` to `58.0.19`.
+  - **`expo-status-bar`** Bumped from `58.0.3` to `58.0.4`.
+  - **`@react-navigation/stack`** Bumped from `7.12.0` to `7.12.1`.
+
+### Fixed
+- **Frontend** : 
+  - Synced all Storybook Packages to Version `10.6.4` ([7022c07](https://github.com/corebit-bd/pend-boilerplate/commit/7022c076eb02cac0215c13b3de9b568ef79b3adf))
+
+---
+
 # [1.0.43] - October 23, 2026
 
 ### Upgraded
@@ -1417,4 +1442,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.43 | **Released** : October 23, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.44 | **Released** : October 31, 2026
