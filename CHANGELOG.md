@@ -5,6 +5,29 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.45] - November 06, 2026
+
+- **Backend** : 
+  - **`faker`** Updated Requirement from `<41.0,>=40.43.0` to `>=40.44.0,<41.0`.
+  - **`websockets`** Updated Requirement from `<18.0,>=17.3` to `>=17.4,<18.0`.
+  - **`ipython`** Updated Requirement from `<10.0,>=9.17.1` to `>=9.18.1,<10.0`.
+  - **`pytest`** Updated Requirement from `<10.0,>=9.1.1` to `>=9.2.0,<10.0`.
+  - **`watchdog`** Updated Requirement from `>=4.0.0` to `>=7.0.0`.
+- **Frontend** : 
+  - **`next`** Bumped from `16.4.3` to `16.4.4`.
+  - **`eslint-config-next`** Bumped from `16.4.3` to `16.4.4`.
+  - **`vitest`** Bumped from `5.0.5` to `5.1.0`.
+  - **`@vitest/coverage-v8`** Bumped from `5.0.5` to `5.1.0`.
+  - **`tailwindcss`** Bumped from `4.3.3` to `4.3.4`.
+- **Mobile** : 
+  - **`@hookform/resolvers`** Bumped from `6.0.1` to `7.0.1`.
+  - **`react-native-safe-area-context`** Bumped from `5.10.1` to `5.11.1`.
+  - **`expo-constants`** Bumped from `58.0.13` to `58.0.14`.
+  - **`react-native`** Bumped from `0.88.0` to `0.88.1`.
+  - **`react-native-screens`** Bumped from `4.28.0` to `4.30.1`.
+
+---
+
 # [1.0.44] - October 31, 2026
 
 ### Upgraded
