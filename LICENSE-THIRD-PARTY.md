@@ -215,7 +215,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### `pytest` (MIT License)
 
-- **Version** : >=9.1.1,<10.0
+- **Version** : >=9.2.0,<10.0
 - **Copyright** : Holger Krekel & `pytest-dev` Team
 - **License** : MIT
 - **Website** : https://pytest.org/
@@ -498,6 +498,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : October 31, 2026
+**Last Updated** : November 06, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.

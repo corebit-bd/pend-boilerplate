@@ -397,17 +397,17 @@ black . && isort . && flake8 .
 
 ### Development Dependencies (requirements-dev.txt)
 
-- pytest >=9.1.1,<10.0
+- pytest >=9.2.0,<10.0
 - pytest-django >=4.14.0,<5.0
 - pytest-cov >=7.1.0,<8.0
 - black >=26.10.1,<27.0
 - flake8 >=7.4.1,<8.0
 - isort >=9.0.2,<10.0
-- ipython >=9.17.1,<10.0
+- ipython >=9.18.1,<10.0
 - django-debug-toolbar >=8.0.0,<9.0
 - django-extensions 4.1+
 - factory-boy 3.3.3+ (Test Factories)
-- faker >=40.43.0,<41.0 (Fake Data Generation)
+- faker >=40.44.0,<41.0 (Fake Data Generation)
 
 ## 🔒 Security
 
@@ -693,4 +693,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : October 31, 2026
+**Last Updated** : November 06, 2026

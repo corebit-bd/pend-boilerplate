@@ -127,7 +127,7 @@ This Boilerplate serves as a **Template** for Rapidly Scaffolding New Projects w
 
 ### Testing & Quality
 
-- **pytest >=9.1.1,<10.0 - Python Testing
+- **pytest >=9.2.0,<10.0 - Python Testing
 - **Jest** - JavaScript Testing
 - **Codecov** - Code Coverage Reporting
 - **Trivy** - Security Vulnerability Scanning
@@ -1357,6 +1357,6 @@ This ensures we stay within GitHub's 10GB limit while maintaining fast build spe
 
 **Built with ❤️ by [@corebit-bd](https://github.com/corebit-bd)**
 
-**Version** : 1.0.44
-**Last Updated** : October 31, 2026  
+**Version** : 1.0.45
+**Last Updated** : November 06, 2026  
 **Status** : Production Ready & Scaffolding Ready ✅
