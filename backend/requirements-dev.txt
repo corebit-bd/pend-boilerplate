@@ -23,7 +23,7 @@ faker>=40.44.0,<41.0
 
 # Google APIs
 google-genai>=2.33.0
-watchdog>=6.0.0
+watchdog>=7.0.0
 
 # Environment Variables Management
 python-dotenv>=1.2.4,<2.0
