@@ -13,7 +13,7 @@
     "@react-navigation/bottom-tabs": "^7.21.0",
     "@react-navigation/native": "^7.3.18",
     "@react-navigation/stack": "^7.12.1",
-    "@reduxjs/toolkit": "^2.13.0",
+    "@reduxjs/toolkit": "^2.14.0",
     "axios": "^1.21.1",
     "expo": "~58.0.23",
     "expo-constants": "~58.0.15",
