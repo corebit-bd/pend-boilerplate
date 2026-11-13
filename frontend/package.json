@@ -36,7 +36,7 @@
     "@storybook/addon-docs": "^10.6.4",
     "@storybook/addon-onboarding": "^10.6.6",
     "@storybook/addon-vitest": "^10.6.4",
-    "@storybook/nextjs-vite": "^10.6.4",
+    "@storybook/nextjs-vite": "^10.6.7",
     "@tailwindcss/postcss": "^4",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.0",
