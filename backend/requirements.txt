@@ -54,7 +54,7 @@ google-genai>=3.0.0
 websockets>=17.4,<18.0
 
 # File System Watcher for AITDDLC
-watchdog>=7.0.0
+watchdog>=7.1.0
 
 # Path Specification for File System Watcher
 pathspec>=1.1.1
