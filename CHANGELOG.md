@@ -5,6 +5,30 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.46] - November 13, 2026
+
+- **Backend** : 
+  - **`google-genai`** Requirement Updated from `>=2.33.0` to `>=3.0.0`.
+  - **`django`** Updated Requirement from `<6.2,>=6.1.2` to `>=6.1.3,<6.2`.
+  - **`fastapi`** Updated Requirement from `<1.0,>=0.162.0` to `>=0.162.2,<1.0`.
+  - **`celery`** Updated Requirement from `<6.0,>=5.6.3` to `>=5.7.0,<6.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.44.0` to `>=40.52.0,<41.0`.
+  - **`watchdog`** Updated Requirement from `>=7.0.0` to `>=7.1.0`.
+- **Frontend** : 
+  - **`@storybook/addon-onboarding`** Bumped from `10.6.5` to `10.6.6`.
+  - **`@storybook/nextjs-vite`** Bumped from `10.6.5` to `10.6.7`.
+  - **`@storybook/addon-a11y`** Bumped from `10.6.5` to `10.6.7`.
+  - **`eslint-config-next`** Bumped from `16.4.4` to `16.4.6`.
+  - **`storybook`** Bumped from `10.6.5` to `10.6.7`.
+- **Mobile** : 
+  - **`expo-constants`** Bumped from `58.0.14` to `58.0.15`.
+  - **`axios`** Bumped from `1.20.0` to `1.21.1`.
+  - **`@hookform/resolvers`** Bumped from `7.0.1` to `7.0.5`.
+  - **`expo`** Bumped from `58.0.19` to `58.0.23`.
+  - **`@reduxjs/toolkit`** Bumped from `2.13.0` to `2.14.0`.
+
+---
+
 # [1.0.45] - November 06, 2026
 
 - **Backend** : 
@@ -1465,4 +1489,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.44 | **Released** : October 31, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.46 | **Released** : November 14, 2026

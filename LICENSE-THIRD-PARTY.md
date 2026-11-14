@@ -19,7 +19,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Django (BSD 3-Clause License)
 
-- **Version** : >=6.1.2,<6.2
+- **Version** : >=6.1.3,<6.2
 - **Copyright** : Django Software Foundation & Individual Ccontributors
 - **License** : BSD 3-Clause
 - **Website** : https://www.djangoproject.com/
@@ -51,7 +51,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### FastAPI (MIT License)
 
-- **Version** : >=0.162.0,<1.0
+- **Version** : >=0.162.2,<1.0
 - **Copyright** : Sebastián Ramírez
 - **License** : MIT
 - **Website** : https://fastapi.tiangolo.com/
@@ -59,7 +59,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Celery (BSD 3-Clause License)
 
-- **Version** : 5.6.3+
+- **Version** : >=5.7.0,<6.0
 - **Copyright** : Ask Solem & Contributors
 - **License** : BSD 3-Clause
 - **Website** : https://docs.celeryq.dev/
@@ -187,7 +187,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Expo (MIT License)
 
-- **Version** : 58.0.19
+- **Version** : 58.0.23
 - **Copyright** : Expo Contributors
 - **License** : MIT
 - **Website** : https://expo.dev/
@@ -247,7 +247,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Storybook (MIT License)
 
-- **Version** : 10.4.1
+- **Version** : 10.6.7
 - **Copyright** : Storybook Contributors
 - **License** : MIT
 - **Website** : https://storybook.js.org/
@@ -498,6 +498,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : November 06, 2026
+**Last Updated** : November 14, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.
