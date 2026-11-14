@@ -15,7 +15,7 @@ The frontend is built with NextJS 16 and provides a modern, performant, and type
 - **React Hook Form** - Performant Form Handling
 - **Zod** - Schema Validation
 - **Axios** - HTTP Client for API Communication
-- **Storybook 10.4.1 (NextJS + Vite Builder)** - Component Documentation & Development
+- **Storybook 10.6.7 (NextJS + Vite Builder)** - Component Documentation & Development
 
 ### Design Principles
 
@@ -923,12 +923,12 @@ npm run storybook -- --no-manager-cache
   "@types/jest": "^30.0.0",
   "cypress": "^16.2.0",
   "eslint": "9.39.5",
-  "eslint-config-next": "^16.4.4",
+  "eslint-config-next": "^16.4.6",
   "@types/node": "^26",
   "@types/react": "^19.2.18",
   "@types/react-dom": "^19.2.4",
   "typescript": "^6",
-  "storybook": "^10.4.1",
+  "storybook": "^10.6.7",
 }
 ```
 
@@ -976,4 +976,4 @@ npm run storybook -- --no-manager-cache
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : November 06, 2026
+**Last Updated** : November 14, 2026

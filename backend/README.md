@@ -2,19 +2,19 @@
 
 ## 📋 Overview
 
-The backend is built with Django >=6.1.2,<6.2 and provides a robust, scalable foundation for the PEND boilerplate. It implements a multi-tenant, headless architecture with support for REST, GraphQL, and FastAPI edge services.
+The backend is built with Django >=6.1.3,<6.2 and provides a robust, scalable foundation for the PEND boilerplate. It implements a multi-tenant, headless architecture with support for REST, GraphQL, and FastAPI edge services.
 
 ## 🏗️ Architecture
 
 ### Core Technologies
 
-- **Django >=6.1.2,<6.2** - Main Application Framework
+- **Django >=6.1.3,<6.2** - Main Application Framework
 - **Django REST Framework >=3.18.3,<4.0** - RESTful API
 - **Graphene-Django 3.2.3** - GraphQL API
-- **FastAPI >=0.162.0,<1.0** - Edge Services for High-Performance Endpoints
+- **FastAPI >=0.162.2,<1.0** - Edge Services for High-Performance Endpoints
 - **PostgreSQL 15** - Primary Database
 - **Redis >=8.1.0,<9.0** - Caching & Task Queue
-- **Celery 5.6.3** - Asynchronous Task Processing
+- **Celery >=5.7.0,<6.0** - Asynchronous Task Processing
 - **JWT (RSA256)** - Secure Authentication
 
 ### Design Patterns
@@ -378,7 +378,7 @@ black . && isort . && flake8 .
 
 ### Production Dependencies (requirements.txt)
 
-- Django >=6.1.2,<6.2 (LTS)
+- Django >=6.1.3,<6.2 (LTS)
 - djangorestframework >=3.18.3,<4.0
 - django-cors-headers 4.9+
 - psycopg2-binary >=2.9.13,<3.0
@@ -387,10 +387,10 @@ black . && isort . && flake8 .
 - djangorestframework-simplejwt 5.5.1+ (JWT Auth)
 - django-filter >=26.2,<27.0
 - graphene-django 3.2.3+
-- fastapi >=0.162.0,<1.0
+- fastapi >=0.162.2,<1.0
 - uvicorn >=0.54.0,<1.0
 - pydantic >=2.14.1,<3.0
-- celery 5.6.3+
+- celery >=5.7.0,<6.0
 - redis >=8.1.0,<9.0
 - gunicorn >=26.2.0,<27.0
 - whitenoise >=6.12.0,<7.0
@@ -407,7 +407,7 @@ black . && isort . && flake8 .
 - django-debug-toolbar >=8.0.0,<9.0
 - django-extensions 4.1+
 - factory-boy 3.3.3+ (Test Factories)
-- faker >=40.44.0,<41.0 (Fake Data Generation)
+- faker >=40.52.0,<41.0 (Fake Data Generation)
 
 ## 🔒 Security
 
@@ -693,4 +693,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : November 06, 2026
+**Last Updated** : November 14, 2026
