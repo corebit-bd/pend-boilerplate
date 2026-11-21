@@ -5,22 +5,45 @@ All Notable Changes to the PEND Boilerplate Project will be Documented in this F
 The Format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# [1.0.47] - November 21, 2026
+
+- **Backend** :
+  - **`google-genai`** Requirement Updated from `>=3.0.0` to `>=3.4.0`.
+  - **`faker`** Updated Requirement from `<41.0,>=40.52.0` to `>=40.54.0,<41.0`.
+  - **`flake8`** Upgraded Dependency Range from `<8.0,>=7.4.1` to `>=7.5.0,<8.0`.
+  - **`fastapi`** Updated Requirement from `<1.0,>=0.162.2` to `>=0.163.1,<1.0`.
+  - **`pydantic`** Updated Requirement from `<3.0,>=2.14.1` to `>=2.14.3,<3.0`.
+- **Frontend** :
+  - **`@storybook/addon-docs`** Bumped from `10.6.5` to `10.6.7`.
+  - **`@vitest/browser-playwright`** Bumped from `5.0.5` to `5.1.0`.
+  - **`postcss`** Bumped from `8.5.32` to `8.5.33`.
+  - **`tailwindcss`** Bumped from `4.3.4` to `4.3.5`.
+  - **`react-hook-form`** Bumped from `7.91.0` to `7.92.0`.
+- **Mobile** :
+  - **`@hookform/resolvers`** Bumped from `7.0.5` to `7.0.7`.
+  - **`@react-navigation/native`** Bumped from `7.5.1` to `7.5.2`.
+  - **`react-hook-form`** Bumped from `7.90.0` to `7.92.0`.
+  - **`react-redux`** Bumped from `9.3.0` to `9.3.1`.
+  - **`expo-status-bar`** Bumped from `58.0.4` to `58.0.5`.
+
+---
+
 # [1.0.46] - November 13, 2026
 
-- **Backend** : 
+- **Backend** :
   - **`google-genai`** Requirement Updated from `>=2.33.0` to `>=3.0.0`.
   - **`django`** Updated Requirement from `<6.2,>=6.1.2` to `>=6.1.3,<6.2`.
   - **`fastapi`** Updated Requirement from `<1.0,>=0.162.0` to `>=0.162.2,<1.0`.
   - **`celery`** Updated Requirement from `<6.0,>=5.6.3` to `>=5.7.0,<6.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.44.0` to `>=40.52.0,<41.0`.
   - **`watchdog`** Updated Requirement from `>=7.0.0` to `>=7.1.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@storybook/addon-onboarding`** Bumped from `10.6.5` to `10.6.6`.
   - **`@storybook/nextjs-vite`** Bumped from `10.6.5` to `10.6.7`.
   - **`@storybook/addon-a11y`** Bumped from `10.6.5` to `10.6.7`.
   - **`eslint-config-next`** Bumped from `16.4.4` to `16.4.6`.
   - **`storybook`** Bumped from `10.6.5` to `10.6.7`.
-- **Mobile** : 
+- **Mobile** :
   - **`expo-constants`** Bumped from `58.0.14` to `58.0.15`.
   - **`axios`** Bumped from `1.20.0` to `1.21.1`.
   - **`@hookform/resolvers`** Bumped from `7.0.1` to `7.0.5`.
@@ -31,19 +54,19 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 # [1.0.45] - November 06, 2026
 
-- **Backend** : 
+- **Backend** :
   - **`faker`** Updated Requirement from `<41.0,>=40.43.0` to `>=40.44.0,<41.0`.
   - **`websockets`** Updated Requirement from `<18.0,>=17.3` to `>=17.4,<18.0`.
   - **`ipython`** Updated Requirement from `<10.0,>=9.17.1` to `>=9.18.1,<10.0`.
   - **`pytest`** Updated Requirement from `<10.0,>=9.1.1` to `>=9.2.0,<10.0`.
   - **`watchdog`** Updated Requirement from `>=4.0.0` to `>=7.0.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`next`** Bumped from `16.4.3` to `16.4.4`.
   - **`eslint-config-next`** Bumped from `16.4.3` to `16.4.4`.
   - **`vitest`** Bumped from `5.0.5` to `5.1.0`.
   - **`@vitest/coverage-v8`** Bumped from `5.0.5` to `5.1.0`.
   - **`tailwindcss`** Bumped from `4.3.3` to `4.3.4`.
-- **Mobile** : 
+- **Mobile** :
   - **`@hookform/resolvers`** Bumped from `6.0.1` to `7.0.1`.
   - **`react-native-safe-area-context`** Bumped from `5.10.1` to `5.11.1`.
   - **`expo-constants`** Bumped from `58.0.13` to `58.0.14`.
@@ -56,23 +79,24 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`fastapi`** Updated Requirement from `<1.0,>=0.142.2` to `>=0.162.0,<1.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.41.0` to `>=40.43.0,<41.0`.
   - **`google-genai`** Requirement Updated from `>=2.31.0` to `>=2.33.0`.
   - **`django-filter`** Updated Requirement from `<27.0,>=26.1` to `>=26.2,<27.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@storybook/nextjs-vite`** Bumped from `10.6.0` to `10.6.4`.
   - **`@storybook/addon-a11y`** Bumped from `10.6.1` to `10.6.4`.
   - **`next`** Bumped from `16.3.7` to `16.4.0`.
-- **Mobile** : 
+- **Mobile** :
   - **`@hookform/resolvers`** Bumped from `6.0.0` to `6.0.1`.
   - **`expo`** Bumped from `58.0.16` to `58.0.19`.
   - **`expo-status-bar`** Bumped from `58.0.3` to `58.0.4`.
   - **`@react-navigation/stack`** Bumped from `7.12.0` to `7.12.1`.
 
 ### Fixed
-- **Frontend** : 
+
+- **Frontend** :
   - Synced all Storybook Packages to Version `10.6.4` ([7022c07](https://github.com/corebit-bd/pend-boilerplate/commit/7022c076eb02cac0215c13b3de9b568ef79b3adf))
 
 ---
@@ -81,19 +105,19 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`websockets`** Updated Requirement from `<17.0,>=12.0` to `>=17.3,<18.0`.
   - **`pydantic`** Updated Requirement from `<3.0,>=2.13.5` to `>=2.14.1,<3.0`.
   - **`djangorestframework`** Updated Requirement from `<4.0,>=3.18.1` to `>=3.18.3,<4.0`.
   - **`pathspec`** Updated Requirement from `>=0.11.0` to `>=1.1.1`.
   - **`google-genai`** Requirement Updated from `>=2.28.0` to `>=2.31.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`eslint-plugin-storybook`** Bumped from `10.6.0` to `10.6.2`.
   - **`vite`** Bumped from `8.3.0` to `8.3.4`.
   - **`react-hook-form`** Bumped from `7.89.0` to `7.90.0`.
   - **`cypress`** Bumped from `16.1.0` to `16.2.0`.
   - **`postcss`** Bumped from `8.5.29` to `8.5.31`.
-- **Mobile** : 
+- **Mobile** :
   - **`react`** Bumped from `19.3.0` to `19.3.1`.
   - **`@react-navigation/bottom-tabs`** Bumped from `7.20.0` to `7.21.0`.
   - **`@hookform/resolvers`** Bumped from `5.9.1` to `6.0.0`.
@@ -106,19 +130,19 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`django`** Updated Requirement from `<6.2,>=6.1.1` to `>=6.1.2,<6.2`.
   - **`drf-yasg`** Updated Requirement from `<2.0,>=1.21.15` to `>=1.21.18,<2.0`.
   - **`pgvector`** Updated Requirement from `>=0.5.0` to `>=0.5.1`.
   - **`python-dotenv`** Requirement Updated from `<2.0,>=1.2.3` to `>=1.2.4,<2.0`.
   - **`black`** Updated Requirement from `<27.0,>=26.10.0` to `>=26.10.1,<27.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@storybook/addon-onboarding`** Bumped from `10.6.0` to `10.6.2`.
   - **`next`** Bumped from `16.3.7` to `16.4.0`.
   - **`@vitest/coverage-v8`** Bumped from `5.0.3` to `5.0.4`.
   - **`eslint-config-next`** Bumped from `16.3.5` to `16.4.0`.
   - **`vitest`** Bumped from `5.0.3` to `5.0.4`.
-- **Mobile** : 
+- **Mobile** :
   - **`expo-constants`** Bumped from `58.0.10` to `58.0.11`.
   - **`zod`** Bumped from `4.6.5` to `4.6.7`.
   - **`expo-status-bar`** Bumped from `56.0.4` to `58.0.3`.
@@ -131,18 +155,18 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`google-genai`** Requirement Updated from `>=2.25.0` to `>=2.28.0`.
   - **`black`** Updated Requirement from `<27.0,>=26.5.1` to `>=26.10.0,<27.0`.
   - **`fastapi`** Updated Requirement from `<1.0,>=0.141.1` to `>=0.142.2,<1.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.40.0` to `>=40.41.0,<41.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@storybook/addon-a11y`** Bumped from `10.6.0` to `10.6.1`.
   - **`@vitest/coverage-v8`** Bumped from `5.0.1` to `5.0.3`.
   - **`@vitest/browser-playwright`** Bumped from `5.0.2` to `5.0.3`.
   - **`postcss`** Bumped from `8.5.28` to `8.5.29`.
   - **`vitest`** Bumped from `5.0.2` to `5.0.3`.
-- **Mobile** : 
+- **Mobile** :
   - **`zod`** Bumped from `4.5.4` to `4.6.5`.
   - **`expo-constants`** Bumped from `58.0.8` to `58.0.10`.
   - **`@react-navigation/stack`** Bumped from `7.11.2` to `7.12.0`.
@@ -155,18 +179,18 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`isort`** Upgraded Dependency Range from `<10.0,>=9.0.1` to `>=9.0.2,<10.0`.
   - **`flake8`** Upgraded Dependency Range from `<8.0,>=7.3.0` to `>=7.4.1,<8.0`.
   - **`uvicorn`** Updated Requirement from `<1.0,>=0.53.0` to `>=0.54.0,<1.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.39.0` to `>=40.40.0,<41.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@vitest/browser-playwright`** Bumped from `5.0.1` to `5.0.2`.
   - **`react-hook-form`** Bumped from `7.88.0` to `7.89.0`.
   - **`@reduxjs/toolkit`** Bumped from `2.12.0` to `2.13.0`.
   - **`vitest`** Bumped from `5.0.1` to `5.0.2`.
   - **`next`** Bumped from `16.3.5` to `16.3.7`.
-- **Mobile** : 
+- **Mobile** :
   - **`expo-constants`** Bumped from `58.0.5` to `58.0.8`.
   - `react` & `@types/react` (Reference : [PR 671](https://github.com/corebit-bd/pend-boilerplate/pull/671))
   - **`@reduxjs/toolkit`** Bumped from `2.12.0` to `2.13.0`.
@@ -179,16 +203,16 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`pgvector`** Updated Requirement from `>=0.2.5` to `>=0.5.0`.
   - **`google-genai`** Requirement Updated from `>=2.23.0` to `>=2.25.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@types/node`** Bumped from `26.5.1` to `26.6.2`.
   - **`jest`** Bumped from `30.5.1` to `30.5.2`.
   - **`@vitest/browser-playwright`** Bumped from `5.0.0` to `5.0.1`.
   - **`cypress`** Bumped from `16.0.0` to `16.1.0`.
   - **`jest-environment-jsdom`** Bumped from `30.5.1` to `30.5.2`.
-- **Mobile** : 
+- **Mobile** :
   - **`@react-navigation/stack`** Bumped from `7.10.24` to `7.11.2`.
   - **`react-native-safe-area-context`** Bumped from `5.9.1` to `5.10.0`.
   - **`expo`** Bumped from `57.0.22` to `57.0.24`.
@@ -197,7 +221,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- **Backend** : 
+- **Backend** :
   - **`websockets`** Updated Requirement from `>=12.0` to `>=12.0,<17.0`.
 
 ---
@@ -206,18 +230,18 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`psycopg2-binary`** Updated Requirement from `<3.0,>=2.9.12` to `>=2.9.13,<3.0`.
   - **`google-genai`** Requirement Updated from `>=2.22.0` to `>=2.23.0`.
   - **`uvicorn`** Updated Requirement from `<1.0,>=0.52.4` to `>=0.53.0,<1.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.38.0` to `>=40.39.0,<41.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`zod`** Bumped from `4.6.2` to `4.6.5`.
   - **`cypress`** Bumped from `15.21.1` to `16.0.0`.
   - **`@vitest/coverage-v8`** Bumped from `5.0.0` to `5.0.1`.
   - **`tailwind-merge`** Bumped from `3.6.0` to `3.7.0`.
   - **`vitest`** Bumped from `5.0.0` to `5.0.1`.
-- **Mobile** : 
+- **Mobile** :
   - **`expo`** Bumped from `57.0.21` to `57.0.22`.
   - **`@react-navigation/bottom-tabs`** Bumped from `7.18.18` to `7.19.0`.
   - **`expo-secure-store`** Bumped from `57.0.3` to `57.0.4`.
@@ -230,7 +254,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **CI / CD Pipeline** : 
+- **CI / CD Pipeline** :
   - Removed Automated Branch Cascade Workflow (`main` → `devEnv` → `stagingEnv` → `prodEnv`) via Administrative `CASCADE_PAT` Execution.
   - Removed `CASCADE_PAT` Repository Secret from Repository Settings on Github
 
@@ -240,18 +264,18 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`djangorestframework`** Updated Requirement from `<4.0,>=3.18.0` to `>=3.18.1,<4.0`.
   - **`django`** Updated Requirement from `<6.2,>=6.1` to `>=6.1.1,<6.2`.
   - **`google-genai`** Requirement Updated from `>=2.21.0` to `>=2.22.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.37.0` to `>=40.38.0,<41.0`.
   - **`django-debug-toolbar`** Updated Requirement from `<8.0,>=7.1.1` to `>=8.0.0,<9.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`eslint-config-next`** Bumped from `16.3.3` to `16.3.4`.
   - **`react-hook-form`** Bumped from `7.84.0` to `7.87.0`.
   - **`@storybook/addon-onboarding`** Bumped from `10.5.9` to `10.6.0`.
   - **`vitest`** Bumped from `4.1.11` to `5.0.0`.
-- **Mobile** : 
+- **Mobile** :
   - **`expo-secure-store`** Bumped from `57.0.2` to `57.0.3`.
   - **`react-hook-form`** Bumped from `7.86.0` to `7.87.0`.
   - **`expo-constants`** Bumped from `57.0.12` to `57.0.17`.
@@ -260,19 +284,19 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **Frontend** : 
+- **Frontend** :
   - Added `.npmrc` for `--legacy-peer-deps` & Synced `package-lock.json` in `/frontend` (Commit : [2a1d523](https://github.com/corebit-bd/pend-boilerplate/commit/2a1d523b98da4ddb20c780c026b42ad5637041ba))
   - Added `vite` as explicit `devDependency` for Storybook in `frontend/package.json` (Commit : [c82bc36](https://github.com/corebit-bd/pend-boilerplate/commit/c82bc361ba17c86a4635c3b8cbfe673f839f5722))
 
 ### Changed
 
-- **Frontend** : 
+- **Frontend** :
   - **Dependencies Installation with Legacy Peer Dependencies** : Updated `npm ci` Command with `--legacy-peer-deps` Flag in `frontend/Dockerfile` (PR : [#626](https://github.com/corebit-bd/pend-boilerplate/pull/626))
-- **CI / CD** : 
-  - **Dependencies Installation with Legacy Peer Dependencies** : Updated `npm ci` Command with `--legacy-peer-deps` Flag for jobs `frontend-tests`, `storybook-chromatic`, `e2e-tests`, steps  `Install Dependencies` & `Install Frontend Dependencies` in `.github/workflows/ci.yaml` (PR : [#626](https://github.com/corebit-bd/pend-boilerplate/pull/626))
-- **Dependabot PR Automated Workflows** : 
+- **CI / CD** :
+  - **Dependencies Installation with Legacy Peer Dependencies** : Updated `npm ci` Command with `--legacy-peer-deps` Flag for jobs `frontend-tests`, `storybook-chromatic`, `e2e-tests`, steps `Install Dependencies` & `Install Frontend Dependencies` in `.github/workflows/ci.yaml` (PR : [#626](https://github.com/corebit-bd/pend-boilerplate/pull/626))
+- **Dependabot PR Automated Workflows** :
   - Removed Automated Gemini Dependabot Workflows (`dependabot-auto-merge.yaml` & `dependabot-ai-fixer.yaml`) in order to have the complete control & eliminate external API rate limits & unexpected billing risks entirely.
-- **Backend** : 
+- **Backend** :
   - Updated `DEFAULT_MODEL_NAME` to `gemini-3.6-flash` in `backend/mcp_server/config.py` (Commit : [f348a65](https://github.com/corebit-bd/pend-boilerplate/commit/f348a65bd96fc07ccf8d79ec864b8a9d0930266f#diff-590bb81ce5c4778862bfafc6e419286ba32cb4c14296548b8a9d3ee42e2121e7))
 
 ---
@@ -281,7 +305,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **CI / CD Pipeline** : 
+- **CI / CD Pipeline** :
   - Refactored `.github/workflows/dependabot-auto-merge.yaml` (Workflow Name : `Dependabot AI PR Review & Approve`).
   - Removed the `gh pr merge "$PR_URL" --squash --auto` Step so Dependabot PRs are no longer Auto-Merged (Avoids Concurrent `GraphQL: Base branch was modified` Conflicts).
   - Renamed the Job from `auto-merge-review` to `review-and-approve`.
@@ -291,7 +315,7 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **Methodology & AI Architecture** : 
+- **Methodology & AI Architecture** :
   - **AITDDLC Harness** : Configured AI-Assisted Test-Driven Development Life-Cycle (`.mcp/harness/`) enforcing Red-Green-Refactor Development Pipelines and mandatory Mermaid syntax diagrams for Specification Documents (`documentation/01_*` and `documentation/02_*`).
 
 ---
@@ -300,18 +324,18 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`pydantic`** Updated Requirement from `<3.0,>=2.13.4` to `>=2.13.5,<3.0`.
   - **`google-genai`** Requirement Updated from `>=2.20.0` to `>=2.21.0`.
   - **`ipython`** Updated Requirement from `<10.0,>=9.16.1` to `>=9.17.1,<10.0`.
   - **`isort`** Upgraded Dependency Range from `<9.0,>=8.0.1` to `>=9.0.1,<10.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`zod`** Bumped from `4.4.3` to `4.5.4`.
   - **`@types/node`** Bumped from `26.1.2` to `26.4.0`.
   - **`@storybook/addon-vitest`** Bumped from `10.5.3` to `10.5.10`.
   - **`axios`** Bumped from `1.19.0` to `1.20.0`.
   - **`next`** Bumped from `16.2.10` to `16.3.4`.
-- **Mobile** : 
+- **Mobile** :
   - **`expo-secure-store`** Bumped from `56.0.4` to `57.0.2`.
   - **`zod`** Bumped from `4.4.3` to `4.5.4`.
   - **`@react-navigation/native`** Bumped from `7.3.17` to `7.3.18`.
@@ -325,19 +349,19 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`gunicorn`** Requirement Updated from `<27.0,>=26.0.0` to `>=26.2.0,<27.0`.
   - **`python-dotenv`** Requirement Updated from `<2.0,>=1.0.0` to `>=1.2.3,<2.0`.
   - **`google-genai`** Requirement Updated from `>=2.0.0` to `>=2.20.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.36.0` to `>=40.37.0,<41.0`.
   - **`uvicorn`** Updated Requirement from `<1.0,>=0.52.3` to `>=0.52.4,<1.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@vitest/coverage-v8`** Bumped from `4.1.10` to `4.1.11`.
   - **`eslint-config-next`** Bumped from `16.2.11` to `16.3.3`.
   - **`cypress`** Bumped from `15.20.1` to `15.21.1`.
   - **`@storybook/nextjs-vite`** Bumped from `10.5.0` to `10.5.10`.
   - **`@hookform/resolvers`** Bumped from `5.5.7` to `5.9.1`.
-- **Mobile** : 
+- **Mobile** :
   - **`react-native-safe-area-context`** Bumped from `5.8.1` to `5.9.1`.
   - **`react-hook-form`** Bumped from `7.85.0` to `7.86.0`.
   - **`@react-navigation/stack`** Bumped from `7.10.22` to `7.10.23`.
@@ -349,13 +373,13 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- **Methodology & AI Architecture** : 
+- **Methodology & AI Architecture** :
   - **Issue-Driven Development (IDD)** : Integrated strict Issue-to-Branch-to-PR Traceability Framework Mapping across all Workflows.
   - **AITDDLC Harness** : Configured AI-Assisted Test-Driven Development Life-Cycle (`.mcp/harness/`) enforcing Red-Green-Refactor Development Pipelines.
 
 ### Upgraded
 
-- **CI / CD Pipeline** : 
+- **CI / CD Pipeline** :
   - Enhanced Automated Branch Cascade Workflow (`main` → `devEnv` → `stagingEnv` → `prodEnv`) via Administrative `CASCADE_PAT` Execution.
 
 ---
@@ -364,15 +388,15 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`uvicorn`** Updated Requirement from `<1.0,>=0.52.1` to `>=0.52.3,<1.0`.
   - **`django-debug-toolbar`** Updated Requirement from `<8.0,>=7.1.0` to `>=7.1.1,<8.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@types/react`** Bumped from `19.2.17` to `19.2.18`.
   - **`@storybook/addon-onboarding`** Bumped from `10.5.6` to `10.5.9`.
   - **`@storybook/addon-a11y`** Bumped from `10.5.5` to `10.5.9`.
   - **`tar`** Bumped from `7.5.19` to `7.5.22`.
-- **Mobile** : 
+- **Mobile** :
   - **`react-native-screens`** Bumped from `4.26.0` to `4.27.0`.
   - **`react-native`** Bumped from `0.86.2` to `0.87.0`.
   - **`@react-navigation/stack`** Bumped from `7.10.18` to `7.10.22`.
@@ -384,18 +408,18 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`pytest-django`** Updated Requirement from `<5.0,>=4.12.0` to `>=4.14.0,<5.0`.
   - **`djangorestframework`** Updated Requirement from `<4.0,>=3.17.1` to `>=3.18.0,<4.0`.
   - **`django-debug-toolbar`** Updated Requirement from `<8.0,>=7.0.0` to `>=7.1.0,<8.0`.
   - **`django`** Updated Requirement from `<6.1,>=6.0.7` to `>=6.1,<6.2`.
-- **Frontend** : 
+- **Frontend** :
   - **`@types/react-dom`** Bumped from `19.2.3` to `19.2.4`.
   - **`cypress`** Bumped from `15.19.0` to `15.20.1`.
   - **`@testing-library/jest-dom`** Bumped from `7.0.0` to `7.0.1`.
   - **`axios`** Bumped from `1.18.1` to `1.19.0`.
   - **`eslint-plugin-storybook`** Bumped from `10.5.2` to `10.5.7`.
-- **Mobile** : 
+- **Mobile** :
   - **`react-hook-form`** Bumped from `7.84.0` to `7.85.0`.
   - **`react-native-safe-area-context`** Bumped from `5.8.0` to `5.8.1`.
   - **`expo`** Bumped from `57.0.7` to `57.0.12`.
@@ -408,18 +432,18 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`redis`** Updated Requirement from `<9.0,>=8.0.1` to `>=8.1.0,<9.0`.
   - **`fastapi`** Updated Requirement from `<1.0,>=0.140.7` to `>=0.141.1,<1.0`.
   - **`ipython`** Updated Requirement from `<10.0,>=9.15.0` to `>=9.16.1,<10.0`.
   - **`uvicorn`** Updated Requirement from `<1.0,>=0.51.0` to `>=0.52.1,<1.0`.
-- **Frontend** : 
-   - **`react-hook-form`** Bumped from `7.82.0` to `7.84.0`.
-   - **`playwright`** Bumped from `1.61.1` to `1.62.1`.
-   - **`@storybook/addon-onboarding`** Bumped from `10.5.2` to `10.5.6`.
-   - **`@storybook/addon-docs`** Bumped from `10.5.0` to `10.5.6`.
-   - **`@types/node`** Bumped from `26.1.1` to `26.1.2`.
-- **Mobile** : 
+- **Frontend** :
+  - **`react-hook-form`** Bumped from `7.82.0` to `7.84.0`.
+  - **`playwright`** Bumped from `1.61.1` to `1.62.1`.
+  - **`@storybook/addon-onboarding`** Bumped from `10.5.2` to `10.5.6`.
+  - **`@storybook/addon-docs`** Bumped from `10.5.0` to `10.5.6`.
+  - **`@types/node`** Bumped from `26.1.1` to `26.1.2`.
+- **Mobile** :
   - **`@react-navigation/stack`** Bumped from `7.10.17` to `7.10.18`.
   - **`@types/react`** Bumped from `19.2.17` to `19.2.18`.
   - **`expo-constants`** Bumped from `57.0.7` to `57.0.9`.
@@ -432,16 +456,16 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`fastapi`** Updated Requirement from `<1.0,>=0.139.2` to `>=0.140.7,<1.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.35.0` to `<41.0,>=40.35.0`.
-- **Frontend** : 
-   - **`@hookform/resolvers`** Bumped from `5.4.0` to `5.5.7`.
-   - **`react-dom`** Bumped from `19.2.7` to `19.2.8`.
-   - **`@testing-library/jest-dom`** Bumped from `6.9.1` to `7.0.0`.
-   - **`postcss`** Bumped from `8.5.16` to `8.5.24`.
-   - **`@storybook/addon-a11y`** Bumped from `10.5.0` to `10.5.5`.
-- **Mobile** : 
+- **Frontend** :
+  - **`@hookform/resolvers`** Bumped from `5.4.0` to `5.5.7`.
+  - **`react-dom`** Bumped from `19.2.7` to `19.2.8`.
+  - **`@testing-library/jest-dom`** Bumped from `6.9.1` to `7.0.0`.
+  - **`postcss`** Bumped from `8.5.16` to `8.5.24`.
+  - **`@storybook/addon-a11y`** Bumped from `10.5.0` to `10.5.5`.
+- **Mobile** :
   - **`@react-navigation/bottom-tabs`** Bumped from `7.18.13` to `7.18.14`.
   - **`react-native`** Bumped from `0.86.0` to `0.86.2`.
   - **`@hookform/resolvers`** Bumped from `5.4.0` to `5.5.7`.
@@ -454,15 +478,15 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`faker`** Updated Requirement from `<41.0,>=40.31.0` to `>=40.35.0,<41.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@tailwindcss/postcss`** Bumped from `4.3.2` to `4.3.3`.
   - **`@storybook/addon-vitest`** Bumped from `10.5.2` to `10.5.3`.
   - **`eslint-config-next`** Bumped from `16.2.10` to `16.2.11`.
   - **`cypress`** Bumped from `15.18.1` to `15.19.0`.
   - **`react-hook-form`** Bumped from `7.81.0` to `7.82.0`.
-- **Mobile** : 
+- **Mobile** :
   - **`@react-navigation/bottom-tabs`** Bumped from `7.18.3` to `7.18.13`.
   - **`expo-constants`** Bumped from `57.0.6` to `57.0.7`.
   - **`typescript`** Bumped from `6.0.3` to `7.0.2`.
@@ -475,17 +499,17 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`django-filter`** Updated Requirement from `<26.0,>=25.2` to `>=26.1,<27.0`.
   - **`fastapi`** Updated Requirement from `<1.0,>=0.139.0` to `>=0.139.2,<1.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.28.1` to `>=40.31.0,<41.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`eslint`** Bumped from `9.39.4` to `9.39.5`.
   - **`eslint-plugin-storybook`** Bumped from `10.5.0` to `10.5.2`.
   - **`tailwindcss`** Bumped from `4.3.2` to `4.3.3`.
   - **`@storybook/addon-vitest`** Bumped from `10.5.0` to `10.5.2`.
   - **`@storybook/addon-onboarding`** Bumped from `10.5.0` to `10.5.2`.
-- **Mobile** : 
+- **Mobile** :
   - **`react-hook-form`** Bumped from `7.80.0` to `7.81.0`.
   - **`expo`** Bumped from `57.0.4` to `57.0.7`.
   - **`@react-navigation/native`** Bumped from `7.3.8` to `7.3.10`.
@@ -496,14 +520,14 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`uvicorn`** Updated Requirement from `<1.0,>=0.49.0` to `>=0.51.0,<1.0`.
   - **`django`** Updated Requirement from `<6.1,>=6.0.6` to `>=6.0.7,<6.1`.
-- **Frontend** : 
+- **Frontend** :
   - **`postcss`** Bumped from `8.5.15` to `8.5.16`.
   - **`react`** Bumped from `18.3.1` to `19.2.7`.
   - **`@types/react`** Bumped from `18.3.30` to `19.2.17`.
-- **Mobile** : 
+- **Mobile** :
   - **`expo-constants`** Bumped from `56.0.18` to `57.0.3`.
   - **`react-native-screens`** Bumped from `4.25.2` to `4.26.0`.
   - **`@react-navigation/stack`** Bumped from `7.10.8` to `7.10.11`.
@@ -515,17 +539,17 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`fastapi`** Updated Requirement from `<1.0,>=0.138.1` to `>=0.139.0,<1.0`.
   - **`ipython`** Updated Requirement from `<10.0,>=9.14.1` to `>=9.15.0,<10.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.23.0` to `>=40.28.1,<41.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`cypress`** Bumped from `15.17.0` to `15.18.0`.
   - **`@storybook/addon-docs`** Bumped from `10.4.4` to `10.4.6`.
   - **`tailwindcss`** Bumped from `4.3.1` to `4.3.2`.
   - **`@storybook/addon-a11y`** Bumped from `10.4.4` to `10.4.6`.
   - **`@tailwindcss/postcss`** Bumped from `4.3.1` to `4.3.2`.
-- **Mobile** : 
+- **Mobile** :
   - **`@react-navigation/native`** Bumped from `7.3.4` to `7.3.5`.
   - **`expo`** Bumped from `56.0.12` to `57.0.2`.
   - **`@react-navigation/stack`** Bumped from `7.10.6` to `7.10.8`.
@@ -537,17 +561,17 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`pytest`** Updated Requirement from `<10.0,>=9.1.0` to `>=9.1.1,<10.0`.
   - **`fastapi`** Updated Requirement from `<1.0,>=0.137.2` to `>=0.138.1,<1.0`.
   - **`redis`** Updated Requirement from `<9.0,>=8.0.0` to `>=8.0.1,<9.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`playwright`** Bumped from `1.60.0` to `1.61.1`.
   - **`axios`** Bumped from `1.17.0` to `1.18.1`.
   - **`react-hook-form`** Bumped from `7.79.0` to `7.80.0`.
   - **`@types/node`** Bumped from `25.9.1` to `26.0.1`.
   - **`@storybook/nextjs-vite`** Bumped from `10.4.2` to `10.4.6`.
-- **Mobile** : 
+- **Mobile** :
   - **`react-hook-form`** Bumped from `7.79.0` to `7.80.0`.
   - **`@react-navigation/stack`** Bumped from `7.10.5` to `7.10.6`.
   - **`@react-navigation/bottom-tabs`** Bumped from `7.18.2` to `7.18.3`.
@@ -559,17 +583,17 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`fastapi`** Updated Requirement from `<1.0,>=0.136.3` to `>=0.137.2,<1.0`.
   - **`django-environ`** Updated Requirement from `<1.0,>=0.13.0` to `>=0.14.0,<1.0`.
   - **`django-debug-toolbar`** Updated Requirement from `<7.0,>=6.3.0` to `>=7.0.0,<8.0`.
   - **`pytest`** Updated Requirement from `<10.0,>=9.0.3` to `>=9.1.0,<10.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@storybook/addon-vitest`** Bumped from `10.4.2` to `10.4.6`.
   - **`@tailwindcss/postcss`** Bumped from `4.3.0` to `4.3.1`.
   - **`react-hook-form`** Bumped from `7.77.0` to `7.79.0`.
   - **`@vitest/coverage-v8`** Bumped from `4.1.8` to `4.1.9`.
-- **Mobile** : 
+- **Mobile** :
   - **`react-native`** Bumped from `0.85.3` to `0.86.0`.
   - **`@react-navigation/bottom-tabs`** Bumped from `7.18.0` to `7.18.2`.
   - **`expo-constants`** Bumped from `56.0.16` to `56.0.18`.
@@ -582,14 +606,14 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`faker`** Updated Requirement from `<41.0,>=40.21.0` to `>=40.23.0,<41.0`.
 - **Frontend** :
   - **`eslint-config-next`** Bumped from `16.2.7` to `16.2.9`.
   - **`@storybook/addon-docs`** Bumped from `10.4.2` to `10.4.4`.
   - **`@storybook/addon-a11y`** Bumped from `10.4.2` to `10.4.4`.
   - **`cypress`** Bumped from `15.16.0` to `15.17.0`.
-- **Mobile** : 
+- **Mobile** :
   - **`react-redux`** Bumped from `9.2.0` to `9.3.0`.
   - **`react`** Bumped from `19.2.6` to `19.2.7`.
   - **`@types/react`** Bumped from `19.2.15` to `19.2.17`.
@@ -603,9 +627,9 @@ and this Project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-In the CI Pipeline, as the Frontend Tests are failing, the following downgrade is performed : 
+In the CI Pipeline, as the Frontend Tests are failing, the following downgrade is performed :
 
-- **Frontend** : 
+- **Frontend** :
   - **`react`** Downgraded from `19.2.7` to `18.3.0`.
   - **`@types/react`** Downgraded from `19` to `18.3.0`.
   - **`react-dom`** Downgraded from `19.2.5` to `18.3.0`.
@@ -613,15 +637,15 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`ipython`** Updated Requirement from `<10.0,>=9.6.0` to `>=9.14.1,<10.0`.
   - **`uvicorn`** Updated Requirement from `<1.0,>=0.48.0` to `>=0.49.0,<1.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.19.1` to `>=40.21.0,<41.0`.
   - **`django`** Updated Requirement from `<6.1,>=6.0.5` to `>=6.0.6,<6.1`.
   - **`gunicorn`** Requirement Updated from `<26.0,>=23.0.0` to `>=26.0.0,<27.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@storybook/addon-vitest`** Bumped from `10.4.1` to `10.4.2`.
-- **Mobile** : 
+- **Mobile** :
   - **`axios`** Bumped from `1.16.1` to `1.17.0`.
   - **`expo-constants`** Bumped from `55.0.15` to `56.0.16`.
   - **`react-hook-form`** Bumped from `7.75.0` to `7.77.0`.
@@ -634,13 +658,13 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`uvicorn`** Updated Requirement from `<1.0,>=0.47.0` to `>=0.48.0,<1.0`.
   - **`faker`** Updated Requirement from `<41.0,>=40.18.0` to `>=40.19.1,<41.0`.
   - **`redis`** Updated Requirement from `<8.0,>=5.3.0` to `>=8.0.0,<9.0`.
   - **`fastapi`** Updated Requirement from `<1.0,>=0.119.0` to `>=0.136.3,<1.0`.
   - **`pytest-cov`** Updated Requirement from `<8.0,>=7.0.0` to `>=7.1.0,<8.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`storybook`** Bumped from `10.4.0` to `10.4.1`.
   - **`@storybook/addon-vitest`** Bumped from `10.4.0` to `10.4.1`.
   - **`@storybook/addon-a11y`** Bumped from `10.4.0` to `10.4.1`.
@@ -657,17 +681,17 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`pydantic`** Updated Requirement from `<3.0,>=2.13.3` to `>=2.13.4,<3.0`.
   - **`whitenoise`** Updated Requirement from `<7.0,>=6.11.0` to `>=6.12.0,<7.0`.
   - **`black`** Updated Requirement from `<27.0,>=25.9.0` to `>=26.5.1,<27.0`.
   - **`django`** Updated Requirement from `<6.1,>=6.0.4` to `>=6.0.5,<6.1`.
   - **`faker`** Updated Requirement from `<41.0,>=40.15.0` to `>=40.18.0,<41.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`@vitest/browser-playwright`** Bumped from `4.1.6` to `4.1.7`.
   - **`@hookform/resolvers`** Bumped from `5.2.2` to `5.4.0`.
   - **`@types/jest`** Bumped from `29.5.14` to `30.0.0`.
-- **Mobile** : 
+- **Mobile** :
   - **`expo`** Bumped from `55.0.19` to `56.0.3`.
   - **`react-native-safe-area-context`** Bumped from `5.7.0` to `5.8.0`.
   - **`@hookform/resolvers`** Bumped from `5.2.2` to `5.4.0`.
@@ -681,15 +705,15 @@ In the CI Pipeline, as the Frontend Tests are failing, the following downgrade i
 
 ### Upgraded
 
-- **Backend** : 
+- **Backend** :
   - **`drf-yasg`** Updated Requirement from `<2.0,>=1.21.11` to `>=1.21.15,<2.0`.
   - **`uvicorn`** Updated Requirement from `<1.0,>=0.37.0` to `>=0.47.0,<1.0`.
   - **`djangorestframework`** Updated Requirement from `<4.0,>=3.16` to `>=3.17.1,<4.0`.
   - **`isort`** Upgraded Dependency Range from `<9.0,>=6.1.0` to `>=8.0.1,<9.0`.
-- **Frontend** : 
+- **Frontend** :
   - **`jest`** Bumped from `30.3.0` to `30.4.2`.
   - **`@types/node`** Bumped from `25.8.0` to `25.9.0`.
-- **Mobile** : 
+- **Mobile** :
   - **`react-native-screens`** Bumped from `4.24.0` to `4.25.0`.
   - **`axios`** Bumped from `1.15.2` to `1.16.1`.
 
@@ -1489,4 +1513,4 @@ When using this Boilerplate for Your Projects :
 
 ---
 
-**Status** : ✅ Production Ready | **Version** : 1.0.46 | **Released** : November 14, 2026
+**Status** : ✅ Production Ready | **Version** : 1.0.47 | **Released** : November 21, 2026

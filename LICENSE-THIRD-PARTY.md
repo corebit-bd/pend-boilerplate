@@ -51,7 +51,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### FastAPI (MIT License)
 
-- **Version** : >=0.162.2,<1.0
+- **Version** : >=0.163.1,<1.0
 - **Copyright** : Sebastián Ramírez
 - **License** : MIT
 - **Website** : https://fastapi.tiangolo.com/
@@ -263,7 +263,7 @@ This Document contains the Licenses & Notices for 3rd Party Software Included in
 
 ### Flake8 (MIT License)
 
-- **Version** : >=7.4.1,<8.0
+- **Version** : >=7.5.0,<8.0
 - **Copyright** : Ian Stapleton Cordasco & Contributors
 - **License** : MIT
 - **Website** : https://flake8.pycqa.org/
@@ -498,6 +498,6 @@ For Questions about Licensing in this Project :
 
 ---
 
-**Last Updated** : November 14, 2026
+**Last Updated** : November 21, 2026
 
 For the Main Project License, See [LICENSE](LICENSE) in the Root Directory.

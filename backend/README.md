@@ -11,7 +11,7 @@ The backend is built with Django >=6.1.3,<6.2 and provides a robust, scalable fo
 - **Django >=6.1.3,<6.2** - Main Application Framework
 - **Django REST Framework >=3.18.3,<4.0** - RESTful API
 - **Graphene-Django 3.2.3** - GraphQL API
-- **FastAPI >=0.162.2,<1.0** - Edge Services for High-Performance Endpoints
+- **FastAPI >=0.163.1,<1.0** - Edge Services for High-Performance Endpoints
 - **PostgreSQL 15** - Primary Database
 - **Redis >=8.1.0,<9.0** - Caching & Task Queue
 - **Celery >=5.7.0,<6.0** - Asynchronous Task Processing
@@ -387,9 +387,9 @@ black . && isort . && flake8 .
 - djangorestframework-simplejwt 5.5.1+ (JWT Auth)
 - django-filter >=26.2,<27.0
 - graphene-django 3.2.3+
-- fastapi >=0.162.2,<1.0
+- fastapi >=0.163.1,<1.0
 - uvicorn >=0.54.0,<1.0
-- pydantic >=2.14.1,<3.0
+- pydantic >=2.14.3,<3.0
 - celery >=5.7.0,<6.0
 - redis >=8.1.0,<9.0
 - gunicorn >=26.2.0,<27.0
@@ -401,13 +401,13 @@ black . && isort . && flake8 .
 - pytest-django >=4.14.0,<5.0
 - pytest-cov >=7.1.0,<8.0
 - black >=26.10.1,<27.0
-- flake8 >=7.4.1,<8.0
+- flake8 >=7.5.0,<8.0
 - isort >=9.0.2,<10.0
 - ipython >=9.18.1,<10.0
 - django-debug-toolbar >=8.0.0,<9.0
 - django-extensions 4.1+
 - factory-boy 3.3.3+ (Test Factories)
-- faker >=40.52.0,<41.0 (Fake Data Generation)
+- faker >=40.54.0,<41.0 (Fake Data Generation)
 
 ## 🔒 Security
 
@@ -666,7 +666,7 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 ## 🤝 Contributing
 
 1. Pick or create a GitHub Issue (`#123`).
-2. Create an IDD Branch : `[tag]/username/issue-123` (*Example* : `feature/jzhk/issue-123`).
+2. Create an IDD Branch : `[tag]/username/issue-123` (_Example_ : `feature/jzhk/issue-123`).
 3. Follow AITDDLC : Write Tests first (Red), Implement Minimum Code (Green) & Refactor.
 4. Run Tests : `pytest`
 5. Run Code Quality Checks : `black . && isort . && flake8 .`
@@ -693,4 +693,4 @@ ALLOWED_HOSTS=localhost,127.0.0.1,yourdomain.com
 
 PEND is licensed under the MIT License. See the [LICENSE](LICENSE) File for more details.
 
-**Last Updated** : November 14, 2026
+**Last Updated** : November 21, 2026
