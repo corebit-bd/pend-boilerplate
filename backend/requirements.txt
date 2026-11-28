@@ -34,7 +34,7 @@ pydantic>=2.14.3,<3.0
 
 # Task Queue
 celery>=5.7.0,<6.0
-redis>=8.1.0,<9.0
+redis>=8.2.0,<9.0
 
 # Production Server
 gunicorn>=26.2.0,<27.0
